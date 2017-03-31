@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、模块化开发123456789101112131415(function()&amp;#123;    //这里会形成一个封闭的空间;    function FOO()&amp;#123;        var FB = &amp;#123;&amp;#125;;    &amp;#125;    window.FOO = FOO;&amp;#125;)(window);//通过window将接口暴露出去(function(fb)&amp;#123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/03/14/git命令基础/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、模块化开发123456789101112131415(function()&amp;#123;    //这里会形成一个封闭的空间;    function FOO()&amp;#123;        var FB = &amp;#123;&amp;#125;;    &amp;#125;    window.FOO = FOO;&amp;#125;)(window);//通过window将接口暴露出去(function(fb)&amp;#123">
+<meta property="og:updated_time" content="2017-03-14T07:22:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="一、模块化开发123456789101112131415(function()&amp;#123;    //这里会形成一个封闭的空间;    function FOO()&amp;#123;        var FB = &amp;#123;&amp;#125;;    &amp;#125;    window.FOO = FOO;&amp;#125;)(window);//通过window将接口暴露出去(function(fb)&amp;#123">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-git命令基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/14/git命令基础/" class="article-date">
+  <time datetime="2017-03-14T07:22:55.000Z" itemprop="datePublished">2017-03-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、模块化开发"><a href="#一、模块化开发" class="headerlink" title="一、模块化开发"></a>一、模块化开发</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//这里会形成一个封闭的空间;</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">FOO</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> FB = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.FOO = FOO;</div><div class="line">&#125;)(<span class="built_in">window</span>);<span class="comment">//通过window将接口暴露出去</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">fb</span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Sky</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    fb.Sky = Sky;</div><div class="line">&#125;)(FB)</div><div class="line"><span class="comment">//这样，通过模块化开发，可以通过FOO.Sky等来调用各种方法。具体可以参考飞翔的小鸟案例；</span></div></pre></td></tr></table></figure>
+<h1 id="二、Git"><a href="#二、Git" class="headerlink" title="二、Git"></a>二、Git</h1><h2 id="1-Shell-编程脚本-命令解析器"><a href="#1-Shell-编程脚本-命令解析器" class="headerlink" title="1. Shell 编程脚本 命令解析器"></a>1. Shell 编程脚本 命令解析器</h2><ul>
+<li><code>.bat  .sh</code>文件存储的都是一些脚本，命令<h2 id="2-常用的shell命令（bash）"><a href="#2-常用的shell命令（bash）" class="headerlink" title="2. 常用的shell命令（bash）"></a>2. 常用的shell命令（bash）</h2></li>
+</ul>
+<ol>
+<li><code>cd ..</code> 进入上层目录;</li>
+<li><code>pwd</code> 查看当前的工作路径；</li>
+<li><code>mkdir abc</code> 创建一个新的目录abc;</li>
+<li><code>ls</code> list当前目录的所有文件列表</li>
+<li><code>ls -a</code>list下的所有文件，包括隐藏文件</li>
+<li><p><code>less</code> 查看文件 等同于 <code>more a.txt</code>;<br> <code>tail a.txt</code>查看文件的结尾内容，可以自己设定显示几行  <code>tail -n 1 a.txt</code></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gaonanadeMacBook-Pro:git gaonana$ tail -n 1 a.txt </div><div class="line">hello</div><div class="line">gaonanadeMacBook-Pro:git gaonana$ tail -n 2 a.txt </div><div class="line">abc</div><div class="line">hello</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>touch a.txt</code>创建a文件</p>
+</li>
+<li><code>cat a.txt</code>查看a文件中的内容；</li>
+<li><code>echo 写入内容 &gt; a.txt</code> <code>&gt;</code>覆盖操作;<br> <code>&gt;&gt;</code>追加操作</li>
+<li><code>ctrl+c</code>或者<code>q</code>直接退出当前运行程序；<h2 id="3-Vi"><a href="#3-Vi" class="headerlink" title="3. Vi"></a>3. Vi</h2>有3种模式：命令模式，编辑模式，底行模式</li>
+</ol>
+<ul>
+<li><code>vi hi.txt</code>打开hi.txt 文件</li>
+<li><p><code>esc</code>不能编辑;</p>
+</li>
+<li><p><code>shift+:</code>退出编辑格式，<code>wq</code>保存并退出，<code>q</code>不保存直接退出</p>
+</li>
+<li><code>dd</code>在命令模式，直接删除一行<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">这个问题必须现在解决吗</div><div class="line">这个问题目前有几种解决方法</div><div class="line">我有多少成本可以使用</div><div class="line">放开成本限制 有没有更优解</div><div class="line">站在比当前问题高一级的视角配上训练有素的方法,能让人成为更优秀的problem solver</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">技术是一种能力，要产出实际价值；</div><div class="line">站在产品，甚至是业务的角度来思考问题；</div><div class="line">别单飞，和小伙伴一起飞</div></pre></td></tr></table></figure>
+<h2 id="4-SSH-加密方式"><a href="#4-SSH-加密方式" class="headerlink" title="4. SSH 加密方式"></a>4. SSH 加密方式</h2><ul>
+<li>使用密码登录</li>
+<li>使用公钥和私钥登录</li>
+</ul>
+<ol>
+<li>对称加密</li>
+<li>非对称加密（公钥加密，私钥解密，私钥加密，公钥解密）<ul>
+<li>公钥</li>
+<li>私钥</li>
+</ul>
+</li>
+<li>SSH 实现通信过程：SSH root@ 121.0.12.23<ul>
+<li>客户端发送请求</li>
+<li>服务器接受请求之后，把服务器的公钥发送给客户端</li>
+<li>客户端接收到公钥后存储到计算机某个区域；</li>
+<li>客户端再次发送登录请求（密码会使用公钥加密）</li>
+<li>服务器接到密文后进行解密然后验证是否正确</li>
+</ul>
+<ul>
+<li><code>keygen -t rsa</code>生成自己的的公钥和私钥;</li>
+</ul>
+</li>
+<li>虚拟机：vergrant轻量<h2 id="5-Git-三个重要区域"><a href="#5-Git-三个重要区域" class="headerlink" title="5. Git 三个重要区域"></a>5. Git 三个重要区域</h2></li>
+<li>工作目录</li>
+<li>暂存区<ul>
+<li>工作目录先提交到暂存区，是工作目录和本地仓库的过度区域；</li>
+</ul>
+</li>
+<li>本地仓库（.git directory <repository>）<h2 id="6-Git文件的4种状态"><a href="#6-Git文件的4种状态" class="headerlink" title="6. Git文件的4种状态"></a>6. Git文件的4种状态</h2></repository></li>
+<li>未追踪 untracked 工作目录刚创建的文件</li>
+<li>已暂存 staged 从工作目录提交到暂存区的文件</li>
+<li>已提交 commited 从暂存区提交到本地仓库的文件</li>
+<li>已修改 modified 暂存区修改过的文件<h1 id="Git使用"><a href="#Git使用" class="headerlink" title="Git使用"></a>Git使用</h1></li>
+<li>创建一个文件夹 <code>git init</code>,创建一个仓库</li>
+<li><code>git config --global user.name &quot;name&quot;</code>和<code>git config --global user.email &quot;email&quot;</code>配置用户信息</li>
+<li><code>git status</code>查看git状态信息</li>
+<li><code>git add 01-index.html 02-index2.html</code>将为跟踪的目录提交到暂存区,多个文件之间空格隔开；<br> 此时查看<code>git status</code>文件名变绿</li>
+<li><code>git rm --cached 01-index.html</code>将已加到暂存区的文件移除到工作目录中；</li>
+<li><code>git add -A</code> 或者<code>git add *</code>工作目录全部提交到暂存区</li>
+<li><code>git rm --cached *</code>移交到暂存区的文件全部移除</li>
+<li><code>git commit -m &#39;描述信息&#39;</code>将暂存区中的内容提交到本地仓库，并描述修改信息</li>
+<li><code>git log</code>查看提交的本地仓库记录；</li>
+<li><code>git checkout 01.index.html</code>撤销 暂存区文件的修改内容(提交到仓库的文件，然后down下来的文件进行修改后，但发现错误，使用checkout将原来的修改撤销)</li>
+</ol>
+<ul>
+<li><code>git checkout .</code>把当前分枝所做的所有修改都撤销</li>
+</ul>
+<ol>
+<li><code>git reset --hard 想要修改内容前面的&lt;commitId&gt;</code>用本地仓库中的快照覆盖工作目录和暂存区的内容，并且放弃commitId之后的提交；</li>
+</ol>
+<ul>
+<li><code>git reset Head</code>本地仓库的最新版本覆盖暂存区,但不覆盖工作目录;</li>
+</ul>
+<ol>
+<li><code>git config list</code>查看当前git的配置信息</li>
+</ol>
+<h3 id="创建分枝命令"><a href="#创建分枝命令" class="headerlink" title="创建分枝命令"></a>创建分枝命令</h3><ol>
+<li><code>git branch</code> 查看当前分枝状态</li>
+<li><code>git branch abc</code>添加名为abc的分枝</li>
+<li><code>git checkout abc</code>将编辑状态切换到分枝abc上</li>
+<li><code>git merge abc</code>将分枝信息abc内容同步到主线master上；将分支切换大master上执行的；在master上执行这个命令，将abc分枝合并到master上；</li>
+<li><code>git branch -d 分枝名称</code>删除分枝</li>
+<li>常用的创建分支代码:<code>git checkout -b bcd</code>创建并切换分支，相当于<code>git branch bcd</code>和<code>git checkout bcd</code>命令的集合；</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/14/git命令基础/" data-id="cj0xodfhz00075lzjy8gwy7eo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/15/2017-3-15-git 命令整理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/11/canvas-day02长方形，圆，动画/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/18/2017-03-18/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/2017-03-17-BXG项目/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/15/2017-03-15-MAMP虚拟主机配置/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/15/git应用/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/15/2017-3-15-git 命令整理/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Gaonn<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="canvas day03函数的赋值
+1: 逗号表达式，逗号分隔的表达式会从左往右逐个执行，但是以最后一个结果为准。
+2:函数立即调用的语法I结构有两种：
+
+（）（）
+（+ - ！ ~）function（）{}（）等；
+二进制运算：按位，与或非  异或1234567891011121314151617181920var num = (11+12,23+23,foo());console.log(nu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/03/10/canvas-day03/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="canvas day03函数的赋值
+1: 逗号表达式，逗号分隔的表达式会从左往右逐个执行，但是以最后一个结果为准。
+2:函数立即调用的语法I结构有两种：
+
+（）（）
+（+ - ！ ~）function（）{}（）等；
+二进制运算：按位，与或非  异或1234567891011121314151617181920var num = (11+12,23+23,foo());console.log(nu">
+<meta property="og:updated_time" content="2017-03-10T13:27:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="canvas day03函数的赋值
+1: 逗号表达式，逗号分隔的表达式会从左往右逐个执行，但是以最后一个结果为准。
+2:函数立即调用的语法I结构有两种：
+
+（）（）
+（+ - ！ ~）function（）{}（）等；
+二进制运算：按位，与或非  异或1234567891011121314151617181920var num = (11+12,23+23,foo());console.log(nu">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-canvas-day03" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/10/canvas-day03/" class="article-date">
+  <time datetime="2017-03-10T13:27:50.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="canvas-day03"><a href="#canvas-day03" class="headerlink" title="canvas day03"></a>canvas day03</h1><h2 id="函数的赋值"><a href="#函数的赋值" class="headerlink" title="函数的赋值"></a>函数的赋值</h2><ul>
+<li>1: 逗号表达式，逗号分隔的表达式会从左往右逐个执行，但是以最后一个结果为准。</li>
+<li><p>2:函数立即调用的语法I结构有两种：</p>
+<ul>
+<li>（）（）</li>
+<li>（+ - ！ ~）function（）{}（）等；</li>
+<li>二进制运算：按位，与或非  异或<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = (<span class="number">11</span>+<span class="number">12</span>,<span class="number">23</span>+<span class="number">23</span>,foo());</div><div class="line"><span class="built_in">console</span>.log(num);</div><div class="line"><span class="comment">//此时会以最后一个逗号之后的值为准，返回foo()的返回值赋值给num;</span></div><div class="line">都是函数立即调用：不同符号代表不同含义；按位运算，与或非，异或等；</div><div class="line">(funcyion(n)&#123;</div><div class="line">    <span class="built_in">console</span>.log(n)</div><div class="line">&#125;)(num);</div><div class="line">~<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line">!<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    conosole.log(n);</div><div class="line">&#125;(num);</div><div class="line">+<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line">-<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line"><span class="comment">//这种形式的写法会将function转换为表达式</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>3：将数值型参数转换成布尔值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param</span>)</span>&#123;</div><div class="line">    <span class="comment">//将parameter转换为true；</span></div><div class="line">    <span class="keyword">var</span> flag = !!param;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>4：两个事件队列，第一个出错，第二个仍会正常进行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一个报错，第二个时间到了，第二个也会正常执行；</span></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(abc);</div><div class="line">&#125;,<span class="number">10</span>)</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">123</span>);</div><div class="line">&#125;,<span class="number">0</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-canvas文字"><a href="#2-canvas文字" class="headerlink" title="2 canvas文字"></a>2 canvas文字</h2><ul>
+<li>cxt.font(10px 宋体);</li>
+<li>cxt.strokeText(text,x,y,max-width);一般最后一个参数不设置；（空心文字）；</li>
+<li>cxt.fillText(text,x,y)(实芯文字)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cxt.font = <span class="string">"30px 微软雅黑"</span>;</div><div class="line">cxt.strokeText(str,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">cxt.fillText(str,<span class="number">100</span>,<span class="number">300</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-有独立路径的方法"><a href="#3-有独立路径的方法" class="headerlink" title="3 有独立路径的方法"></a>3 有独立路径的方法</h2><ul>
+<li>strokeRect();</li>
+<li>fillRect();</li>
+<li>strokeText();</li>
+<li>fillText();<h2 id="4-文字对齐方式"><a href="#4-文字对齐方式" class="headerlink" title="4 文字对齐方式"></a>4 文字对齐方式</h2></li>
+<li>textAlign：水平方向<ul>
+<li>direction属性，两个值：rtl,ltr;</li>
+<li>textAligh=”left” 居左对齐,是指文本的右边与参照物的左边对齐;</li>
+<li>textAligh=”right” 居右对齐</li>
+<li>textAligh=”center” 居中对齐</li>
+</ul>
+</li>
+<li>textBaseline：处置方向对齐<ul>
+<li>top; bottom; middle; hanging;alphabetic(文本基线是字母基线);ideographic;<h2 id="5-图片加载问题"><a href="#5-图片加载问题" class="headerlink" title="5 图片加载问题"></a>5 图片加载问题</h2></li>
+</ul>
+</li>
+<li><p>通过<code>document.body.appedChild(&#39;img&#39;)</code>追加到页面中的img,不能直接获取到图片的宽和高，必须等图片加载完成之后才能获得;</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</div><div class="line">img.src = <span class="string">'king2.jpeg'</span>;</div><div class="line"><span class="comment">//图片加载完成之后,才能获取图片的宽高,才能加载</span></div><div class="line"><span class="comment">//图片的加载需要时间;</span></div><div class="line">img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">cxt.drawImage(img,<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>cxt.drawImage()有两种参数形式:</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一种写法,5个参数</span></div><div class="line"><span class="comment">//参数2,3画布上定位的图片,参数4,5只图片的宽和高;</span></div><div class="line">cxt.drawImage(img,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line"></div><div class="line"><span class="comment">//第二种写法,9个参数</span></div><div class="line"><span class="comment">//1:图片,2,3:要裁剪的图片在原图片上的位置,等同于精灵图的位置;4、5裁剪区域的宽和高,6,7图片要在画布上的起始位置,8,9,图片在画布上的宽和高;</span></div><div class="line"><span class="comment">//此时裁剪的是第二排的第二个图片</span></div><div class="line">cxt.drawImage(img,<span class="number">40</span>,<span class="number">65</span>,<span class="number">40</span>,<span class="number">65</span>,cas.width/<span class="number">2</span><span class="number">-20</span>,cas.height/<span class="number">2</span><span class="number">-34.5</span>,<span class="number">40</span>,<span class="number">65</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="6-Math-PI-180°"><a href="#6-Math-PI-180°" class="headerlink" title="6 Math.PI = 180°"></a>6 Math.PI = 180°</h2><p>##　7　canvas旋转<br>+　只能是旋转之后,在画出图形,不能画出图形之后再旋转;<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cxt.rotate(<span class="number">10</span>*<span class="built_in">Math</span>.PI/<span class="number">180</span>);</div><div class="line">cxt.strokeRect(<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">200</span>);</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/10/canvas-day03/" data-id="cj0xodfhy00065lzjmrfpmb26" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/11/canvas-day04/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/18/2017-03-18/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/2017-03-17-BXG项目/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/15/2017-03-15-MAMP虚拟主机配置/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/15/git应用/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/15/2017-3-15-git 命令整理/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Gaonn<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
