@@ -1,10 +1,15 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
   <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="Gaonn">
+  
+  
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/index.html">
@@ -15,65 +20,61 @@
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
   
   <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
-
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">Hexo</a></h1>
+    <p><a href="/"></a></p>
   </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
 </header>
-      <div class="outer">
-        <section id="main">
+    <div class="content">
+
+
+
+
   
-    <article id="post-2017-03-18" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/18/2017-03-18/" class="article-date">
-  <time datetime="2017-03-18T03:56:27.000Z" itemprop="datePublished">2017-03-18</time>
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/03/18/2017-03-18/">
+  <time datetime="2017-03-18T03:56:27.000Z">
+    2017-03-18
+  </time>
 </a>
     
-  </div>
-  <div class="article-inner">
     
+  
+    <h1 class="title"><a href="/2017/03/18/2017-03-18/"></a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="博学谷项目-lt-二-gt"><a href="#博学谷项目-lt-二-gt" class="headerlink" title="博学谷项目&lt;二&gt;"></a>博学谷项目&lt;二&gt;</h1><h2 id="域名解析系统"><a href="#域名解析系统" class="headerlink" title="域名解析系统"></a>域名解析系统</h2><ul>
+      <h1 id="博学谷项目-lt-二-gt"><a href="#博学谷项目-lt-二-gt" class="headerlink" title="博学谷项目&lt;二&gt;"></a>博学谷项目&lt;二&gt;</h1><h2 id="域名解析系统"><a href="#域名解析系统" class="headerlink" title="域名解析系统"></a>域名解析系统</h2><ul>
 <li>先去本机的host的文件查找对应的IP,如果在本机host文件中找到,就返回对应的IP;如果没有的话,就去公网查找,公网没有的话就无法上网;<h2 id="前端发送请求的方式"><a href="#前端发送请求的方式" class="headerlink" title="前端发送请求的方式"></a>前端发送请求的方式</h2></li>
 <li>地址栏直接输入URL</li>
 <li>表单的action属性</li>
@@ -144,32 +145,39 @@
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> &lt;script src=<span class="string">'require.js'</span> data-main=<span class="string">'main.js'</span> &gt;&lt;/script&gt;</div><div class="line"> &lt;script&gt;</div><div class="line">     <span class="comment">//加载文件，通过data-main的路径进行定位</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'./m4'</span>]);</div><div class="line">     <span class="comment">//或者重新设置默认的根路径</span></div><div class="line">     <span class="built_in">require</span>.config(&#123;</div><div class="line">         <span class="attr">baseUrl</span>:<span class="string">'./js/'</span></div><div class="line">     &#125;);</div><div class="line">     <span class="comment">//相对于根路径的路径</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'/module/m4'</span>]);</div><div class="line">      <span class="comment">//将abc文件中foo的非模块化文件到处成为模块化文件</span></div><div class="line">    shim:&#123;</div><div class="line">        <span class="string">'../abc'</span>:&#123;</div><div class="line">            <span class="attr">exports</span>:<span class="string">'foo'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//给模块起一个别名；如果自定义模块起了一个名字，在用的时候必须与那个名字保持一致；</span></div><div class="line">    paths:&#123;</div><div class="line">         <span class="attr">ggg</span>:<span class="string">"js/jquery"</span>;</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/18/2017-03-18/" data-id="cj0xodfho00015lzjaauikmzb" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    
   </div>
-  
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
 </article>
 
 
   
-    <article id="post-2017-03-17-BXG项目" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/17/2017-03-17-BXG项目/" class="article-date">
-  <time datetime="2017-03-17T12:22:29.000Z" itemprop="datePublished">2017-03-17</time>
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/03/17/2017-03-17-BXG项目/">
+  <time datetime="2017-03-17T12:22:29.000Z">
+    2017-03-17
+  </time>
 </a>
     
-  </div>
-  <div class="article-inner">
     
+  
+    <h1 class="title"><a href="/2017/03/17/2017-03-17-BXG项目/"></a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基本组成"><a href="#基本组成" class="headerlink" title="基本组成"></a>基本组成</h2><ul>
+      <h2 id="基本组成"><a href="#基本组成" class="headerlink" title="基本组成"></a>基本组成</h2><ul>
 <li>后台管理系统</li>
 <li>业务登录系统<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2></li>
 <li>静态资源服务器</li>
@@ -212,61 +220,75 @@
 </li>
 </ul>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/17/2017-03-17-BXG项目/" data-id="cj0xodfhr00025lzjohohynjt" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    
   </div>
-  
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
 </article>
 
 
   
-    <article id="post-2017-03-15-MAMP虚拟主机配置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/15/2017-03-15-MAMP虚拟主机配置/" class="article-date">
-  <time datetime="2017-03-15T12:02:10.000Z" itemprop="datePublished">2017-03-15</time>
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/03/15/2017-03-15-MAMP虚拟主机配置/">
+  <time datetime="2017-03-15T12:02:10.000Z">
+    2017-03-15
+  </time>
 </a>
     
-  </div>
-  <div class="article-inner">
     
+  
+    <h1 class="title"><a href="/2017/03/15/2017-03-15-MAMP虚拟主机配置/"></a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="MAMP虚拟主机的配置"><a href="#MAMP虚拟主机的配置" class="headerlink" title="MAMP虚拟主机的配置"></a>MAMP虚拟主机的配置</h1><ol>
+      <h1 id="MAMP虚拟主机的配置"><a href="#MAMP虚拟主机的配置" class="headerlink" title="MAMP虚拟主机的配置"></a>MAMP虚拟主机的配置</h1><ol>
 <li>MAMP可以直接选择根目录文件,所以在MAMP的操作页面直接选择操作工作空间即可;</li>
 </ol>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/15/2017-03-15-MAMP虚拟主机配置/" data-id="cj0xodfhi00005lzji3awp0s6" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    
   </div>
-  
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
 </article>
 
 
   
-    <article id="post-git应用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/15/git应用/" class="article-date">
-  <time datetime="2017-03-15T02:10:41.000Z" itemprop="datePublished">2017-03-15</time>
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/03/15/git应用/">
+  <time datetime="2017-03-15T02:10:41.000Z">
+    2017-03-15
+  </time>
 </a>
     
-  </div>
-  <div class="article-inner">
     
+  
+    <h1 class="title"><a href="/2017/03/15/git应用/"></a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="git的两种工作流程"><a href="#git的两种工作流程" class="headerlink" title="git的两种工作流程"></a>git的两种工作流程</h1><ol>
+      <h1 id="git的两种工作流程"><a href="#git的两种工作流程" class="headerlink" title="git的两种工作流程"></a>git的两种工作流程</h1><ol>
 <li>下载代码,在下载代码的基础上做开发,然后提交</li>
 <li>或者git init 生成一个仓库,在这个生成的基础上添加代码,再推到主仓库上<h1 id="lt-lt-移位运算"><a href="#lt-lt-移位运算" class="headerlink" title="&lt;&lt; 移位运算"></a><code>&lt;&lt;</code> 移位运算</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line"><span class="built_in">console</span>.log(a &lt;&lt; <span class="number">2</span>);</div><div class="line"><span class="comment">//向左移动两位,乘以2^2,结果就是2*4 = 8;</span></div><div class="line"><span class="comment">//向右移动1位除以2,a&gt;&gt;1,结果就是2/2 = 1;</span></div></pre></td></tr></table></figure>
 </li>
@@ -331,32 +353,39 @@
 <li>公司服务器安装gitlab</li>
 </ul>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/15/git应用/" data-id="cj0xodfi400085lzjewf9odoi" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    
   </div>
-  
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
 </article>
 
 
   
-    <article id="post-2017-3-15-git 命令整理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/15/2017-3-15-git 命令整理/" class="article-date">
-  <time datetime="2017-03-15T01:58:29.000Z" itemprop="datePublished">2017-03-15</time>
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/03/15/2017-3-15-git 命令整理/">
+  <time datetime="2017-03-15T01:58:29.000Z">
+    2017-03-15
+  </time>
 </a>
     
-  </div>
-  <div class="article-inner">
     
+  
+    <h1 class="title"><a href="/2017/03/15/2017-3-15-git 命令整理/"></a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h2><p>###三个区域</p>
+      <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h2><p>###三个区域</p>
 <ul>
 <li>工作目录</li>
 <li>暂存区</li>
@@ -413,32 +442,39 @@
 <li><code>git stash pop</code>恢复保存的版本状态</li>
 </ul>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/15/2017-3-15-git 命令整理/" data-id="cj0xodfhv00055lzj7skdiokh" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    
   </div>
-  
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
 </article>
 
 
   
-    <article id="post-git命令基础" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/14/git命令基础/" class="article-date">
-  <time datetime="2017-03-14T07:22:55.000Z" itemprop="datePublished">2017-03-14</time>
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/03/14/git命令基础/">
+  <time datetime="2017-03-14T07:22:55.000Z">
+    2017-03-14
+  </time>
 </a>
     
-  </div>
-  <div class="article-inner">
     
+  
+    <h1 class="title"><a href="/2017/03/14/git命令基础/"></a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、模块化开发"><a href="#一、模块化开发" class="headerlink" title="一、模块化开发"></a>一、模块化开发</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//这里会形成一个封闭的空间;</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">FOO</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> FB = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.FOO = FOO;</div><div class="line">&#125;)(<span class="built_in">window</span>);<span class="comment">//通过window将接口暴露出去</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">fb</span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Sky</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    fb.Sky = Sky;</div><div class="line">&#125;)(FB)</div><div class="line"><span class="comment">//这样，通过模块化开发，可以通过FOO.Sky等来调用各种方法。具体可以参考飞翔的小鸟案例；</span></div></pre></td></tr></table></figure>
+      <h1 id="一、模块化开发"><a href="#一、模块化开发" class="headerlink" title="一、模块化开发"></a>一、模块化开发</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//这里会形成一个封闭的空间;</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">FOO</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> FB = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.FOO = FOO;</div><div class="line">&#125;)(<span class="built_in">window</span>);<span class="comment">//通过window将接口暴露出去</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">fb</span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Sky</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    fb.Sky = Sky;</div><div class="line">&#125;)(FB)</div><div class="line"><span class="comment">//这样，通过模块化开发，可以通过FOO.Sky等来调用各种方法。具体可以参考飞翔的小鸟案例；</span></div></pre></td></tr></table></figure>
 <h1 id="二、Git"><a href="#二、Git" class="headerlink" title="二、Git"></a>二、Git</h1><h2 id="1-Shell-编程脚本-命令解析器"><a href="#1-Shell-编程脚本-命令解析器" class="headerlink" title="1. Shell 编程脚本 命令解析器"></a>1. Shell 编程脚本 命令解析器</h2><ul>
 <li><code>.bat  .sh</code>文件存储的都是一些脚本，命令<h2 id="2-常用的shell命令（bash）"><a href="#2-常用的shell命令（bash）" class="headerlink" title="2. 常用的shell命令（bash）"></a>2. 常用的shell命令（bash）</h2></li>
 </ul>
@@ -532,32 +568,39 @@
 <li>常用的创建分支代码:<code>git checkout -b bcd</code>创建并切换分支，相当于<code>git branch bcd</code>和<code>git checkout bcd</code>命令的集合；</li>
 </ol>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/14/git命令基础/" data-id="cj0xodfhz00075lzjy8gwy7eo" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    
   </div>
-  
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
 </article>
 
 
   
-    <article id="post-canvas-day02长方形，圆，动画" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/11/canvas-day02长方形，圆，动画/" class="article-date">
-  <time datetime="2017-03-11T08:49:43.000Z" itemprop="datePublished">2017-03-11</time>
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/03/11/canvas-day02长方形，圆，动画/">
+  <time datetime="2017-03-11T08:49:43.000Z">
+    2017-03-11
+  </time>
 </a>
     
-  </div>
-  <div class="article-inner">
     
+  
+    <h1 class="title"><a href="/2017/03/11/canvas-day02长方形，圆，动画/"></a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="canvas-第二天"><a href="#canvas-第二天" class="headerlink" title="canvas 第二天"></a>canvas 第二天</h1><h2 id="一、修改原型指向"><a href="#一、修改原型指向" class="headerlink" title="一、修改原型指向"></a>一、修改原型指向</h2><ul>
+      <h1 id="canvas-第二天"><a href="#canvas-第二天" class="headerlink" title="canvas 第二天"></a>canvas 第二天</h1><h2 id="一、修改原型指向"><a href="#一、修改原型指向" class="headerlink" title="一、修改原型指向"></a>一、修改原型指向</h2><ul>
 <li>实例产生之后，再修改构造函数的原型，对实例中的数据没有影响；按时回影响instanceof的判断；</li>
 <li>只有当<code>foo.__proto__==Foo.prototype</code>成立时，<code>foo instanceof Foo</code>才成立；<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.flag = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">info</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.info = info;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo(<span class="string">'123'</span>);<span class="comment">//此时Foo.prototype = &#123;&#125;;</span></div><div class="line">Foo.prototype = <span class="keyword">new</span> fn();</div><div class="line"><span class="built_in">console</span>.log(foo <span class="keyword">instanceof</span> Foo)<span class="comment">//结果是false；,</span></div><div class="line"><span class="comment">//foo.__proto__是原来Foo的原型；</span></div><div class="line"><span class="comment">//现在Foo的prototype = fn;</span></div></pre></td></tr></table></figure>
 </li>
@@ -587,58 +630,72 @@
 <li><code>requestAnimationFrame()</code>，同setTimeout作用类似；</li>
 </ul>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/11/canvas-day02长方形，圆，动画/" data-id="cj0xodfht00045lzjzdxcv9w4" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    
   </div>
-  
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
 </article>
 
 
   
-    <article id="post-canvas-day04" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/11/canvas-day04/" class="article-date">
-  <time datetime="2017-03-11T01:27:08.000Z" itemprop="datePublished">2017-03-11</time>
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/03/11/canvas-day04/">
+  <time datetime="2017-03-11T01:27:08.000Z">
+    2017-03-11
+  </time>
 </a>
     
-  </div>
-  <div class="article-inner">
     
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="canvas-day04"><a href="#canvas-day04" class="headerlink" title="canvas day04"></a>canvas day04</h1><h2 id="1-arr-map"><a href="#1-arr-map" class="headerlink" title="1. arr.map"></a>1. arr.map</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'1.5'</span>,<span class="string">'2.5'</span>,<span class="string">'3.5'</span>];</div><div class="line"><span class="built_in">console</span>.log(arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.Floor(item)</div><div class="line">    <span class="comment">//结果为['1','2','3];</span></div><div class="line">&#125;))</div><div class="line"><span class="built_in">console</span>.log(arr);==<span class="comment">//结果还是原数组['1.5','2.5','3.5'];</span></div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/11/canvas-day04/" data-id="cj0xodfhs00035lzjood1hcd8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
+    <h1 class="title"><a href="/2017/03/11/canvas-day04/"></a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="canvas-day04"><a href="#canvas-day04" class="headerlink" title="canvas day04"></a>canvas day04</h1><h2 id="1-arr-map"><a href="#1-arr-map" class="headerlink" title="1. arr.map"></a>1. arr.map</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'1.5'</span>,<span class="string">'2.5'</span>,<span class="string">'3.5'</span>];</div><div class="line"><span class="built_in">console</span>.log(arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.Floor(item)</div><div class="line">    <span class="comment">//结果为['1','2','3];</span></div><div class="line">&#125;))</div><div class="line"><span class="built_in">console</span>.log(arr);==<span class="comment">//结果还是原数组['1.5','2.5','3.5'];</span></div></pre></td></tr></table></figure>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
 </article>
 
 
   
-    <article id="post-canvas-day03" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/10/canvas-day03/" class="article-date">
-  <time datetime="2017-03-10T13:27:50.000Z" itemprop="datePublished">2017-03-10</time>
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/03/10/canvas-day03/">
+  <time datetime="2017-03-10T13:27:50.000Z">
+    2017-03-10
+  </time>
 </a>
     
-  </div>
-  <div class="article-inner">
     
+  
+    <h1 class="title"><a href="/2017/03/10/canvas-day03/"></a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="canvas-day03"><a href="#canvas-day03" class="headerlink" title="canvas day03"></a>canvas day03</h1><h2 id="函数的赋值"><a href="#函数的赋值" class="headerlink" title="函数的赋值"></a>函数的赋值</h2><ul>
+      <h1 id="canvas-day03"><a href="#canvas-day03" class="headerlink" title="canvas day03"></a>canvas day03</h1><h2 id="函数的赋值"><a href="#函数的赋值" class="headerlink" title="函数的赋值"></a>函数的赋值</h2><ul>
 <li>1: 逗号表达式，逗号分隔的表达式会从左往右逐个执行，但是以最后一个结果为准。</li>
 <li><p>2:函数立即调用的语法I结构有两种：</p>
 <ul>
@@ -686,104 +743,54 @@
 </ul>
 <h2 id="6-Math-PI-180°"><a href="#6-Math-PI-180°" class="headerlink" title="6 Math.PI = 180°"></a>6 Math.PI = 180°</h2><p>##　7　canvas旋转<br>+　只能是旋转之后,在画出图形,不能画出图形之后再旋转;<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cxt.rotate(<span class="number">10</span>*<span class="built_in">Math</span>.PI/<span class="number">180</span>);</div><div class="line">cxt.strokeRect(<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">200</span>);</div></pre></td></tr></table></figure></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/10/canvas-day03/" data-id="cj0xodfhy00065lzjmrfpmb26" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    
   </div>
-  
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
 </article>
 
 
   
 
-</section>
-        
-          <aside id="sidebar">
+  <nav id="pagination">
   
-    
-
   
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/03/18/2017-03-18/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/17/2017-03-17-BXG项目/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/2017-03-15-MAMP虚拟主机配置/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/git应用/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/2017-3-15-git 命令整理/">(no title)</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 Gaonn<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
+  <div class="clearfix"></div>
 </nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
+</div>
   </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2017 <a href="/">Gaonn</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
 </body>
 </html>

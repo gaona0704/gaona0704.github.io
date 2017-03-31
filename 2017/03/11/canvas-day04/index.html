@@ -1,10 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
   <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="Gaonn">
+  
+  
+    <meta name="description" content="canvas day041. arr.map123456var arr = [&#39;1.5&#39;,&#39;2.5&#39;,&#39;3.5&#39;];console.log(arr.map(function(item)&amp;#123;    return Math.Floor(item)    //结果为[&#39;1&#39;,&#39;2&#39;,&#39;3];&amp;#125;))console.log(arr);==//结果还是原数组[&#39;1.5&#39;,&#39;2.5&#39;,&#39;3.5">
+  
   <meta name="description" content="canvas day041. arr.map123456var arr = [&apos;1.5&apos;,&apos;2.5&apos;,&apos;3.5&apos;];console.log(arr.map(function(item)&amp;#123;    return Math.Floor(item)    //结果为[&apos;1&apos;,&apos;2&apos;,&apos;3];&amp;#125;))console.log(arr);==//结果还是原数组[&apos;1.5&apos;,&apos;2.5&apos;,&apos;3.5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
@@ -19,179 +26,94 @@
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
   
   <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
-
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">Hexo</a></h1>
+    <p><a href="/"></a></p>
   </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-canvas-day04" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/11/canvas-day04/" class="article-date">
-  <time datetime="2017-03-11T01:27:08.000Z" itemprop="datePublished">2017-03-11</time>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/03/11/canvas-day04/">
+  <time datetime="2017-03-11T01:27:08.000Z">
+    2017-03-11
+  </time>
 </a>
     
-  </div>
-  <div class="article-inner">
     
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="canvas-day04"><a href="#canvas-day04" class="headerlink" title="canvas day04"></a>canvas day04</h1><h2 id="1-arr-map"><a href="#1-arr-map" class="headerlink" title="1. arr.map"></a>1. arr.map</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'1.5'</span>,<span class="string">'2.5'</span>,<span class="string">'3.5'</span>];</div><div class="line"><span class="built_in">console</span>.log(arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.Floor(item)</div><div class="line">    <span class="comment">//结果为['1','2','3];</span></div><div class="line">&#125;))</div><div class="line"><span class="built_in">console</span>.log(arr);==<span class="comment">//结果还是原数组['1.5','2.5','3.5'];</span></div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/11/canvas-day04/" data-id="cj0xodfhs00035lzjood1hcd8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
-    
-<nav id="article-nav">
+    <h1 class="title"></h1>
   
-    <a href="/2017/03/11/canvas-day02长方形，圆，动画/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/03/10/canvas-day03/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title"></div>
-    </a>
-  
-</nav>
 
+  </header>
   
+  <div class="entry">
+    
+      <h1 id="canvas-day04"><a href="#canvas-day04" class="headerlink" title="canvas day04"></a>canvas day04</h1><h2 id="1-arr-map"><a href="#1-arr-map" class="headerlink" title="1. arr.map"></a>1. arr.map</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'1.5'</span>,<span class="string">'2.5'</span>,<span class="string">'3.5'</span>];</div><div class="line"><span class="built_in">console</span>.log(arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.Floor(item)</div><div class="line">    <span class="comment">//结果为['1','2','3];</span></div><div class="line">&#125;))</div><div class="line"><span class="built_in">console</span>.log(arr);==<span class="comment">//结果还是原数组['1.5','2.5','3.5'];</span></div></pre></td></tr></table></figure>
+    
+  </div>
+  <footer>
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
-    </div>
+</div>
   </div>
-
-
+  <footer id="footer"><div class="copyright">
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/03/18/2017-03-18/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/17/2017-03-17-BXG项目/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/2017-03-15-MAMP虚拟主机配置/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/git应用/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/2017-3-15-git 命令整理/">(no title)</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
+  &copy; 2017 <a href="/">Gaonn</a>
   
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 Gaonn<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
 
-  </div>
 </body>
 </html>
