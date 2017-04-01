@@ -87,34 +87,70 @@
 
 
 
-<meta name="description" content="git的两种工作流程
-下载代码,在下载代码的基础上做开发,然后提交
-或者git init 生成一个仓库,在这个生成的基础上添加代码,再推到主仓库上&amp;lt;&amp;lt; 移位运算1234var a = 2;console.log(a &amp;lt;&amp;lt; 2);//向左移动两位,乘以2^2,结果就是2*4 = 8;//向右移动1位除以2,a&amp;gt;&amp;gt;1,结果就是2/2 = 1;
+<meta name="description" content="git本地仓库###三个区域
+
+工作目录
+暂存区
+本地仓库文件的四个状态
+未跟踪 untracked
+已暂存 staged
+已提交 coomited
+已修改 modified相关命令
+git add file
+将未跟踪的文件加到暂存区
+把暂存区修改的内容从新提交到暂存区
 
 
-创建共享仓库
-共享">
+git commit -m &amp;quot;备注&amp;quot;
+将暂存区的内容提交到本地仓库中
+
+
+git rm --cached">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2017/03/15/git day02应用/index.html">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="http://yoursite.com/2013/07/13/2017-3-15-git 命令整理/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="git的两种工作流程
-下载代码,在下载代码的基础上做开发,然后提交
-或者git init 生成一个仓库,在这个生成的基础上添加代码,再推到主仓库上&amp;lt;&amp;lt; 移位运算1234var a = 2;console.log(a &amp;lt;&amp;lt; 2);//向左移动两位,乘以2^2,结果就是2*4 = 8;//向右移动1位除以2,a&amp;gt;&amp;gt;1,结果就是2/2 = 1;
+<meta property="og:description" content="git本地仓库###三个区域
+
+工作目录
+暂存区
+本地仓库文件的四个状态
+未跟踪 untracked
+已暂存 staged
+已提交 coomited
+已修改 modified相关命令
+git add file
+将未跟踪的文件加到暂存区
+把暂存区修改的内容从新提交到暂存区
 
 
-创建共享仓库
-共享">
-<meta property="og:updated_time" content="2017-03-15T02:10:41.000Z">
+git commit -m &amp;quot;备注&amp;quot;
+将暂存区的内容提交到本地仓库中
+
+
+git rm --cached">
+<meta property="og:updated_time" content="2017-04-01T13:58:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="git的两种工作流程
-下载代码,在下载代码的基础上做开发,然后提交
-或者git init 生成一个仓库,在这个生成的基础上添加代码,再推到主仓库上&amp;lt;&amp;lt; 移位运算1234var a = 2;console.log(a &amp;lt;&amp;lt; 2);//向左移动两位,乘以2^2,结果就是2*4 = 8;//向右移动1位除以2,a&amp;gt;&amp;gt;1,结果就是2/2 = 1;
+<meta name="twitter:title" content="Git">
+<meta name="twitter:description" content="git本地仓库###三个区域
+
+工作目录
+暂存区
+本地仓库文件的四个状态
+未跟踪 untracked
+已暂存 staged
+已提交 coomited
+已修改 modified相关命令
+git add file
+将未跟踪的文件加到暂存区
+把暂存区修改的内容从新提交到暂存区
 
 
-创建共享仓库
-共享">
+git commit -m &amp;quot;备注&amp;quot;
+将暂存区的内容提交到本地仓库中
+
+
+git rm --cached">
 
 
 
@@ -142,13 +178,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/15/git day02应用/"/>
+  <link rel="canonical" href="http://yoursite.com/2013/07/13/2017-3-15-git 命令整理/"/>
 
 
 
 
 
-  <title>  | Hexo </title>
+  <title> Git | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +313,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/15/git day02应用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2013/07/13/2017-3-15-git 命令整理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gaonana">
@@ -298,7 +334,7 @@
             
             
               
-                
+                Git
               
             
           </h1>
@@ -313,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T10:10:41+08:00">
-                2017-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-07-13T20:46:25+08:00">
+                2013-07-13
               </time>
             
 
@@ -349,69 +385,61 @@
       
 
       
-        <h1 id="git的两种工作流程"><a href="#git的两种工作流程" class="headerlink" title="git的两种工作流程"></a>git的两种工作流程</h1><ol>
-<li>下载代码,在下载代码的基础上做开发,然后提交</li>
-<li>或者git init 生成一个仓库,在这个生成的基础上添加代码,再推到主仓库上<h1 id="lt-lt-移位运算"><a href="#lt-lt-移位运算" class="headerlink" title="&lt;&lt; 移位运算"></a><code>&lt;&lt;</code> 移位运算</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line"><span class="built_in">console</span>.log(a &lt;&lt; <span class="number">2</span>);</div><div class="line"><span class="comment">//向左移动两位,乘以2^2,结果就是2*4 = 8;</span></div><div class="line"><span class="comment">//向右移动1位除以2,a&gt;&gt;1,结果就是2/2 = 1;</span></div></pre></td></tr></table></figure>
+        <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h2><p>###三个区域</p>
+<ul>
+<li>工作目录</li>
+<li>暂存区</li>
+<li>本地仓库<h3 id="文件的四个状态"><a href="#文件的四个状态" class="headerlink" title="文件的四个状态"></a>文件的四个状态</h3></li>
+<li>未跟踪 untracked</li>
+<li>已暂存 staged</li>
+<li>已提交 coomited</li>
+<li>已修改 modified<h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3></li>
+<li><code>git add file</code><ul>
+<li>将未跟踪的文件加到暂存区</li>
+<li>把暂存区修改的内容从新提交到暂存区</li>
+</ul>
 </li>
-</ol>
-<h2 id="创建共享仓库"><a href="#创建共享仓库" class="headerlink" title="创建共享仓库"></a>创建共享仓库</h2><ul>
-<li>共享仓库的必须以<code>.git</code> 结尾;<code>demo.git</code></li>
-<li><code>git init --bare</code> 创建一个共享仓库</li>
-<li><code>git pull 远程仓库的地址 远程分支:本地分支</code>或者<code>git clone 远程仓库的地址 文件名称</code>下载代码</li>
-<li><code>git push 远程仓库的地址 本地分支:远程分支</code>  推送代码<blockquote>
-<p> git pull = git fetch + git merge</p>
-</blockquote>
+<li><code>git commit -m &quot;备注&quot;</code><ul>
+<li>将暂存区的内容提交到本地仓库中</li>
+</ul>
 </li>
-<li><code>git fetch</code>远程获取代码,但是不合并代码</li>
-<li><code>git merge</code> 通过fetch过来的代码可以通过merge命令进行合并;<h2 id="查看分支和修改分支名称"><a href="#查看分支和修改分支名称" class="headerlink" title="查看分支和修改分支名称"></a>查看分支和修改分支名称</h2></li>
-<li><code>git remote</code>查看远程仓库的别名  没有就用下一条创建</li>
-<li><code>git remote add 别名名称(origin) 仓库地址(root@180.76.188.62:/root/demo.git)</code> 添加远程仓库的别名</li>
+<li><code>git rm --cached files</code><ul>
+<li>将暂存的文件移动到工作目录</li>
+</ul>
+</li>
+<li><code>git checkout files</code><ul>
+<li>暂存区中修改的的内容撤销掉</li>
+</ul>
+</li>
+<li><code>git reset HEAD(表示本地仓库中最后一次提交,commitId)</code><ul>
+<li><code>--hard</code>工作目录、暂存区、本地仓库都会变化;</li>
+<li><code>--soft</code>只会回滚本地仓库,工作目录和暂存区不会变化</li>
+<li><code>--mixed</code>默认的,用本地仓库的版本覆盖暂存区文件,也会回滚本地仓库,不会修改工作目录<h2 id="远程仓库-共享仓库"><a href="#远程仓库-共享仓库" class="headerlink" title="远程仓库(共享仓库)"></a>远程仓库(共享仓库)</h2></li>
+</ul>
+</li>
+<li><code>git clone</code>克隆远程仓库全部内容</li>
+<li><code>git pull</code>从远程仓库中下载最新版本,覆盖本地分支内容<ul>
+<li><code>git pull 远程仓库地址 远程分支:本地分支</code></li>
+</ul>
+</li>
+<li><code>git push</code>提交本地代码版本<ul>
+<li><code>git push 远程仓库地址 本地分支:远程分支</code></li>
+</ul>
+</li>
+<li><code>git fetch</code>从远程仓库下载最新版本内容,但是不合并,需要手动使用`git merge<br>合并;</li>
+<li><code>git remote</code>查看远程分支别名</li>
+<li><code>gitremote add origin</code>添加远程仓库地址的别名</li>
+<li><code>git remote show origin</code>查看远程仓库别名的二聚体地址<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2></li>
+<li><code>git branch 分支名称</code> 创建分支</li>
 <li><code>git branch -r</code>查看远程分支</li>
-<li><code>git branch</code>查看本地分支</li>
-<li><code>git remote show origin</code>查看远程仓库别名的具体地址</li>
-</ul>
-<h2 id="git-pull-和-git-clone-的主要区别"><a href="#git-pull-和-git-clone-的主要区别" class="headerlink" title="git pull 和 git clone 的主要区别"></a>git pull 和 git clone 的主要区别</h2><ul>
-<li>1:<code>git clone</code>的项目户自动建立 <code>origin</code>远程仓库地址的别名,自动创建了关联,再更新代码时直接<code>git pull</code>就可以拉下来代码;</li>
-<li>2:<code>git pull</code>拉下来的代码,如果需要建立跟踪分支,需要执行<code>git branch --set-upstream -to==origin/master master</code>;<code>origin/master</code>表示远程分支;<code>master</code>表示本地分支</li>
-</ul>
-<h1 id="git使用总结"><a href="#git使用总结" class="headerlink" title="git使用总结"></a>git使用总结</h1><h2 id="已经存在的项目"><a href="#已经存在的项目" class="headerlink" title="已经存在的项目"></a>已经存在的项目</h2><ul>
-<li>管理员分配git账号; 或者 生成自己的公钥和私钥,提交各管理员,授予权限;</li>
-<li><code>git clone 仓库地址</code>下载代码,进行操作<h2 id="新项目"><a href="#新项目" class="headerlink" title="新项目"></a>新项目</h2></li>
-<li>在github上创建一个空仓库;</li>
-<li>在自己本地<code>git clone git@(仓库地址)</code>直接生成git文件;</li>
-<li>编辑代码,</li>
-<li><code>git add test.html</code>添加到暂存区</li>
-<li><code>git commit -m &quot;&quot;</code>添加到本地仓库</li>
-<li><code>git push origin master</code>推送到网上仓库成功 <h2 id="新项目第二种更新方式"><a href="#新项目第二种更新方式" class="headerlink" title="新项目第二种更新方式"></a>新项目第二种更新方式</h2></li>
-<li>在本地建立文件夹,<code>git init</code>,编辑内容</li>
-<li><code>git add</code></li>
-<li><code>git commit -m &quot;&quot;</code></li>
-<li><code>git remote add origin git@github等地址</code>将本地仓库与网上仓库建立连接和跟踪; </li>
-<li><code>git push -u origin master</code>本地代码推送上去(-u与当前的别名进行关联)</li>
-<li><code>git pull</code>以后就直接使用这个命令更新本地仓库的代码</li>
-<li><code>git push</code>直接推送代码,更新就可以了;<h1 id="git分支管理"><a href="#git分支管理" class="headerlink" title="git分支管理"></a>git分支管理</h1></li>
-</ul>
-<ol>
-<li><code>git clone</code>克隆代码</li>
-<li><code>git checkout -b buy</code>创建并切换分支，</li>
-<li>操作分支</li>
-<li><code>git checkout master</code>切换到主分支</li>
-<li>创建另一个新分支bugfix,编辑,编辑之后再次切换到主分支;</li>
-</ol>
-<ul>
-<li><code>git checkout -d bugfix</code>删除bugfix分支;删除的是本地分支<ul>
-<li>删除远程分支<code>git push origin --delete</code> </li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><code>git merge bugfix</code>;</li>
-<li><code>git merge buy</code><h1 id="git-stash-缓存代码"><a href="#git-stash-缓存代码" class="headerlink" title="git stash 缓存代码"></a>git stash 缓存代码</h1></li>
-</ol>
-<ul>
-<li>使用<code>git stash</code>可以将正在进行中的环境保存起来;master分支将会恢复到修改之前的状态;等紧急操作做完之后,</li>
-<li>使用<code>git stash pop</code>取出之前保存的操作;继续编辑<h1 id="gitlab"><a href="#gitlab" class="headerlink" title="gitlab"></a>gitlab</h1></li>
-<li>公司服务器安装gitlab</li>
+<li><code>git branch -a</code>查看所有分支</li>
+<li><code>git checkout 分支名称</code> 切换分支</li>
+<li><code>git checkout -b 分支名称</code> 创建并切换分支</li>
+<li><code>git branch -d 分支名称</code> 删除本地分支</li>
+<li><code>git push origin --delete</code> 删除远程分支</li>
+<li><code>git merge 来源分支</code> 合并分支</li>
+<li><code>git stash</code> 保存当前版本状态</li>
+<li><code>git stash pop</code>恢复保存的版本状态</li>
 </ul>
 
       
@@ -449,17 +477,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/14/git day01命令基础/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/15/2017-03-15-MAMP虚拟主机配置/" rel="prev" title="">
+              <a href="/2017/03/10/canvas-day03/" rel="prev" title="">
                  <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -572,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git的两种工作流程"><span class="nav-number">1.</span> <span class="nav-text">git的两种工作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-lt-移位运算"><span class="nav-number">2.</span> <span class="nav-text"><< 移位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建共享仓库"><span class="nav-number">2.1.</span> <span class="nav-text">创建共享仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看分支和修改分支名称"><span class="nav-number">2.2.</span> <span class="nav-text">查看分支和修改分支名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-pull-和-git-clone-的主要区别"><span class="nav-number">2.3.</span> <span class="nav-text">git pull 和 git clone 的主要区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git使用总结"><span class="nav-number">3.</span> <span class="nav-text">git使用总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#已经存在的项目"><span class="nav-number">3.1.</span> <span class="nav-text">已经存在的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新项目"><span class="nav-number">3.2.</span> <span class="nav-text">新项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新项目第二种更新方式"><span class="nav-number">3.3.</span> <span class="nav-text">新项目第二种更新方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git分支管理"><span class="nav-number">4.</span> <span class="nav-text">git分支管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-stash-缓存代码"><span class="nav-number">5.</span> <span class="nav-text">git stash 缓存代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gitlab"><span class="nav-number">6.</span> <span class="nav-text">gitlab</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git"><span class="nav-number">1.</span> <span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地仓库"><span class="nav-number">1.1.</span> <span class="nav-text">本地仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的四个状态"><span class="nav-number">1.1.1.</span> <span class="nav-text">文件的四个状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关命令"><span class="nav-number">1.1.2.</span> <span class="nav-text">相关命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库-共享仓库"><span class="nav-number">1.2.</span> <span class="nav-text">远程仓库(共享仓库)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支操作"><span class="nav-number">1.3.</span> <span class="nav-text">分支操作</span></a></li></ol></li></ol></div>
             
 
           </div>
