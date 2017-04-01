@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="Gaonn">
+  
+  
+    <meta name="description" content="git day02 github使用本地仓库###三个区域
+
+工作目录
+暂存区
+本地仓库文件的四个状态
+未跟踪 untracked
+已暂存 staged
+已提交 coomited
+已修改 modified相关命令
+git add file
+将未跟踪的文件加到暂存区
+把暂存区修改的内容从新提交到暂存区
+
+
+git commit -m &amp;quot;备注&amp;quot;
+将暂存区的内容提交到本地仓库中">
+  
+  <meta name="description" content="git day02 github使用本地仓库###三个区域
+
+工作目录
+暂存区
+本地仓库文件的四个状态
+未跟踪 untracked
+已暂存 staged
+已提交 coomited
+已修改 modified相关命令
+git add file
+将未跟踪的文件加到暂存区
+把暂存区修改的内容从新提交到暂存区
+
+
+git commit -m &amp;quot;备注&amp;quot;
+将暂存区的内容提交到本地仓库中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/04/01/git day04 github使用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="git day02 github使用本地仓库###三个区域
+
+工作目录
+暂存区
+本地仓库文件的四个状态
+未跟踪 untracked
+已暂存 staged
+已提交 coomited
+已修改 modified相关命令
+git add file
+将未跟踪的文件加到暂存区
+把暂存区修改的内容从新提交到暂存区
+
+
+git commit -m &amp;quot;备注&amp;quot;
+将暂存区的内容提交到本地仓库中">
+<meta property="og:updated_time" content="2017-04-01T01:17:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="git day02 github使用本地仓库###三个区域
+
+工作目录
+暂存区
+本地仓库文件的四个状态
+未跟踪 untracked
+已暂存 staged
+已提交 coomited
+已修改 modified相关命令
+git add file
+将未跟踪的文件加到暂存区
+把暂存区修改的内容从新提交到暂存区
+
+
+git commit -m &amp;quot;备注&amp;quot;
+将暂存区的内容提交到本地仓库中">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">Hexo</a></h1>
+    <p><a href="/"></a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/04/01/git day04 github使用/">
+  <time datetime="2017-04-01T01:17:27.000Z">
+    2017-04-01
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="git-day02-github使用"><a href="#git-day02-github使用" class="headerlink" title="git day02 github使用"></a>git day02 github使用</h1><h2 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h2><p>###三个区域</p>
+<ul>
+<li>工作目录</li>
+<li>暂存区</li>
+<li>本地仓库<h3 id="文件的四个状态"><a href="#文件的四个状态" class="headerlink" title="文件的四个状态"></a>文件的四个状态</h3></li>
+<li>未跟踪 untracked</li>
+<li>已暂存 staged</li>
+<li>已提交 coomited</li>
+<li>已修改 modified<h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3></li>
+<li><code>git add file</code><ul>
+<li>将未跟踪的文件加到暂存区</li>
+<li>把暂存区修改的内容从新提交到暂存区</li>
+</ul>
+</li>
+<li><code>git commit -m &quot;备注&quot;</code><ul>
+<li>将暂存区的内容提交到本地仓库中</li>
+</ul>
+</li>
+<li><code>git rm --cached files</code><ul>
+<li>将暂存的文件移动到工作目录</li>
+</ul>
+</li>
+<li><code>git checkout files</code><ul>
+<li>暂存区中修改的的内容撤销掉</li>
+</ul>
+</li>
+<li><code>git reset HEAD(表示本地仓库中最后一次提交,commitId)</code><ul>
+<li><code>--hard</code>工作目录、暂存区、本地仓库都会变化;</li>
+<li><code>--soft</code>只会回滚本地仓库,工作目录和暂存区不会变化</li>
+<li><code>--mixed</code>默认的,用本地仓库的版本覆盖暂存区文件,也会回滚本地仓库,不会修改工作目录<h2 id="远程仓库-共享仓库"><a href="#远程仓库-共享仓库" class="headerlink" title="远程仓库(共享仓库)"></a>远程仓库(共享仓库)</h2></li>
+</ul>
+</li>
+<li><code>git clone</code>克隆远程仓库全部内容</li>
+<li><code>git pull</code>从远程仓库中下载最新版本,覆盖本地分支内容<ul>
+<li><code>git pull 远程仓库地址 远程分支:本地分支</code></li>
+</ul>
+</li>
+<li><code>git push</code>提交本地代码版本<ul>
+<li><code>git push 远程仓库地址 本地分支:远程分支</code></li>
+</ul>
+</li>
+<li><code>git fetch</code>从远程仓库下载最新版本内容,但是不合并,需要手动使用`git merge<br>合并;</li>
+<li><code>git remote</code>查看远程分支别名</li>
+<li><code>gitremote add origin</code>添加远程仓库地址的别名</li>
+<li><code>git remote show origin</code>查看远程仓库别名的二聚体地址<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2></li>
+<li><code>git branch 分支名称</code> 创建分支</li>
+<li><code>git branch -r</code>查看远程分支</li>
+<li><code>git branch -a</code>查看所有分支</li>
+<li><code>git checkout 分支名称</code> 切换分支</li>
+<li><code>git checkout -b 分支名称</code> 创建并切换分支</li>
+<li><code>git branch -d 分支名称</code> 删除本地分支</li>
+<li><code>git push origin --delete</code> 删除远程分支</li>
+<li><code>git merge 来源分支</code> 合并分支</li>
+<li><code>git stash</code> 保存当前版本状态</li>
+<li><code>git stash pop</code>恢复保存的版本状态</li>
+</ul>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2017 <a href="/">Gaonn</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
