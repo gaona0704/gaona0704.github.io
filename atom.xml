@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>HappynessCoder</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-04-02T01:37:58.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Gaonana</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cookie与location的使用</title>
+    <link href="http://yoursite.com/2017/03/27/2017-03-17-BXG%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://yoursite.com/2017/03/27/2017-03-17-BXG项目/</id>
+    <published>2017-03-27T09:26:25.000Z</published>
+    <updated>2017-04-02T01:37:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="git-day-01"><a href="#git-day-01" class="headerlink" title="git day 01"></a>git day 01</h1><h2 id="基本组成"><a href="#基本组成" class="headerlink" title="基本组成"></a>基本组成</h2><ul>
+<li>后台管理系统</li>
+<li>业务登录系统</li>
+</ul>
+<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><ul>
+<li>静态资源服务器</li>
+<li>项目管理软件: JIRA 禅道(跟踪工程进度更新,项目管理软件)<h2 id="博学谷项目知识点"><a href="#博学谷项目知识点" class="headerlink" title="博学谷项目知识点"></a>博学谷项目知识点</h2></li>
+</ul>
+<ol>
+<li>jQuery中的return false既可以阻止默认行为也可以阻止冒泡;但是原生JS中的return false 只能阻止默认行为;</li>
+</ol>
+<h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><h3 id="1-cookie"><a href="#1-cookie" class="headerlink" title="1.cookie"></a>1.cookie</h3><ol>
+<li>通过cookie可以向客户端存储数据  </li>
+<li>url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务端的通信状态(这个是后台写的)</li>
+<li><code>document.cookie</code>可以访问cookie;</li>
+<li>cookie的格式:键值对;</li>
+<li>多个cookie之间使用分号和空格隔开;例如:<code>username=zhangsan; age=12</code>;</li>
+<li><code>document.cookie = &#39;username=zhangsan&#39;</code>在浏览器中是有缓存的,关闭浏览区可以清除;<h3 id="2-cookie的分类"><a href="#2-cookie的分类" class="headerlink" title="2.cookie的分类"></a>2.cookie的分类</h3></li>
+<li><p>session cookie 会话cookie:关闭浏览器之后自动清除,但是可以增加其有效期,以下例子增加了5天的有效期</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    date.setDate(date.getDate()+<span class="number">5</span>); </div><div class="line">    <span class="built_in">document</span>.cookie=<span class="string">"username=lisi; expires="</span>+date.toGMTString();</div><div class="line"><span class="string">`</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>persistant cookie 持久cookie:关闭浏览器</p>
+</li>
+<li>获得cookie,封装函数</li>
+<li>在子路径设置的cookie,在父路径下是获取不到的;反过来可以<br> 不可以跨域获取cookie,但是可以跨页面共享;</li>
+<li>可以用jquery-cookie插件应用;<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//设置cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,expires</span>) </span>&#123;</div><div class="line">         <span class="built_in">document</span>.cookie = key +<span class="string">'='</span>+value+<span class="string">';expires='</span>+expires+<span class="string">"; path=/"</span>;</div><div class="line">     &#125;</div><div class="line"><span class="comment">//获得cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>) </span>&#123;</div><div class="line">     <span class="keyword">var</span> cookie = <span class="built_in">document</span>.cookie;</div><div class="line">     <span class="keyword">var</span> arr = cookie.split(<span class="string">'; '</span>);</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">         <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">         <span class="keyword">if</span>(cname == kv[<span class="number">0</span>])&#123;</div><div class="line">             <span class="keyword">return</span> kv[<span class="number">1</span>];</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><code>encodeURLComponent</code>该方法会对url地址中的特殊字符进行编码(当参数中包含URL特殊字符的时候可以使用该方法进行编码处理);</li>
+<li>//获取sessionID<br>console.log($.cookie(‘PHPSESSID’));</li>
+</ul>
+<h3 id="3-cookie-使用"><a href="#3-cookie-使用" class="headerlink" title="3. $.cookie()使用"></a>3. $.cookie()使用</h3><ol>
+<li>新添加一个cookie会话;<code>$.cookie(&#39;username&#39;,&#39;zhangsan&#39;)</code>;</li>
+<li>创建cookie并设置有效期为7天;<code>$.cookie(&#39;age&#39;,&#39;18&#39;,{expires:7})</code>;此时的cookie称作持久cookie,即<code>persistant cookie</code>;</li>
+<li>创建cookie并设置cookie的有效路径<code>$.cookie(&#39;username&#39;,&#39;lisi&#39;,{expires:7,path:&#39;/&#39;})</code>;<ul>
+<li>在默认情况下,只有cookie的页面才能读取该cookie信息,如果想让另一个页面读取该cookie信息,必须设置cookie的路径;cookie的路径用于设置能够读取cookie的顶级目录,即根目录,可以让当前项目下所有的网页都能相互读取cookie,</li>
+</ul>
+</li>
+<li><code>raw:true</code>;在读写cookie时自动使用<code>encodeURLComponen</code>进行编码和解码;</li>
+<li>删除cookie可以使用null作为cookie的值就可以<code>$.cookie(&#39;username&#39;,null)</code><h3 id="4-location的内置属性"><a href="#4-location的内置属性" class="headerlink" title="4.location的内置属性"></a>4.location的内置属性</h3></li>
+</ol>
+<ul>
+<li>页面跳转<code>location.href=&#39;/index/index.html&#39;</code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ancestorOrigins:DOMStringList,</div><div class="line">assign:()</div><div class="line">hash:""</div><div class="line">host:"mybxg.com"</div><div class="line">hostname:"mybxg.com"</div><div class="line">href:"http://mybxg.com/index/index"</div><div class="line">origin:"http://mybxg.com"</div><div class="line">pathname:"/index/index"</div><div class="line">port:""</div><div class="line">protocol:"http:"</div><div class="line">reload:reload()</div><div class="line">replace:()</div><div class="line">search:""</div><div class="line">toString:toString()</div><div class="line">valueOf:valueOf()</div><div class="line">__proto__:Location</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;git-day-01&quot;&gt;&lt;a href=&quot;#git-day-01&quot; class=&quot;headerlink&quot; title=&quot;git day 01&quot;&gt;&lt;/a&gt;git day 01&lt;/h1&gt;&lt;h2 id=&quot;基本组成&quot;&gt;&lt;a href=&quot;#基本组成&quot; class=&quot;head
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="JQuery Plug" scheme="http://yoursite.com/tags/JQuery-Plug/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JQuery插件使用（表单验证、提交、日期、富文本、图片裁切、三级联动）</title>
+    <link href="http://yoursite.com/2017/03/21/%E5%8D%9A%E5%AD%A6%E8%B0%B7%E9%A1%B9%E7%9B%AE%3C%E5%9B%9B%3E/"/>
+    <id>http://yoursite.com/2017/03/21/博学谷项目&lt;四&gt;/</id>
+    <published>2017-03-21T09:26:25.000Z</published>
+    <updated>2017-04-02T01:23:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="博学谷项目-lt-四-gt"><a href="#博学谷项目-lt-四-gt" class="headerlink" title="博学谷项目 &lt;四&gt;"></a>博学谷项目 &lt;四&gt;</h1><h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><ul>
+<li>BFC（格式化上下文）：BFC盒子是独立布局的，盒子内元素的布局不会影响盒子外面的元素。在同一个BFC中两个相邻的盒子在垂直方向上会发生margin垂直内边距塌陷的问题；</li>
+<li>BFC是指浏览器中创建来了一个独立的渲染区域，该区域内所有元素的布局不会影响到区域外元素的布局，这个渲染区域支队块级元素起作用；</li>
+</ul>
+<h2 id="jS插件"><a href="#jS插件" class="headerlink" title="jS插件"></a>jS插件</h2><ul>
+<li>bootstrap</li>
+<li>jquery</li>
+<li>模块化开发：requirejs</li>
+<li>滚动下拉刷新，滚动加载：onscroll</li>
+<li>文件上传：uplodify</li>
+<li>表单提交：jquery form</li>
+<li>日期插件：bootstrap-detepicker</li>
+<li>表单验证 validate</li>
+<li>富文本编辑器 CKeditor</li>
+<li>图片裁切 Jcrop</li>
+<li>三级联动 jQuery-region</li>
+<li>模板引擎 artTemplate</li>
+<li>angular js</li>
+<li>vue</li>
+<li>react</li>
+<li>node js</li>
+<li>混合开发 ionic; react native</li>
+</ul>
+<h3 id="日期插件地址"><a href="#日期插件地址" class="headerlink" title="日期插件地址"></a>日期插件地址</h3><ul>
+<li><a href="https://github.com/uxsolutions/bootstrap-datepicker" target="_blank" rel="external">bootstrap-datepicker</a></li>
+</ul>
+<h3 id="表单验证插件"><a href="#表单验证插件" class="headerlink" title="表单验证插件"></a>表单验证插件</h3><ul>
+<li>地址： <a href="https://github.com/DiegoLopesLima/validate" target="_blank" rel="external">validate</a></li>
+<li>data-required 非空判断</li>
+<li>data-pattern 匹配正则</li>
+<li>data-description 提示信息</li>
+<li>data-describedby 指定提示信息的位置</li>
+<li>data-validate 指定自定义规则的属性</li>
+<li>data-conditional 自定义规则判断，值是一个规则判断函数 </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;input name=<span class="string">'tc_join_date'</span> data-description=<span class="string">'joinDate'</span> data-describedby=<span class="string">'tcJoinDateInfo'</span> type=<span class="string">"text"</span> data-date-language=<span class="string">'zh-CN'</span> data-provide=<span class="string">'datepicker'</span> data-date-end-date=<span class="string">'0d'</span> data-date-format=<span class="string">'yyyy-mm-dd'</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control input-sm "</span> value=<span class="string">"&#123;&#123;tc_join_date&#125;&#125;"</span>&gt;</div><div class="line"></div><div class="line"> $(<span class="string">'#ajaxForm'</span>).validate(&#123;</div><div class="line">      <span class="attr">sendForm</span> : <span class="literal">false</span>,</div><div class="line">      <span class="attr">valid</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">          $(<span class="keyword">this</span>).ajaxSubmit(&#123;</div><div class="line">              <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line">              <span class="attr">url</span>:url,</div><div class="line">              <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">              <span class="attr">success</span>:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">                  <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                      location.href = <span class="string">'/teacher/teacher_list'</span></div><div class="line">                  &#125;</div><div class="line"></div><div class="line"></div><div class="line">              &#125;</div><div class="line">          &#125;)</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">description</span>:&#123;</div><div class="line">          <span class="attr">tcName</span>:&#123;</div><div class="line">              <span class="attr">required</span>:<span class="string">'用户名不能为空'</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">tcPass</span>:&#123;</div><div class="line">              <span class="attr">required</span>:<span class="string">'密码不能为空'</span>,</div><div class="line">              <span class="attr">pattern</span>:<span class="string">'只能是六位数字'</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">joinDate</span>:&#123;</div><div class="line">              <span class="attr">require</span>:<span class="string">'入职日期不能为空'</span></div><div class="line">          &#125;</div><div class="line"></div><div class="line">      &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<h3 id="表单提交插件"><a href="#表单提交插件" class="headerlink" title="表单提交插件"></a>表单提交插件</h3><ul>
+<li>地址：  </li>
+</ul>
+<ul>
+<li><a href="https://github.com/jquery-form/form" target="_blank" rel="external">form</a></li>
+<li>省略提交地址</li>
+<li>添加新数据</li>
+<li>处理回调函数  </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">    $(<span class="string">"#profileForm"</span>).validate(&#123;</div><div class="line">                <span class="attr">sendForm</span> : <span class="literal">false</span>,</div><div class="line">                <span class="attr">valid</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">                    <span class="comment">//同步更新富文本内容变化</span></div><div class="line">                    <span class="keyword">for</span>(<span class="keyword">var</span> instance <span class="keyword">in</span> CKEDITOR.instances)&#123;</div><div class="line">                        CKEDITOR.instances[instance].updateElement();</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">var</span> p = $(<span class="string">'#p'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                    <span class="keyword">var</span> c = $(<span class="string">'#c'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                    <span class="keyword">var</span> d = $(<span class="string">'#d'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                    <span class="keyword">var</span> hometown = p+<span class="string">'|'</span>+c+<span class="string">'|'</span>+d;</div><div class="line">                    $(<span class="keyword">this</span>).ajaxSubmit(&#123;</div><div class="line">                        <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line"></div><div class="line">                        <span class="attr">url</span>:<span class="string">'/api/teacher/modify'</span>,</div><div class="line">                        <span class="attr">data</span>:&#123;<span class="attr">tc_hometown</span>:hometown&#125;,</div><div class="line">                        <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">                        <span class="attr">success</span>:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">                            <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                                <span class="built_in">console</span>.log(data);</div><div class="line">                                location.reload();</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;)</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;)</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">### uploadify基本使用</div><div class="line">- [uploadify](http://www.uploadify.com/)</div><div class="line">- fileObjName 文件名称</div><div class="line">- buttonText 按钮文本</div><div class="line">- buttonClass 按钮样式</div><div class="line">- fileTypeExts 支持的扩展名</div><div class="line">- fileSizeLimit 文件的大小限制</div><div class="line">- uploader 上传的路径</div><div class="line">- swf flash文件的位置</div><div class="line">- onUploadSuccess 上传成功的回调函数</div><div class="line"></div><div class="line">`<span class="string">``</span>javascript</div><div class="line">    $(<span class="string">'#upfile'</span>).uploadify(&#123;</div><div class="line">                <span class="attr">width</span>:<span class="number">120</span>,</div><div class="line">                <span class="attr">height</span>:<span class="number">120</span>,</div><div class="line">                <span class="attr">buttonText</span>:<span class="string">""</span>,</div><div class="line">                <span class="attr">fileObjName</span>:<span class="string">'tc_avatar'</span>,</div><div class="line">                <span class="attr">swf</span>:<span class="string">'/public/assets/uploadify/uploadify.swf'</span>,</div><div class="line">                <span class="attr">uploader</span>:<span class="string">'/api/uploader/avatar'</span>,</div><div class="line">                <span class="attr">onUploadSuccess</span>:<span class="function"><span class="keyword">function</span> (<span class="params">file,data</span>) </span>&#123;</div><div class="line">                    <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(data);</div><div class="line">                    $(<span class="string">'.preview img'</span>).attr(<span class="string">'src'</span>,data.result.path);</div><div class="line">                &#125;</div><div class="line">            &#125;);</div></pre></td></tr></table></figure>
+<h3 id="php文件上传处理"><a href="#php文件上传处理" class="headerlink" title="php文件上传处理"></a>php文件上传处理</h3><ul>
+<li>$_FILES 用来获取上传的文件（具体包含了一些参数）</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Array</span></div><div class="line">(</div><div class="line">    [picture] =&gt; <span class="keyword">Array</span></div><div class="line">        (</div><div class="line">            [name] =&gt; abc.png  文件的名称</div><div class="line">            [type] =&gt; application/octet-stream  文件的传输格式</div><div class="line">            [tmp_name] =&gt; D:\wamp\tmp\phpDE88.tmp  服务器临时文件路径</div><div class="line">            [error] =&gt; <span class="number">0</span> 错误代码</div><div class="line">            [size] =&gt; <span class="number">1792</span> 文件大小</div><div class="line">        )</div><div class="line">)</div></pre></td></tr></table></figure>
+<ul>
+<li>move_uploaded_file 移动文件</li>
+</ul>
+<h3 id="背景图片截图插件"><a href="#背景图片截图插件" class="headerlink" title="背景图片截图插件"></a>背景图片截图插件</h3><ul>
+<li>Jcrop</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> picture = $(<span class="string">'.preview img'</span>),jcrop_api;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cropPic</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    jcrop_api&amp;&amp;jcrop_api.destroy();</div><div class="line">    picture.Jcrop(&#123;</div><div class="line">        <span class="comment">// bgColor:'pink',//设置选取的背景颜色</span></div><div class="line">        acpectRatio:<span class="number">2</span>,<span class="comment">//设置宽高比</span></div><div class="line">        keySupport:<span class="literal">true</span>,<span class="comment">//支持键盘控制</span></div><div class="line">        boxWidth:<span class="number">400</span>,<span class="comment">//设置背景图片,即画布的宽高</span></div><div class="line">        <span class="comment">//boxHeight:400,</span></div><div class="line">    &#125;,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">//回调函数</span></div><div class="line">        picture_api = <span class="keyword">this</span>;</div><div class="line">        <span class="comment">//获取画布的宽度和高度;</span></div><div class="line">        <span class="keyword">var</span> width = <span class="keyword">this</span>.ui.stage.width,</div><div class="line">            height = <span class="keyword">this</span>.ui.stage.height,</div><div class="line">            x = <span class="number">0</span>,</div><div class="line">            y = height/<span class="number">4</span>;</div><div class="line">        <span class="comment">//console.log(height);</span></div><div class="line">        picture_api.newSelection();</div><div class="line">        <span class="comment">//设置图片加载完成后,选框自动选中的位置</span></div><div class="line">        <span class="comment">//picture_api.setSelect([x,y,width,height/2]);</span></div><div class="line">        picture_api.animateTo([x,y,width,height/<span class="number">2</span>]);</div><div class="line">        <span class="comment">//获取截取图片的x,y,w,h;</span></div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h3 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h3><ul>
+<li><a href="http://ueditor.baidu.com/website/" target="_blank" rel="external">ueditor</a></li>
+<li><a href="http://ckeditor.com/" target="_blank" rel="external">ckeditor</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;textarea id=<span class="string">'text'</span>&gt;&lt;/textarea&gt;</div><div class="line"><span class="comment">//加载富文本</span></div><div class="line">        CKEDITOR.replace(<span class="string">'ckeditor'</span>, &#123;</div><div class="line">            <span class="comment">//toolbarGroups:[]</span></div><div class="line">        &#125;);</div><div class="line">        <span class="comment">//同步更新富文本内容变化</span></div><div class="line">           <span class="keyword">for</span>(<span class="keyword">var</span> instance <span class="keyword">in</span> CKEDITOR.instances)&#123;</div><div class="line">               CKEDITOR.instances[instance].updateElement();</div><div class="line">           &#125;</div></pre></td></tr></table></figure>
+<h3 id="三级联动"><a href="#三级联动" class="headerlink" title="三级联动"></a>三级联动</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div class='region'&gt;</div><div class="line">    &lt;select name="tc_province" id='p' data-id=&#123;&#123;tc_province&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">                &lt;option &gt;请选择省&lt;/option&gt;</div><div class="line"></div><div class="line">  &lt;/select&gt;</div><div class="line">  &lt;select name="tc_city" id='c' data-id=&#123;&#123;tc_city&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">      &lt;option &gt;请选择市&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">  &lt;select name="tc_district" id='d' data-id=&#123;&#123;tc_district&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">      &lt;option &gt;请选择区县&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">    //三级联动,加载数据</div><div class="line">$('.region').region(&#123;</div><div class="line">    url:'../lib/jquery-region/region.json'</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="编程理论基础"><a href="#编程理论基础" class="headerlink" title="编程理论基础"></a>编程理论基础</h2><ul>
+<li>服务器</li>
+<li>项目开发流程</li>
+<li>编程，逻辑思维</li>
+<li>模块化（nodejs/fis/webpack）</li>
+<li>路径</li>
+<li>路由</li>
+<li>数据库</li>
+<li>协议（网络通信）</li>
+<li>网站（静态网站和动态网站）</li>
+<li>后台接口</li>
+<li>前端渲染和后台渲染</li>
+</ul>
+<h2 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h2><ul>
+<li><p>原生的绑定事件会发生覆盖</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>jquery的绑定事件都是会叠加</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#btn'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div><div class="line">$(<span class="string">'#btn'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>location.search</code>得到的是URL地址中所有的参数<code>?tc_id=3&amp;username=12</code>;</p>
+</li>
+</ul>
+<ul>
+<li><p>可以通过<code>location</code>来获取地址栏中所携带的所有信息；</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pathname = location.search;</div><div class="line"><span class="keyword">var</span> pcname = pathname.sclice(<span class="number">1</span>); <span class="comment">//将？截取掉</span></div><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> arr = pcname.split(<span class="string">'&amp;'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</div><div class="line">    <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">    obj[kv[<span class="number">0</span>]]=kv[<span class="number">1</span>];</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">    <span class="comment">//将URL中的参数和值以键值对的形式放到obj中；</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>PHP中，将数组以json对象的形式输出： <code>json_encode($arr)</code>；</li>
+</ul>
+<h2 id="表单验证插件-1"><a href="#表单验证插件-1" class="headerlink" title="表单验证插件"></a>表单验证插件</h2><ul>
+<li>form表单中，不写提交地址，默认提交到当前页面，地址栏中；</li>
+<li><code>jquery-validate</code>表单验证的插件；</li>
+<li><code>jquery-form</code>表单提交的插件 <code>$(&#39;form&#39;).ajaxSubmit({ })</code></li>
+<li>文件上传插件 <code>webupload</code>和<code>uploadify</code></li>
+</ul>
+<p>你都做过什么，遇到什么问题，你是怎么解决的；<br>nodejs是怎么用的；</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;博学谷项目-lt-四-gt&quot;&gt;&lt;a href=&quot;#博学谷项目-lt-四-gt&quot; class=&quot;headerlink&quot; title=&quot;博学谷项目 &amp;lt;四&amp;gt;&quot;&gt;&lt;/a&gt;博学谷项目 &amp;lt;四&amp;gt;&lt;/h1&gt;&lt;h2 id=&quot;BFC&quot;&gt;&lt;a href=&quot;#BF
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="JQuery Plug" scheme="http://yoursite.com/tags/JQuery-Plug/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gulp 构建工具</title>
+    <link href="http://yoursite.com/2017/03/19/angular%20day05/"/>
+    <id>http://yoursite.com/2017/03/19/angular day05/</id>
+    <published>2017-03-19T02:17:25.000Z</published>
+    <updated>2017-04-02T01:14:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="AngularJS-day05-Gulp"><a href="#AngularJS-day05-Gulp" class="headerlink" title="AngularJS - day05 Gulp"></a>AngularJS - day05 Gulp</h1><h2 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h2><ul>
+<li>则在该ngCtl的作用域内的HTML标签, 其值或者操作都可以通过$scope的方式跟js中的属性和方法进行绑定. </li>
+</ul>
+<h2 id="脏值检测"><a href="#脏值检测" class="headerlink" title="脏值检测"></a>脏值检测</h2><ul>
+<li>当数值发生变化时，触发了一个事件，去调用这个脏值检测的函数；</li>
+<li>路径与目录的关系；</li>
+</ul>
+<h2 id="php中数据格式的转换"><a href="#php中数据格式的转换" class="headerlink" title="php中数据格式的转换"></a>php中数据格式的转换</h2><ul>
+<li>在PHP中，将数组以json对象的格式进行输出， json_encode(array);</li>
+<li>在PHP中，将对象形式的数据转换成数组， json_decode(obj,true);<ul>
+<li>注意参数为true时，才会转换成数组；</li>
+</ul>
+</li>
+<li>PHP中如果需要同时输出两组数据，可以将这个对象格式的数据转换成数组，然后</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">    header(<span class="string">'Content-Type:application/json'</span>);</div><div class="line">     $recUrl = <span class="string">'https://moment.douban.com/api/auth_authors/rec?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line">    $allUrl = <span class="string">'https://moment.douban.com/api/auth_authors/all?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line">   $recResult = file_get_contents($recUrl); <span class="comment">//&#123;&#125;</span></div><div class="line">   $allResult = file_get_contents($allResult);  <span class="comment">//  &#123;&#125;</span></div><div class="line"></div><div class="line">    <span class="comment">//先将json 数据转换成PHP数组</span></div><div class="line">    <span class="comment">//然后再讲PHP数组处理成二维数组,再转成json</span></div><div class="line">    $recResult = json_decode($recResult,<span class="literal">true</span>);<span class="comment">//参数为true的话,才转换成一个数组;</span></div><div class="line">    $allResult = json_decode($allResult);</div><div class="line"></div><div class="line">    $result = array(<span class="string">'rec'</span> =&gt; $recResult,<span class="string">'all'</span> =&gt; $allResult);</div><div class="line">    <span class="comment">//最后将这个数组格式的数据转换成json进行输出；</span></div><div class="line">    echo json_encode($result);</div><div class="line"></div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line">## gulp</div><div class="line"></div><div class="line">### Gulp 构建工具</div><div class="line">+ 常见的构建工具： Gulp Grunt F.I.S  webpack;</div><div class="line"></div><div class="line">+ gulp jianshi//调用监视任务</div><div class="line">+ gulp init 回车之后会生成一个 package.json的文件，主要是说明文件的一些基本信息，说明书；</div><div class="line">+ npm install gulp --save-dev项目依赖；直接在package.json中添加依赖信息；</div><div class="line">+ autoprefixer()自动添加css私有前缀</div><div class="line">+ 注释：build:js</div><div class="line">+ </div><div class="line">`<span class="string">``</span>js</div><div class="line">    &lt;-- build:js scripts/all.js--&gt;</div><div class="line">    <span class="comment">//会自动创建scripts文件夹，并将里面的script进行合并</span></div><div class="line">        &lt;script src=‘’&gt;</div><div class="line">        &lt;script src=‘’&gt;</div><div class="line">    &lt;--endbuild--&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>gulp 一次执行多个任务<ul>
+<li>gulp.task(‘default’,[‘a’,’b’,’c’]);</li>
+<li>命令行：gulp default;</li>
+</ul>
+</li>
+</ul>
+<h3 id="缓存问题的解决–参考浏览器-协商缓存；雅虎13条"><a href="#缓存问题的解决–参考浏览器-协商缓存；雅虎13条" class="headerlink" title="缓存问题的解决–参考浏览器 协商缓存；雅虎13条"></a>缓存问题的解决–参考浏览器 协商缓存；雅虎13条</h3><ul>
+<li>浏览器是以请求地址作为缓存条件的，只要是地址没变，浏览器就是会用缓存，地址变了，就会重新请求；</li>
+<li>内容更改的时候地址更新；可以使用md5加密；（md5是一种加密方式，加密的内容不变，加密后的信息是一致的，）–md5在线加密；</li>
+<li><code>md5加密</code>这种方式叫做指纹加密</li>
+<li>gulp有一个插件 rev</li>
+</ul>
+<h2 id="Gulp-基本使用案例"><a href="#Gulp-基本使用案例" class="headerlink" title="Gulp 基本使用案例"></a>Gulp 基本使用案例</h2><ul>
+<li>参照angular day05，豆瓣一刻案例</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div></pre></td><td class="code"><pre><div class="line">   <span class="comment">/**</span></div><div class="line">* Created by gaonana on 2017/3/31.</div><div class="line">*/</div><div class="line"></div><div class="line">   <span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</div><div class="line"></div><div class="line">       less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>),</div><div class="line"></div><div class="line">       cssmin = <span class="built_in">require</span>(<span class="string">'gulp-cssmin'</span>),</div><div class="line"></div><div class="line">       autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>),</div><div class="line"></div><div class="line">       rev = <span class="built_in">require</span>(<span class="string">'gulp-rev'</span>),</div><div class="line"></div><div class="line">       rename = <span class="built_in">require</span>(<span class="string">'gulp-rename'</span>),</div><div class="line"></div><div class="line">       imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>),</div><div class="line"></div><div class="line">       useref = <span class="built_in">require</span>(<span class="string">'gulp-useref'</span>),</div><div class="line"></div><div class="line">       uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>),</div><div class="line"></div><div class="line">       gulpif = <span class="built_in">require</span>(<span class="string">'gulp-if'</span>),</div><div class="line"></div><div class="line">       htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>),</div><div class="line"></div><div class="line">       revCollector = <span class="built_in">require</span>(<span class="string">'gulp-rev-collector'</span>)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">   <span class="comment">//处理css</span></div><div class="line">   gulp.task(<span class="string">'css'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> gulp.src(<span class="string">'./public/less/main.less'</span>)</div><div class="line">           .pipe(less()) <span class="comment">//将less编译成css</span></div><div class="line">           .pipe(autoprefixer())<span class="comment">//给css添加私有前缀</span></div><div class="line">           .pipe(cssmin())<span class="comment">//将css进行压缩</span></div><div class="line">           .pipe(rev())<span class="comment">//将压缩后的css文件添加版本号</span></div><div class="line">           .pipe(gulp.dest(<span class="string">'./release/public/css'</span>))<span class="comment">//将当前的版本存储起来</span></div><div class="line">           .pipe(rev.manifest())<span class="comment">//如果文件进行了修改,记录前后修改的信息,如果有多个,后面的会把前面的覆盖,所以需要重命名</span></div><div class="line">           .pipe(rename(<span class="string">'css-mainfest.json'</span>))</div><div class="line">           .pipe(gulp.dest(<span class="string">'./release/rev'</span>))<span class="comment">//将json文件放到rev文件夹里面</span></div><div class="line">   &#125;);</div><div class="line"></div><div class="line">   <span class="comment">//处理图片信息</span></div><div class="line">   gulp.task(<span class="string">'image'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="keyword">return</span> gulp.src([<span class="string">'./public/images/**/*'</span>,<span class="string">'./uploads/*'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)<span class="comment">//如果路径文件夹下面还有子文件夹,路径使用/**/*;为了不同的文件保存在不同的文件夹里面,设定base,会自动对应存储;</span></div><div class="line">           .pipe(imagemin())<span class="comment">//压缩图片</span></div><div class="line">           .pipe(rev())<span class="comment">//将图片重新编号</span></div><div class="line">           .pipe(gulp.dest(<span class="string">'./release'</span>))<span class="comment">//图片压缩添加序列号后保存</span></div><div class="line">           .pipe(rev.manifest())</div><div class="line">           .pipe(rename(<span class="string">'images-mainfest.json'</span>))</div><div class="line">           .pipe(gulp.dest(<span class="string">'./release.rev'</span>))</div><div class="line">   &#125;);</div><div class="line"></div><div class="line">   <span class="comment">//处理js</span></div><div class="line">   gulp.task(<span class="string">'useref'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="comment">//js文件是在HTML中引入的,所以是在HTML中处理JS文件</span></div><div class="line">       <span class="keyword">return</span> gulp.src(<span class="string">'./index.html'</span>)</div><div class="line">           .pipe(useref())<span class="comment">//去HTML文件中查找注释,进行编译压缩等</span></div><div class="line">           .pipe(gulpif(<span class="string">'*.js'</span>,uglify()))<span class="comment">//如果文件中有JS文件,进行压缩JS</span></div><div class="line">           .pipe(gulpif(<span class="string">'*.js'</span>, rev()))<span class="comment">//文件添加序列号</span></div><div class="line">           .pipe(gulp.dest(<span class="string">'./release'</span>))</div><div class="line">           .pipe(rev.manifest())</div><div class="line">           .pipe(rename(<span class="string">'js-mainfest.json'</span>))</div><div class="line">           .pipe(gulp.dest(<span class="string">'./release/rev'</span>));</div><div class="line">   &#125;)</div><div class="line"></div><div class="line">   <span class="comment">//处理所有的视图页面HTML</span></div><div class="line">   gulp.task(<span class="string">'html'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> gulp.src(<span class="string">'./views/*.html'</span>)</div><div class="line">           .pipe(htmlmin(&#123;</div><div class="line">               <span class="attr">collapseWhitespace</span>:<span class="literal">true</span></div><div class="line">           &#125;))<span class="comment">//压缩HTML,需要传递参数;将空白区域进行压缩</span></div><div class="line">           .pipe(gulp.dest(<span class="string">'./release/views'</span>));</div><div class="line">   &#125;)</div><div class="line"></div><div class="line">   <span class="comment">//处理其他部分</span></div><div class="line"></div><div class="line">   gulp.task(<span class="string">'other'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> gulp.src([<span class="string">'./api/*.php'</span>,<span class="string">'./public/fonts/*'</span>,<span class="string">'./favicon.ico'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)</div><div class="line">       <span class="comment">//因为PHP,字体,图标等文件不需要压缩,直接保存就可以</span></div><div class="line">           .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">   &#125;);</div><div class="line"></div><div class="line">   <span class="comment">//替换路径</span></div><div class="line">   gulp.task(<span class="string">'rev'</span>,[<span class="string">'css'</span>,<span class="string">'useref'</span>,<span class="string">'image'</span>],<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="comment">//将记录文件边的的文件,将其在index里面的路径进行替换;</span></div><div class="line">       <span class="comment">//因为只有等其余文件都加载完成之后,index才能加载,所以需要进行依赖</span></div><div class="line">       <span class="comment">//为了保证其余加载完毕后再加载当前功能,其余功能必须return才行</span></div><div class="line">       gulp.src([<span class="string">'./release/rev/*.json'</span>,<span class="string">'./release/index.html'</span>])</div><div class="line">           .pipe(revCollector())<span class="comment">//进行文件合并</span></div><div class="line">           .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">   &#125;);</div><div class="line"></div><div class="line">   <span class="comment">//最后,将所有的任务放到一个任务中,只执行最后一个任务就可以</span></div><div class="line"></div><div class="line">   gulp.task(<span class="string">'release'</span>,[<span class="string">'rev'</span>,<span class="string">'other'</span>,<span class="string">'html'</span>]);</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;AngularJS-day05-Gulp&quot;&gt;&lt;a href=&quot;#AngularJS-day05-Gulp&quot; class=&quot;headerlink&quot; title=&quot;AngularJS - day05 Gulp&quot;&gt;&lt;/a&gt;AngularJS - day05 Gulp&lt;/
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="Gulp" scheme="http://yoursite.com/tags/Gulp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模块化开发思想</title>
+    <link href="http://yoursite.com/2017/03/16/%E5%8D%9A%E5%AD%A6%E8%B0%B7%E9%A1%B9%E7%9B%AE%3C%E4%BA%94%3E/"/>
+    <id>http://yoursite.com/2017/03/16/博学谷项目&lt;五&gt;/</id>
+    <published>2017-03-16T09:26:25.000Z</published>
+    <updated>2017-04-02T01:24:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="博学谷项目-lt-五-gt"><a href="#博学谷项目-lt-五-gt" class="headerlink" title="博学谷项目 &lt;五&gt;"></a>博学谷项目 &lt;五&gt;</h1><h2 id="面试准备优先点"><a href="#面试准备优先点" class="headerlink" title="面试准备优先点"></a>面试准备优先点</h2><p>  <img src="media/14901437480394/1.png" alt=""></p>
+<h2 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h2><ul>
+<li>$(‘’).prop(‘checked’,false),当只要属性不要值的属性，如checked，selected等设置其属性值时，使用prop；</li>
+</ul>
+<h3 id="模块化开发思想"><a href="#模块化开发思想" class="headerlink" title="模块化开发思想"></a>模块化开发思想</h3><ul>
+<li>解决命名冲突和文件依赖，方便代码的维护和重用</li>
+<li>AMD - requirejs</li>
+<li>CMD - seajs</li>
+<li>Commonjs-nodejs(服务器端模块化)</li>
+</ul>
+<h3 id="常用的jQuery插件"><a href="#常用的jQuery插件" class="headerlink" title="常用的jQuery插件"></a>常用的jQuery插件</h3><ul>
+<li>表单验证： validate</li>
+<li>表单提交： form</li>
+<li>日期插件：bootstrap-datepicker</li>
+<li>富文本插件 CKeditor</li>
+<li>文件上传插件 uploadify</li>
+<li>图片上传插件 Jcrop</li>
+<li>省市县三级联动插件 jQuery-region</li>
+<li>图表插件 echarts</li>
+<li>进度条插件 nprogress</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;博学谷项目-lt-五-gt&quot;&gt;&lt;a href=&quot;#博学谷项目-lt-五-gt&quot; class=&quot;headerlink&quot; title=&quot;博学谷项目 &amp;lt;五&amp;gt;&quot;&gt;&lt;/a&gt;博学谷项目 &amp;lt;五&amp;gt;&lt;/h1&gt;&lt;h2 id=&quot;面试准备优先点&quot;&gt;&lt;a href=
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="JQuery Plug" scheme="http://yoursite.com/tags/JQuery-Plug/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/03/15/2017-03-15-MAMP%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2017/03/15/2017-03-15-MAMP虚拟主机配置/</id>
+    <published>2017-03-15T12:02:10.000Z</published>
+    <updated>2017-03-15T12:02:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="MAMP虚拟主机的配置"><a href="#MAMP虚拟主机的配置" class="headerlink" title="MAMP虚拟主机的配置"></a>MAMP虚拟主机的配置</h1><ol>
+<li>MAMP可以直接选择根目录文件,所以在MAMP的操作页面直接选择操作工作空间即可;</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;MAMP虚拟主机的配置&quot;&gt;&lt;a href=&quot;#MAMP虚拟主机的配置&quot; class=&quot;headerlink&quot; title=&quot;MAMP虚拟主机的配置&quot;&gt;&lt;/a&gt;MAMP虚拟主机的配置&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;MAMP可以直接选择根目录文件,所以在MAMP的操作页面
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>缓存，cookie与session，跨域与requireJS的使用</title>
+    <link href="http://yoursite.com/2017/03/15/%E5%8D%9A%E5%AD%A6%E8%B0%B7%E9%A1%B9%E7%9B%AE%3C%E4%BA%8C%3E/"/>
+    <id>http://yoursite.com/2017/03/15/博学谷项目&lt;二&gt;/</id>
+    <published>2017-03-15T09:26:25.000Z</published>
+    <updated>2017-04-02T01:21:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="博学谷项目-lt-二-gt"><a href="#博学谷项目-lt-二-gt" class="headerlink" title="博学谷项目 &lt;二&gt;"></a>博学谷项目 &lt;二&gt;</h1><h2 id="域名解析系统"><a href="#域名解析系统" class="headerlink" title="域名解析系统"></a>域名解析系统</h2><ul>
+<li>先去本机的host的文件查找对应的IP,如果在本机host文件中找到,就返回对应的IP;如果没有的话,就去公网查找,公网没有的话就无法上网;<h2 id="前端发送请求的方式"><a href="#前端发送请求的方式" class="headerlink" title="前端发送请求的方式"></a>前端发送请求的方式</h2></li>
+<li>地址栏直接输入URL</li>
+<li>表单的action属性</li>
+<li>a标签的href属性;link的href</li>
+<li>src属性:img的src;script的src; iframe的src</li>
+<li>ajax发送请求</li>
+<li>postMessage H5新的API</li>
+<li>flash插件</li>
+<li>location.href<ol>
+<li>补充:URL的规范格式 scheme://host:port /path?query#frament;</li>
+</ol>
+<ul>
+<li>scheme 表示协议 http https ftp file ssh;</li>
+<li>host 表示域名或者IP地址;</li>
+<li>port 端口;用来确定计算机上某个网络应用程序;</li>
+<li>path 路径;域名之后,参数(?)之前的内容:/abc/qqq等</li>
+<li>query 查询字符串;作用,向服务器传递参数数据;格式:键=值&amp;键=值</li>
+<li>frament: hash 锚点,定位页面的某一部分;结合ID;</li>
+</ul>
+</li>
+</ul>
+<h2 id="路径问题"><a href="#路径问题" class="headerlink" title="路径问题"></a>路径问题</h2><ul>
+<li>绝对路径 / 等效于直接写IP地址<a href="http://localhost" target="_blank" rel="external">http://localhost</a></li>
+<li>相对路径:  ./代表当前路径 ../代表上层路径</li>
+<li>跳转到根路径<code>&lt;a href=&quot;/tom.html&quot;&gt;</code></li>
+</ul>
+<h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><ul>
+<li>cookie写入之后,只要是访问同一个网站,都会带着cookie进行访问;</li>
+<li>在PHP中session start();开启session会话;让服务器知道曾经来过,保存访问状态;SESSID</li>
+<li>session是服务端的,客户端向服务端发送SESSID,进行服务器与客户端的关联,服务器返回该用户的信息;</li>
+<li>SESSID可以保持客户端与服务器之间的联系状态;实现不同页面间的数据共享</li>
+</ul>
+<h2 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h2><ul>
+<li><p>jsonp</p>
+<ul>
+<li><p>jsonp返回的数据应该是函数的调用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ecName = $_GET[<span class="string">'callback'</span>];<span class="comment">//获取到函数名;</span></div><div class="line">echo $ecName.<span class="string">"("</span>data.<span class="string">")"</span>;<span class="comment">//返回函数的调用;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>cors 配置服务器,</li>
+<li>反向代理 其原理类似于CORS</li>
+<li>flash插件,但是现在已经很少用了;</li>
+</ul>
+<h2 id="PHP-相关问题"><a href="#PHP-相关问题" class="headerlink" title="PHP 相关问题"></a>PHP 相关问题</h2><ul>
+<li>PHP既可以做前端页面渲染,也可以单独作为接口返回数据;</li>
+<li>&lt;?php include()?&gt;(PHP中导入页面)<br><code>count($arr == 2)</code> 等同于js中<code>arr.length == 2</code>;</li>
+</ul>
+<h2 id="模块化规范"><a href="#模块化规范" class="headerlink" title="模块化规范"></a>模块化规范</h2><ul>
+<li>浏览器端的规范：<ol>
+<li>AMD：requirejs</li>
+<li>CMD:seajs （淘宝的技术）</li>
+<li>commonjs - nodejs 同步加载，后端的奇数</li>
+</ol>
+</li>
+<li>服务器端的规范<ol>
+<li>commonjs:nodejs </li>
+</ol>
+</li>
+</ul>
+<h2 id="requirejs使用"><a href="#requirejs使用" class="headerlink" title="requirejs使用"></a>requirejs使用</h2><ol>
+<li>解决了命名冲突 （不同模块中的相同变量不会冲突）</li>
+<li>解决了文件依赖问题</li>
+<li>如果requirejs加载的时候，指定了data-main属性，那么根路径就变成了入口文件所处的路径;<ol>
+<li>不使用data-main的时候，在通过require加载文件时可以直接使用相对路径；</li>
+<li>但是在使用data-main的同时，再使用require加载其他模块文件，文件的根路径发生了改变，此时可以重新定义默认的根路径；</li>
+<li>requirejs处理非模块化文件</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> &lt;script src=<span class="string">'require.js'</span> data-main=<span class="string">'main.js'</span> &gt;&lt;/script&gt;</div><div class="line"> &lt;script&gt;</div><div class="line">     <span class="comment">//加载文件，通过data-main的路径进行定位</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'./m4'</span>]);</div><div class="line">     <span class="comment">//或者重新设置默认的根路径</span></div><div class="line">     <span class="built_in">require</span>.config(&#123;</div><div class="line">         <span class="attr">baseUrl</span>:<span class="string">'./js/'</span></div><div class="line">     &#125;);</div><div class="line">     <span class="comment">//相对于根路径的路径</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'/module/m4'</span>]);</div><div class="line">      <span class="comment">//将abc文件中foo的非模块化文件到处成为模块化文件</span></div><div class="line">    shim:&#123;</div><div class="line">        <span class="string">'../abc'</span>:&#123;</div><div class="line">         <span class="comment">//给模块起一个别名；如果自定义模块起了一个名字，在用的时候必须与那个名字保持一致；</span></div><div class="line">            exports:<span class="string">'foo'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">          paths:&#123;</div><div class="line">         <span class="attr">ggg</span>:<span class="string">"js/jquery"</span>;</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;博学谷项目-lt-二-gt&quot;&gt;&lt;a href=&quot;#博学谷项目-lt-二-gt&quot; class=&quot;headerlink&quot; title=&quot;博学谷项目 &amp;lt;二&amp;gt;&quot;&gt;&lt;/a&gt;博学谷项目 &amp;lt;二&amp;gt;&lt;/h1&gt;&lt;h2 id=&quot;域名解析系统&quot;&gt;&lt;a href=&quot;
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="requireJS" scheme="http://yoursite.com/tags/requireJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Canvas 基本命令</title>
+    <link href="http://yoursite.com/2017/03/11/canvas-day02%E9%95%BF%E6%96%B9%E5%BD%A2%EF%BC%8C%E5%9C%86%EF%BC%8C%E5%8A%A8%E7%94%BB/"/>
+    <id>http://yoursite.com/2017/03/11/canvas-day02长方形，圆，动画/</id>
+    <published>2017-03-11T08:49:43.000Z</published>
+    <updated>2017-04-02T01:16:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="canvas-第二天"><a href="#canvas-第二天" class="headerlink" title="canvas 第二天"></a>canvas 第二天</h1><h2 id="一、修改原型指向"><a href="#一、修改原型指向" class="headerlink" title="一、修改原型指向"></a>一、修改原型指向</h2><ul>
+<li>实例产生之后，再修改构造函数的原型，对实例中的数据没有影响；按时回影响instanceof的判断；</li>
+<li>只有当<code>foo.__proto__==Foo.prototype</code>成立时，<code>foo instanceof Foo</code>才成立；<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.flag = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">info</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.info = info;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo(<span class="string">'123'</span>);<span class="comment">//此时Foo.prototype = &#123;&#125;;</span></div><div class="line">Foo.prototype = <span class="keyword">new</span> fn();</div><div class="line"><span class="built_in">console</span>.log(foo <span class="keyword">instanceof</span> Foo)<span class="comment">//结果是false；,</span></div><div class="line"><span class="comment">//foo.__proto__是原来Foo的原型；</span></div><div class="line"><span class="comment">//现在Foo的prototype = fn;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二、canvas"><a href="#二、canvas" class="headerlink" title="二、canvas"></a>二、canvas</h2><ol>
+<li>canvas 在IE8之前有兼容性问题；</li>
+<li>矩形的绘制<ul>
+<li><code>rect(x,y,width,height)</code>这个需要<code>stroke()</code>描边</li>
+<li><code>strokeRect(x,y,width,height)</code>;这个就不需要调用stroke描边</li>
+<li><code>fillRect()</code>填充显示长方形，不需要单独填充操作；</li>
+<li><code>clearRect(x,y,width,height)</code>;将特定位置的长方形清空；清空画布：<code>clearRect(0,0,cas.width,cas.height)</code>;</li>
+<li>注意: <code>clearRect</code>不能清空路径,但是能清空描边或填充</li>
+</ul>
+</li>
+<li><code>cxt.save() cxt.restore()</code>表示保存上次的绘制状态（包括fillStyle 和 strockeStyle）;<br> <code>save()</code>可以保存多次绘制状态，以栈的方式存储;<code>后进先出</code>； <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> cxt.beginPath();</div><div class="line"><span class="comment">//会存储fillStyle和strokeStyle</span></div><div class="line">cxt.restore();<span class="comment">//恢复最后一次保存的状态</span></div><div class="line">cxt.restore();<span class="comment">//恢复倒数第二次的状态</span></div><div class="line">cxt.rect(<span class="number">50</span>,<span class="number">50</span>,<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">cxt.stroke();</div><div class="line">cxt.fill();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="三、绘制圆弧"><a href="#三、绘制圆弧" class="headerlink" title="三、绘制圆弧"></a>三、绘制圆弧</h3><ul>
+<li><p><code>arc(x,y,r,startAngle,endAngle,false)</code>,false代表顺时针绘制，true逆时针绘制；</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">圆的弧度 = <span class="number">2</span>πr；角度 = <span class="number">360</span>°</div><div class="line">所以 <span class="number">1</span>° = <span class="built_in">Math</span>.PI/<span class="number">180</span>;</div><div class="line"><span class="number">90</span>° = <span class="number">90</span> * <span class="built_in">Math</span>.PI/<span class="number">180</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>水平往右方向为起始点；</p>
+</li>
+<li>绘制连续的路径，如果起始点与上一个的终点一致，就无需moveTo；<h3 id="四、数组-foreach和map方法使用"><a href="#四、数组-foreach和map方法使用" class="headerlink" title="四、数组 foreach和map方法使用"></a>四、数组 foreach和map方法使用</h3></li>
+<li><code>foreach(function(item,index,arr){})</code> ,没有返回值；</li>
+<li><code>arr.map(function(item,index){})</code>,操作之后，会返回修改之后的数组，有返回值<h3 id="五、逐帧动画"><a href="#五、逐帧动画" class="headerlink" title="五、逐帧动画"></a>五、逐帧动画</h3></li>
+<li><code>requestAnimationFrame()</code>，同setTimeout作用类似；</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;canvas-第二天&quot;&gt;&lt;a href=&quot;#canvas-第二天&quot; class=&quot;headerlink&quot; title=&quot;canvas 第二天&quot;&gt;&lt;/a&gt;canvas 第二天&lt;/h1&gt;&lt;h2 id=&quot;一、修改原型指向&quot;&gt;&lt;a href=&quot;#一、修改原型指向&quot; cla
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="canvas" scheme="http://yoursite.com/tags/canvas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数组小知识</title>
+    <link href="http://yoursite.com/2017/01/22/canvas-day04/"/>
+    <id>http://yoursite.com/2017/01/22/canvas-day04/</id>
+    <published>2017-01-22T09:26:25.000Z</published>
+    <updated>2017-04-02T01:18:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="canvas-day04"><a href="#canvas-day04" class="headerlink" title="canvas day04"></a>canvas day04</h1><h2 id="1-arr-map"><a href="#1-arr-map" class="headerlink" title="1. arr.map"></a>1. arr.map</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'1.5'</span>,<span class="string">'2.5'</span>,<span class="string">'3.5'</span>];</div><div class="line"><span class="built_in">console</span>.log(arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.Floor(item)</div><div class="line">    <span class="comment">//结果为['1','2','3];</span></div><div class="line">&#125;))</div><div class="line"><span class="built_in">console</span>.log(arr);==<span class="comment">//结果还是原数组['1.5','2.5','3.5'];</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;canvas-day04&quot;&gt;&lt;a href=&quot;#canvas-day04&quot; class=&quot;headerlink&quot; title=&quot;canvas day04&quot;&gt;&lt;/a&gt;canvas day04&lt;/h1&gt;&lt;h2 id=&quot;1-arr-map&quot;&gt;&lt;a href=&quot;#1-ar
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="array" scheme="http://yoursite.com/tags/array/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Canvas文字路径与图片加载问题</title>
+    <link href="http://yoursite.com/2017/01/21/canvas-day03/"/>
+    <id>http://yoursite.com/2017/01/21/canvas-day03/</id>
+    <published>2017-01-21T09:26:25.000Z</published>
+    <updated>2017-04-02T01:17:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="canvas-day03"><a href="#canvas-day03" class="headerlink" title="canvas day03"></a>canvas day03</h1><h2 id="函数的赋值"><a href="#函数的赋值" class="headerlink" title="函数的赋值"></a>函数的赋值</h2><ul>
+<li>1: 逗号表达式，逗号分隔的表达式会从左往右逐个执行，但是以最后一个结果为准。</li>
+<li><p>2:函数立即调用的语法I结构有两种：</p>
+<ul>
+<li>（）（）</li>
+<li>（+ - ！ ~）function（）{}（）等；</li>
+<li>二进制运算：按位，与或非  异或<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = (<span class="number">11</span>+<span class="number">12</span>,<span class="number">23</span>+<span class="number">23</span>,foo());</div><div class="line"><span class="built_in">console</span>.log(num);</div><div class="line"><span class="comment">//此时会以最后一个逗号之后的值为准，返回foo()的返回值赋值给num;</span></div><div class="line">都是函数立即调用：不同符号代表不同含义；按位运算，与或非，异或等；</div><div class="line">(funcyion(n)&#123;</div><div class="line">    <span class="built_in">console</span>.log(n)</div><div class="line">&#125;)(num);</div><div class="line">~<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line">!<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    conosole.log(n);</div><div class="line">&#125;(num);</div><div class="line">+<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line">-<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line"><span class="comment">//这种形式的写法会将function转换为表达式</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>3：将数值型参数转换成布尔值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param</span>)</span>&#123;</div><div class="line">    <span class="comment">//将parameter转换为true；</span></div><div class="line">    <span class="keyword">var</span> flag = !!param;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>4：两个事件队列，第一个出错，第二个仍会正常进行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一个报错，第二个时间到了，第二个也会正常执行；</span></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(abc);</div><div class="line">&#125;,<span class="number">10</span>)</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">123</span>);</div><div class="line">&#125;,<span class="number">0</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-canvas文字"><a href="#2-canvas文字" class="headerlink" title="2 canvas文字"></a>2 canvas文字</h2><ul>
+<li>cxt.font(10px 宋体);</li>
+<li>cxt.strokeText(text,x,y,max-width);一般最后一个参数不设置；（空心文字）；</li>
+<li>cxt.fillText(text,x,y)(实芯文字)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cxt.font = <span class="string">"30px 微软雅黑"</span>;</div><div class="line">cxt.strokeText(str,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">cxt.fillText(str,<span class="number">100</span>,<span class="number">300</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-有独立路径的方法"><a href="#3-有独立路径的方法" class="headerlink" title="3 有独立路径的方法"></a>3 有独立路径的方法</h2><ul>
+<li>strokeRect();</li>
+<li>fillRect();</li>
+<li>strokeText();</li>
+<li>fillText();<h2 id="4-文字对齐方式"><a href="#4-文字对齐方式" class="headerlink" title="4 文字对齐方式"></a>4 文字对齐方式</h2></li>
+<li>textAlign：水平方向<ul>
+<li>direction属性，两个值：rtl,ltr;</li>
+<li>textAligh=”left” 居左对齐,是指文本的右边与参照物的左边对齐;</li>
+<li>textAligh=”right” 居右对齐</li>
+<li>textAligh=”center” 居中对齐</li>
+</ul>
+</li>
+<li>textBaseline：处置方向对齐<ul>
+<li>top; bottom; middle; hanging;alphabetic(文本基线是字母基线);ideographic;<h2 id="5-图片加载问题"><a href="#5-图片加载问题" class="headerlink" title="5 图片加载问题"></a>5 图片加载问题</h2></li>
+</ul>
+</li>
+<li><p>通过<code>document.body.appedChild(&#39;img&#39;)</code>追加到页面中的img,不能直接获取到图片的宽和高，必须等图片加载完成之后才能获得;</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</div><div class="line">img.src = <span class="string">'king2.jpeg'</span>;</div><div class="line"><span class="comment">//图片加载完成之后,才能获取图片的宽高,才能加载</span></div><div class="line"><span class="comment">//图片的加载需要时间;</span></div><div class="line">img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">cxt.drawImage(img,<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>cxt.drawImage()有两种参数形式:</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一种写法,5个参数</span></div><div class="line"><span class="comment">//参数2,3画布上定位的图片,参数4,5只图片的宽和高;</span></div><div class="line">cxt.drawImage(img,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line"></div><div class="line"><span class="comment">//第二种写法,9个参数</span></div><div class="line"><span class="comment">//1:图片,2,3:要裁剪的图片在原图片上的位置,等同于精灵图的位置;4、5裁剪区域的宽和高,6,7图片要在画布上的起始位置,8,9,图片在画布上的宽和高;</span></div><div class="line"><span class="comment">//此时裁剪的是第二排的第二个图片</span></div><div class="line">cxt.drawImage(img,<span class="number">40</span>,<span class="number">65</span>,<span class="number">40</span>,<span class="number">65</span>,cas.width/<span class="number">2</span><span class="number">-20</span>,cas.height/<span class="number">2</span><span class="number">-34.5</span>,<span class="number">40</span>,<span class="number">65</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="6-Math-PI-180°"><a href="#6-Math-PI-180°" class="headerlink" title="6 Math.PI = 180°"></a>6 Math.PI = 180°</h2><p>##　7　canvas旋转<br>+　只能是旋转之后,在画出图形,不能画出图形之后再旋转;<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cxt.rotate(<span class="number">10</span>*<span class="built_in">Math</span>.PI/<span class="number">180</span>);</div><div class="line">cxt.strokeRect(<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">200</span>);</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;canvas-day03&quot;&gt;&lt;a href=&quot;#canvas-day03&quot; class=&quot;headerlink&quot; title=&quot;canvas day03&quot;&gt;&lt;/a&gt;canvas day03&lt;/h1&gt;&lt;h2 id=&quot;函数的赋值&quot;&gt;&lt;a href=&quot;#函数的赋值&quot; c
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="canvas" scheme="http://yoursite.com/tags/canvas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Angular 中jQuery的使用</title>
+    <link href="http://yoursite.com/2016/12/14/angular%20day04/"/>
+    <id>http://yoursite.com/2016/12/14/angular day04/</id>
+    <published>2016-12-14T00:26:25.000Z</published>
+    <updated>2017-04-02T01:13:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="AngularJS-day04"><a href="#AngularJS-day04" class="headerlink" title="AngularJS - day04"></a>AngularJS - day04</h1><h2 id="angular中jQuery的使用"><a href="#angular中jQuery的使用" class="headerlink" title="angular中jQuery的使用"></a>angular中jQuery的使用</h2><ul>
+<li>angular可以讲一个原生的DOM对象转换成一个jQuery对象；</li>
+<li>如果angular中没有引入jQuery，那么angular中只包含了部分jQuery方法；</li>
+<li>引入了jQuery后，jqList</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn'</span>);</div><div class="line">   angular.element = jQuery;</div><div class="line">   angular.element(btn).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">       angular.element(box).css(<span class="string">'backgroundColor'</span>,<span class="string">'pink'</span>);</div><div class="line">       angular.element(box).animate(&#123;</div><div class="line">           <span class="attr">width</span>:<span class="number">200</span>,</div><div class="line">           <span class="attr">height</span>:<span class="number">200</span>,</div><div class="line">       &#125;,<span class="number">500</span>);</div><div class="line">   &#125;)</div></pre></td></tr></table></figure>
+<h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><ul>
+<li>基于NodeJS的一个静态资源管路工具；</li>
+</ul>
+<h3 id="豆瓣一刻"><a href="#豆瓣一刻" class="headerlink" title="豆瓣一刻"></a>豆瓣一刻</h3><ul>
+<li>前端分包<ul>
+<li>视图： views<ul>
+<li>views</li>
+<li>tpls</li>
+<li>templates</li>
+</ul>
+</li>
+<li>静态资源 public<ul>
+<li>public(imgs/less/fonts/libs等)</li>
+<li>static</li>
+<li>assets  </li>
+</ul>
+</li>
+<li>脚本 scripts </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li>uploads</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><meta name="referrer" content="never"> 可以突破防盗链</li>
+<li><p>使用time()函数可以获取当前服务器的时间（时间戳）；<code>echo time()</code>;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">echo time();</div><div class="line">echo <span class="string">"&lt;br/&gt;"</span>;</div><div class="line">echo date(<span class="string">'Y-m-d H:i:s'</span>,time());--<span class="number">-2017</span><span class="number">-03</span><span class="number">-29</span> <span class="number">09</span>:<span class="number">23</span>:<span class="number">40</span></div><div class="line"></div><div class="line"></div><div class="line">phpinfo()<span class="comment">//可以火气PHP的详细信息，包括安装目录所支持的模块扩展等很多信息；</span></div><div class="line"></div><div class="line"></div><div class="line">strtotime(<span class="string">'-1day'</span>);前一天</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;AngularJS-day04&quot;&gt;&lt;a href=&quot;#AngularJS-day04&quot; class=&quot;headerlink&quot; title=&quot;AngularJS - day04&quot;&gt;&lt;/a&gt;AngularJS - day04&lt;/h1&gt;&lt;h2 id=&quot;angular中j
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="Angular" scheme="http://yoursite.com/tags/Angular/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Angular 服务、配置块与路由</title>
+    <link href="http://yoursite.com/2016/12/01/angular%20day03/"/>
+    <id>http://yoursite.com/2016/12/01/angular day03/</id>
+    <published>2016-12-01T10:26:25.000Z</published>
+    <updated>2017-04-02T01:12:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="angular-day03"><a href="#angular-day03" class="headerlink" title="angular-day03"></a>angular-day03</h1><h2 id="自定义服务，-service和-factory"><a href="#自定义服务，-service和-factory" class="headerlink" title="自定义服务，$service和$factory"></a>自定义服务，<code>$service</code>和<code>$factory</code></h2><ul>
+<li>App.controller(); 内置控制器</li>
+<li>App.directive(); 内置指令</li>
+<li>App.filter(); 内置过滤器</li>
+<li>App.factory(); 内置服务</li>
+<li>App.service(); 内置服务</li>
+<li>App.config(); 配置块</li>
+<li>App.run(); 运行块</li>
+</ul>
+<h2 id="配置块和运行块"><a href="#配置块和运行块" class="headerlink" title="配置块和运行块"></a>配置块和运行块</h2><ul>
+<li>App.config():一个参数，为数组；[]；App.config([]);</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">App.config([<span class="string">'$logProvider'</span>,<span class="string">'$filterProvider'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$logProvider,$filterProvider</span>) </span>&#123;</div><div class="line"><span class="comment">//通过$logProvider对$log进行配置;</span></div><div class="line">$logProvider.debugEnabled(<span class="literal">false</span>);</div><div class="line">$filterProvider.register(<span class="string">'capitalize'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">input</span>) </span>&#123;</div><div class="line">       <span class="keyword">return</span> (input[<span class="number">0</span>].toUpperCase() + input.slice(<span class="number">1</span>));</div><div class="line">   &#125;</div><div class="line">&#125;)</div><div class="line">&#125;]);</div><div class="line"><span class="comment">//这样在配置好之后，在HTML中就可以直接使用‘capitalize’服务了</span></div><div class="line">&lt;p ng-controller=<span class="string">'DemoCtrl'</span>&gt; &#123;&#123;name | capitalize&#125;&#125;&lt;<span class="regexp">/p&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="运行块"><a href="#运行块" class="headerlink" title="运行块"></a>运行块</h3><ul>
+<li>$rootScope:  AngularJS的根作用域，可定于全局变量</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">App.run([<span class="string">'$rootScope'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$rootScope</span>) </span>&#123;</div><div class="line">       $rootScope.name = <span class="string">'顺治'</span>;</div><div class="line">   &#125;])</div><div class="line">   <span class="comment">//这个name在此文件中的任何一个控制器中都可以使用；</span></div></pre></td></tr></table></figure>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><ul>
+<li>路由是URL地址与程序的映射关系；通过调整地址的变化，可以‘调用或执行’ 某一具体的程序；</li>
+<li>SPA：single page application 单页面展示所有功能；</li>
+<li>多页面最明显的一个缺点就是每次更新页面都要进行刷新，不能得到很好的用户体验；</li>
+<li>AngularJS的路由是建立在单页面的基础之上的；</li>
+<li><code>onhashchange</code>:检测地址栏中地址的变化，绑在window上的</li>
+<li>PHP中：<code>file_get_contents(&#39;./views/&#39;.$hash.&#39;.html&#39;)</code>;获取文件中的内容</li>
+<li>锚链接就是点断的路由，就是地址与程序的映射关系；</li>
+</ul>
+<h3 id="路由的配置"><a href="#路由的配置" class="headerlink" title="路由的配置"></a>路由的配置</h3><ul>
+<li>路由经过设置才能使用</li>
+<li>模块需要依赖路由 <code>var Music = angular.module(&#39;Music&#39;,[&#39;ngRoute&#39;]);</code></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"> &lt;nav&gt;</div><div class="line"> //锚点中有参数的时候，不会影响到路由；ß</div><div class="line">    &lt;a href="#!/login?name=小明"&gt;登录&lt;/a&gt; //地址必须写成  #！/的形式</div><div class="line">    &lt;a href="#!/register"&gt;注册&lt;/a&gt;</div><div class="line">&lt;/nav&gt;</div><div class="line">    &lt;!-- ng-view 是一个占位符--&gt;</div><div class="line">&lt;div ng-view&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">var App = angular.module('App',['ngRoute']);</div><div class="line">//路由是需要配置才能使用;</div><div class="line">App.config(['$routeProvider',function ($routeProvider) &#123;</div><div class="line">    //两个参数path 和 route</div><div class="line">    //第一个参数:路由</div><div class="line">    //第二个参数是路由的配置</div><div class="line">    $routeProvider.when('/register',&#123;</div><div class="line">        //template:"&lt;h1&gt;首页&lt;/h1&gt;",简单的内容</div><div class="line">        templateUrl:'./views/register.html' //可以引入URL地址</div><div class="line">        //为当前视图文件分配控制器;</div><div class="line">        controller:'RegisterCtrl',</div><div class="line">    &#125;).when('/login',&#123;</div><div class="line">        //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">        templateUrl:'./views/login.html'</div><div class="line">    &#125;).otherwise(&#123;</div><div class="line">        //如果都不符合,可以设置默认值</div><div class="line">        redirectTo:'/register'</div><div class="line">    &#125;)</div><div class="line">&#125;])</div><div class="line"></div><div class="line">App.controller('RegisterCtrl',['$scope',function ($scope) &#123;</div><div class="line">    $scope.title = '注册';</div><div class="line">&#125;])</div><div class="line"></div><div class="line">//然后在register.html页面中就可以直接进行数据绑定 &lt;h1&gt;&#123;&#123;title&#125;&#125;&lt;/h1&gt;;</div></pre></td></tr></table></figure>
+<ul>
+<li>可以使用路由，也就是说开发者可以根据地址的变化执行不同的业务逻辑；路由需要  配置  后才能被使用；</li>
+<li><p>使用when方法监听地址的变化，然后处理相应的逻辑；</p>
+</li>
+<li><p>参数传递可以有两种方式，一种方式是通过地址传参：</p>
+<ul>
+<li>地址传参：其格式为?key1=val&amp;key2=val2;.when(‘/login?name=lisi&amp;age=17’)</li>
+<li><p>通过路由传参: 路由/:参数名</p>
+</li>
+<li><p>！！！注意：地址的格式（/login/:name/:pass）必须与路由的格式（#!/login/小明/12345）完全保持一致，一一对应；</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;a href="#!/login/小明/12345"&gt;登录&lt;/a&gt;</div><div class="line">.when('/login/:name/:pass',&#123;</div><div class="line"></div><div class="line">    //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">    templateUrl:'./views/login.html'</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取路由中传递的参数 <code>var parameter = $routeParams</code>;</p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;angular-day03&quot;&gt;&lt;a href=&quot;#angular-day03&quot; class=&quot;headerlink&quot; title=&quot;angular-day03&quot;&gt;&lt;/a&gt;angular-day03&lt;/h1&gt;&lt;h2 id=&quot;自定义服务，-service和-facto
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="Angular" scheme="http://yoursite.com/tags/Angular/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 使用流程与总结</title>
+    <link href="http://yoursite.com/2016/06/29/git%20day03%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2016/06/29/git day03使用流程与总结/</id>
+    <published>2016-06-29T09:26:25.000Z</published>
+    <updated>2017-04-02T01:09:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="git的两种工作流程"><a href="#git的两种工作流程" class="headerlink" title="git的两种工作流程"></a>git的两种工作流程</h1><ol>
+<li>下载代码,在下载代码的基础上做开发,然后提交</li>
+<li>或者git init 生成一个仓库,在这个生成的基础上添加代码,再推到主仓库上<h1 id="lt-lt-移位运算"><a href="#lt-lt-移位运算" class="headerlink" title="&lt;&lt; 移位运算"></a><code>&lt;&lt;</code> 移位运算</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line"><span class="built_in">console</span>.log(a &lt;&lt; <span class="number">2</span>);</div><div class="line"><span class="comment">//向左移动两位,乘以2^2,结果就是2*4 = 8;</span></div><div class="line"><span class="comment">//向右移动1位除以2,a&gt;&gt;1,结果就是2/2 = 1;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="创建共享仓库"><a href="#创建共享仓库" class="headerlink" title="创建共享仓库"></a>创建共享仓库</h2><ul>
+<li>共享仓库的必须以<code>.git</code> 结尾;<code>demo.git</code></li>
+<li><code>git init --bare</code> 创建一个共享仓库</li>
+<li><code>git pull 远程仓库的地址 远程分支:本地分支</code>或者<code>git clone 远程仓库的地址 文件名称</code>下载代码</li>
+<li><code>git push 远程仓库的地址 本地分支:远程分支</code>  推送代码<blockquote>
+<p> git pull = git fetch + git merge</p>
+</blockquote>
+</li>
+<li><code>git fetch</code>远程获取代码,但是不合并代码</li>
+<li><code>git merge</code> 通过fetch过来的代码可以通过merge命令进行合并;<h2 id="查看分支和修改分支名称"><a href="#查看分支和修改分支名称" class="headerlink" title="查看分支和修改分支名称"></a>查看分支和修改分支名称</h2></li>
+<li><code>git remote</code>查看远程仓库的别名  没有就用下一条创建</li>
+<li><code>git remote add 别名名称(origin) 仓库地址(root@180.76.188.62:/root/demo.git)</code> 添加远程仓库的别名</li>
+<li><code>git branch -r</code>查看远程分支</li>
+<li><code>git branch</code>查看本地分支</li>
+<li><code>git remote show origin</code>查看远程仓库别名的具体地址</li>
+</ul>
+<h2 id="git-pull-和-git-clone-的主要区别"><a href="#git-pull-和-git-clone-的主要区别" class="headerlink" title="git pull 和 git clone 的主要区别"></a>git pull 和 git clone 的主要区别</h2><ul>
+<li>1:<code>git clone</code>的项目户自动建立 <code>origin</code>远程仓库地址的别名,自动创建了关联,再更新代码时直接<code>git pull</code>就可以拉下来代码;</li>
+<li>2:<code>git pull</code>拉下来的代码,如果需要建立跟踪分支,需要执行<code>git branch --set-upstream -to==origin/master master</code>;<code>origin/master</code>表示远程分支;<code>master</code>表示本地分支</li>
+</ul>
+<h1 id="git使用总结"><a href="#git使用总结" class="headerlink" title="git使用总结"></a>git使用总结</h1><h2 id="已经存在的项目"><a href="#已经存在的项目" class="headerlink" title="已经存在的项目"></a>已经存在的项目</h2><ul>
+<li>管理员分配git账号; 或者 生成自己的公钥和私钥,提交各管理员,授予权限;</li>
+<li><code>git clone 仓库地址</code>下载代码,进行操作<h2 id="新项目"><a href="#新项目" class="headerlink" title="新项目"></a>新项目</h2></li>
+<li>在github上创建一个空仓库;</li>
+<li>在自己本地<code>git clone git@(仓库地址)</code>直接生成git文件;</li>
+<li>编辑代码,</li>
+<li><code>git add test.html</code>添加到暂存区</li>
+<li><code>git commit -m &quot;&quot;</code>添加到本地仓库</li>
+<li><code>git push origin master</code>推送到网上仓库成功 <h2 id="新项目第二种更新方式"><a href="#新项目第二种更新方式" class="headerlink" title="新项目第二种更新方式"></a>新项目第二种更新方式</h2></li>
+<li>在本地建立文件夹,<code>git init</code>,编辑内容</li>
+<li><code>git add</code></li>
+<li><code>git commit -m &quot;&quot;</code></li>
+<li><code>git remote add origin git@github等地址</code>将本地仓库与网上仓库建立连接和跟踪; </li>
+<li><code>git push -u origin master</code>本地代码推送上去(-u与当前的别名进行关联)</li>
+<li><code>git pull</code>以后就直接使用这个命令更新本地仓库的代码</li>
+<li><code>git push</code>直接推送代码,更新就可以了;<h1 id="git分支管理"><a href="#git分支管理" class="headerlink" title="git分支管理"></a>git分支管理</h1></li>
+</ul>
+<ol>
+<li><code>git clone</code>克隆代码</li>
+<li><code>git checkout -b buy</code>创建并切换分支，</li>
+<li>操作分支</li>
+<li><code>git checkout master</code>切换到主分支</li>
+<li>创建另一个新分支bugfix,编辑,编辑之后再次切换到主分支;</li>
+</ol>
+<ul>
+<li><code>git checkout -d bugfix</code>删除bugfix分支;删除的是本地分支<ul>
+<li>删除远程分支<code>git push origin --delete</code> </li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><code>git merge bugfix</code>;</li>
+<li><code>git merge buy</code><h1 id="git-stash-缓存代码"><a href="#git-stash-缓存代码" class="headerlink" title="git stash 缓存代码"></a>git stash 缓存代码</h1></li>
+</ol>
+<ul>
+<li>使用<code>git stash</code>可以将正在进行中的环境保存起来;master分支将会恢复到修改之前的状态;等紧急操作做完之后,</li>
+<li>使用<code>git stash pop</code>取出之前保存的操作;继续编辑<h1 id="gitlab"><a href="#gitlab" class="headerlink" title="gitlab"></a>gitlab</h1></li>
+<li>公司服务器安装gitlab</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;git的两种工作流程&quot;&gt;&lt;a href=&quot;#git的两种工作流程&quot; class=&quot;headerlink&quot; title=&quot;git的两种工作流程&quot;&gt;&lt;/a&gt;git的两种工作流程&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;下载代码,在下载代码的基础上做开发,然后提交&lt;/li&gt;
+&lt;li&gt;
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 基础命令</title>
+    <link href="http://yoursite.com/2016/06/21/git%20day01%E5%91%BD%E4%BB%A4%E5%9F%BA%E7%A1%80/"/>
+    <id>http://yoursite.com/2016/06/21/git day01命令基础/</id>
+    <published>2016-06-21T10:26:25.000Z</published>
+    <updated>2017-04-02T01:07:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一、模块化开发"><a href="#一、模块化开发" class="headerlink" title="一、模块化开发"></a>一、模块化开发</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//这里会形成一个封闭的空间;</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">FOO</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> FB = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.FOO = FOO;</div><div class="line">&#125;)(<span class="built_in">window</span>);<span class="comment">//通过window将接口暴露出去</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">fb</span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Sky</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    fb.Sky = Sky;</div><div class="line">&#125;)(FB)</div><div class="line"><span class="comment">//这样，通过模块化开发，可以通过FOO.Sky等来调用各种方法。具体可以参考飞翔的小鸟案例；</span></div></pre></td></tr></table></figure>
+<h1 id="二、Git"><a href="#二、Git" class="headerlink" title="二、Git"></a>二、Git</h1><h2 id="1-Shell-编程脚本-命令解析器"><a href="#1-Shell-编程脚本-命令解析器" class="headerlink" title="1. Shell 编程脚本 命令解析器"></a>1. Shell 编程脚本 命令解析器</h2><ul>
+<li><code>.bat  .sh</code>文件存储的都是一些脚本，命令<h2 id="2-常用的shell命令（bash）"><a href="#2-常用的shell命令（bash）" class="headerlink" title="2. 常用的shell命令（bash）"></a>2. 常用的shell命令（bash）</h2></li>
+</ul>
+<ol>
+<li><code>cd ..</code> 进入上层目录;</li>
+<li><code>pwd</code> 查看当前的工作路径；</li>
+<li><code>mkdir abc</code> 创建一个新的目录abc;</li>
+<li><code>ls</code> list当前目录的所有文件列表</li>
+<li><code>ls -a</code>list下的所有文件，包括隐藏文件</li>
+<li><p><code>less</code> 查看文件 等同于 <code>more a.txt</code>;<br> <code>tail a.txt</code>查看文件的结尾内容，可以自己设定显示几行  <code>tail -n 1 a.txt</code></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gaonanadeMacBook-Pro:git gaonana$ tail -n 1 a.txt </div><div class="line">hello</div><div class="line">gaonanadeMacBook-Pro:git gaonana$ tail -n 2 a.txt </div><div class="line">abc</div><div class="line">hello</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>touch a.txt</code>创建a文件</p>
+</li>
+<li><code>cat a.txt</code>查看a文件中的内容；</li>
+<li><code>echo 写入内容 &gt; a.txt</code> <code>&gt;</code>覆盖操作;<br> <code>&gt;&gt;</code>追加操作</li>
+<li><code>ctrl+c</code>或者<code>q</code>直接退出当前运行程序；<h2 id="3-Vi"><a href="#3-Vi" class="headerlink" title="3. Vi"></a>3. Vi</h2>有3种模式：命令模式，编辑模式，底行模式</li>
+</ol>
+<ul>
+<li><code>vi hi.txt</code>打开hi.txt 文件</li>
+<li><p><code>esc</code>不能编辑;</p>
+</li>
+<li><p><code>shift+:</code>退出编辑格式，<code>wq</code>保存并退出，<code>q</code>不保存直接退出</p>
+</li>
+<li><code>dd</code>在命令模式，直接删除一行<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">这个问题必须现在解决吗</div><div class="line">这个问题目前有几种解决方法</div><div class="line">我有多少成本可以使用</div><div class="line">放开成本限制 有没有更优解</div><div class="line">站在比当前问题高一级的视角配上训练有素的方法,能让人成为更优秀的problem solver</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">技术是一种能力，要产出实际价值；</div><div class="line">站在产品，甚至是业务的角度来思考问题；</div><div class="line">别单飞，和小伙伴一起飞</div></pre></td></tr></table></figure>
+<h2 id="4-SSH-加密方式"><a href="#4-SSH-加密方式" class="headerlink" title="4. SSH 加密方式"></a>4. SSH 加密方式</h2><ul>
+<li>使用密码登录</li>
+<li>使用公钥和私钥登录</li>
+</ul>
+<ol>
+<li>对称加密</li>
+<li>非对称加密（公钥加密，私钥解密，私钥加密，公钥解密）<ul>
+<li>公钥</li>
+<li>私钥</li>
+</ul>
+</li>
+<li>SSH 实现通信过程：SSH root@ 121.0.12.23<ul>
+<li>客户端发送请求</li>
+<li>服务器接受请求之后，把服务器的公钥发送给客户端</li>
+<li>客户端接收到公钥后存储到计算机某个区域；</li>
+<li>客户端再次发送登录请求（密码会使用公钥加密）</li>
+<li>服务器接到密文后进行解密然后验证是否正确</li>
+</ul>
+<ul>
+<li><code>keygen -t rsa</code>生成自己的的公钥和私钥;</li>
+</ul>
+</li>
+<li>虚拟机：vergrant轻量<h2 id="5-Git-三个重要区域"><a href="#5-Git-三个重要区域" class="headerlink" title="5. Git 三个重要区域"></a>5. Git 三个重要区域</h2></li>
+<li>工作目录</li>
+<li>暂存区<ul>
+<li>工作目录先提交到暂存区，是工作目录和本地仓库的过度区域；</li>
+</ul>
+</li>
+<li>本地仓库（.git directory <repository>）<h2 id="6-Git文件的4种状态"><a href="#6-Git文件的4种状态" class="headerlink" title="6. Git文件的4种状态"></a>6. Git文件的4种状态</h2></repository></li>
+<li>未追踪 untracked 工作目录刚创建的文件</li>
+<li>已暂存 staged 从工作目录提交到暂存区的文件</li>
+<li>已提交 commited 从暂存区提交到本地仓库的文件</li>
+<li>已修改 modified 暂存区修改过的文件<h1 id="Git使用"><a href="#Git使用" class="headerlink" title="Git使用"></a>Git使用</h1></li>
+<li>创建一个文件夹 <code>git init</code>,创建一个仓库</li>
+<li><code>git config --global user.name &quot;name&quot;</code>和<code>git config --global user.email &quot;email&quot;</code>配置用户信息</li>
+<li><code>git status</code>查看git状态信息</li>
+<li><code>git add 01-index.html 02-index2.html</code>将为跟踪的目录提交到暂存区,多个文件之间空格隔开；<br> 此时查看<code>git status</code>文件名变绿</li>
+<li><code>git rm --cached 01-index.html</code>将已加到暂存区的文件移除到工作目录中；</li>
+<li><code>git add -A</code> 或者<code>git add *</code>工作目录全部提交到暂存区</li>
+<li><code>git rm --cached *</code>移交到暂存区的文件全部移除</li>
+<li><code>git commit -m &#39;描述信息&#39;</code>将暂存区中的内容提交到本地仓库，并描述修改信息</li>
+<li><code>git log</code>查看提交的本地仓库记录；</li>
+<li><code>git checkout 01.index.html</code>撤销 暂存区文件的修改内容(提交到仓库的文件，然后down下来的文件进行修改后，但发现错误，使用checkout将原来的修改撤销)</li>
+</ol>
+<ul>
+<li><code>git checkout .</code>把当前分枝所做的所有修改都撤销</li>
+</ul>
+<ol>
+<li><code>git reset --hard 想要修改内容前面的&lt;commitId&gt;</code>用本地仓库中的快照覆盖工作目录和暂存区的内容，并且放弃commitId之后的提交；</li>
+</ol>
+<ul>
+<li><code>git reset Head</code>本地仓库的最新版本覆盖暂存区,但不覆盖工作目录;</li>
+</ul>
+<ol>
+<li><code>git config list</code>查看当前git的配置信息</li>
+</ol>
+<h3 id="创建分枝命令"><a href="#创建分枝命令" class="headerlink" title="创建分枝命令"></a>创建分枝命令</h3><ol>
+<li><code>git branch</code> 查看当前分枝状态</li>
+<li><code>git branch abc</code>添加名为abc的分枝</li>
+<li><code>git checkout abc</code>将编辑状态切换到分枝abc上</li>
+<li><code>git merge abc</code>将分枝信息abc内容同步到主线master上；将分支切换大master上执行的；在master上执行这个命令，将abc分枝合并到master上；</li>
+<li><code>git branch -d 分枝名称</code>删除分枝</li>
+<li>常用的创建分支代码:<code>git checkout -b bcd</code>创建并切换分支，相当于<code>git branch bcd</code>和<code>git checkout bcd</code>命令的集合；</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;一、模块化开发&quot;&gt;&lt;a href=&quot;#一、模块化开发&quot; class=&quot;headerlink&quot; title=&quot;一、模块化开发&quot;&gt;&lt;/a&gt;一、模块化开发&lt;/h1&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 基础知识</title>
+    <link href="http://yoursite.com/2016/06/13/git%20day02%20git%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    <id>http://yoursite.com/2016/06/13/git day02 git基础知识/</id>
+    <published>2016-06-13T12:46:25.000Z</published>
+    <updated>2017-04-02T01:10:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="git-day02-git使用"><a href="#git-day02-git使用" class="headerlink" title="git day02 git使用"></a>git day02 git使用</h1><h2 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h2><h3 id="三个区域"><a href="#三个区域" class="headerlink" title="三个区域"></a>三个区域</h3><ul>
+<li>工作目录</li>
+<li>暂存区</li>
+<li>本地仓库<h3 id="文件的四个状态"><a href="#文件的四个状态" class="headerlink" title="文件的四个状态"></a>文件的四个状态</h3></li>
+<li>未跟踪 untracked</li>
+<li>已暂存 staged</li>
+<li>已提交 coomited</li>
+<li>已修改 modified<h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3></li>
+<li><code>git add file</code><ul>
+<li>将未跟踪的文件加到暂存区</li>
+<li>把暂存区修改的内容从新提交到暂存区</li>
+</ul>
+</li>
+<li><code>git commit -m &quot;备注&quot;</code><ul>
+<li>将暂存区的内容提交到本地仓库中</li>
+</ul>
+</li>
+<li><code>git rm --cached files</code><ul>
+<li>将暂存的文件移动到工作目录</li>
+</ul>
+</li>
+<li><code>git checkout files</code><ul>
+<li>暂存区中修改的的内容撤销掉</li>
+</ul>
+</li>
+<li><code>git reset HEAD(表示本地仓库中最后一次提交,commitId)</code><ul>
+<li><code>--hard</code>工作目录、暂存区、本地仓库都会变化;</li>
+<li><code>--soft</code>只会回滚本地仓库,工作目录和暂存区不会变化</li>
+<li><code>--mixed</code>默认的,用本地仓库的版本覆盖暂存区文件,也会回滚本地仓库,不会修改工作目录<h2 id="远程仓库-共享仓库"><a href="#远程仓库-共享仓库" class="headerlink" title="远程仓库(共享仓库)"></a>远程仓库(共享仓库)</h2></li>
+</ul>
+</li>
+<li><code>git clone</code>克隆远程仓库全部内容</li>
+<li><code>git pull</code>从远程仓库中下载最新版本,覆盖本地分支内容<ul>
+<li><code>git pull 远程仓库地址 远程分支:本地分支</code></li>
+</ul>
+</li>
+<li><code>git push</code>提交本地代码版本<ul>
+<li><code>git push 远程仓库地址 本地分支:远程分支</code></li>
+</ul>
+</li>
+<li><code>git fetch</code>从远程仓库下载最新版本内容,但是不合并,需要手动使用`git merge<br>合并;</li>
+<li><code>git remote</code>查看远程分支别名</li>
+<li><code>gitremote add origin</code>添加远程仓库地址的别名</li>
+<li><code>git remote show origin</code>查看远程仓库别名的二聚体地址<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2></li>
+<li><code>git branch 分支名称</code> 创建分支</li>
+<li><code>git branch -r</code>查看远程分支</li>
+<li><code>git branch -a</code>查看所有分支</li>
+<li><code>git checkout 分支名称</code> 切换分支</li>
+<li><code>git checkout -b 分支名称</code> 创建并切换分支</li>
+<li><code>git branch -d 分支名称</code> 删除本地分支</li>
+<li><code>git push origin --delete</code> 删除远程分支</li>
+<li><code>git merge 来源分支</code> 合并分支</li>
+<li><code>git stash</code> 保存当前版本状态</li>
+<li><code>git stash pop</code>恢复保存的版本状态</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;git-day02-git使用&quot;&gt;&lt;a href=&quot;#git-day02-git使用&quot; class=&quot;headerlink&quot; title=&quot;git day02 git使用&quot;&gt;&lt;/a&gt;git day02 git使用&lt;/h1&gt;&lt;h2 id=&quot;本地仓库&quot;&gt;&lt;a href
+    
+    </summary>
+    
+      <category term="Diary" scheme="http://yoursite.com/categories/Diary/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
+  
+</feed>

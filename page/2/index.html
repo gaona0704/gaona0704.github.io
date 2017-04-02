@@ -77,6 +77,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="HappynessCoder" type="application/atom+xml" />
+
 
 
 
@@ -87,15 +89,15 @@
 
 
 
-<meta name="description" content="coding,需要有洁癖">
+<meta name="description" content="coding,有洁癖才能更完美">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="HappynessCoder">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="coding,需要有洁癖">
+<meta property="og:site_name" content="HappynessCoder">
+<meta property="og:description" content="coding,有洁癖才能更完美">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="coding,需要有洁癖">
+<meta name="twitter:title" content="HappynessCoder">
+<meta name="twitter:description" content="coding,有洁癖才能更完美">
 
 
 
@@ -129,7 +131,7 @@
 
 
 
-  <title> Hexo </title>
+  <title> HappynessCoder </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -167,7 +169,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">HappynessCoder</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -231,6 +233,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -260,7 +272,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/01/angular day03/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/博学谷项目<四>/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gaonana">
@@ -269,7 +281,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="HappynessCoder">
     </span>
 
     
@@ -282,8 +294,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/01/angular day03/" itemprop="url">
-                  Angular 服务、配置块与路由
+                <a class="post-title-link" href="/2017/03/21/博学谷项目<四>/" itemprop="url">
+                  JQuery插件使用（表单验证、提交、日期、富文本、图片裁切、三级联动）
                 </a>
               
             
@@ -299,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-01T18:26:25+08:00">
-                2016-12-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T17:26:25+08:00">
+                2017-03-21
               </time>
             
 
@@ -359,692 +371,107 @@
       
         
           
-            <h1 id="angular-day03"><a href="#angular-day03" class="headerlink" title="angular-day03"></a>angular-day03</h1><h2 id="自定义服务，-service和-factory"><a href="#自定义服务，-service和-factory" class="headerlink" title="自定义服务，$service和$factory"></a>自定义服务，<code>$service</code>和<code>$factory</code></h2><ul>
-<li>App.controller(); 内置控制器</li>
-<li>App.directive(); 内置指令</li>
-<li>App.filter(); 内置过滤器</li>
-<li>App.factory(); 内置服务</li>
-<li>App.service(); 内置服务</li>
-<li>App.config(); 配置块</li>
-<li>App.run(); 运行块</li>
+            <h1 id="博学谷项目-lt-四-gt"><a href="#博学谷项目-lt-四-gt" class="headerlink" title="博学谷项目 &lt;四&gt;"></a>博学谷项目 &lt;四&gt;</h1><h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><ul>
+<li>BFC（格式化上下文）：BFC盒子是独立布局的，盒子内元素的布局不会影响盒子外面的元素。在同一个BFC中两个相邻的盒子在垂直方向上会发生margin垂直内边距塌陷的问题；</li>
+<li>BFC是指浏览器中创建来了一个独立的渲染区域，该区域内所有元素的布局不会影响到区域外元素的布局，这个渲染区域支队块级元素起作用；</li>
 </ul>
-<h2 id="配置块和运行块"><a href="#配置块和运行块" class="headerlink" title="配置块和运行块"></a>配置块和运行块</h2><ul>
-<li>App.config():一个参数，为数组；[]；App.config([]);</li>
+<h2 id="jS插件"><a href="#jS插件" class="headerlink" title="jS插件"></a>jS插件</h2><ul>
+<li>bootstrap</li>
+<li>jquery</li>
+<li>模块化开发：requirejs</li>
+<li>滚动下拉刷新，滚动加载：onscroll</li>
+<li>文件上传：uplodify</li>
+<li>表单提交：jquery form</li>
+<li>日期插件：bootstrap-detepicker</li>
+<li>表单验证 validate</li>
+<li>富文本编辑器 CKeditor</li>
+<li>图片裁切 Jcrop</li>
+<li>三级联动 jQuery-region</li>
+<li>模板引擎 artTemplate</li>
+<li>angular js</li>
+<li>vue</li>
+<li>react</li>
+<li>node js</li>
+<li>混合开发 ionic; react native</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">App.config([<span class="string">'$logProvider'</span>,<span class="string">'$filterProvider'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$logProvider,$filterProvider</span>) </span>&#123;</div><div class="line"><span class="comment">//通过$logProvider对$log进行配置;</span></div><div class="line">$logProvider.debugEnabled(<span class="literal">false</span>);</div><div class="line">$filterProvider.register(<span class="string">'capitalize'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">input</span>) </span>&#123;</div><div class="line">       <span class="keyword">return</span> (input[<span class="number">0</span>].toUpperCase() + input.slice(<span class="number">1</span>));</div><div class="line">   &#125;</div><div class="line">&#125;)</div><div class="line">&#125;]);</div><div class="line"><span class="comment">//这样在配置好之后，在HTML中就可以直接使用‘capitalize’服务了</span></div><div class="line">&lt;p ng-controller=<span class="string">'DemoCtrl'</span>&gt; &#123;&#123;name | capitalize&#125;&#125;&lt;<span class="regexp">/p&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="运行块"><a href="#运行块" class="headerlink" title="运行块"></a>运行块</h3><ul>
-<li>$rootScope:  AngularJS的根作用域，可定于全局变量</li>
+<h3 id="日期插件地址"><a href="#日期插件地址" class="headerlink" title="日期插件地址"></a>日期插件地址</h3><ul>
+<li><a href="https://github.com/uxsolutions/bootstrap-datepicker" target="_blank" rel="external">bootstrap-datepicker</a></li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">App.run([<span class="string">'$rootScope'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$rootScope</span>) </span>&#123;</div><div class="line">       $rootScope.name = <span class="string">'顺治'</span>;</div><div class="line">   &#125;])</div><div class="line">   <span class="comment">//这个name在此文件中的任何一个控制器中都可以使用；</span></div></pre></td></tr></table></figure>
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><ul>
-<li>路由是URL地址与程序的映射关系；通过调整地址的变化，可以‘调用或执行’ 某一具体的程序；</li>
-<li>SPA：single page application 单页面展示所有功能；</li>
-<li>多页面最明显的一个缺点就是每次更新页面都要进行刷新，不能得到很好的用户体验；</li>
-<li>AngularJS的路由是建立在单页面的基础之上的；</li>
-<li><code>onhashchange</code>:检测地址栏中地址的变化，绑在window上的</li>
-<li>PHP中：<code>file_get_contents(&#39;./views/&#39;.$hash.&#39;.html&#39;)</code>;获取文件中的内容</li>
-<li>锚链接就是点断的路由，就是地址与程序的映射关系；</li>
+<h3 id="表单验证插件"><a href="#表单验证插件" class="headerlink" title="表单验证插件"></a>表单验证插件</h3><ul>
+<li>地址： <a href="https://github.com/DiegoLopesLima/validate" target="_blank" rel="external">validate</a></li>
+<li>data-required 非空判断</li>
+<li>data-pattern 匹配正则</li>
+<li>data-description 提示信息</li>
+<li>data-describedby 指定提示信息的位置</li>
+<li>data-validate 指定自定义规则的属性</li>
+<li>data-conditional 自定义规则判断，值是一个规则判断函数 </li>
 </ul>
-<h3 id="路由的配置"><a href="#路由的配置" class="headerlink" title="路由的配置"></a>路由的配置</h3><ul>
-<li>路由经过设置才能使用</li>
-<li>模块需要依赖路由 <code>var Music = angular.module(&#39;Music&#39;,[&#39;ngRoute&#39;]);</code></li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"> &lt;nav&gt;</div><div class="line"> //锚点中有参数的时候，不会影响到路由；ß</div><div class="line">    &lt;a href="#!/login?name=小明"&gt;登录&lt;/a&gt; //地址必须写成  #！/的形式</div><div class="line">    &lt;a href="#!/register"&gt;注册&lt;/a&gt;</div><div class="line">&lt;/nav&gt;</div><div class="line">    &lt;!-- ng-view 是一个占位符--&gt;</div><div class="line">&lt;div ng-view&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">var App = angular.module('App',['ngRoute']);</div><div class="line">//路由是需要配置才能使用;</div><div class="line">App.config(['$routeProvider',function ($routeProvider) &#123;</div><div class="line">    //两个参数path 和 route</div><div class="line">    //第一个参数:路由</div><div class="line">    //第二个参数是路由的配置</div><div class="line">    $routeProvider.when('/register',&#123;</div><div class="line">        //template:"&lt;h1&gt;首页&lt;/h1&gt;",简单的内容</div><div class="line">        templateUrl:'./views/register.html' //可以引入URL地址</div><div class="line">        //为当前视图文件分配控制器;</div><div class="line">        controller:'RegisterCtrl',</div><div class="line">    &#125;).when('/login',&#123;</div><div class="line">        //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">        templateUrl:'./views/login.html'</div><div class="line">    &#125;).otherwise(&#123;</div><div class="line">        //如果都不符合,可以设置默认值</div><div class="line">        redirectTo:'/register'</div><div class="line">    &#125;)</div><div class="line">&#125;])</div><div class="line"></div><div class="line">App.controller('RegisterCtrl',['$scope',function ($scope) &#123;</div><div class="line">    $scope.title = '注册';</div><div class="line">&#125;])</div><div class="line"></div><div class="line">//然后在register.html页面中就可以直接进行数据绑定 &lt;h1&gt;&#123;&#123;title&#125;&#125;&lt;/h1&gt;;</div></pre></td></tr></table></figure>
-<ul>
-<li>可以使用路由，也就是说开发者可以根据地址的变化执行不同的业务逻辑；路由需要  配置  后才能被使用；</li>
-<li><p>使用when方法监听地址的变化，然后处理相应的逻辑；</p>
-</li>
-<li><p>参数传递可以有两种方式，一种方式是通过地址传参：</p>
-<ul>
-<li>地址传参：其格式为?key1=val&amp;key2=val2;.when(‘/login?name=lisi&amp;age=17’)</li>
-<li><p>通过路由传参: 路由/:参数名</p>
-</li>
-<li><p>！！！注意：地址的格式（/login/:name/:pass）必须与路由的格式（#!/login/小明/12345）完全保持一致，一一对应；</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;a href="#!/login/小明/12345"&gt;登录&lt;/a&gt;</div><div class="line">.when('/login/:name/:pass',&#123;</div><div class="line"></div><div class="line">    //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">    templateUrl:'./views/login.html'</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-<li><p>获取路由中传递的参数 <code>var parameter = $routeParams</code>;</p>
-</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/29/git day03使用流程与总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/29/git day03使用流程与总结/" itemprop="url">
-                  Git 使用流程与总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-29T17:26:25+08:00">
-                2016-06-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index">
-                    <span itemprop="name">Diary</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="git的两种工作流程"><a href="#git的两种工作流程" class="headerlink" title="git的两种工作流程"></a>git的两种工作流程</h1><ol>
-<li>下载代码,在下载代码的基础上做开发,然后提交</li>
-<li>或者git init 生成一个仓库,在这个生成的基础上添加代码,再推到主仓库上<h1 id="lt-lt-移位运算"><a href="#lt-lt-移位运算" class="headerlink" title="&lt;&lt; 移位运算"></a><code>&lt;&lt;</code> 移位运算</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line"><span class="built_in">console</span>.log(a &lt;&lt; <span class="number">2</span>);</div><div class="line"><span class="comment">//向左移动两位,乘以2^2,结果就是2*4 = 8;</span></div><div class="line"><span class="comment">//向右移动1位除以2,a&gt;&gt;1,结果就是2/2 = 1;</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="创建共享仓库"><a href="#创建共享仓库" class="headerlink" title="创建共享仓库"></a>创建共享仓库</h2><ul>
-<li>共享仓库的必须以<code>.git</code> 结尾;<code>demo.git</code></li>
-<li><code>git init --bare</code> 创建一个共享仓库</li>
-<li><code>git pull 远程仓库的地址 远程分支:本地分支</code>或者<code>git clone 远程仓库的地址 文件名称</code>下载代码</li>
-<li><code>git push 远程仓库的地址 本地分支:远程分支</code>  推送代码<blockquote>
-<p> git pull = git fetch + git merge</p>
-</blockquote>
-</li>
-<li><code>git fetch</code>远程获取代码,但是不合并代码</li>
-<li><code>git merge</code> 通过fetch过来的代码可以通过merge命令进行合并;<h2 id="查看分支和修改分支名称"><a href="#查看分支和修改分支名称" class="headerlink" title="查看分支和修改分支名称"></a>查看分支和修改分支名称</h2></li>
-<li><code>git remote</code>查看远程仓库的别名  没有就用下一条创建</li>
-<li><code>git remote add 别名名称(origin) 仓库地址(root@180.76.188.62:/root/demo.git)</code> 添加远程仓库的别名</li>
-<li><code>git branch -r</code>查看远程分支</li>
-<li><code>git branch</code>查看本地分支</li>
-<li><code>git remote show origin</code>查看远程仓库别名的具体地址</li>
-</ul>
-<h2 id="git-pull-和-git-clone-的主要区别"><a href="#git-pull-和-git-clone-的主要区别" class="headerlink" title="git pull 和 git clone 的主要区别"></a>git pull 和 git clone 的主要区别</h2><ul>
-<li>1:<code>git clone</code>的项目户自动建立 <code>origin</code>远程仓库地址的别名,自动创建了关联,再更新代码时直接<code>git pull</code>就可以拉下来代码;</li>
-<li>2:<code>git pull</code>拉下来的代码,如果需要建立跟踪分支,需要执行<code>git branch --set-upstream -to==origin/master master</code>;<code>origin/master</code>表示远程分支;<code>master</code>表示本地分支</li>
-</ul>
-<h1 id="git使用总结"><a href="#git使用总结" class="headerlink" title="git使用总结"></a>git使用总结</h1><h2 id="已经存在的项目"><a href="#已经存在的项目" class="headerlink" title="已经存在的项目"></a>已经存在的项目</h2><ul>
-<li>管理员分配git账号; 或者 生成自己的公钥和私钥,提交各管理员,授予权限;</li>
-<li><code>git clone 仓库地址</code>下载代码,进行操作<h2 id="新项目"><a href="#新项目" class="headerlink" title="新项目"></a>新项目</h2></li>
-<li>在github上创建一个空仓库;</li>
-<li>在自己本地<code>git clone git@(仓库地址)</code>直接生成git文件;</li>
-<li>编辑代码,</li>
-<li><code>git add test.html</code>添加到暂存区</li>
-<li><code>git commit -m &quot;&quot;</code>添加到本地仓库</li>
-<li><code>git push origin master</code>推送到网上仓库成功 <h2 id="新项目第二种更新方式"><a href="#新项目第二种更新方式" class="headerlink" title="新项目第二种更新方式"></a>新项目第二种更新方式</h2></li>
-<li>在本地建立文件夹,<code>git init</code>,编辑内容</li>
-<li><code>git add</code></li>
-<li><code>git commit -m &quot;&quot;</code></li>
-<li><code>git remote add origin git@github等地址</code>将本地仓库与网上仓库建立连接和跟踪; </li>
-<li><code>git push -u origin master</code>本地代码推送上去(-u与当前的别名进行关联)</li>
-<li><code>git pull</code>以后就直接使用这个命令更新本地仓库的代码</li>
-<li><code>git push</code>直接推送代码,更新就可以了;<h1 id="git分支管理"><a href="#git分支管理" class="headerlink" title="git分支管理"></a>git分支管理</h1></li>
-</ul>
-<ol>
-<li><code>git clone</code>克隆代码</li>
-<li><code>git checkout -b buy</code>创建并切换分支，</li>
-<li>操作分支</li>
-<li><code>git checkout master</code>切换到主分支</li>
-<li>创建另一个新分支bugfix,编辑,编辑之后再次切换到主分支;</li>
-</ol>
-<ul>
-<li><code>git checkout -d bugfix</code>删除bugfix分支;删除的是本地分支<ul>
-<li>删除远程分支<code>git push origin --delete</code> </li>
-</ul>
-</li>
-</ul>
-<ol>
-<li><code>git merge bugfix</code>;</li>
-<li><code>git merge buy</code><h1 id="git-stash-缓存代码"><a href="#git-stash-缓存代码" class="headerlink" title="git stash 缓存代码"></a>git stash 缓存代码</h1></li>
-</ol>
-<ul>
-<li>使用<code>git stash</code>可以将正在进行中的环境保存起来;master分支将会恢复到修改之前的状态;等紧急操作做完之后,</li>
-<li>使用<code>git stash pop</code>取出之前保存的操作;继续编辑<h1 id="gitlab"><a href="#gitlab" class="headerlink" title="gitlab"></a>gitlab</h1></li>
-<li>公司服务器安装gitlab</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/21/git day01命令基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/21/git day01命令基础/" itemprop="url">
-                  Git 基础命令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-21T18:26:25+08:00">
-                2016-06-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index">
-                    <span itemprop="name">Diary</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="一、模块化开发"><a href="#一、模块化开发" class="headerlink" title="一、模块化开发"></a>一、模块化开发</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//这里会形成一个封闭的空间;</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">FOO</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> FB = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.FOO = FOO;</div><div class="line">&#125;)(<span class="built_in">window</span>);<span class="comment">//通过window将接口暴露出去</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">fb</span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Sky</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    fb.Sky = Sky;</div><div class="line">&#125;)(FB)</div><div class="line"><span class="comment">//这样，通过模块化开发，可以通过FOO.Sky等来调用各种方法。具体可以参考飞翔的小鸟案例；</span></div></pre></td></tr></table></figure>
-<h1 id="二、Git"><a href="#二、Git" class="headerlink" title="二、Git"></a>二、Git</h1><h2 id="1-Shell-编程脚本-命令解析器"><a href="#1-Shell-编程脚本-命令解析器" class="headerlink" title="1. Shell 编程脚本 命令解析器"></a>1. Shell 编程脚本 命令解析器</h2><ul>
-<li><code>.bat  .sh</code>文件存储的都是一些脚本，命令<h2 id="2-常用的shell命令（bash）"><a href="#2-常用的shell命令（bash）" class="headerlink" title="2. 常用的shell命令（bash）"></a>2. 常用的shell命令（bash）</h2></li>
-</ul>
-<ol>
-<li><code>cd ..</code> 进入上层目录;</li>
-<li><code>pwd</code> 查看当前的工作路径；</li>
-<li><code>mkdir abc</code> 创建一个新的目录abc;</li>
-<li><code>ls</code> list当前目录的所有文件列表</li>
-<li><code>ls -a</code>list下的所有文件，包括隐藏文件</li>
-<li><p><code>less</code> 查看文件 等同于 <code>more a.txt</code>;<br> <code>tail a.txt</code>查看文件的结尾内容，可以自己设定显示几行  <code>tail -n 1 a.txt</code></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gaonanadeMacBook-Pro:git gaonana$ tail -n 1 a.txt </div><div class="line">hello</div><div class="line">gaonanadeMacBook-Pro:git gaonana$ tail -n 2 a.txt </div><div class="line">abc</div><div class="line">hello</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>touch a.txt</code>创建a文件</p>
-</li>
-<li><code>cat a.txt</code>查看a文件中的内容；</li>
-<li><code>echo 写入内容 &gt; a.txt</code> <code>&gt;</code>覆盖操作;<br> <code>&gt;&gt;</code>追加操作</li>
-<li><code>ctrl+c</code>或者<code>q</code>直接退出当前运行程序；<h2 id="3-Vi"><a href="#3-Vi" class="headerlink" title="3. Vi"></a>3. Vi</h2>有3种模式：命令模式，编辑模式，底行模式</li>
-</ol>
-<ul>
-<li><code>vi hi.txt</code>打开hi.txt 文件</li>
-<li><p><code>esc</code>不能编辑;</p>
-</li>
-<li><p><code>shift+:</code>退出编辑格式，<code>wq</code>保存并退出，<code>q</code>不保存直接退出</p>
-</li>
-<li><code>dd</code>在命令模式，直接删除一行<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">这个问题必须现在解决吗</div><div class="line">这个问题目前有几种解决方法</div><div class="line">我有多少成本可以使用</div><div class="line">放开成本限制 有没有更优解</div><div class="line">站在比当前问题高一级的视角配上训练有素的方法,能让人成为更优秀的problem solver</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">技术是一种能力，要产出实际价值；</div><div class="line">站在产品，甚至是业务的角度来思考问题；</div><div class="line">别单飞，和小伙伴一起飞</div></pre></td></tr></table></figure>
-<h2 id="4-SSH-加密方式"><a href="#4-SSH-加密方式" class="headerlink" title="4. SSH 加密方式"></a>4. SSH 加密方式</h2><ul>
-<li>使用密码登录</li>
-<li>使用公钥和私钥登录</li>
-</ul>
-<ol>
-<li>对称加密</li>
-<li>非对称加密（公钥加密，私钥解密，私钥加密，公钥解密）<ul>
-<li>公钥</li>
-<li>私钥</li>
-</ul>
-</li>
-<li>SSH 实现通信过程：SSH root@ 121.0.12.23<ul>
-<li>客户端发送请求</li>
-<li>服务器接受请求之后，把服务器的公钥发送给客户端</li>
-<li>客户端接收到公钥后存储到计算机某个区域；</li>
-<li>客户端再次发送登录请求（密码会使用公钥加密）</li>
-<li>服务器接到密文后进行解密然后验证是否正确</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;input name=<span class="string">'tc_join_date'</span> data-description=<span class="string">'joinDate'</span> data-describedby=<span class="string">'tcJoinDateInfo'</span> type=<span class="string">"text"</span> data-date-language=<span class="string">'zh-CN'</span> data-provide=<span class="string">'datepicker'</span> data-date-end-date=<span class="string">'0d'</span> data-date-format=<span class="string">'yyyy-mm-dd'</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control input-sm "</span> value=<span class="string">"&#123;&#123;tc_join_date&#125;&#125;"</span>&gt;</div><div class="line"></div><div class="line"> $(<span class="string">'#ajaxForm'</span>).validate(&#123;</div><div class="line">      <span class="attr">sendForm</span> : <span class="literal">false</span>,</div><div class="line">      <span class="attr">valid</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">          $(<span class="keyword">this</span>).ajaxSubmit(&#123;</div><div class="line">              <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line">              <span class="attr">url</span>:url,</div><div class="line">              <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">              <span class="attr">success</span>:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">                  <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                      location.href = <span class="string">'/teacher/teacher_list'</span></div><div class="line">                  &#125;</div><div class="line"></div><div class="line"></div><div class="line">              &#125;</div><div class="line">          &#125;)</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">description</span>:&#123;</div><div class="line">          <span class="attr">tcName</span>:&#123;</div><div class="line">              <span class="attr">required</span>:<span class="string">'用户名不能为空'</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">tcPass</span>:&#123;</div><div class="line">              <span class="attr">required</span>:<span class="string">'密码不能为空'</span>,</div><div class="line">              <span class="attr">pattern</span>:<span class="string">'只能是六位数字'</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">joinDate</span>:&#123;</div><div class="line">              <span class="attr">require</span>:<span class="string">'入职日期不能为空'</span></div><div class="line">          &#125;</div><div class="line"></div><div class="line">      &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<h3 id="表单提交插件"><a href="#表单提交插件" class="headerlink" title="表单提交插件"></a>表单提交插件</h3><ul>
+<li>地址：  </li>
 </ul>
 <ul>
-<li><code>keygen -t rsa</code>生成自己的的公钥和私钥;</li>
+<li><a href="https://github.com/jquery-form/form" target="_blank" rel="external">form</a></li>
+<li>省略提交地址</li>
+<li>添加新数据</li>
+<li>处理回调函数  </li>
 </ul>
-</li>
-<li>虚拟机：vergrant轻量<h2 id="5-Git-三个重要区域"><a href="#5-Git-三个重要区域" class="headerlink" title="5. Git 三个重要区域"></a>5. Git 三个重要区域</h2></li>
-<li>工作目录</li>
-<li>暂存区<ul>
-<li>工作目录先提交到暂存区，是工作目录和本地仓库的过度区域；</li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">    $(<span class="string">"#profileForm"</span>).validate(&#123;</div><div class="line">                <span class="attr">sendForm</span> : <span class="literal">false</span>,</div><div class="line">                <span class="attr">valid</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">                    <span class="comment">//同步更新富文本内容变化</span></div><div class="line">                    <span class="keyword">for</span>(<span class="keyword">var</span> instance <span class="keyword">in</span> CKEDITOR.instances)&#123;</div><div class="line">                        CKEDITOR.instances[instance].updateElement();</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">var</span> p = $(<span class="string">'#p'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                    <span class="keyword">var</span> c = $(<span class="string">'#c'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                    <span class="keyword">var</span> d = $(<span class="string">'#d'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                    <span class="keyword">var</span> hometown = p+<span class="string">'|'</span>+c+<span class="string">'|'</span>+d;</div><div class="line">                    $(<span class="keyword">this</span>).ajaxSubmit(&#123;</div><div class="line">                        <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line"></div><div class="line">                        <span class="attr">url</span>:<span class="string">'/api/teacher/modify'</span>,</div><div class="line">                        <span class="attr">data</span>:&#123;<span class="attr">tc_hometown</span>:hometown&#125;,</div><div class="line">                        <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">                        <span class="attr">success</span>:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">                            <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                                <span class="built_in">console</span>.log(data);</div><div class="line">                                location.reload();</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;)</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;)</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"></div><div class="line">### uploadify基本使用</div><div class="line">- [uploadify](http://www.uploadify.com/)</div><div class="line">- fileObjName 文件名称</div><div class="line">- buttonText 按钮文本</div><div class="line">- buttonClass 按钮样式</div><div class="line">- fileTypeExts 支持的扩展名</div><div class="line">- fileSizeLimit 文件的大小限制</div><div class="line">- uploader 上传的路径</div><div class="line">- swf flash文件的位置</div><div class="line">- onUploadSuccess 上传成功的回调函数</div><div class="line"></div><div class="line">`<span class="string">``</span>javascript</div><div class="line">    $(<span class="string">'#upfile'</span>).uploadify(&#123;</div><div class="line">                <span class="attr">width</span>:<span class="number">120</span>,</div><div class="line">                <span class="attr">height</span>:<span class="number">120</span>,</div><div class="line">                <span class="attr">buttonText</span>:<span class="string">""</span>,</div><div class="line">                <span class="attr">fileObjName</span>:<span class="string">'tc_avatar'</span>,</div><div class="line">                <span class="attr">swf</span>:<span class="string">'/public/assets/uploadify/uploadify.swf'</span>,</div><div class="line">                <span class="attr">uploader</span>:<span class="string">'/api/uploader/avatar'</span>,</div><div class="line">                <span class="attr">onUploadSuccess</span>:<span class="function"><span class="keyword">function</span> (<span class="params">file,data</span>) </span>&#123;</div><div class="line">                    <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(data);</div><div class="line">                    $(<span class="string">'.preview img'</span>).attr(<span class="string">'src'</span>,data.result.path);</div><div class="line">                &#125;</div><div class="line">            &#125;);</div></pre></td></tr></table></figure>
+<h3 id="php文件上传处理"><a href="#php文件上传处理" class="headerlink" title="php文件上传处理"></a>php文件上传处理</h3><ul>
+<li>$_FILES 用来获取上传的文件（具体包含了一些参数）</li>
 </ul>
-</li>
-<li>本地仓库（.git directory <repository>）<h2 id="6-Git文件的4种状态"><a href="#6-Git文件的4种状态" class="headerlink" title="6. Git文件的4种状态"></a>6. Git文件的4种状态</h2></repository></li>
-<li>未追踪 untracked 工作目录刚创建的文件</li>
-<li>已暂存 staged 从工作目录提交到暂存区的文件</li>
-<li>已提交 commited 从暂存区提交到本地仓库的文件</li>
-<li>已修改 modified 暂存区修改过的文件<h1 id="Git使用"><a href="#Git使用" class="headerlink" title="Git使用"></a>Git使用</h1></li>
-<li>创建一个文件夹 <code>git init</code>,创建一个仓库</li>
-<li><code>git config --global user.name &quot;name&quot;</code>和<code>git config --global user.email &quot;email&quot;</code>配置用户信息</li>
-<li><code>git status</code>查看git状态信息</li>
-<li><code>git add 01-index.html 02-index2.html</code>将为跟踪的目录提交到暂存区,多个文件之间空格隔开；<br> 此时查看<code>git status</code>文件名变绿</li>
-<li><code>git rm --cached 01-index.html</code>将已加到暂存区的文件移除到工作目录中；</li>
-<li><code>git add -A</code> 或者<code>git add *</code>工作目录全部提交到暂存区</li>
-<li><code>git rm --cached *</code>移交到暂存区的文件全部移除</li>
-<li><code>git commit -m &#39;描述信息&#39;</code>将暂存区中的内容提交到本地仓库，并描述修改信息</li>
-<li><code>git log</code>查看提交的本地仓库记录；</li>
-<li><code>git checkout 01.index.html</code>撤销 暂存区文件的修改内容(提交到仓库的文件，然后down下来的文件进行修改后，但发现错误，使用checkout将原来的修改撤销)</li>
-</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Array</span></div><div class="line">(</div><div class="line">    [picture] =&gt; <span class="keyword">Array</span></div><div class="line">        (</div><div class="line">            [name] =&gt; abc.png  文件的名称</div><div class="line">            [type] =&gt; application/octet-stream  文件的传输格式</div><div class="line">            [tmp_name] =&gt; D:\wamp\tmp\phpDE88.tmp  服务器临时文件路径</div><div class="line">            [error] =&gt; <span class="number">0</span> 错误代码</div><div class="line">            [size] =&gt; <span class="number">1792</span> 文件大小</div><div class="line">        )</div><div class="line">)</div></pre></td></tr></table></figure>
 <ul>
-<li><code>git checkout .</code>把当前分枝所做的所有修改都撤销</li>
+<li>move_uploaded_file 移动文件</li>
 </ul>
-<ol>
-<li><code>git reset --hard 想要修改内容前面的&lt;commitId&gt;</code>用本地仓库中的快照覆盖工作目录和暂存区的内容，并且放弃commitId之后的提交；</li>
-</ol>
+<h3 id="背景图片截图插件"><a href="#背景图片截图插件" class="headerlink" title="背景图片截图插件"></a>背景图片截图插件</h3><ul>
+<li>Jcrop</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> picture = $(<span class="string">'.preview img'</span>),jcrop_api;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cropPic</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    jcrop_api&amp;&amp;jcrop_api.destroy();</div><div class="line">    picture.Jcrop(&#123;</div><div class="line">        <span class="comment">// bgColor:'pink',//设置选取的背景颜色</span></div><div class="line">        acpectRatio:<span class="number">2</span>,<span class="comment">//设置宽高比</span></div><div class="line">        keySupport:<span class="literal">true</span>,<span class="comment">//支持键盘控制</span></div><div class="line">        boxWidth:<span class="number">400</span>,<span class="comment">//设置背景图片,即画布的宽高</span></div><div class="line">        <span class="comment">//boxHeight:400,</span></div><div class="line">    &#125;,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">//回调函数</span></div><div class="line">        picture_api = <span class="keyword">this</span>;</div><div class="line">        <span class="comment">//获取画布的宽度和高度;</span></div><div class="line">        <span class="keyword">var</span> width = <span class="keyword">this</span>.ui.stage.width,</div><div class="line">            height = <span class="keyword">this</span>.ui.stage.height,</div><div class="line">            x = <span class="number">0</span>,</div><div class="line">            y = height/<span class="number">4</span>;</div><div class="line">        <span class="comment">//console.log(height);</span></div><div class="line">        picture_api.newSelection();</div><div class="line">        <span class="comment">//设置图片加载完成后,选框自动选中的位置</span></div><div class="line">        <span class="comment">//picture_api.setSelect([x,y,width,height/2]);</span></div><div class="line">        picture_api.animateTo([x,y,width,height/<span class="number">2</span>]);</div><div class="line">        <span class="comment">//获取截取图片的x,y,w,h;</span></div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h3 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h3><ul>
+<li><a href="http://ueditor.baidu.com/website/" target="_blank" rel="external">ueditor</a></li>
+<li><a href="http://ckeditor.com/" target="_blank" rel="external">ckeditor</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;textarea id=<span class="string">'text'</span>&gt;&lt;/textarea&gt;</div><div class="line"><span class="comment">//加载富文本</span></div><div class="line">        CKEDITOR.replace(<span class="string">'ckeditor'</span>, &#123;</div><div class="line">            <span class="comment">//toolbarGroups:[]</span></div><div class="line">        &#125;);</div><div class="line">        <span class="comment">//同步更新富文本内容变化</span></div><div class="line">           <span class="keyword">for</span>(<span class="keyword">var</span> instance <span class="keyword">in</span> CKEDITOR.instances)&#123;</div><div class="line">               CKEDITOR.instances[instance].updateElement();</div><div class="line">           &#125;</div></pre></td></tr></table></figure>
+<h3 id="三级联动"><a href="#三级联动" class="headerlink" title="三级联动"></a>三级联动</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div class='region'&gt;</div><div class="line">    &lt;select name="tc_province" id='p' data-id=&#123;&#123;tc_province&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">                &lt;option &gt;请选择省&lt;/option&gt;</div><div class="line"></div><div class="line">  &lt;/select&gt;</div><div class="line">  &lt;select name="tc_city" id='c' data-id=&#123;&#123;tc_city&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">      &lt;option &gt;请选择市&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">  &lt;select name="tc_district" id='d' data-id=&#123;&#123;tc_district&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">      &lt;option &gt;请选择区县&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">    //三级联动,加载数据</div><div class="line">$('.region').region(&#123;</div><div class="line">    url:'../lib/jquery-region/region.json'</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="编程理论基础"><a href="#编程理论基础" class="headerlink" title="编程理论基础"></a>编程理论基础</h2><ul>
+<li>服务器</li>
+<li>项目开发流程</li>
+<li>编程，逻辑思维</li>
+<li>模块化（nodejs/fis/webpack）</li>
+<li>路径</li>
+<li>路由</li>
+<li>数据库</li>
+<li>协议（网络通信）</li>
+<li>网站（静态网站和动态网站）</li>
+<li>后台接口</li>
+<li>前端渲染和后台渲染</li>
+</ul>
+<h2 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h2><ul>
+<li><p>原生的绑定事件会发生覆盖</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>jquery的绑定事件都是会叠加</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#btn'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div><div class="line">$(<span class="string">'#btn'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>location.search</code>得到的是URL地址中所有的参数<code>?tc_id=3&amp;username=12</code>;</p>
+</li>
+</ul>
 <ul>
-<li><code>git reset Head</code>本地仓库的最新版本覆盖暂存区,但不覆盖工作目录;</li>
-</ul>
-<ol>
-<li><code>git config list</code>查看当前git的配置信息</li>
-</ol>
-<h3 id="创建分枝命令"><a href="#创建分枝命令" class="headerlink" title="创建分枝命令"></a>创建分枝命令</h3><ol>
-<li><code>git branch</code> 查看当前分枝状态</li>
-<li><code>git branch abc</code>添加名为abc的分枝</li>
-<li><code>git checkout abc</code>将编辑状态切换到分枝abc上</li>
-<li><code>git merge abc</code>将分枝信息abc内容同步到主线master上；将分支切换大master上执行的；在master上执行这个命令，将abc分枝合并到master上；</li>
-<li><code>git branch -d 分枝名称</code>删除分枝</li>
-<li>常用的创建分支代码:<code>git checkout -b bcd</code>创建并切换分支，相当于<code>git branch bcd</code>和<code>git checkout bcd</code>命令的集合；</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/13/git day02 git基础知识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/13/git day02 git基础知识/" itemprop="url">
-                  Git 基础知识
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-13T20:46:25+08:00">
-                2016-06-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index">
-                    <span itemprop="name">Diary</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="git-day02-git使用"><a href="#git-day02-git使用" class="headerlink" title="git day02 git使用"></a>git day02 git使用</h1><h2 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h2><h3 id="三个区域"><a href="#三个区域" class="headerlink" title="三个区域"></a>三个区域</h3><ul>
-<li>工作目录</li>
-<li>暂存区</li>
-<li>本地仓库<h3 id="文件的四个状态"><a href="#文件的四个状态" class="headerlink" title="文件的四个状态"></a>文件的四个状态</h3></li>
-<li>未跟踪 untracked</li>
-<li>已暂存 staged</li>
-<li>已提交 coomited</li>
-<li>已修改 modified<h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3></li>
-<li><code>git add file</code><ul>
-<li>将未跟踪的文件加到暂存区</li>
-<li>把暂存区修改的内容从新提交到暂存区</li>
-</ul>
+<li><p>可以通过<code>location</code>来获取地址栏中所携带的所有信息；</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pathname = location.search;</div><div class="line"><span class="keyword">var</span> pcname = pathname.sclice(<span class="number">1</span>); <span class="comment">//将？截取掉</span></div><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> arr = pcname.split(<span class="string">'&amp;'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</div><div class="line">    <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">    obj[kv[<span class="number">0</span>]]=kv[<span class="number">1</span>];</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">    <span class="comment">//将URL中的参数和值以键值对的形式放到obj中；</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><code>git commit -m &quot;备注&quot;</code><ul>
-<li>将暂存区的内容提交到本地仓库中</li>
 </ul>
-</li>
-<li><code>git rm --cached files</code><ul>
-<li>将暂存的文件移动到工作目录</li>
+<ul>
+<li>PHP中，将数组以json对象的形式输出： <code>json_encode($arr)</code>；</li>
 </ul>
-</li>
-<li><code>git checkout files</code><ul>
-<li>暂存区中修改的的内容撤销掉</li>
+<h2 id="表单验证插件-1"><a href="#表单验证插件-1" class="headerlink" title="表单验证插件"></a>表单验证插件</h2><ul>
+<li>form表单中，不写提交地址，默认提交到当前页面，地址栏中；</li>
+<li><code>jquery-validate</code>表单验证的插件；</li>
+<li><code>jquery-form</code>表单提交的插件 <code>$(&#39;form&#39;).ajaxSubmit({ })</code></li>
+<li>文件上传插件 <code>webupload</code>和<code>uploadify</code></li>
 </ul>
-</li>
-<li><code>git reset HEAD(表示本地仓库中最后一次提交,commitId)</code><ul>
-<li><code>--hard</code>工作目录、暂存区、本地仓库都会变化;</li>
-<li><code>--soft</code>只会回滚本地仓库,工作目录和暂存区不会变化</li>
-<li><code>--mixed</code>默认的,用本地仓库的版本覆盖暂存区文件,也会回滚本地仓库,不会修改工作目录<h2 id="远程仓库-共享仓库"><a href="#远程仓库-共享仓库" class="headerlink" title="远程仓库(共享仓库)"></a>远程仓库(共享仓库)</h2></li>
-</ul>
-</li>
-<li><code>git clone</code>克隆远程仓库全部内容</li>
-<li><code>git pull</code>从远程仓库中下载最新版本,覆盖本地分支内容<ul>
-<li><code>git pull 远程仓库地址 远程分支:本地分支</code></li>
-</ul>
-</li>
-<li><code>git push</code>提交本地代码版本<ul>
-<li><code>git push 远程仓库地址 本地分支:远程分支</code></li>
-</ul>
-</li>
-<li><code>git fetch</code>从远程仓库下载最新版本内容,但是不合并,需要手动使用`git merge<br>合并;</li>
-<li><code>git remote</code>查看远程分支别名</li>
-<li><code>gitremote add origin</code>添加远程仓库地址的别名</li>
-<li><code>git remote show origin</code>查看远程仓库别名的二聚体地址<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2></li>
-<li><code>git branch 分支名称</code> 创建分支</li>
-<li><code>git branch -r</code>查看远程分支</li>
-<li><code>git branch -a</code>查看所有分支</li>
-<li><code>git checkout 分支名称</code> 切换分支</li>
-<li><code>git checkout -b 分支名称</code> 创建并切换分支</li>
-<li><code>git branch -d 分支名称</code> 删除本地分支</li>
-<li><code>git push origin --delete</code> 删除远程分支</li>
-<li><code>git merge 来源分支</code> 合并分支</li>
-<li><code>git stash</code> 保存当前版本状态</li>
-<li><code>git stash pop</code>恢复保存的版本状态</li>
-</ul>
+<p>你都做过什么，遇到什么问题，你是怎么解决的；<br>nodejs是怎么用的；</p>
 
           
         
@@ -1083,7 +510,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1120,7 +547,7 @@
                alt="Gaonana" />
           <p class="site-author-name" itemprop="name">Gaonana</p>
            
-              <p class="site-description motion-element" itemprop="description">coding,需要有洁癖</p>
+              <p class="site-description motion-element" itemprop="description">coding,有洁癖才能更完美</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -1159,8 +586,26 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gaona0704" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
           
         </div>
 
@@ -1168,6 +613,20 @@
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.sdifenzhou.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
         
@@ -1191,7 +650,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -1248,6 +707,9 @@
 
 
 
+  
+  
+
 
 
   
@@ -1267,6 +729,12 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   
