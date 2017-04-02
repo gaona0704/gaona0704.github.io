@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="canvas," />
+  <meta name="keywords" content="JQuery Plug," />
 
 
 
@@ -87,22 +87,52 @@
 
 
 
-<meta name="description" content="canvas 第二天一、修改原型指向
-实例产生之后，再修改构造函数的原型，对实例中的数据没有影响；按时回影响instanceof的判断；
-只有当foo.__proto__==Foo.prototype成立时，foo instanceof Foo才成立；1234567891011function fn()&amp;#123;    this.flag = 1;&amp;#125;function Foo(info)">
+<meta name="description" content="git day 01基本组成
+后台管理系统
+业务登录系统
+
+Apache
+静态资源服务器
+项目管理软件: JIRA 禅道(跟踪工程进度更新,项目管理软件)博学谷项目知识点
+
+
+jQuery中的return false既可以阻止默认行为也可以阻止冒泡;但是原生JS中的return false 只能阻止默认行为;
+
+cookie和session1.cookie
+通过cookie可以向客户端存储数据">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Canvas 基本命令">
-<meta property="og:url" content="http://yoursite.com/2017/03/11/canvas-day02长方形，圆，动画/index.html">
+<meta property="og:title" content="Cookie与location的使用">
+<meta property="og:url" content="http://yoursite.com/2017/03/27/2017-03-17-BXG项目/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="canvas 第二天一、修改原型指向
-实例产生之后，再修改构造函数的原型，对实例中的数据没有影响；按时回影响instanceof的判断；
-只有当foo.__proto__==Foo.prototype成立时，foo instanceof Foo才成立；1234567891011function fn()&amp;#123;    this.flag = 1;&amp;#125;function Foo(info)">
-<meta property="og:updated_time" content="2017-04-02T01:16:08.000Z">
+<meta property="og:description" content="git day 01基本组成
+后台管理系统
+业务登录系统
+
+Apache
+静态资源服务器
+项目管理软件: JIRA 禅道(跟踪工程进度更新,项目管理软件)博学谷项目知识点
+
+
+jQuery中的return false既可以阻止默认行为也可以阻止冒泡;但是原生JS中的return false 只能阻止默认行为;
+
+cookie和session1.cookie
+通过cookie可以向客户端存储数据">
+<meta property="og:updated_time" content="2017-04-02T01:25:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Canvas 基本命令">
-<meta name="twitter:description" content="canvas 第二天一、修改原型指向
-实例产生之后，再修改构造函数的原型，对实例中的数据没有影响；按时回影响instanceof的判断；
-只有当foo.__proto__==Foo.prototype成立时，foo instanceof Foo才成立；1234567891011function fn()&amp;#123;    this.flag = 1;&amp;#125;function Foo(info)">
+<meta name="twitter:title" content="Cookie与location的使用">
+<meta name="twitter:description" content="git day 01基本组成
+后台管理系统
+业务登录系统
+
+Apache
+静态资源服务器
+项目管理软件: JIRA 禅道(跟踪工程进度更新,项目管理软件)博学谷项目知识点
+
+
+jQuery中的return false既可以阻止默认行为也可以阻止冒泡;但是原生JS中的return false 只能阻止默认行为;
+
+cookie和session1.cookie
+通过cookie可以向客户端存储数据">
 
 
 
@@ -130,13 +160,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/11/canvas-day02长方形，圆，动画/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/27/2017-03-17-BXG项目/"/>
 
 
 
 
 
-  <title> Canvas 基本命令 | Hexo </title>
+  <title> Cookie与location的使用 | Hexo </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -265,7 +295,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/11/canvas-day02长方形，圆，动画/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/27/2017-03-17-BXG项目/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gaonana">
@@ -286,7 +316,7 @@
             
             
               
-                Canvas 基本命令
+                Cookie与location的使用
               
             
           </h1>
@@ -301,8 +331,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T16:49:43+08:00">
-                2017-03-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-27T17:26:25+08:00">
+                2017-03-27
               </time>
             
 
@@ -359,34 +389,51 @@
       
 
       
-        <h1 id="canvas-第二天"><a href="#canvas-第二天" class="headerlink" title="canvas 第二天"></a>canvas 第二天</h1><h2 id="一、修改原型指向"><a href="#一、修改原型指向" class="headerlink" title="一、修改原型指向"></a>一、修改原型指向</h2><ul>
-<li>实例产生之后，再修改构造函数的原型，对实例中的数据没有影响；按时回影响instanceof的判断；</li>
-<li>只有当<code>foo.__proto__==Foo.prototype</code>成立时，<code>foo instanceof Foo</code>才成立；<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.flag = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">info</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.info = info;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo(<span class="string">'123'</span>);<span class="comment">//此时Foo.prototype = &#123;&#125;;</span></div><div class="line">Foo.prototype = <span class="keyword">new</span> fn();</div><div class="line"><span class="built_in">console</span>.log(foo <span class="keyword">instanceof</span> Foo)<span class="comment">//结果是false；,</span></div><div class="line"><span class="comment">//foo.__proto__是原来Foo的原型；</span></div><div class="line"><span class="comment">//现在Foo的prototype = fn;</span></div></pre></td></tr></table></figure>
-</li>
+        <h1 id="git-day-01"><a href="#git-day-01" class="headerlink" title="git day 01"></a>git day 01</h1><h2 id="基本组成"><a href="#基本组成" class="headerlink" title="基本组成"></a>基本组成</h2><ul>
+<li>后台管理系统</li>
+<li>业务登录系统</li>
 </ul>
-<h2 id="二、canvas"><a href="#二、canvas" class="headerlink" title="二、canvas"></a>二、canvas</h2><ol>
-<li>canvas 在IE8之前有兼容性问题；</li>
-<li>矩形的绘制<ul>
-<li><code>rect(x,y,width,height)</code>这个需要<code>stroke()</code>描边</li>
-<li><code>strokeRect(x,y,width,height)</code>;这个就不需要调用stroke描边</li>
-<li><code>fillRect()</code>填充显示长方形，不需要单独填充操作；</li>
-<li><code>clearRect(x,y,width,height)</code>;将特定位置的长方形清空；清空画布：<code>clearRect(0,0,cas.width,cas.height)</code>;</li>
-<li>注意: <code>clearRect</code>不能清空路径,但是能清空描边或填充</li>
+<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><ul>
+<li>静态资源服务器</li>
+<li>项目管理软件: JIRA 禅道(跟踪工程进度更新,项目管理软件)<h2 id="博学谷项目知识点"><a href="#博学谷项目知识点" class="headerlink" title="博学谷项目知识点"></a>博学谷项目知识点</h2></li>
 </ul>
+<ol>
+<li>jQuery中的return false既可以阻止默认行为也可以阻止冒泡;但是原生JS中的return false 只能阻止默认行为;</li>
+</ol>
+<h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><h3 id="1-cookie"><a href="#1-cookie" class="headerlink" title="1.cookie"></a>1.cookie</h3><ol>
+<li>通过cookie可以向客户端存储数据  </li>
+<li>url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务端的通信状态(这个是后台写的)</li>
+<li><code>document.cookie</code>可以访问cookie;</li>
+<li>cookie的格式:键值对;</li>
+<li>多个cookie之间使用分号和空格隔开;例如:<code>username=zhangsan; age=12</code>;</li>
+<li><code>document.cookie = &#39;username=zhangsan&#39;</code>在浏览器中是有缓存的,关闭浏览区可以清除;<h3 id="2-cookie的分类"><a href="#2-cookie的分类" class="headerlink" title="2.cookie的分类"></a>2.cookie的分类</h3></li>
+<li><p>session cookie 会话cookie:关闭浏览器之后自动清除,但是可以增加其有效期,以下例子增加了5天的有效期</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    date.setDate(date.getDate()+<span class="number">5</span>); </div><div class="line">    <span class="built_in">document</span>.cookie=<span class="string">"username=lisi; expires="</span>+date.toGMTString();</div><div class="line"><span class="string">`</span></div></pre></td></tr></table></figure>
 </li>
-<li><code>cxt.save() cxt.restore()</code>表示保存上次的绘制状态（包括fillStyle 和 strockeStyle）;<br> <code>save()</code>可以保存多次绘制状态，以栈的方式存储;<code>后进先出</code>； <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> cxt.beginPath();</div><div class="line"><span class="comment">//会存储fillStyle和strokeStyle</span></div><div class="line">cxt.restore();<span class="comment">//恢复最后一次保存的状态</span></div><div class="line">cxt.restore();<span class="comment">//恢复倒数第二次的状态</span></div><div class="line">cxt.rect(<span class="number">50</span>,<span class="number">50</span>,<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">cxt.stroke();</div><div class="line">cxt.fill();</div></pre></td></tr></table></figure>
+<li><p>persistant cookie 持久cookie:关闭浏览器</p>
+</li>
+<li>获得cookie,封装函数</li>
+<li>在子路径设置的cookie,在父路径下是获取不到的;反过来可以<br> 不可以跨域获取cookie,但是可以跨页面共享;</li>
+<li>可以用jquery-cookie插件应用;<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//设置cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,expires</span>) </span>&#123;</div><div class="line">         <span class="built_in">document</span>.cookie = key +<span class="string">'='</span>+value+<span class="string">';expires='</span>+expires+<span class="string">"; path=/"</span>;</div><div class="line">     &#125;</div><div class="line"><span class="comment">//获得cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>) </span>&#123;</div><div class="line">     <span class="keyword">var</span> cookie = <span class="built_in">document</span>.cookie;</div><div class="line">     <span class="keyword">var</span> arr = cookie.split(<span class="string">'; '</span>);</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">         <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">         <span class="keyword">if</span>(cname == kv[<span class="number">0</span>])&#123;</div><div class="line">             <span class="keyword">return</span> kv[<span class="number">1</span>];</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="三、绘制圆弧"><a href="#三、绘制圆弧" class="headerlink" title="三、绘制圆弧"></a>三、绘制圆弧</h3><ul>
-<li><p><code>arc(x,y,r,startAngle,endAngle,false)</code>,false代表顺时针绘制，true逆时针绘制；</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">圆的弧度 = <span class="number">2</span>πr；角度 = <span class="number">360</span>°</div><div class="line">所以 <span class="number">1</span>° = <span class="built_in">Math</span>.PI/<span class="number">180</span>;</div><div class="line"><span class="number">90</span>° = <span class="number">90</span> * <span class="built_in">Math</span>.PI/<span class="number">180</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>encodeURLComponent</code>该方法会对url地址中的特殊字符进行编码(当参数中包含URL特殊字符的时候可以使用该方法进行编码处理);</li>
+<li>//获取sessionID<br>console.log($.cookie(‘PHPSESSID’));</li>
+</ul>
+<h3 id="3-cookie-使用"><a href="#3-cookie-使用" class="headerlink" title="3. $.cookie()使用"></a>3. $.cookie()使用</h3><ol>
+<li>新添加一个cookie会话;<code>$.cookie(&#39;username&#39;,&#39;zhangsan&#39;)</code>;</li>
+<li>创建cookie并设置有效期为7天;<code>$.cookie(&#39;age&#39;,&#39;18&#39;,{expires:7})</code>;此时的cookie称作持久cookie,即<code>persistant cookie</code>;</li>
+<li>创建cookie并设置cookie的有效路径<code>$.cookie(&#39;username&#39;,&#39;lisi&#39;,{expires:7,path:&#39;/&#39;})</code>;<ul>
+<li>在默认情况下,只有cookie的页面才能读取该cookie信息,如果想让另一个页面读取该cookie信息,必须设置cookie的路径;cookie的路径用于设置能够读取cookie的顶级目录,即根目录,可以让当前项目下所有的网页都能相互读取cookie,</li>
+</ul>
 </li>
-<li><p>水平往右方向为起始点；</p>
+<li><code>raw:true</code>;在读写cookie时自动使用<code>encodeURLComponen</code>进行编码和解码;</li>
+<li>删除cookie可以使用null作为cookie的值就可以<code>$.cookie(&#39;username&#39;,null)</code><h3 id="4-location的内置属性"><a href="#4-location的内置属性" class="headerlink" title="4.location的内置属性"></a>4.location的内置属性</h3></li>
+</ol>
+<ul>
+<li>页面跳转<code>location.href=&#39;/index/index.html&#39;</code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ancestorOrigins:DOMStringList,</div><div class="line">assign:()</div><div class="line">hash:""</div><div class="line">host:"mybxg.com"</div><div class="line">hostname:"mybxg.com"</div><div class="line">href:"http://mybxg.com/index/index"</div><div class="line">origin:"http://mybxg.com"</div><div class="line">pathname:"/index/index"</div><div class="line">port:""</div><div class="line">protocol:"http:"</div><div class="line">reload:reload()</div><div class="line">replace:()</div><div class="line">search:""</div><div class="line">toString:toString()</div><div class="line">valueOf:valueOf()</div><div class="line">__proto__:Location</div></pre></td></tr></table></figure>
 </li>
-<li>绘制连续的路径，如果起始点与上一个的终点一致，就无需moveTo；<h3 id="四、数组-foreach和map方法使用"><a href="#四、数组-foreach和map方法使用" class="headerlink" title="四、数组 foreach和map方法使用"></a>四、数组 foreach和map方法使用</h3></li>
-<li><code>foreach(function(item,index,arr){})</code> ,没有返回值；</li>
-<li><code>arr.map(function(item,index){})</code>,操作之后，会返回修改之后的数组，有返回值<h3 id="五、逐帧动画"><a href="#五、逐帧动画" class="headerlink" title="五、逐帧动画"></a>五、逐帧动画</h3></li>
-<li><code>requestAnimationFrame()</code>，同setTimeout作用类似；</li>
 </ul>
 
       
@@ -417,7 +464,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/canvas/" rel="tag"># canvas</a>
+            <a href="/tags/JQuery-Plug/" rel="tag"># JQuery Plug</a>
           
         </div>
       
@@ -430,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/22/canvas-day04/" rel="next" title="数组小知识">
-                <i class="fa fa-chevron-left"></i> 数组小知识
+              <a href="/2017/03/21/博学谷项目<四>/" rel="next" title="JQuery插件使用（表单验证、提交、日期、富文本、图片裁切、三级联动）">
+                <i class="fa fa-chevron-left"></i> JQuery插件使用（表单验证、提交、日期、富文本、图片裁切、三级联动）
               </a>
             
           </div>
@@ -439,10 +486,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/15/博学谷项目<二>/" rel="prev" title="缓存，cookie与session，跨域与requireJS的使用">
-                缓存，cookie与session，跨域与requireJS的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#canvas-第二天"><span class="nav-number">1.</span> <span class="nav-text">canvas 第二天</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、修改原型指向"><span class="nav-number">1.1.</span> <span class="nav-text">一、修改原型指向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、canvas"><span class="nav-number">1.2.</span> <span class="nav-text">二、canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三、绘制圆弧"><span class="nav-number">1.2.1.</span> <span class="nav-text">三、绘制圆弧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、数组-foreach和map方法使用"><span class="nav-number">1.2.2.</span> <span class="nav-text">四、数组 foreach和map方法使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、逐帧动画"><span class="nav-number">1.2.3.</span> <span class="nav-text">五、逐帧动画</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-day-01"><span class="nav-number">1.</span> <span class="nav-text">git day 01</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本组成"><span class="nav-number">1.1.</span> <span class="nav-text">基本组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache"><span class="nav-number">1.2.</span> <span class="nav-text">Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博学谷项目知识点"><span class="nav-number">1.3.</span> <span class="nav-text">博学谷项目知识点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie和session"><span class="nav-number">1.4.</span> <span class="nav-text">cookie和session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-cookie"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-cookie的分类"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.cookie的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-cookie-使用"><span class="nav-number">1.4.3.</span> <span class="nav-text">3. $.cookie()使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-location的内置属性"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.location的内置属性</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
