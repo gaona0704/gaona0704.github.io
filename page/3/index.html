@@ -272,7 +272,7 @@
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/08/Angular 自定义模块以及路由的配置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/博学谷项目 <二>/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gaonana">
@@ -294,8 +294,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/08/Angular 自定义模块以及路由的配置/" itemprop="url">
-                  Angular 自定义模块以及路由的配置
+                <a class="post-title-link" href="/2017/02/12/博学谷项目 <二>/" itemprop="url">
+                  前端发送请求的方式
                 </a>
               
             
@@ -311,8 +311,450 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-08T12:39:04+08:00">
-                2016-12-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T10:39:04+08:00">
+                2017-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="域名解析系统"><a href="#域名解析系统" class="headerlink" title="域名解析系统"></a>域名解析系统</h2><ul>
+<li>先去本机的host的文件查找对应的IP,如果在本机host文件中找到,就返回对应的IP;如果没有的话,就去公网查找,公网没有的话就无法上网;</li>
+</ul>
+<h2 id="前端发送请求的方式"><a href="#前端发送请求的方式" class="headerlink" title="前端发送请求的方式"></a>前端发送请求的方式</h2><ul>
+<li>地址栏直接输入URL</li>
+<li>表单的action属性</li>
+<li>a标签的href属性;link的href</li>
+<li>src属性:img的src;script的src; iframe的src</li>
+<li>ajax发送请求</li>
+<li>postMessage H5新的API</li>
+<li>flash插件</li>
+<li>location.href<ol>
+<li>补充:URL的规范格式 scheme://host:port /path?query#frament;</li>
+</ol>
+<ul>
+<li>scheme 表示协议 http https ftp file ssh;</li>
+<li>host 表示域名或者IP地址;</li>
+<li>port 端口;用来确定计算机上某个网络应用程序;</li>
+<li>path 路径;域名之后,参数(?)之前的内容:/abc/qqq等</li>
+<li>query 查询字符串;作用,向服务器传递参数数据;格式:键=值&amp;键=值</li>
+<li>frament: hash 锚点,定位页面的某一部分;结合ID;</li>
+</ul>
+</li>
+</ul>
+<h2 id="路径问题"><a href="#路径问题" class="headerlink" title="路径问题"></a>路径问题</h2><ul>
+<li>绝对路径 / 等效于直接写IP地址<a href="http://localhost" target="_blank" rel="external">http://localhost</a></li>
+<li>相对路径:  ./代表当前路径 ../代表上层路径</li>
+<li>跳转到根路径<code>&lt;a href=&quot;/tom.html&quot;&gt;</code></li>
+</ul>
+<h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><ul>
+<li>cookie写入之后,只要是访问同一个网站,都会带着cookie进行访问;</li>
+<li>在PHP中session start();开启session会话;让服务器知道曾经来过,保存访问状态;SESSID</li>
+<li>session是服务端的,客户端向服务端发送SESSID,进行服务器与客户端的关联,服务器返回该用户的信息;</li>
+<li>SESSID可以保持客户端与服务器之间的联系状态;实现不同页面间的数据共享</li>
+</ul>
+<h2 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h2><ul>
+<li><p>jsonp</p>
+<ul>
+<li>jsonp返回的数据应该是函数的调用<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ecName = $_GET[<span class="string">'callback'</span>];<span class="comment">//获取到函数名;</span></div><div class="line">echo $ecName.<span class="string">"("</span>data.<span class="string">")"</span>;<span class="comment">//返回函数的调用;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>cors 配置服务器,</p>
+</li>
+<li>反向代理 其原理类似于CORS</li>
+<li>flash插件,但是现在已经很少用了;</li>
+</ul>
+<h2 id="PHP-相关问题"><a href="#PHP-相关问题" class="headerlink" title="PHP 相关问题"></a>PHP 相关问题</h2><ul>
+<li>PHP既可以做前端页面渲染,也可以单独作为接口返回数据;</li>
+<li>&lt;?php include()?&gt;(PHP中导入页面)<br><code>count($arr == 2)</code> 等同于js中<code>arr.length == 2</code>;</li>
+</ul>
+<h2 id="模块化规范"><a href="#模块化规范" class="headerlink" title="模块化规范"></a>模块化规范</h2><ul>
+<li>浏览器端的规范：<ol>
+<li>AMD：requirejs</li>
+<li>CMD:seajs （淘宝的技术）</li>
+<li>commonjs - nodejs 同步加载，后端的奇数</li>
+</ol>
+</li>
+<li>服务器端的规范<ol>
+<li>commonjs:nodejs </li>
+</ol>
+</li>
+</ul>
+<h2 id="requirejs使用"><a href="#requirejs使用" class="headerlink" title="requirejs使用"></a>requirejs使用</h2><ol>
+<li>解决了命名冲突 （不同模块中的相同变量不会冲突）</li>
+<li>解决了文件依赖问题</li>
+<li>如果requirejs加载的时候，指定了data-main属性，那么根路径就变成了入口文件所处的路径;<ol>
+<li>不使用data-main的时候，在通过require加载文件时可以直接使用相对路径；</li>
+<li>但是在使用data-main的同时，再使用require加载其他模块文件，文件的根路径发生了改变，此时可以重新定义默认的根路径；</li>
+<li>requirejs处理非模块化文件</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> &lt;script src=<span class="string">'require.js'</span> data-main=<span class="string">'main.js'</span> &gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"> &lt;script&gt;</div><div class="line">     <span class="comment">//加载文件，通过data-main的路径进行定位</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'./m4'</span>]);</div><div class="line">     <span class="comment">//或者重新设置默认的根路径</span></div><div class="line">     <span class="built_in">require</span>.config(&#123;</div><div class="line">         <span class="attr">baseUrl</span>:<span class="string">'./js/'</span></div><div class="line">     &#125;);</div><div class="line">     <span class="comment">//相对于根路径的路径</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'/module/m4'</span>]);</div><div class="line">      <span class="comment">//将abc文件中foo的非模块化文件到处成为模块化文件</span></div><div class="line">    shim:&#123;</div><div class="line">        <span class="string">'../abc'</span>:&#123;</div><div class="line">         <span class="comment">//给模块起一个别名；如果自定义模块起了一个名字，在用的时候必须与那个名字保持一致；</span></div><div class="line">            exports:<span class="string">'foo'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">          paths:&#123;</div><div class="line">         <span class="attr">ggg</span>:<span class="string">"js/jquery"</span>;</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/19/同步操作与异步操作的异同/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/19/同步操作与异步操作的异同/" itemprop="url">
+                  同步操作与异步操作的异同
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-19T12:39:04+08:00">
+                2017-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ol>
+<li>Node命令本质上是一个 应用程序；</li>
+<li>Node的核心模块<ul>
+<li>文件读写 fs</li>
+<li>构建Http服务 http</li>
+</ul>
+</li>
+<li>第三方模块<ul>
+<li>npm install 第三方模块名称</li>
+<li>使用require 函数加载</li>
+<li>看文档使用  </li>
+<li>moment 格式化事件moment(time).format(‘YYYY-MM-DD HH:mm:ss’)</li>
+</ul>
+</li>
+<li>在Node中使用art-template 模块引擎；</li>
+<li>浏览器默认不支持JavaScript模块化，只能通过script标签去加载模块以及他们之间的依赖；</li>
+<li>node天生支持模块化<ul>
+<li>模块与模块之间提供可特定的通信交互规则<ul>
+<li>module.exports  相当于return</li>
+<li>require 相当于requireJS中的额 define[依赖项]，function（依赖项）；</li>
+<li>exports</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>一个JS文件就是一个模块化；</li>
+<li>一个模块化就是私有作用域（没有全局作用域的概念）； </li>
+</ul>
+<ol>
+<li>将编码之后的中文解码： decodeURI(URL) ；将中文转换成code编码格式：encodeURI(URL);</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">encodeURI</span>(<span class="string">'中国'</span>)</div><div class="line">---&gt; <span class="string">"%E4%B8%AD%E5%9B%BD"</span></div><div class="line"><span class="built_in">decodeURI</span>(<span class="string">'%E4%B8%AD%E5%9B%BD'</span>)</div><div class="line">===&gt; <span class="string">"中国"</span></div></pre></td></tr></table></figure>
+<ol>
+<li><code>data = JSON.stringify(data,null,&quot;  &quot;)</code>将对象格式的文件转换成字符串格式，第三个参数为<code>“  ”</code>，中间是两个空格，表示向后台提交数据的时候，仍然保持两个空格的缩进；</li>
+<li>没有文件的 POST 提交，还是会把数据格式化成为查询字符串的格式，也就是相当于（get参数）的方式进行提交；有文件上传的是form Data的格式提交</li>
+</ol>
+<h2 id="同步操作与异步操作的异同"><a href="#同步操作与异步操作的异同" class="headerlink" title="同步操作与异步操作的异同"></a>同步操作与异步操作的异同</h2><ol>
+<li>异步API</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">111</span>);</div><div class="line">fs.readfile(<span class="string">'./data/a.txt'</span>),<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">222</span>);</div><div class="line">&#125;</div><div class="line">fs.readfile(<span class="string">'./data/a.txt'</span>),<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">444</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">consle.log(<span class="number">333</span>);</div><div class="line"><span class="comment">//输出的结果是：</span></div><div class="line"><span class="comment">//111;333; 222和444的顺序的不一定的；</span></div><div class="line"><span class="comment">//222和444是异步进行的，无法保证其先后顺序；</span></div></pre></td></tr></table></figure>
+<ol>
+<li>同步API fs.readFileSync(‘./data/a.txt’)<ul>
+<li>var dataA = fs.readFileSync(‘./data/a.txt’).toString();默认读取到的是二进制数据；</li>
+<li>同步ＡＰＩ是按照先后顺序执行的； </li>
+</ul>
+</li>
+<li>关于文件中的同步和异步，优先使用异步操作<ul>
+<li>异步操作都是通过一个回调函数来获取异步操作结果，第一个参数是err;<ul>
+<li>有限判断err是否出错</li>
+<li>操作成功，err就是null；</li>
+<li>操作失败，err 就是错误对象</li>
+<li>在异步操作中，无法使用try-catch捕获异常；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">    <span class="comment">//异步读取不能使用try catch 捕获异常</span></div><div class="line"> <span class="keyword">try</span>&#123;</div><div class="line">    fs.readFile(<span class="string">'./0-hello word.js'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">err,data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">    <span class="comment">//得到的data是undefined；因为错误，读取不到信息</span></div><div class="line">    &#125;);</div><div class="line">&#125;<span class="keyword">catch</span> (e)&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'失败'</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">//同步读取可以使用 try-catch捕获异常</span></div></pre></td></tr></table></figure>
+<ul>
+<li>同步操作直接使用变量去接收操作结果； </li>
+</ul>
+<h2 id="封装异步API"><a href="#封装异步API" class="headerlink" title="封装异步API"></a>封装异步API</h2><ul>
+<li>通过callback去拿结果</li>
+<li>如果自定义异步API中有异常错误，继续使用callback向外抛出</li>
+</ul>
+<h3 id="使用nodemon-实现改完代码服务自动重启"><a href="#使用nodemon-实现改完代码服务自动重启" class="headerlink" title="使用nodemon 实现改完代码服务自动重启"></a>使用nodemon 实现改完代码服务自动重启</h3><ul>
+<li>npm install –g nodemon</li>
+<li>使用<ul>
+<li>nodemon.app.js </li>
+</ul>
+</li>
+</ul>
+<h1 id="Web中的路径"><a href="#Web中的路径" class="headerlink" title="Web中的路径"></a>Web中的路径</h1><ul>
+<li>url本质上只是一个标识而已，所以看到的文件名不一定是真实的文件名</li>
+<li>绝大多数情况下，需要开发人员自定义标识<ul>
+<li>为了好看，路由更简单</li>
+<li>为了更加灵活的控制</li>
+<li>URL路径以<code>“/”</code>开头，是绝对路径</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link href=<span class="string">"/assets/css/main.css"</span>&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/ Angular项目基本构建模块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/14/ Angular项目基本构建模块/" itemprop="url">
+                  Angular项目基本构建模块
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-14T12:39:04+08:00">
+                2016-12-14
               </time>
             
 
@@ -371,917 +813,44 @@
       
         
           
-            <h1 id="Angular-自定义模块以及路由的配置"><a href="#Angular-自定义模块以及路由的配置" class="headerlink" title="Angular 自定义模块以及路由的配置"></a>Angular 自定义模块以及路由的配置</h1><h2 id="自定义服务，-service和-factory"><a href="#自定义服务，-service和-factory" class="headerlink" title="自定义服务，$service和$factory"></a>自定义服务，<code>$service</code>和<code>$factory</code></h2><ul>
-<li>App.controller(); 内置控制器</li>
-<li>App.directive(); 内置指令</li>
-<li>App.filter(); 内置过滤器</li>
-<li>App.factory(); 内置服务</li>
-<li>App.service(); 内置服务</li>
-<li>App.config(); 配置块</li>
-<li>App.run(); 运行块</li>
+            <h1 id="Angular项目基本构建模块"><a href="#Angular项目基本构建模块" class="headerlink" title="Angular项目基本构建模块"></a>Angular项目基本构建模块</h1><h2 id="angular中jQuery的使用"><a href="#angular中jQuery的使用" class="headerlink" title="angular中jQuery的使用"></a>angular中jQuery的使用</h2><ul>
+<li>angular可以讲一个原生的DOM对象转换成一个jQuery对象；</li>
+<li>如果angular中没有引入jQuery，那么angular中只包含了部分jQuery方法；</li>
+<li>引入了jQuery后，jqList</li>
 </ul>
-<h2 id="配置块和运行块"><a href="#配置块和运行块" class="headerlink" title="配置块和运行块"></a>配置块和运行块</h2><ul>
-<li>App.config():一个参数，为数组；[]；App.config([]);</li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn'</span>);</div><div class="line">   angular.element = jQuery;</div><div class="line">   angular.element(btn).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">       angular.element(box).css(<span class="string">'backgroundColor'</span>,<span class="string">'pink'</span>);</div><div class="line">       angular.element(box).animate(&#123;</div><div class="line">           <span class="attr">width</span>:<span class="number">200</span>,</div><div class="line">           <span class="attr">height</span>:<span class="number">200</span>,</div><div class="line">       &#125;,<span class="number">500</span>);</div><div class="line">   &#125;)</div></pre></td></tr></table></figure>
+<h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><ul>
+<li>基于NodeJS的一个静态资源管路工具；</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">App.config([<span class="string">'$logProvider'</span>,<span class="string">'$filterProvider'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$logProvider,$filterProvider</span>) </span>&#123;</div><div class="line"><span class="comment">//通过$logProvider对$log进行配置;</span></div><div class="line">$logProvider.debugEnabled(<span class="literal">false</span>);</div><div class="line">$filterProvider.register(<span class="string">'capitalize'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">input</span>) </span>&#123;</div><div class="line">       <span class="keyword">return</span> (input[<span class="number">0</span>].toUpperCase() + input.slice(<span class="number">1</span>));</div><div class="line">   &#125;</div><div class="line">&#125;)</div><div class="line">&#125;]);</div><div class="line"><span class="comment">//这样在配置好之后，在HTML中就可以直接使用‘capitalize’服务了</span></div><div class="line">&lt;p ng-controller=<span class="string">'DemoCtrl'</span>&gt; 《name | capitalize》&lt;<span class="regexp">/p&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="运行块"><a href="#运行块" class="headerlink" title="运行块"></a>运行块</h3><ul>
-<li>$rootScope:  AngularJS的根作用域，可定于全局变量</li>
+<h3 id="豆瓣一刻"><a href="#豆瓣一刻" class="headerlink" title="豆瓣一刻"></a>豆瓣一刻</h3><ul>
+<li>前端分包<ul>
+<li>视图： views<ul>
+<li>views</li>
+<li>tpls</li>
+<li>templates</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">App.run([<span class="string">'$rootScope'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$rootScope</span>) </span>&#123;</div><div class="line">       $rootScope.name = <span class="string">'顺治'</span>;</div><div class="line">   &#125;])</div><div class="line">   <span class="comment">//这个name在此文件中的任何一个控制器中都可以使用；</span></div></pre></td></tr></table></figure>
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><ul>
-<li>路由是URL地址与程序的映射关系；通过调整地址的变化，可以‘调用或执行’ 某一具体的程序；</li>
-<li>SPA：single page application 单页面展示所有功能；</li>
-<li>多页面最明显的一个缺点就是每次更新页面都要进行刷新，不能得到很好的用户体验；</li>
-<li>AngularJS的路由是建立在单页面的基础之上的；</li>
-<li><code>onhashchange</code>:检测地址栏中地址的变化，绑在window上的</li>
-<li>PHP中：<code>file_get_contents(&#39;./views/&#39;.$hash.&#39;.html&#39;)</code>;获取文件中的内容</li>
-<li>锚链接就是点断的路由，就是地址与程序的映射关系；</li>
+</li>
+<li>静态资源 public<ul>
+<li>public(imgs/less/fonts/libs等)</li>
+<li>static</li>
+<li>assets  </li>
 </ul>
-<h3 id="路由的配置"><a href="#路由的配置" class="headerlink" title="路由的配置"></a>路由的配置</h3><ul>
-<li>路由经过设置才能使用</li>
-<li>模块需要依赖路由 <code>var Music = angular.module(&#39;Music&#39;,[&#39;ngRoute&#39;]);</code></li>
+</li>
+<li>脚本 scripts </li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"> &lt;nav&gt;</div><div class="line"> //锚点中有参数的时候，不会影响到路由；ß</div><div class="line">    &lt;a href="#!/login?name=小明"&gt;登录&lt;/a&gt; //地址必须写成  #！/的形式</div><div class="line">    &lt;a href="#!/register"&gt;注册&lt;/a&gt;</div><div class="line">&lt;/nav&gt;</div><div class="line">    &lt;!-- ng-view 是一个占位符--&gt;</div><div class="line">&lt;div ng-view&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">var App = angular.module('App',['ngRoute']);</div><div class="line">//路由是需要配置才能使用;</div><div class="line">App.config(['$routeProvider',function ($routeProvider) &#123;</div><div class="line">    //两个参数path 和 route</div><div class="line">    //第一个参数:路由</div><div class="line">    //第二个参数是路由的配置</div><div class="line">    $routeProvider.when('/register',&#123;</div><div class="line">        //template:"&lt;h1&gt;首页&lt;/h1&gt;",简单的内容</div><div class="line">        templateUrl:'./views/register.html' //可以引入URL地址</div><div class="line">        //为当前视图文件分配控制器;</div><div class="line">        controller:'RegisterCtrl',</div><div class="line">    &#125;).when('/login',&#123;</div><div class="line">        //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">        templateUrl:'./views/login.html'</div><div class="line">    &#125;).otherwise(&#123;</div><div class="line">        //如果都不符合,可以设置默认值</div><div class="line">        redirectTo:'/register'</div><div class="line">    &#125;)</div><div class="line">&#125;])</div><div class="line"></div><div class="line">App.controller('RegisterCtrl',['$scope',function ($scope) &#123;</div><div class="line">    $scope.title = '注册';</div><div class="line">&#125;])</div><div class="line"></div><div class="line">//然后在register.html页面中就可以直接进行数据绑定 &lt;h1&gt;《title》&lt;/h1&gt;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <ul>
-<li>可以使用路由，也就是说开发者可以根据地址的变化执行不同的业务逻辑；路由需要  配置  后才能被使用；</li>
-<li><p>使用when方法监听地址的变化，然后处理相应的逻辑；</p>
+<li><ul>
+<li>uploads</li>
+</ul>
 </li>
-<li><p>参数传递可以有两种方式，一种方式是通过地址传参：</p>
+</ul>
 <ul>
-<li>地址传参：其格式为?key1=val&amp;key2=val2;.when(‘/login?name=lisi&amp;age=17’)</li>
-<li><p>通过路由传参: 路由/:参数名</p>
-</li>
-<li><p>！！！注意：地址的格式（/login/:name/:pass）必须与路由的格式（#!/login/小明/12345）完全保持一致，一一对应；</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;a href="#!/login/小明/12345"&gt;登录&lt;/a&gt;</div><div class="line">.when('/login/:name/:pass',&#123;</div><div class="line"></div><div class="line">    //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">    templateUrl:'./views/login.html'</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-<li><p>获取路由中传递的参数 <code>var parameter = $routeParams</code>;</p>
-</li>
+<li><meta name="referrer" content="never"> 可以突破防盗链</li>
+<li>使用time()函数可以获取当前服务器的时间（时间戳）；<code>echo time()</code>;</li>
 </ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/25/ Angualar 过滤器、依赖注入等/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/25/ Angualar 过滤器、依赖注入等/" itemprop="url">
-                  Angualar 过滤器、依赖注入等
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-25T12:39:04+08:00">
-                2016-11-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Angualar-过滤器、依赖注入等"><a href="#Angualar-过滤器、依赖注入等" class="headerlink" title="Angualar 过滤器、依赖注入等"></a>Angualar 过滤器、依赖注入等</h1><h2 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h2><ul>
-<li>触发脏值检测 <code>scope.$digest()</code>;监听视图中的数据改变；ng-click事件内部中自动封装了这个检测，也可以手动添加；</li>
-<li>form 表单有默认的submit事件，通过回车就可以触发；。form中如果有action，那么在submit之后，action也会重新发送一次请求，会刷新页面，所以，当使用submit提交数据时，可以将默认的action删除；</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">   <span class="tag">&lt;<span class="name">form</span> <span class="attr">ng-submit</span>=<span class="string">'show()'</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>todos<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"new-todo"</span> <span class="attr">ng-model</span>=<span class="string">'msg'</span> <span class="attr">placeholder</span>=<span class="string">"What needs to be done?"</span> <span class="attr">autofocus</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">//angularJS通过ng-model将V与M进行绑定；</div><div class="line">//所以input中的value值就等于$scope.msg; 所以实际上$scope.msg = $('input').val();只不过这一步是AngularJS内部做的；</div><div class="line">//所以`$scope.msg=""`就直接将input的val值置空了；</div></pre></td></tr></table></figure>
-<ul>
-<li>AngularJS 遍历，获取当前元素的index值</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"todo-list"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"item in tabs "</span>&gt;</span>//item可以获取当前元素</div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"view"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-click</span>=<span class="string">"change($index)"</span> <span class="attr">class</span>=<span class="string">"toggle"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span> //$index 代表当前元素所对应的index值</div><div class="line">				<span class="tag">&lt;<span class="name">label</span>&gt;</span>《item.tab》<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">button</span>  <span class="attr">class</span>=<span class="string">"destroy"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<ul>
-<li>在angular中，涉及到通过判断而决定某个样式显示或隐藏时，尽量通过 ng-class=”{attr:flag}”来决定，不用再在js中进行if判断了；</li>
-</ul>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ul>
-<li>根作用于  <code>ng-app=&quot;App&quot;</code>所处的作用域</li>
-</ul>
-<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><ul>
-<li>在AngularJS中使用过滤器格式化展示数据，在“《》”中使用”|”来调用过滤器，使用“：”传递参数；</li>
-<li>价格过滤器 <code>《price|currency:&#39;￥&#39;：1》</code>;冒号后面是传参数，多个参数多个冒号链接，：1表示表刘一个小数；</li>
-<li>时间过滤器 <code>《now | date:&quot;yyyy-MM-dd hh:mm:ss&quot;》</code></li>
-<li>控制排序方向 <code>《list | orderBy:&quot;score&quot;:&quot;true&quot;》</code>  true为反向排序，false为正向排序，默认为false；</li>
-<li>常用内置过滤器</li>
-<li><img src="media/14904890310833/14905800642259.jpg" alt=""></li>
-</ul>
-<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><ul>
-<li>采用 ‘注入’ 的方式可以解决开发过程中的依赖的关系，成为依赖注入；</li>
-<li>一般 注入是通过 ‘参数’ 的形式实现的；</li>
-<li><code>$http</code> 同 <code>$scope</code> 一样，也是AngularJS内置的功能。可以提供发送异步请求的功能；</li>
-</ul>
-<h2 id="服务（重点）"><a href="#服务（重点）" class="headerlink" title="服务（重点）"></a>服务（重点）</h2><ul>
-<li><code>$</code>AngularJS内置的服务；<code>ng-</code> AngularJS 内置的指令；</li>
-<li>常见的内置服务：需要在依赖中写入，然后才可以使用<ul>
-<li>$scope</li>
-<li>$interval</li>
-<li>$timeout</li>
-<li>$log</li>
-<li>$http</li>
-</ul>
-</li>
-</ul>
-<h3 id="log-服务-调试信息的输出"><a href="#log-服务-调试信息的输出" class="headerlink" title="$log 服务 调试信息的输出"></a>$log 服务 调试信息的输出</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$log.error(<span class="string">'这是一个错误'</span>);</div><div class="line">$log.warn(<span class="string">'这个一个警告'</span>);</div><div class="line">$log.log(<span class="string">'这是一个console.log'</span>);</div><div class="line">$log.debug(<span class="string">'这是一个调试'</span>);</div><div class="line">$log.info(<span class="string">'这是一个普通内容'</span>);</div></pre></td></tr></table></figure>
-<h3 id="timeout和-interval"><a href="#timeout和-interval" class="headerlink" title="$timeout和 $interval"></a><code>$timeout</code>和 <code>$interval</code></h3><ul>
-<li>$timeout 服务，延时显示数据，$interval 服务：计时器</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> App.controller(<span class="string">'DemoCtrl'</span>,[<span class="string">'$timeout'</span>,<span class="string">'$log'</span>,<span class="string">'$interval'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$timeout,$log,$interval</span>) </span>&#123;</div><div class="line">    <span class="comment">//$timeout是一个函数</span></div><div class="line">    <span class="comment">//延时3秒后显示内容;</span></div><div class="line">    $timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        $log.info(<span class="string">'我哈哈哈,我等了3秒'</span>)</div><div class="line">    &#125;,<span class="number">3000</span>);</div><div class="line"></div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">    $interval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        $log.info(i++);</div><div class="line">    &#125;,<span class="number">1000</span>)</div><div class="line">&#125;])</div></pre></td></tr></table></figure>
-<h3 id="http-专门发起异步请求"><a href="#http-专门发起异步请求" class="headerlink" title="$http 专门发起异步请求"></a>$http 专门发起异步请求</h3><ul>
-<li>2、在PHP中 $_POST 是专门接收 formData格式数据的，即“Content-Type:application/x-www-form-urlencoded”;  但是不能接收 Content-Type：application/json; </li>
-<li>3、当headers为“Content-Type:application/x-www-form-urlencoded”时，上传的data格式为 <code>data:&quot;name=itcast&amp;age=11&quot;</code>; </li>
-<li>4、当headers为<code>“Content-Type:application/json”</code>时，传递的参数格式为：<code>data:{&quot;name&quot;:&quot;itcast&quot;,&quot;name&quot;:18}</code>;</li>
-</ul>
-<h4 id="AngularJS-http总结"><a href="#AngularJS-http总结" class="headerlink" title="AngularJS $http总结"></a>AngularJS $http总结</h4><ol>
-<li>$http发送请求的方式有3种：method：“get”/“post”/‘jsonp’;</li>
-<li>参数的传递方式为：params:</li>
-</ol>
-<h5 id="get方式请求"><a href="#get方式请求" class="headerlink" title="get方式请求"></a>get方式请求</h5><ul>
-<li>“get”方式发送请求时，正常发送；参数以params:{name:’lisi’,age:18}发送;<ul>
-<li>不管以什么方式传递参数，内部都会转换成 ？name=lisi&amp;age=18的形式</li>
-<li>在PHP中将传入的参数以json对象的形式输出</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">    $http(&#123;</div><div class="line">      <span class="attr">url</span>:<span class="string">'./example.php'</span>,</div><div class="line">      <span class="attr">method</span>:<span class="string">'get'</span>,</div><div class="line">      <span class="attr">params</span>:&#123;<span class="attr">name</span>:<span class="string">'lisi'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;,</div><div class="line">      </div><div class="line">  &#125;).success(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(data);</div><div class="line">  &#125;)</div><div class="line"><span class="comment">//在PHP中代码：</span></div><div class="line">$name = $_GET[<span class="string">'name'</span>];</div><div class="line">$age = $_GET[<span class="string">'age'</span>];</div><div class="line">$array = [<span class="string">'name'</span>=&gt;$name,<span class="string">'age'</span>=&gt;$age];</div><div class="line"><span class="comment">//var_dump($array);</span></div><div class="line"><span class="comment">//将传递的参数放到数组中,并将数组转换成json对象格式进行输出;</span></div><div class="line">echo json_encode($array);</div><div class="line"><span class="comment">//结果为：&#123;name: "lisi", age: "18"&#125;</span></div></pre></td></tr></table></figure>
-<h5 id="post方式请求"><a href="#post方式请求" class="headerlink" title="post方式请求"></a>post方式请求</h5><ul>
-<li><p>“post”请求，需要注意两点</p>
-<ol>
-<li>设置请求头：headers:“Content-Type:application/x-www-form-urlencoded”；</li>
-<li><p>参数以data传递form data，data：“name=lisi&amp;age=17”；请求头与参数必须保持一致；</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//post请求</span></div><div class="line">$http(&#123;</div><div class="line">    <span class="attr">url</span>: <span class="string">'./example.php'</span>,</div><div class="line">    <span class="attr">method</span>: <span class="string">'post'</span>,</div><div class="line">    <span class="attr">data</span>: <span class="string">'name=lisi&amp;age=17'</span>,</div><div class="line">    <span class="attr">headers</span>: &#123;</div><div class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded'</span></div><div class="line">    &#125;</div><div class="line">&#125;).success(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ul>
-<h5 id="JSONP-的原理"><a href="#JSONP-的原理" class="headerlink" title="JSONP 的原理"></a>JSONP 的原理</h5><blockquote>
-<p>前端传递一个实现定义好的函数名，给服务端，然后服务端接收这个函数名并拼凑一个“（）”，并返回，前端就接收到了 这个函数的调用；<br>在jQuery中，我们不写callback的明细，ajax会自动帮我们生成一个，jQuery+序列号+时间戳等；但是在angularJS中，他们有帮我们封装，所以必须手动加上；</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$http(&#123;</div><div class="line">        <span class="attr">url</span>:<span class="string">'./example.php'</span>,</div><div class="line">        <span class="attr">method</span>:<span class="string">'jsonp'</span>,</div><div class="line">        <span class="attr">params</span>:&#123;</div><div class="line">            <span class="comment">//callback必须用'JSON_CALLBACK'进行占位，后端返回回调函数：angular.callbacks._0(lisi)；这个回调函数的结果就是success时的data数据；</span></div><div class="line">            callback:<span class="string">'JSON_CALLBACK'</span>,</div><div class="line">            <span class="attr">name</span>:<span class="string">'lisi'</span>,</div><div class="line">            <span class="attr">age</span>:<span class="number">17</span></div><div class="line">        &#125;</div><div class="line">    &#125;).success(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/10/Angular入门/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/10/Angular入门/" itemprop="url">
-                  Angular入门
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-10T12:39:04+08:00">
-                2016-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/angular/" itemprop="url" rel="index">
-                    <span itemprop="name">angular</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="angular入门"><a href="#angular入门" class="headerlink" title="angular入门"></a>angular入门</h1><h2 id="angular简介"><a href="#angular简介" class="headerlink" title="angular简介"></a>angular简介</h2><ul>
-<li>angular是一个框架，诸多类库的集合，以数据和逻辑为核心；</li>
-</ul>
-<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><ul>
-<li>modal-view-controller 模型-视图-控制器</li>
-<li>模型：服务端专门处理后台传入的数据；一般指操作数据库</li>
-<li>控制器：将服务端处理好的数据传给前端； 连接模型和视图的桥梁；</li>
-<li>视图：将内容、数据呈现给；HTML展示</li>
-<li>使用mvc框架，会更高效，易于管理和高效</li>
-</ul>
-<h2 id="AngularJS应用"><a href="#AngularJS应用" class="headerlink" title="AngularJS应用"></a>AngularJS应用</h2><ul>
-<li>在任意DOM元素上使用一个属性 ng-app,就可以定义一个AngularJS的应用；</li>
-<li>ng-app属性所有的DOM元素所包含的所有子元素都属于应用的一部分；</li>
-<li>引用了angular框架下，会引入一个全局对象，angular；</li>
-<li>在此对象下有若干对象，其中angular.module()可以实例化一个对象；</li>
-<li><code>angular.module(&#39;App&#39;,[])</code>两个参数：<ul>
-<li>1：模块化名称</li>
-<li>2：依赖;[]暂时不依赖任何对象</li>
-</ul>
-</li>
-<li>控制器<code>App.controller()</code>两个参数<ul>
-<li>1：名称</li>
-<li>2：依赖;<ul>
-<li>关于依赖，依赖的数组里，最后一个单元必须是一个函数 </li>
-<li><code>App.controller(&#39;DemoCtrl&#39;,[’$scope‘,function($scope){}])</code></li>
-</ul>
-</li>
-<li>$scope 就是我们所需要的 M；</li>
-</ul>
-</li>
-</ul>
-<h3 id="angular的内置指令"><a href="#angular的内置指令" class="headerlink" title="angular的内置指令"></a>angular的内置指令</h3><ul>
-<li>ng-show 是通过 display：none 和 display：block来决定显示和隐藏的</li>
-<li>ng-if 如果ng-if=’false’,那么在HTML中就没有了这个DOM节点了；</li>
-<li>ng-class 值得类型可以是对象，并且此对象的属性是真是存在的类样式，属性值决定了此属性是否应用，true为应用，false不应用 <code>ng-class={box:true,red:true}</code>为应用box这个类样式</li>
-<li><code>ng-include = “&#39;aside.html&#39;”</code>;需要将aside.html用’’包裹起来的；<ul>
-<li>浏览器端 JS不能够读取本地文件，因为浏览器JS是运行在客户端的，出于安全考虑，是不允许读取用户磁盘文件的； </li>
-<li>ng-include是通过ajax发出请求，得到数据的；</li>
-</ul>
-</li>
-<li>表单禁用 <code>disabled</code>,只要属性存在，不管是什么值，都表示禁用<ul>
-<li><code>input type=&#39;text&#39; disabled 或者disabled=&#39;&#39;true/false</code> ；只要存在都是禁用</li>
-<li>在angular中，<code>ng-disabled = &#39;true&#39;表单禁用</code>；<code>ng-disabled = &#39;false&#39;表单应用</code></li>
-</ul>
-</li>
-<li>无值属性:都可以进行设置属性值；<ul>
-<li>ng-disabled</li>
-<li>ng-readonly</li>
-<li>ng-checked</li>
-<li>ng-selected </li>
-</ul>
-</li>
-<li>ng-src 和 ng-href ;如果在HTML中直接写src=《path》，虽然在解析完成后地址会加载，但是会先报错；</li>
-</ul>
-<h3 id="Angular自定义指令"><a href="#Angular自定义指令" class="headerlink" title="Angular自定义指令"></a>Angular自定义指令</h3><ul>
-<li>angular是一个模块实例</li>
-<li>.controller()来定义一个模块</li>
-<li>.directive()来自定义属性；</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;p cls&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div><div class="line"><span class="comment">//自定义指令结构</span></div><div class="line">App.directive(<span class="string">'cls'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//return 回来是一个对象或者是函数，通常情况下都是对象</span></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="comment">//E : element DOM元素</span></div><div class="line">        <span class="comment">//C: class</span></div><div class="line">        <span class="comment">//M: mark:注释</span></div><div class="line">        <span class="comment">//A:attribute 属性</span></div><div class="line">        restrict:<span class="string">"A"</span>,</div><div class="line">        <span class="attr">replace</span>:<span class="string">"true"</span>,<span class="comment">//模板中的标签会将HTML中的标签进行替换</span></div><div class="line">        template:<span class="string">"&lt;h1&gt;这是通过自定义指令添加的内容&lt;/h1&gt;"</span>，</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="AngualrJS-双向数据绑定"><a href="#AngualrJS-双向数据绑定" class="headerlink" title="AngualrJS 双向数据绑定"></a>AngualrJS 双向数据绑定</h3><ul>
-<li>通过表单元素添加 ng-model 属性；</li>
-<li>ng-bind</li>
-<li><p>花括号(使用《》代替)</p>
-<ul>
-<li>《》是ng-bind的简写</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">'name'</span>&gt;<span class="comment">//input可以直接获取module中的$scope.name的值</span></div><div class="line">&lt;h1 ng-bind=<span class="string">'name'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">&lt;h2&gt;《name》&lt;<span class="regexp">/h2&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>只有表单元素才可以从视图向模型传送数据</p>
-</li>
-</ul>
-<h3 id="AngularJS数据处理"><a href="#AngularJS数据处理" class="headerlink" title="AngularJS数据处理"></a>AngularJS数据处理</h3><ul>
-<li><code>ng-switch = &quot;item&quot;</code> === <code>ng-switch on = &quot;item&quot;</code></li>
-<li>闪烁问题处理，可以添加 ng-cloak指令 <code>&lt;h1 ng-cloak&gt;《name》&lt;/h1&gt;</code>;</li>
-<li>angular 的遍历</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;li ng-repeat='item in lists'&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</div><div class="line">//或者是</div><div class="line">&lt;li ng-repeat='item in lists'&gt;</div><div class="line">    &lt;span ng-bind='item'&gt;&lt;/span&gt;</div><div class="line">&lt;/li&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/03/ canvas 基本用法总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/03/ canvas 基本用法总结/" itemprop="url">
-                  Canvas 基本用法总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-03T12:39:04+08:00">
-                2016-08-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/canvas/" itemprop="url" rel="index">
-                    <span itemprop="name">canvas</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="canvas-基本用法总结"><a href="#canvas-基本用法总结" class="headerlink" title="canvas 基本用法总结"></a>canvas 基本用法总结</h1><h2 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h2><ol>
-<li>canvas 在IE8之前有兼容性问题；</li>
-<li>矩形的绘制<ul>
-<li><code>rect(x,y,width,height)</code>这个需要<code>stroke()</code>描边</li>
-<li><code>strokeRect(x,y,width,height)</code>;这个就不需要调用stroke描边</li>
-<li><code>fillRect()</code>填充显示长方形，不需要单独填充操作；</li>
-<li><code>clearRect(x,y,width,height)</code>;将特定位置的长方形清空；清空画布：<code>clearRect(0,0,cas.width,cas.height)</code>;</li>
-<li>注意: <code>clearRect</code>不能清空路径,但是能清空描边或填充</li>
-</ul>
-</li>
-<li><code>cxt.save() cxt.restore()</code>表示保存上次的绘制状态（包括fillStyle 和 strockeStyle）;<br>  <code>save()</code>可以保存多次绘制状态，以栈的方式存储;<code>后进先出</code>；</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> cxt.beginPath();</div><div class="line"><span class="comment">//会存储fillStyle和strokeStyle</span></div><div class="line">cxt.restore();<span class="comment">//恢复最后一次保存的状态</span></div><div class="line">cxt.restore();<span class="comment">//恢复倒数第二次的状态</span></div><div class="line">cxt.rect(<span class="number">50</span>,<span class="number">50</span>,<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">cxt.stroke();</div><div class="line">cxt.fill();</div></pre></td></tr></table></figure>
-<h3 id="三、绘制圆弧"><a href="#三、绘制圆弧" class="headerlink" title="三、绘制圆弧"></a>三、绘制圆弧</h3><ul>
-<li><p><code>arc(x,y,r,startAngle,endAngle,false)</code>,false代表顺时针绘制，true逆时针绘制；</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">圆的弧度 = <span class="number">2</span>πr；角度 = <span class="number">360</span>°</div><div class="line">所以 <span class="number">1</span>° = <span class="built_in">Math</span>.PI/<span class="number">180</span>;</div><div class="line"><span class="number">90</span>° = <span class="number">90</span> * <span class="built_in">Math</span>.PI/<span class="number">180</span>;</div></pre></td></tr></table></figure>
-</li>
-<li><p>水平往右方向为起始点；</p>
-</li>
-<li>绘制连续的路径，如果起始点与上一个的终点一致，就无需moveTo；<h3 id="四、数组-foreach和map方法使用"><a href="#四、数组-foreach和map方法使用" class="headerlink" title="四、数组 foreach和map方法使用"></a>四、数组 foreach和map方法使用</h3></li>
-<li><code>foreach(function(item,index,arr){})</code> ,没有返回值；</li>
-<li><code>arr.map(function(item,index){})</code>,操作之后，会返回修改之后的数组，有返回值<h3 id="五、逐帧动画"><a href="#五、逐帧动画" class="headerlink" title="五、逐帧动画"></a>五、逐帧动画</h3></li>
-<li><code>requestAnimationFrame()</code>，同setTimeout作用类似；<h3 id="六、-canvas文字"><a href="#六、-canvas文字" class="headerlink" title="六、 canvas文字"></a>六、 canvas文字</h3></li>
-<li>cxt.font(10px 宋体);</li>
-<li>cxt.strokeText(text,x,y,max-width);一般最后一个参数不设置；（空心文字）；</li>
-<li>cxt.fillText(text,x,y)(实芯文字)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cxt.font = <span class="string">"30px 微软雅黑"</span>;</div><div class="line">cxt.strokeText(str,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">cxt.fillText(str,<span class="number">100</span>,<span class="number">300</span>);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="七、-有独立路径的方法"><a href="#七、-有独立路径的方法" class="headerlink" title="七、 有独立路径的方法"></a>七、 有独立路径的方法</h3><ul>
-<li>strokeRect();</li>
-<li>fillRect();</li>
-<li>strokeText();</li>
-<li>fillText();<h3 id="八、-文字对齐方式"><a href="#八、-文字对齐方式" class="headerlink" title="八、 文字对齐方式"></a>八、 文字对齐方式</h3></li>
-<li>textAlign：水平方向<ul>
-<li>direction属性，两个值：rtl,ltr;</li>
-<li>textAligh=”left” 居左对齐,是指文本的右边与参照物的左边对齐;</li>
-<li>textAligh=”right” 居右对齐</li>
-<li>textAligh=”center” 居中对齐</li>
-</ul>
-</li>
-<li>textBaseline：处置方向对齐<ul>
-<li>top; bottom; middle; hanging;alphabetic(文本基线是字母基线);ideographic;</li>
-</ul>
-</li>
-</ul>
-<h3 id="九、-图片加载问题"><a href="#九、-图片加载问题" class="headerlink" title="九、 图片加载问题"></a>九、 图片加载问题</h3><ul>
-<li><p>通过<code>document.body.appedChild(&#39;img&#39;)</code>追加到页面中的img,不能直接获取到图片的宽和高，必须等图片加载完成之后才能获得;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</div><div class="line">img.src = <span class="string">'king2.jpeg'</span>;</div><div class="line"><span class="comment">//图片加载完成之后,才能获取图片的宽高,才能加载</span></div><div class="line"><span class="comment">//图片的加载需要时间;</span></div><div class="line">img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">cxt.drawImage(img,<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>cxt.drawImage()有两种参数形式:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一种写法,5个参数</span></div><div class="line"><span class="comment">//参数2,3画布上定位的图片,参数4,5只图片的宽和高;</span></div><div class="line">cxt.drawImage(img,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line"></div><div class="line"><span class="comment">//第二种写法,9个参数</span></div><div class="line"><span class="comment">//1:图片,2,3:要裁剪的图片在原图片上的位置,等同于精灵图的位置;4、5裁剪区域的宽和高,6,7图片要在画布上的起始位置,8,9,图片在画布上的宽和高;</span></div><div class="line"><span class="comment">//此时裁剪的是第二排的第二个图片</span></div><div class="line">cxt.drawImage(img,<span class="number">40</span>,<span class="number">65</span>,<span class="number">40</span>,<span class="number">65</span>,cas.width/<span class="number">2</span><span class="number">-20</span>,cas.height/<span class="number">2</span><span class="number">-34.5</span>,<span class="number">40</span>,<span class="number">65</span>)</div><div class="line"><span class="built_in">Math</span>.PI = <span class="number">180</span>°</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>###　十、canvas旋转</p>
-<ul>
-<li>只能是旋转之后,在画出图形,不能画出图形之后再旋转;</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cxt.rotate(<span class="number">10</span>*<span class="built_in">Math</span>.PI/<span class="number">180</span>);</div><div class="line">cxt.strokeRect(<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">200</span>);</div></pre></td></tr></table></figure>
-<h1 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h1><h2 id="一、函数的赋值"><a href="#一、函数的赋值" class="headerlink" title="一、函数的赋值"></a>一、函数的赋值</h2><ul>
-<li>1: 逗号表达式，逗号分隔的表达式会从左往右逐个执行，但是以最后一个结果为准。</li>
-<li><p>2:函数立即调用的语法I结构有两种：</p>
-<ul>
-<li>（）（）</li>
-<li>（+ - ！ ~）function（）{}（）等；</li>
-<li>二进制运算：按位，与或非  异或<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = (<span class="number">11</span>+<span class="number">12</span>,<span class="number">23</span>+<span class="number">23</span>,foo());</div><div class="line"><span class="built_in">console</span>.log(num);</div><div class="line"><span class="comment">//此时会以最后一个逗号之后的值为准，返回foo()的返回值赋值给num;</span></div><div class="line">都是函数立即调用：不同符号代表不同含义；按位运算，与或非，异或等；</div><div class="line">(funcyion(n)&#123;</div><div class="line">    <span class="built_in">console</span>.log(n)</div><div class="line">&#125;)(num);</div><div class="line">~<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line">!<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    conosole.log(n);</div><div class="line">&#125;(num);</div><div class="line">+<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line">-<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line"><span class="comment">//这种形式的写法会将function转换为表达式</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>3：将数值型参数转换成布尔值</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param</span>)</span>&#123;</div><div class="line">    <span class="comment">//将parameter转换为true；</span></div><div class="line">    <span class="keyword">var</span> flag = !!param;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>4：两个事件队列，第一个出错，第二个仍会正常进行</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一个报错，第二个时间到了，第二个也会正常执行；</span></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(abc);</div><div class="line">&#125;,<span class="number">10</span>)</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">123</span>);</div><div class="line">&#125;,<span class="number">0</span>)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="二、修改原型指向"><a href="#二、修改原型指向" class="headerlink" title="二、修改原型指向"></a>二、修改原型指向</h2><ul>
-<li>实例产生之后，再修改构造函数的原型，对实例中的数据没有影响；按时回影响instanceof的判断；</li>
-<li>只有当<code>foo.__proto__==Foo.prototype</code>成立时，<code>foo instanceof Foo</code>才成立；<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.flag = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">info</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.info = info;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo(<span class="string">'123'</span>);<span class="comment">//此时Foo.prototype = &#123;&#125;;</span></div><div class="line">Foo.prototype = <span class="keyword">new</span> fn();</div><div class="line"><span class="built_in">console</span>.log(foo <span class="keyword">instanceof</span> Foo)<span class="comment">//结果是false；,</span></div><div class="line"><span class="comment">//foo.__proto__是原来Foo的原型；</span></div><div class="line"><span class="comment">//现在Foo的prototype = fn;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="三、arr-map"><a href="#三、arr-map" class="headerlink" title="三、arr.map"></a>三、arr.map</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'1.5'</span>,<span class="string">'2.5'</span>,<span class="string">'3.5'</span>];</div><div class="line"><span class="built_in">console</span>.log(arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.Floor(item)</div><div class="line">    <span class="comment">//结果为['1','2','3];</span></div><div class="line">&#125;))</div><div class="line"><span class="built_in">console</span>.log(arr);==<span class="comment">//结果还是原数组['1.5','2.5','3.5'];</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/19/Git 使用总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/19/Git 使用总结/" itemprop="url">
-                  Git 使用总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-19T12:39:04+08:00">
-                2016-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="git-使用总结"><a href="#git-使用总结" class="headerlink" title="git 使用总结"></a>git 使用总结</h1><h1 id="git的两种工作流程"><a href="#git的两种工作流程" class="headerlink" title="git的两种工作流程"></a>git的两种工作流程</h1><ol>
-<li>下载代码,在下载代码的基础上做开发,然后提交</li>
-<li>或者git init 生成一个仓库,在这个生成的基础上添加代码,再推到主仓库上<h1 id="lt-lt-移位运算"><a href="#lt-lt-移位运算" class="headerlink" title="&lt;&lt; 移位运算"></a><code>&lt;&lt;</code> 移位运算</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line"><span class="built_in">console</span>.log(a &lt;&lt; <span class="number">2</span>);</div><div class="line"><span class="comment">//向左移动两位,乘以2^2,结果就是2*4 = 8;</span></div><div class="line"><span class="comment">//向右移动1位除以2,a&gt;&gt;1,结果就是2/2 = 1;</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="创建共享仓库"><a href="#创建共享仓库" class="headerlink" title="创建共享仓库"></a>创建共享仓库</h2><ul>
-<li>共享仓库的必须以<code>.git</code> 结尾;<code>demo.git</code></li>
-<li><code>git init --bare</code> 创建一个共享仓库</li>
-<li><code>git pull 远程仓库的地址 远程分支:本地分支</code>或者<code>git clone 远程仓库的地址 文件名称</code>下载代码</li>
-<li><code>git push 远程仓库的地址 本地分支:远程分支</code>  推送代码<blockquote>
-<p> git pull = git fetch + git merge</p>
-</blockquote>
-</li>
-<li><code>git fetch</code>远程获取代码,但是不合并代码</li>
-<li><code>git merge</code> 通过fetch过来的代码可以通过merge命令进行合并;<h2 id="查看分支和修改分支名称"><a href="#查看分支和修改分支名称" class="headerlink" title="查看分支和修改分支名称"></a>查看分支和修改分支名称</h2></li>
-<li><code>git remote</code>查看远程仓库的别名  没有就用下一条创建</li>
-<li><code>git remote add 别名名称(origin) 仓库地址(root@180.76.188.62:/root/demo.git)</code> 添加远程仓库的别名</li>
-<li><code>git branch -r</code>查看远程分支</li>
-<li><code>git branch</code>查看本地分支</li>
-<li><code>git remote show origin</code>查看远程仓库别名的具体地址</li>
-</ul>
-<h2 id="git-pull-和-git-clone-的主要区别"><a href="#git-pull-和-git-clone-的主要区别" class="headerlink" title="git pull 和 git clone 的主要区别"></a>git pull 和 git clone 的主要区别</h2><ul>
-<li>1:<code>git clone</code>的项目户自动建立 <code>origin</code>远程仓库地址的别名,自动创建了关联,再更新代码时直接<code>git pull</code>就可以拉下来代码;</li>
-<li>2:<code>git pull</code>拉下来的代码,如果需要建立跟踪分支,需要执行<code>git branch --set-upstream -to==origin/master master</code>;<code>origin/master</code>表示远程分支;<code>master</code>表示本地分支</li>
-</ul>
-<h1 id="git使用总结"><a href="#git使用总结" class="headerlink" title="git使用总结"></a>git使用总结</h1><h2 id="已经存在的项目"><a href="#已经存在的项目" class="headerlink" title="已经存在的项目"></a>已经存在的项目</h2><ul>
-<li>管理员分配git账号; 或者 生成自己的公钥和私钥,提交各管理员,授予权限;</li>
-<li><code>git clone 仓库地址</code>下载代码,进行操作<h2 id="新项目"><a href="#新项目" class="headerlink" title="新项目"></a>新项目</h2></li>
-<li>在github上创建一个空仓库;</li>
-<li>在自己本地<code>git clone git@(仓库地址)</code>直接生成git文件;</li>
-<li>编辑代码,</li>
-<li><code>git add test.html</code>添加到暂存区</li>
-<li><code>git commit -m &quot;&quot;</code>添加到本地仓库</li>
-<li><code>git push origin master</code>推送到网上仓库成功 <h2 id="新项目第二种更新方式"><a href="#新项目第二种更新方式" class="headerlink" title="新项目第二种更新方式"></a>新项目第二种更新方式</h2></li>
-<li>在本地建立文件夹,<code>git init</code>,编辑内容</li>
-<li><code>git add</code></li>
-<li><code>git commit -m &quot;&quot;</code></li>
-<li><code>git remote add origin git@github等地址</code>将本地仓库与网上仓库建立连接和跟踪; </li>
-<li><code>git push -u origin master</code>本地代码推送上去(-u与当前的别名进行关联)</li>
-<li><code>git pull</code>以后就直接使用这个命令更新本地仓库的代码</li>
-<li><code>git push</code>直接推送代码,更新就可以了;<h1 id="git分支管理"><a href="#git分支管理" class="headerlink" title="git分支管理"></a>git分支管理</h1></li>
-</ul>
-<ol>
-<li><code>git clone</code>克隆代码</li>
-<li><code>git checkout -b buy</code>创建并切换分支，</li>
-<li>操作分支</li>
-<li><code>git checkout master</code>切换到主分支</li>
-<li>创建另一个新分支bugfix,编辑,编辑之后再次切换到主分支;</li>
-</ol>
-<ul>
-<li><code>git checkout -d bugfix</code>删除bugfix分支;删除的是本地分支</li>
-<li>删除远程分支<code>git push origin --delete</code> </li>
-</ul>
-<ol>
-<li><code>git merge bugfix</code>;</li>
-<li><code>git merge buy</code><h1 id="git-stash-缓存代码"><a href="#git-stash-缓存代码" class="headerlink" title="git stash 缓存代码"></a>git stash 缓存代码</h1></li>
-</ol>
-<ul>
-<li>使用<code>git stash</code>可以将正在进行中的环境保存起来;master分支将会恢复到修改之前的状态;等紧急操作做完之后,</li>
-<li>使用<code>git stash pop</code>取出之前保存的操作;继续编辑</li>
-</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">echo time();</div><div class="line">echo <span class="string">"&lt;br/&gt;"</span>;</div><div class="line">echo date(<span class="string">'Y-m-d H:i:s'</span>,time());--<span class="number">-2017</span><span class="number">-03</span><span class="number">-29</span> <span class="number">09</span>:<span class="number">23</span>:<span class="number">40</span></div><div class="line"></div><div class="line">phpinfo()<span class="comment">//可以火气PHP的详细信息，包括安装目录所支持的模块扩展等很多信息；</span></div><div class="line">strtotime(<span class="string">'-1day'</span>);前一天</div></pre></td></tr></table></figure>
 
           
         
@@ -1320,7 +889,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
