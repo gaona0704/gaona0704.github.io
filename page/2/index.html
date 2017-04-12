@@ -272,6 +272,261 @@
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/博学谷项目 <四>/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/02/12/博学谷项目 <四>/" itemprop="url">
+                  常用的JS文件上传与表单插件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T12:39:04+08:00">
+                2017-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="常用的JS文件上传与表单插件"><a href="#常用的JS文件上传与表单插件" class="headerlink" title="常用的JS文件上传与表单插件"></a>常用的JS文件上传与表单插件</h1><h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><ul>
+<li>BFC（格式化上下文）：BFC盒子是独立布局的，盒子内元素的布局不会影响盒子外面的元素。在同一个BFC中两个相邻的盒子在垂直方向上会发生margin垂直内边距塌陷的问题；</li>
+<li>BFC是指浏览器中创建来了一个独立的渲染区域，该区域内所有元素的布局不会影响到区域外元素的布局，这个渲染区域支队块级元素起作用；</li>
+</ul>
+<h2 id="jS插件"><a href="#jS插件" class="headerlink" title="jS插件"></a>jS插件</h2><ul>
+<li>bootstrap</li>
+<li>jquery</li>
+<li>模块化开发：requirejs</li>
+<li>滚动下拉刷新，滚动加载：onscroll</li>
+<li>文件上传：uplodify</li>
+<li>表单提交：jquery form</li>
+<li>日期插件：bootstrap-detepicker</li>
+<li>表单验证 validate</li>
+<li>富文本编辑器 CKeditor</li>
+<li>图片裁切 Jcrop</li>
+<li>三级联动 jQuery-region</li>
+<li>模板引擎 artTemplate</li>
+<li>angular js</li>
+<li>vue</li>
+<li>react</li>
+<li>node js</li>
+<li>混合开发 ionic; react native</li>
+</ul>
+<h3 id="日期插件地址"><a href="#日期插件地址" class="headerlink" title="日期插件地址"></a>日期插件地址</h3><ul>
+<li><a href="https://github.com/uxsolutions/bootstrap-datepicker" target="_blank" rel="external">bootstrap-datepicker</a></li>
+</ul>
+<h3 id="表单验证插件"><a href="#表单验证插件" class="headerlink" title="表单验证插件"></a>表单验证插件</h3><ul>
+<li>地址： <a href="https://github.com/DiegoLopesLima/validate" target="_blank" rel="external">validate</a></li>
+<li>data-required 非空判断</li>
+<li>data-pattern 匹配正则</li>
+<li>data-description 提示信息</li>
+<li>data-describedby 指定提示信息的位置</li>
+<li>data-validate 指定自定义规则的属性</li>
+<li>data-conditional 自定义规则判断，值是一个规则判断函数 </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;input name=<span class="string">'tc_join_date'</span> data-description=<span class="string">'joinDate'</span> data-describedby=<span class="string">'tcJoinDateInfo'</span> type=<span class="string">"text"</span> data-date-language=<span class="string">'zh-CN'</span> data-provide=<span class="string">'datepicker'</span> data-date-end-date=<span class="string">'0d'</span> data-date-format=<span class="string">'yyyy-mm-dd'</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control input-sm "</span> value=<span class="string">"&#123;&#123;tc_join_date&#125;&#125;"</span>&gt;</div><div class="line"></div><div class="line"> $(<span class="string">'#ajaxForm'</span>).validate(&#123;</div><div class="line">      <span class="attr">sendForm</span> : <span class="literal">false</span>,</div><div class="line">      <span class="attr">valid</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">          $(<span class="keyword">this</span>).ajaxSubmit(&#123;</div><div class="line">              <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line">              <span class="attr">url</span>:url,</div><div class="line">              <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">              <span class="attr">success</span>:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">                  <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                      location.href = <span class="string">'/teacher/teacher_list'</span></div><div class="line">                  &#125;</div><div class="line"></div><div class="line"></div><div class="line">              &#125;</div><div class="line">          &#125;)</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">description</span>:&#123;</div><div class="line">          <span class="attr">tcName</span>:&#123;</div><div class="line">              <span class="attr">required</span>:<span class="string">'用户名不能为空'</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">tcPass</span>:&#123;</div><div class="line">              <span class="attr">required</span>:<span class="string">'密码不能为空'</span>,</div><div class="line">              <span class="attr">pattern</span>:<span class="string">'只能是六位数字'</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">joinDate</span>:&#123;</div><div class="line">              <span class="attr">require</span>:<span class="string">'入职日期不能为空'</span></div><div class="line">          &#125;</div><div class="line"></div><div class="line">      &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<h3 id="表单提交插件"><a href="#表单提交插件" class="headerlink" title="表单提交插件"></a>表单提交插件</h3><ul>
+<li>地址：  </li>
+</ul>
+<ul>
+<li><a href="https://github.com/jquery-form/form" target="_blank" rel="external">form</a></li>
+<li>省略提交地址</li>
+<li>添加新数据</li>
+<li>处理回调函数  </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#profileForm"</span>).validate(&#123;</div><div class="line">            <span class="attr">sendForm</span> : <span class="literal">false</span>,</div><div class="line">            <span class="attr">valid</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">                <span class="comment">//同步更新富文本内容变化</span></div><div class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> instance <span class="keyword">in</span> CKEDITOR.instances)&#123;</div><div class="line">                    CKEDITOR.instances[instance].updateElement();</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">var</span> p = $(<span class="string">'#p'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                <span class="keyword">var</span> c = $(<span class="string">'#c'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                <span class="keyword">var</span> d = $(<span class="string">'#d'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                <span class="keyword">var</span> hometown = p+<span class="string">'|'</span>+c+<span class="string">'|'</span>+d;</div><div class="line">                $(<span class="keyword">this</span>).ajaxSubmit(&#123;</div><div class="line">                    <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line"></div><div class="line">                    <span class="attr">url</span>:<span class="string">'/api/teacher/modify'</span>,</div><div class="line">                    <span class="attr">data</span>:&#123;<span class="attr">tc_hometown</span>:hometown&#125;,</div><div class="line">                    <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">                    <span class="attr">success</span>:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">                        <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                            <span class="built_in">console</span>.log(data);</div><div class="line">                            location.reload();</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;)</div></pre></td></tr></table></figure>
+<h3 id="uploadify基本使用"><a href="#uploadify基本使用" class="headerlink" title="uploadify基本使用"></a>uploadify基本使用</h3><ul>
+<li><a href="http://www.uploadify.com/" target="_blank" rel="external">uploadify</a></li>
+<li>fileObjName 文件名称</li>
+<li>buttonText 按钮文本</li>
+<li>buttonClass 按钮样式</li>
+<li>fileTypeExts 支持的扩展名</li>
+<li>fileSizeLimit 文件的大小限制</li>
+<li>uploader 上传的路径</li>
+<li>swf flash文件的位置</li>
+<li>onUploadSuccess 上传成功的回调函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#upfile'</span>).uploadify(&#123;</div><div class="line">            <span class="attr">width</span>:<span class="number">120</span>,</div><div class="line">            <span class="attr">height</span>:<span class="number">120</span>,</div><div class="line">            <span class="attr">buttonText</span>:<span class="string">""</span>,</div><div class="line">            <span class="attr">fileObjName</span>:<span class="string">'tc_avatar'</span>,</div><div class="line">            <span class="attr">swf</span>:<span class="string">'/public/assets/uploadify/uploadify.swf'</span>,</div><div class="line">            <span class="attr">uploader</span>:<span class="string">'/api/uploader/avatar'</span>,</div><div class="line">            <span class="attr">onUploadSuccess</span>:<span class="function"><span class="keyword">function</span> (<span class="params">file,data</span>) </span>&#123;</div><div class="line">                <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(data);</div><div class="line">                $(<span class="string">'.preview img'</span>).attr(<span class="string">'src'</span>,data.result.path);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+<h3 id="php文件上传处理"><a href="#php文件上传处理" class="headerlink" title="php文件上传处理"></a>php文件上传处理</h3><ul>
+<li>$_FILES 用来获取上传的文件（具体包含了一些参数）</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Array</span></div><div class="line">(</div><div class="line">    [picture] =&gt; <span class="keyword">Array</span></div><div class="line">        (</div><div class="line">            [name] =&gt; abc.png  文件的名称</div><div class="line">            [type] =&gt; application/octet-stream  文件的传输格式</div><div class="line">            [tmp_name] =&gt; D:\wamp\tmp\phpDE88.tmp  服务器临时文件路径</div><div class="line">            [error] =&gt; <span class="number">0</span> 错误代码</div><div class="line">            [size] =&gt; <span class="number">1792</span> 文件大小</div><div class="line">        )</div><div class="line">)</div></pre></td></tr></table></figure>
+<ul>
+<li>move_uploaded_file 移动文件</li>
+</ul>
+<h3 id="背景图片截图插件"><a href="#背景图片截图插件" class="headerlink" title="背景图片截图插件"></a>背景图片截图插件</h3><ul>
+<li>Jcrop</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> picture = $(<span class="string">'.preview img'</span>),jcrop_api;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cropPic</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    jcrop_api&amp;&amp;jcrop_api.destroy();</div><div class="line">    picture.Jcrop(&#123;</div><div class="line">        <span class="comment">// bgColor:'pink',//设置选取的背景颜色</span></div><div class="line">        acpectRatio:<span class="number">2</span>,<span class="comment">//设置宽高比</span></div><div class="line">        keySupport:<span class="literal">true</span>,<span class="comment">//支持键盘控制</span></div><div class="line">        boxWidth:<span class="number">400</span>,<span class="comment">//设置背景图片,即画布的宽高</span></div><div class="line">        <span class="comment">//boxHeight:400,</span></div><div class="line">    &#125;,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">//回调函数</span></div><div class="line">        picture_api = <span class="keyword">this</span>;</div><div class="line">        <span class="comment">//获取画布的宽度和高度;</span></div><div class="line">        <span class="keyword">var</span> width = <span class="keyword">this</span>.ui.stage.width,</div><div class="line">            height = <span class="keyword">this</span>.ui.stage.height,</div><div class="line">            x = <span class="number">0</span>,</div><div class="line">            y = height/<span class="number">4</span>;</div><div class="line">        <span class="comment">//console.log(height);</span></div><div class="line">        picture_api.newSelection();</div><div class="line">        <span class="comment">//设置图片加载完成后,选框自动选中的位置</span></div><div class="line">        <span class="comment">//picture_api.setSelect([x,y,width,height/2]);</span></div><div class="line">        picture_api.animateTo([x,y,width,height/<span class="number">2</span>]);</div><div class="line">        <span class="comment">//获取截取图片的x,y,w,h;</span></div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<h3 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h3><ul>
+<li><a href="http://ueditor.baidu.com/website/" target="_blank" rel="external">ueditor</a></li>
+<li><a href="http://ckeditor.com/" target="_blank" rel="external">ckeditor</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;textarea id=<span class="string">'text'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span></div><div class="line"><span class="comment">//加载富文本</span></div><div class="line">        CKEDITOR.replace(<span class="string">'ckeditor'</span>, &#123;</div><div class="line">            <span class="comment">//toolbarGroups:[]</span></div><div class="line">        &#125;);</div><div class="line">        <span class="comment">//同步更新富文本内容变化</span></div><div class="line">           <span class="keyword">for</span>(<span class="keyword">var</span> instance <span class="keyword">in</span> CKEDITOR.instances)&#123;</div><div class="line">               CKEDITOR.instances[instance].updateElement();</div><div class="line">           &#125;</div></pre></td></tr></table></figure>
+<h3 id="三级联动"><a href="#三级联动" class="headerlink" title="三级联动"></a>三级联动</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div class='region'&gt;</div><div class="line">    &lt;select name="tc_province" id='p' data-id=&#123;&#123;tc_province&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">                &lt;option &gt;请选择省&lt;/option&gt;</div><div class="line"></div><div class="line">  &lt;/select&gt;</div><div class="line">  &lt;select name="tc_city" id='c' data-id=&#123;&#123;tc_city&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">      &lt;option &gt;请选择市&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">  &lt;select name="tc_district" id='d' data-id=&#123;&#123;tc_district&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">      &lt;option &gt;请选择区县&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">    //三级联动,加载数据</div><div class="line">$('.region').region(&#123;</div><div class="line">    url:'../lib/jquery-region/region.json'</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="编程理论基础"><a href="#编程理论基础" class="headerlink" title="编程理论基础"></a>编程理论基础</h2><ul>
+<li>服务器</li>
+<li>项目开发流程</li>
+<li>编程，逻辑思维</li>
+<li>模块化（nodejs/fis/webpack）</li>
+<li>路径</li>
+<li>路由</li>
+<li>数据库</li>
+<li>协议（网络通信）</li>
+<li>网站（静态网站和动态网站）</li>
+<li>后台接口</li>
+<li>前端渲染和后台渲染</li>
+</ul>
+<h2 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h2><ul>
+<li><p>原生的绑定事件会发生覆盖</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>jquery的绑定事件都是会叠加</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#btn'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div><div class="line">$(<span class="string">'#btn'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>location.search</code>得到的是URL地址中所有的参数<code>?tc_id=3&amp;username=12</code>;</p>
+</li>
+</ul>
+<ul>
+<li><p>可以通过<code>location</code>来获取地址栏中所携带的所有信息；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pathname = location.search;</div><div class="line"><span class="keyword">var</span> pcname = pathname.sclice(<span class="number">1</span>); <span class="comment">//将？截取掉</span></div><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> arr = pcname.split(<span class="string">'&amp;'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</div><div class="line">    <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">    obj[kv[<span class="number">0</span>]]=kv[<span class="number">1</span>];</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">    <span class="comment">//将URL中的参数和值以键值对的形式放到obj中；</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>PHP中，将数组以json对象的形式输出： <code>json_encode($arr)</code>；</li>
+</ul>
+<h2 id="表单验证插件-1"><a href="#表单验证插件-1" class="headerlink" title="表单验证插件"></a>表单验证插件</h2><ul>
+<li>form表单中，不写提交地址，默认提交到当前页面，地址栏中；</li>
+<li><code>jquery-validate</code>表单验证的插件；</li>
+<li><code>jquery-form</code>表单提交的插件 <code>$(&#39;form&#39;).ajaxSubmit({ })</code></li>
+<li>文件上传插件 <code>webupload</code>和<code>uploadify</code></li>
+</ul>
+<p>你都做过什么，遇到什么问题，你是怎么解决的；<br>nodejs是怎么用的；</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/博学谷项目 <二>/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1056,196 +1311,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/08/Angular 自定义模块以及路由的配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/08/Angular 自定义模块以及路由的配置/" itemprop="url">
-                  Angular 自定义模块以及路由的配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-08T12:39:04+08:00">
-                2016-12-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Angular-自定义模块以及路由的配置"><a href="#Angular-自定义模块以及路由的配置" class="headerlink" title="Angular 自定义模块以及路由的配置"></a>Angular 自定义模块以及路由的配置</h1><h2 id="自定义服务，-service和-factory"><a href="#自定义服务，-service和-factory" class="headerlink" title="自定义服务，$service和$factory"></a>自定义服务，<code>$service</code>和<code>$factory</code></h2><ul>
-<li>App.controller(); 内置控制器</li>
-<li>App.directive(); 内置指令</li>
-<li>App.filter(); 内置过滤器</li>
-<li>App.factory(); 内置服务</li>
-<li>App.service(); 内置服务</li>
-<li>App.config(); 配置块</li>
-<li>App.run(); 运行块</li>
-</ul>
-<h2 id="配置块和运行块"><a href="#配置块和运行块" class="headerlink" title="配置块和运行块"></a>配置块和运行块</h2><ul>
-<li>App.config():一个参数，为数组；[]；App.config([]);</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">App.config([<span class="string">'$logProvider'</span>,<span class="string">'$filterProvider'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$logProvider,$filterProvider</span>) </span>&#123;</div><div class="line"><span class="comment">//通过$logProvider对$log进行配置;</span></div><div class="line">$logProvider.debugEnabled(<span class="literal">false</span>);</div><div class="line">$filterProvider.register(<span class="string">'capitalize'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">input</span>) </span>&#123;</div><div class="line">       <span class="keyword">return</span> (input[<span class="number">0</span>].toUpperCase() + input.slice(<span class="number">1</span>));</div><div class="line">   &#125;</div><div class="line">&#125;)</div><div class="line">&#125;]);</div><div class="line"><span class="comment">//这样在配置好之后，在HTML中就可以直接使用‘capitalize’服务了</span></div><div class="line">&lt;p ng-controller=<span class="string">'DemoCtrl'</span>&gt; 《name | capitalize》&lt;<span class="regexp">/p&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="运行块"><a href="#运行块" class="headerlink" title="运行块"></a>运行块</h3><ul>
-<li>$rootScope:  AngularJS的根作用域，可定于全局变量</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">App.run([<span class="string">'$rootScope'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$rootScope</span>) </span>&#123;</div><div class="line">       $rootScope.name = <span class="string">'顺治'</span>;</div><div class="line">   &#125;])</div><div class="line">   <span class="comment">//这个name在此文件中的任何一个控制器中都可以使用；</span></div></pre></td></tr></table></figure>
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><ul>
-<li>路由是URL地址与程序的映射关系；通过调整地址的变化，可以‘调用或执行’ 某一具体的程序；</li>
-<li>SPA：single page application 单页面展示所有功能；</li>
-<li>多页面最明显的一个缺点就是每次更新页面都要进行刷新，不能得到很好的用户体验；</li>
-<li>AngularJS的路由是建立在单页面的基础之上的；</li>
-<li><code>onhashchange</code>:检测地址栏中地址的变化，绑在window上的</li>
-<li>PHP中：<code>file_get_contents(&#39;./views/&#39;.$hash.&#39;.html&#39;)</code>;获取文件中的内容</li>
-<li>锚链接就是点断的路由，就是地址与程序的映射关系；</li>
-</ul>
-<h3 id="路由的配置"><a href="#路由的配置" class="headerlink" title="路由的配置"></a>路由的配置</h3><ul>
-<li>路由经过设置才能使用</li>
-<li>模块需要依赖路由 <code>var Music = angular.module(&#39;Music&#39;,[&#39;ngRoute&#39;]);</code></li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"> &lt;nav&gt;</div><div class="line"> //锚点中有参数的时候，不会影响到路由；ß</div><div class="line">    &lt;a href="#!/login?name=小明"&gt;登录&lt;/a&gt; //地址必须写成  #！/的形式</div><div class="line">    &lt;a href="#!/register"&gt;注册&lt;/a&gt;</div><div class="line">&lt;/nav&gt;</div><div class="line">    &lt;!-- ng-view 是一个占位符--&gt;</div><div class="line">&lt;div ng-view&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">var App = angular.module('App',['ngRoute']);</div><div class="line">//路由是需要配置才能使用;</div><div class="line">App.config(['$routeProvider',function ($routeProvider) &#123;</div><div class="line">    //两个参数path 和 route</div><div class="line">    //第一个参数:路由</div><div class="line">    //第二个参数是路由的配置</div><div class="line">    $routeProvider.when('/register',&#123;</div><div class="line">        //template:"&lt;h1&gt;首页&lt;/h1&gt;",简单的内容</div><div class="line">        templateUrl:'./views/register.html' //可以引入URL地址</div><div class="line">        //为当前视图文件分配控制器;</div><div class="line">        controller:'RegisterCtrl',</div><div class="line">    &#125;).when('/login',&#123;</div><div class="line">        //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">        templateUrl:'./views/login.html'</div><div class="line">    &#125;).otherwise(&#123;</div><div class="line">        //如果都不符合,可以设置默认值</div><div class="line">        redirectTo:'/register'</div><div class="line">    &#125;)</div><div class="line">&#125;])</div><div class="line"></div><div class="line">App.controller('RegisterCtrl',['$scope',function ($scope) &#123;</div><div class="line">    $scope.title = '注册';</div><div class="line">&#125;])</div><div class="line"></div><div class="line">//然后在register.html页面中就可以直接进行数据绑定 &lt;h1&gt;《title》&lt;/h1&gt;;</div></pre></td></tr></table></figure>
-<ul>
-<li>可以使用路由，也就是说开发者可以根据地址的变化执行不同的业务逻辑；路由需要  配置  后才能被使用；</li>
-<li><p>使用when方法监听地址的变化，然后处理相应的逻辑；</p>
-</li>
-<li><p>参数传递可以有两种方式，一种方式是通过地址传参：</p>
-<ul>
-<li>地址传参：其格式为?key1=val&amp;key2=val2;.when(‘/login?name=lisi&amp;age=17’)</li>
-<li><p>通过路由传参: 路由/:参数名</p>
-</li>
-<li><p>！！！注意：地址的格式（/login/:name/:pass）必须与路由的格式（#!/login/小明/12345）完全保持一致，一一对应；</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;a href="#!/login/小明/12345"&gt;登录&lt;/a&gt;</div><div class="line">.when('/login/:name/:pass',&#123;</div><div class="line"></div><div class="line">    //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">    templateUrl:'./views/login.html'</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-<li><p>获取路由中传递的参数 <code>var parameter = $routeParams</code>;</p>
-</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1306,7 +1371,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

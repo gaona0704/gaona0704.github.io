@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Node," />
+  <meta name="keywords" content="Hexo" />
 
 
 
@@ -89,37 +89,31 @@
 
 
 
-<meta name="description" content="NodeJS day01Nodejs是什么：
-解析执行JS，不包括DOM、Style等；
+<meta name="description" content="cookie 和 session 的使用cookie和sessioncookie
+cookie进行状态管理。http是无状态管理
 
-是一个构建与 Chrome V8 引擎之上的一个JavaScript运行时环境
-Node 可以像浏览器一样去解析和执行JavaScript代码；
-Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
-在Node中，没有界面，不再需要关心HTML、CSS
-和DOM style没有任何关系；">
+sessionStorage 、 localStorage 和 cookie 都是在浏览器端存储的数据；
+sessionStorage 在同源的同窗口始终存在数据。窗口关闭，数据销毁；  
+url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务端的通信">
 <meta property="og:type" content="article">
-<meta property="og:title" content="NodeJS 基础">
-<meta property="og:url" content="http://yoursite.com/2016/04/03/title: NodeJS 基础/index.html">
+<meta property="og:title" content="Cookie 和 Session 的使用">
+<meta property="og:url" content="http://yoursite.com/2017/04/08/cookie 和 session 的使用/index.html">
 <meta property="og:site_name" content="高工@博客">
-<meta property="og:description" content="NodeJS day01Nodejs是什么：
-解析执行JS，不包括DOM、Style等；
+<meta property="og:description" content="cookie 和 session 的使用cookie和sessioncookie
+cookie进行状态管理。http是无状态管理
 
-是一个构建与 Chrome V8 引擎之上的一个JavaScript运行时环境
-Node 可以像浏览器一样去解析和执行JavaScript代码；
-Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
-在Node中，没有界面，不再需要关心HTML、CSS
-和DOM style没有任何关系；">
-<meta property="og:updated_time" content="2017-04-09T11:49:00.000Z">
+sessionStorage 、 localStorage 和 cookie 都是在浏览器端存储的数据；
+sessionStorage 在同源的同窗口始终存在数据。窗口关闭，数据销毁；  
+url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务端的通信">
+<meta property="og:updated_time" content="2017-04-12T12:56:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NodeJS 基础">
-<meta name="twitter:description" content="NodeJS day01Nodejs是什么：
-解析执行JS，不包括DOM、Style等；
+<meta name="twitter:title" content="Cookie 和 Session 的使用">
+<meta name="twitter:description" content="cookie 和 session 的使用cookie和sessioncookie
+cookie进行状态管理。http是无状态管理
 
-是一个构建与 Chrome V8 引擎之上的一个JavaScript运行时环境
-Node 可以像浏览器一样去解析和执行JavaScript代码；
-Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
-在Node中，没有界面，不再需要关心HTML、CSS
-和DOM style没有任何关系；">
+sessionStorage 、 localStorage 和 cookie 都是在浏览器端存储的数据；
+sessionStorage 在同源的同窗口始终存在数据。窗口关闭，数据销毁；  
+url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务端的通信">
 
 
 
@@ -147,13 +141,13 @@ Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/04/03/title: NodeJS 基础/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/08/cookie 和 session 的使用/"/>
 
 
 
 
 
-  <title> NodeJS 基础 | 高工@博客 </title>
+  <title> Cookie 和 Session 的使用 | 高工@博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,8 +285,8 @@ Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/03/title: NodeJS 基础/">
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/08/cookie 和 session 的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gaonana">
@@ -313,7 +307,7 @@ Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
             
             
               
-                NodeJS 基础
+                Cookie 和 Session 的使用
               
             
           </h1>
@@ -328,8 +322,8 @@ Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-03T09:06:15+08:00">
-                2016-04-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T12:39:04+08:00">
+                2017-04-08
               </time>
             
 
@@ -351,8 +345,8 @@ Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
+                  <a href="/categories/storage/" itemprop="url" rel="index">
+                    <span itemprop="name">storage</span>
                   </a>
                 </span>
 
@@ -386,97 +380,57 @@ Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
       
 
       
-        <h1 id="NodeJS-day01"><a href="#NodeJS-day01" class="headerlink" title="NodeJS day01"></a>NodeJS day01</h1><h2 id="Nodejs是什么："><a href="#Nodejs是什么：" class="headerlink" title="Nodejs是什么："></a>Nodejs是什么：</h2><ul>
-<li><p>解析执行JS，不包括DOM、Style等；</p>
-<ul>
-<li>是一个构建与 Chrome V8 引擎之上的一个JavaScript运行时环境</li>
-<li>Node 可以像浏览器一样去解析和执行JavaScript代码；</li>
-<li>Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；</li>
-<li>在Node中，没有界面，不再需要关心HTML、CSS</li>
-<li>和DOM style没有任何关系；只需要关注JavaScript；ECMAScript；<ul>
-<li>文件操作</li>
-<li>网络操作</li>
-<li>让JavaScript代码具有了服务器编程能力</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>NodeJS的特性：</p>
-<ul>
-<li>事件驱动 </li>
-<li>非阻塞IO模型：大量的异步编程接口；NodeJS中充满了类似于ajax 一样的ＡＰＩ，回答函数；</li>
-<li>快平台</li>
-<li>单线程</li>
-<li>轻量和高效</li>
-</ul>
-</li>
-<li>npm 是世界上最大的开源库生态系统<ul>
-<li>npm 上发布的第三方包已经接近35万个之多</li>
-</ul>
-</li>
-</ul>
-<h2 id="NodeJS可以做什么"><a href="#NodeJS可以做什么" class="headerlink" title="NodeJS可以做什么"></a>NodeJS可以做什么</h2><ul>
-<li>NodeJS为JavaScript提供了服务端编程的能力（不处理UI）；<ul>
-<li>Java、PHP、Python、。net、Ruby等 做的Node都能做</li>
-<li>网站开发，提供网站服务端</li>
-<li>具有与数据库交互的能力</li>
-<li>移动应用，网络游戏等需要服务的地方Node都可以做；</li>
-<li>CLI(Command Line Interface)命令行接口程序<ul>
-<li>例如：Gulp、hexo、git等</li>
-<li>Node 具有开发命令行工具的能力；<h2 id="Node的应用场景"><a href="#Node的应用场景" class="headerlink" title="Node的应用场景"></a>Node的应用场景</h2></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Node是前端进阶必备的一个能力；</li>
-<li>对IO操作比较频繁；IO：input、 output<ul>
-<li>文件读取</li>
-<li>和数据库交互：网络数据IO<h2 id="一些资源"><a href="#一些资源" class="headerlink" title="一些资源"></a>一些资源</h2></li>
-</ul>
-</li>
-<li>朴灵：《深入浅出Node.js》原理性，阿里出品</li>
-<li>阮一峰的Node.js</li>
-<li>Node入门，nodebegin.org/index-zn-cn 强烈推荐</li>
-</ul>
-<h2 id="Node-程序的运行"><a href="#Node-程序的运行" class="headerlink" title="Node 程序的运行"></a>Node 程序的运行</h2><ol>
-<li>在终端的任何目录下输入<code>node</code>命令，都可以执行<code>node.exe</code>程序<ul>
-<li>核心就在于通过操作系统</li>
-</ul>
-</li>
-<li>参数</li>
+        <h1 id="cookie-和-session-的使用"><a href="#cookie-和-session-的使用" class="headerlink" title="cookie 和 session 的使用"></a>cookie 和 session 的使用</h1><h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><blockquote>
+<p>cookie进行状态管理。http是无状态管理</p>
+<ol>
+<li>sessionStorage 、 localStorage 和 cookie 都是在浏览器端存储的数据；</li>
+<li>sessionStorage 在同源的同窗口始终存在数据。窗口关闭，数据销毁；  </li>
+<li>url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务端的通信状态(这个是后台写的)</li>
+<li><code>document.cookie</code>可以访问cookie;</li>
+<li>cookie的格式:键值对;</li>
+<li>多个cookie之间使用分号和空格隔开;例如:<code>username=zhangsan; age=12</code>;</li>
+<li><code>document.cookie = &#39;username=zhangsan&#39;</code>在浏览器中是有缓存的,关闭浏览区可以清除;<h3 id="cookie的分类"><a href="#cookie的分类" class="headerlink" title="cookie的分类"></a>cookie的分类</h3></li>
+<li>session cookie 会话cookie:关闭浏览器之后自动清除,但是可以增加其有效期,以下例子增加了5天的有效期。</li>
 </ol>
-<h2 id="Node中的ECMAScript"><a href="#Node中的ECMAScript" class="headerlink" title="Node中的ECMAScript"></a>Node中的ECMAScript</h2><ol>
-<li>Node中的window 是 global<h2 id="Node核心模块"><a href="#Node核心模块" class="headerlink" title="Node核心模块"></a>Node核心模块</h2></li>
-<li>Node把绝大多数的API，都封装到了一份具名的核心模块了，例如文件操作的<code>fs</code>; 网络操作的<code>http</code>等；</li>
-<li>也就是说，使用核心模块，必须先加载才可以使用；</li>
-</ol>
-<blockquote>
-<p>核心模块以位移的标识名称进行暴露，使用时，通过<code>require</code>进行引入</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="built_in">require</span>(<span class="string">'唯一标识的模块名称'</span>)；</div></pre></td></tr></table></figure>
-<h3 id="在Node中使用第三方包"><a href="#在Node中使用第三方包" class="headerlink" title="在Node中使用第三方包"></a>在Node中使用第三方包</h3><ol>
-<li>通过 npm 下载</li>
-<li>通过 rquire 函数引包</li>
-<li>查看第三方的API，try-try-see;</li>
-</ol>
-<h3 id="用户自定义模块"><a href="#用户自定义模块" class="headerlink" title="用户自定义模块"></a>用户自定义模块</h3><ol>
-<li>在Node中，也提供了一种所谓的JavaScript模块化解决方案，（类似以requireJS）；</li>
-</ol>
-<h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ol>
-<li>chrome浏览器每次会发送两次请求，一次请求icon；一次请求数据；</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/a</div><div class="line">/favicon.ico</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.setDate(date.getDate()+<span class="number">5</span>); </div><div class="line"><span class="built_in">document</span>.cookie=<span class="string">"username=lisi; expires="</span>+date.toGMTString();</div></pre></td></tr></table></figure>
 <ol>
-<li>Node 获取请求路径 var url = res.url;</li>
-<li>不同的响应头</li>
+<li>persistant cookie 持久cookie:关闭浏览器</li>
+<li>获得cookie,封装函数</li>
+<li>在子路径设置的cookie,在父路径下是获取不到的;反过来可以<br> 不可以跨域获取cookie,但是可以跨页面共享;</li>
+<li><p>可以用jquery-cookie插件应用;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//设置cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,expires</span>) </span>&#123;</div><div class="line">         <span class="built_in">document</span>.cookie = key +<span class="string">'='</span>+value+<span class="string">';expires='</span>+expires+<span class="string">"; path=/"</span>;</div><div class="line">     &#125;</div><div class="line"><span class="comment">//获得cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>) </span>&#123;</div><div class="line">     <span class="keyword">var</span> cookie = <span class="built_in">document</span>.cookie;</div><div class="line">     <span class="keyword">var</span> arr = cookie.split(<span class="string">'; '</span>);</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">         <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">         <span class="keyword">if</span>(cname == kv[<span class="number">0</span>])&#123;</div><div class="line">             <span class="keyword">return</span> kv[<span class="number">1</span>];</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>encodeURLComponent</code>该方法会对url地址中的特殊字符进行编码(当参数中包含URL特殊字符的时候可以使用该方法进行编码处理);</p>
+</li>
+<li>获取sessionID<br><code>console.log($.cookie(&#39;PHPSESSID&#39;))</code>;<h3 id="cookie-使用"><a href="#cookie-使用" class="headerlink" title="$.cookie()使用"></a>$.cookie()使用</h3></li>
+<li>新添加一个cookie会话;<code>$.cookie(&#39;username&#39;,&#39;zhangsan&#39;)</code>;</li>
+<li>创建cookie并设置有效期为7天;<code>$.cookie(&#39;age&#39;,&#39;18&#39;,{expires:7})</code>;此时的cookie称作持久cookie,即<code>persistant cookie</code>;</li>
+<li>创建cookie并设置cookie的有效路径<code>$.cookie(&#39;username&#39;,&#39;lisi&#39;,{expires:7,path:&#39;/&#39;})</code>;<ul>
+<li>在默认情况下,只有cookie的页面才能读取该cookie信息,如果想让另一个页面读取该cookie信息,必须设置cookie的路径;cookie的路径用于设置能够读取cookie的顶级目录,即根目录,可以让当前项目下所有的网页都能相互读取cookie,</li>
+</ul>
+</li>
+<li><code>raw:true</code>;在读写cookie时自动使用<code>encodeURLComponen</code>进行编码和解码;</li>
+<li>删除cookie可以使用null作为cookie的值就可以<code>$.cookie(&#39;username&#39;,null)</code><h3 id="session-和-cookie之间的区别"><a href="#session-和-cookie之间的区别" class="headerlink" title="session 和 cookie之间的区别"></a>session 和 cookie之间的区别</h3></li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//HTML格式，网页面中写数据的时候不会出现中文乱码；</span></div><div class="line">res.writeHead(<span class="number">200</span>,&#123;</div><div class="line">        <span class="string">'Content-Type'</span>:<span class="string">'text/html;charset=utf-8'</span></div><div class="line">    &#125;)；</div><div class="line">    res.writeHead(<span class="number">200</span>,&#123;</div><div class="line">    <span class="comment">//响应的内容是简单文本</span></div><div class="line">    <span class="string">'Content-Type'</span>:<span class="string">'text/plain; charset=utf-8'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<ol>
-<li><code>./data/a.txt = data.a.txt</code>;</li>
-<li>如果 fs.readFile(‘/data/a.txt’);则去脚本文件的根路径下面去找 C/data/a.txt文件</li>
-<li>数组转换成字符串 JSON.stringfy(array);</li>
-<li><code>res.end(data)</code>=== <code>res.write(data) res.end()</code>;</li>
+<ul>
+<li>共同点： 数据都是保存在浏览器端，且是同源的</li>
+<li>区别：<ol>
+<li>cookie 通过在客户端记录信息确定用户身份， 数据始终在同源的 http 请求中携带，即cookie在浏览器和服务器之间来回传递；</li>
+<li>session 通过在服务器端记录信息确定用户身份；</li>
+<li>cookie 数据还有路径(path)的概念，可以限制 cookie 只在某个另下访问。因为每次 http 请求都会携带 cookie，所以cookie 只适合保存很小的数据。</li>
+<li>http 协议是无状态协议。是无法从连接上跟踪会话的；</li>
+<li>第一次发送请求，res 会向客户端浏览器颁发一个 cookie， 客户端吧 cookie 存取来，再次访问的时候会一同提交给 服务器<h3 id="location的内置属性"><a href="#location的内置属性" class="headerlink" title="location的内置属性"></a>location的内置属性</h3></li>
 </ol>
+</li>
+<li>页面跳转<code>location.href=&#39;/index/index.html&#39;</code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ancestorOrigins:DOMStringList,</div><div class="line">assign:()</div><div class="line">hash:""</div><div class="line">host:"mybxg.com"</div><div class="line">hostname:"mybxg.com"</div><div class="line">href:"http://mybxg.com/index/index"</div><div class="line">origin:"http://mybxg.com"</div><div class="line">pathname:"/index/index"</div><div class="line">port:""</div><div class="line">protocol:"http:"</div><div class="line">reload:reload()</div><div class="line">replace:()</div><div class="line">search:""</div><div class="line">toString:toString()</div><div class="line">valueOf:valueOf()</div><div class="line">__proto__:Location</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><ul>
+<li>静态资源服务器</li>
+<li>项目管理软件: JIRA 禅道(跟踪工程进度更新,项目管理软件)</li>
+<li>jQuery中的return false既可以阻止默认行为也可以阻止冒泡;但是原生JS中的return false 只能阻止默认行为;</li>
+</ul>
 
       
     </div>
@@ -504,12 +458,6 @@ Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Node/" rel="tag"># Node</a>
-          
-        </div>
-      
 
       
         
@@ -519,8 +467,8 @@ Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/24/ Github 使用/" rel="next" title="Github使用">
-                <i class="fa fa-chevron-left"></i> Github使用
+              <a href="/2017/04/06/formidable插件使用/" rel="next" title="Formidable插件使用">
+                <i class="fa fa-chevron-left"></i> Formidable插件使用
               </a>
             
           </div>
@@ -528,10 +476,6 @@ Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/09/title: Mac操作系统总结/" rel="prev" title="Mac操作系统总结">
-                Mac操作系统总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -692,7 +636,7 @@ Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NodeJS-day01"><span class="nav-number">1.</span> <span class="nav-text">NodeJS day01</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nodejs是什么："><span class="nav-number">1.1.</span> <span class="nav-text">Nodejs是什么：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NodeJS可以做什么"><span class="nav-number">1.2.</span> <span class="nav-text">NodeJS可以做什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node的应用场景"><span class="nav-number">1.3.</span> <span class="nav-text">Node的应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些资源"><span class="nav-number">1.4.</span> <span class="nav-text">一些资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-程序的运行"><span class="nav-number">1.5.</span> <span class="nav-text">Node 程序的运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node中的ECMAScript"><span class="nav-number">1.6.</span> <span class="nav-text">Node中的ECMAScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node核心模块"><span class="nav-number">1.7.</span> <span class="nav-text">Node核心模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在Node中使用第三方包"><span class="nav-number">1.7.1.</span> <span class="nav-text">在Node中使用第三方包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户自定义模块"><span class="nav-number">1.7.2.</span> <span class="nav-text">用户自定义模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小知识点"><span class="nav-number">2.</span> <span class="nav-text">小知识点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie-和-session-的使用"><span class="nav-number">1.</span> <span class="nav-text">cookie 和 session 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie和session"><span class="nav-number">1.1.</span> <span class="nav-text">cookie和session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie"><span class="nav-number">1.1.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie的分类"><span class="nav-number">1.1.2.</span> <span class="nav-text">cookie的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie-使用"><span class="nav-number">1.1.3.</span> <span class="nav-text">$.cookie()使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session-和-cookie之间的区别"><span class="nav-number">1.1.4.</span> <span class="nav-text">session 和 cookie之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location的内置属性"><span class="nav-number">1.1.5.</span> <span class="nav-text">location的内置属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache"><span class="nav-number">1.2.</span> <span class="nav-text">Apache</span></a></li></ol></li></ol></div>
             
 
           </div>

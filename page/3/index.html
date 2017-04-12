@@ -272,6 +272,196 @@
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/08/Angular 自定义模块以及路由的配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/08/Angular 自定义模块以及路由的配置/" itemprop="url">
+                  Angular 自定义模块以及路由的配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-08T12:39:04+08:00">
+                2016-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Angular-自定义模块以及路由的配置"><a href="#Angular-自定义模块以及路由的配置" class="headerlink" title="Angular 自定义模块以及路由的配置"></a>Angular 自定义模块以及路由的配置</h1><h2 id="自定义服务，-service和-factory"><a href="#自定义服务，-service和-factory" class="headerlink" title="自定义服务，$service和$factory"></a>自定义服务，<code>$service</code>和<code>$factory</code></h2><ul>
+<li>App.controller(); 内置控制器</li>
+<li>App.directive(); 内置指令</li>
+<li>App.filter(); 内置过滤器</li>
+<li>App.factory(); 内置服务</li>
+<li>App.service(); 内置服务</li>
+<li>App.config(); 配置块</li>
+<li>App.run(); 运行块</li>
+</ul>
+<h2 id="配置块和运行块"><a href="#配置块和运行块" class="headerlink" title="配置块和运行块"></a>配置块和运行块</h2><ul>
+<li>App.config():一个参数，为数组；[]；App.config([]);</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">App.config([<span class="string">'$logProvider'</span>,<span class="string">'$filterProvider'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$logProvider,$filterProvider</span>) </span>&#123;</div><div class="line"><span class="comment">//通过$logProvider对$log进行配置;</span></div><div class="line">$logProvider.debugEnabled(<span class="literal">false</span>);</div><div class="line">$filterProvider.register(<span class="string">'capitalize'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">input</span>) </span>&#123;</div><div class="line">       <span class="keyword">return</span> (input[<span class="number">0</span>].toUpperCase() + input.slice(<span class="number">1</span>));</div><div class="line">   &#125;</div><div class="line">&#125;)</div><div class="line">&#125;]);</div><div class="line"><span class="comment">//这样在配置好之后，在HTML中就可以直接使用‘capitalize’服务了</span></div><div class="line">&lt;p ng-controller=<span class="string">'DemoCtrl'</span>&gt; 《name | capitalize》&lt;<span class="regexp">/p&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="运行块"><a href="#运行块" class="headerlink" title="运行块"></a>运行块</h3><ul>
+<li>$rootScope:  AngularJS的根作用域，可定于全局变量</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">App.run([<span class="string">'$rootScope'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$rootScope</span>) </span>&#123;</div><div class="line">       $rootScope.name = <span class="string">'顺治'</span>;</div><div class="line">   &#125;])</div><div class="line">   <span class="comment">//这个name在此文件中的任何一个控制器中都可以使用；</span></div></pre></td></tr></table></figure>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><ul>
+<li>路由是URL地址与程序的映射关系；通过调整地址的变化，可以‘调用或执行’ 某一具体的程序；</li>
+<li>SPA：single page application 单页面展示所有功能；</li>
+<li>多页面最明显的一个缺点就是每次更新页面都要进行刷新，不能得到很好的用户体验；</li>
+<li>AngularJS的路由是建立在单页面的基础之上的；</li>
+<li><code>onhashchange</code>:检测地址栏中地址的变化，绑在window上的</li>
+<li>PHP中：<code>file_get_contents(&#39;./views/&#39;.$hash.&#39;.html&#39;)</code>;获取文件中的内容</li>
+<li>锚链接就是点断的路由，就是地址与程序的映射关系；</li>
+</ul>
+<h3 id="路由的配置"><a href="#路由的配置" class="headerlink" title="路由的配置"></a>路由的配置</h3><ul>
+<li>路由经过设置才能使用</li>
+<li>模块需要依赖路由 <code>var Music = angular.module(&#39;Music&#39;,[&#39;ngRoute&#39;]);</code></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"> &lt;nav&gt;</div><div class="line"> //锚点中有参数的时候，不会影响到路由；ß</div><div class="line">    &lt;a href="#!/login?name=小明"&gt;登录&lt;/a&gt; //地址必须写成  #！/的形式</div><div class="line">    &lt;a href="#!/register"&gt;注册&lt;/a&gt;</div><div class="line">&lt;/nav&gt;</div><div class="line">    &lt;!-- ng-view 是一个占位符--&gt;</div><div class="line">&lt;div ng-view&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">var App = angular.module('App',['ngRoute']);</div><div class="line">//路由是需要配置才能使用;</div><div class="line">App.config(['$routeProvider',function ($routeProvider) &#123;</div><div class="line">    //两个参数path 和 route</div><div class="line">    //第一个参数:路由</div><div class="line">    //第二个参数是路由的配置</div><div class="line">    $routeProvider.when('/register',&#123;</div><div class="line">        //template:"&lt;h1&gt;首页&lt;/h1&gt;",简单的内容</div><div class="line">        templateUrl:'./views/register.html' //可以引入URL地址</div><div class="line">        //为当前视图文件分配控制器;</div><div class="line">        controller:'RegisterCtrl',</div><div class="line">    &#125;).when('/login',&#123;</div><div class="line">        //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">        templateUrl:'./views/login.html'</div><div class="line">    &#125;).otherwise(&#123;</div><div class="line">        //如果都不符合,可以设置默认值</div><div class="line">        redirectTo:'/register'</div><div class="line">    &#125;)</div><div class="line">&#125;])</div><div class="line"></div><div class="line">App.controller('RegisterCtrl',['$scope',function ($scope) &#123;</div><div class="line">    $scope.title = '注册';</div><div class="line">&#125;])</div><div class="line"></div><div class="line">//然后在register.html页面中就可以直接进行数据绑定 &lt;h1&gt;《title》&lt;/h1&gt;;</div></pre></td></tr></table></figure>
+<ul>
+<li>可以使用路由，也就是说开发者可以根据地址的变化执行不同的业务逻辑；路由需要  配置  后才能被使用；</li>
+<li><p>使用when方法监听地址的变化，然后处理相应的逻辑；</p>
+</li>
+<li><p>参数传递可以有两种方式，一种方式是通过地址传参：</p>
+<ul>
+<li>地址传参：其格式为?key1=val&amp;key2=val2;.when(‘/login?name=lisi&amp;age=17’)</li>
+<li><p>通过路由传参: 路由/:参数名</p>
+</li>
+<li><p>！！！注意：地址的格式（/login/:name/:pass）必须与路由的格式（#!/login/小明/12345）完全保持一致，一一对应；</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;a href="#!/login/小明/12345"&gt;登录&lt;/a&gt;</div><div class="line">.when('/login/:name/:pass',&#123;</div><div class="line"></div><div class="line">    //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">    templateUrl:'./views/login.html'</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取路由中传递的参数 <code>var parameter = $routeParams</code>;</p>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/25/ Angualar 过滤器、依赖注入等/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -666,185 +856,6 @@
 <li>angular 的遍历</li>
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;li ng-repeat='item in lists'&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</div><div class="line">//或者是</div><div class="line">&lt;li ng-repeat='item in lists'&gt;</div><div class="line">    &lt;span ng-bind='item'&gt;&lt;/span&gt;</div><div class="line">&lt;/li&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/29/cookie 和 session 的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/29/cookie 和 session 的使用/" itemprop="url">
-                  Cookie 和 Session 的使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-29T12:39:04+08:00">
-                2016-10-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="cookie-和-session-的使用"><a href="#cookie-和-session-的使用" class="headerlink" title="cookie 和 session 的使用"></a>cookie 和 session 的使用</h1><h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><ul>
-<li>静态资源服务器</li>
-<li>项目管理软件: JIRA 禅道(跟踪工程进度更新,项目管理软件)</li>
-<li>jQuery中的return false既可以阻止默认行为也可以阻止冒泡;但是原生JS中的return false 只能阻止默认行为;<h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3></li>
-</ul>
-<ol>
-<li>通过cookie可以向客户端存储数据  </li>
-<li>url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务端的通信状态(这个是后台写的)</li>
-<li><code>document.cookie</code>可以访问cookie;</li>
-<li>cookie的格式:键值对;</li>
-<li>多个cookie之间使用分号和空格隔开;例如:<code>username=zhangsan; age=12</code>;</li>
-<li><code>document.cookie = &#39;username=zhangsan&#39;</code>在浏览器中是有缓存的,关闭浏览区可以清除;<h3 id="cookie的分类"><a href="#cookie的分类" class="headerlink" title="cookie的分类"></a>cookie的分类</h3></li>
-<li>session cookie 会话cookie:关闭浏览器之后自动清除,但是可以增加其有效期,以下例子增加了5天的有效期。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.setDate(date.getDate()+<span class="number">5</span>); </div><div class="line"><span class="built_in">document</span>.cookie=<span class="string">"username=lisi; expires="</span>+date.toGMTString();</div></pre></td></tr></table></figure>
-<ol>
-<li>persistant cookie 持久cookie:关闭浏览器</li>
-<li>获得cookie,封装函数</li>
-<li>在子路径设置的cookie,在父路径下是获取不到的;反过来可以<br> 不可以跨域获取cookie,但是可以跨页面共享;</li>
-<li><p>可以用jquery-cookie插件应用;</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//设置cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,expires</span>) </span>&#123;</div><div class="line">         <span class="built_in">document</span>.cookie = key +<span class="string">'='</span>+value+<span class="string">';expires='</span>+expires+<span class="string">"; path=/"</span>;</div><div class="line">     &#125;</div><div class="line"><span class="comment">//获得cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>) </span>&#123;</div><div class="line">     <span class="keyword">var</span> cookie = <span class="built_in">document</span>.cookie;</div><div class="line">     <span class="keyword">var</span> arr = cookie.split(<span class="string">'; '</span>);</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">         <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">         <span class="keyword">if</span>(cname == kv[<span class="number">0</span>])&#123;</div><div class="line">             <span class="keyword">return</span> kv[<span class="number">1</span>];</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>encodeURLComponent</code>该方法会对url地址中的特殊字符进行编码(当参数中包含URL特殊字符的时候可以使用该方法进行编码处理);</p>
-</li>
-<li>获取sessionID<br><code>console.log($.cookie(&#39;PHPSESSID&#39;))</code>;<h3 id="cookie-使用"><a href="#cookie-使用" class="headerlink" title="$.cookie()使用"></a>$.cookie()使用</h3></li>
-<li>新添加一个cookie会话;<code>$.cookie(&#39;username&#39;,&#39;zhangsan&#39;)</code>;</li>
-<li>创建cookie并设置有效期为7天;<code>$.cookie(&#39;age&#39;,&#39;18&#39;,{expires:7})</code>;此时的cookie称作持久cookie,即<code>persistant cookie</code>;</li>
-<li>创建cookie并设置cookie的有效路径<code>$.cookie(&#39;username&#39;,&#39;lisi&#39;,{expires:7,path:&#39;/&#39;})</code>;<ul>
-<li>在默认情况下,只有cookie的页面才能读取该cookie信息,如果想让另一个页面读取该cookie信息,必须设置cookie的路径;cookie的路径用于设置能够读取cookie的顶级目录,即根目录,可以让当前项目下所有的网页都能相互读取cookie,</li>
-</ul>
-</li>
-<li><code>raw:true</code>;在读写cookie时自动使用<code>encodeURLComponen</code>进行编码和解码;</li>
-<li>删除cookie可以使用null作为cookie的值就可以<code>$.cookie(&#39;username&#39;,null)</code><h3 id="location的内置属性"><a href="#location的内置属性" class="headerlink" title="location的内置属性"></a>location的内置属性</h3></li>
-</ol>
-<ul>
-<li>页面跳转<code>location.href=&#39;/index/index.html&#39;</code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ancestorOrigins:DOMStringList,</div><div class="line">assign:()</div><div class="line">hash:""</div><div class="line">host:"mybxg.com"</div><div class="line">hostname:"mybxg.com"</div><div class="line">href:"http://mybxg.com/index/index"</div><div class="line">origin:"http://mybxg.com"</div><div class="line">pathname:"/index/index"</div><div class="line">port:""</div><div class="line">protocol:"http:"</div><div class="line">reload:reload()</div><div class="line">replace:()</div><div class="line">search:""</div><div class="line">toString:toString()</div><div class="line">valueOf:valueOf()</div><div class="line">__proto__:Location</div></pre></td></tr></table></figure></li>
-</ul>
 
           
         
@@ -1365,7 +1376,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
