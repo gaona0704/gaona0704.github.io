@@ -1,0 +1,866 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="高工@博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="域名解析系统
+先去本机的host的文件查找对应的IP,如果在本机host文件中找到,就返回对应的IP;如果没有的话,就去公网查找,公网没有的话就无法上网;
+
+前端发送请求的方式
+地址栏直接输入URL
+表单的action属性
+a标签的href属性;link的href
+src属性:img的src;script的src; iframe的src
+ajax发送请求
+postMessage H5新的API
+f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端发送请求的方式">
+<meta property="og:url" content="http://yoursite.com/2017/02/12/博学谷项目 <二>/index.html">
+<meta property="og:site_name" content="高工@博客">
+<meta property="og:description" content="域名解析系统
+先去本机的host的文件查找对应的IP,如果在本机host文件中找到,就返回对应的IP;如果没有的话,就去公网查找,公网没有的话就无法上网;
+
+前端发送请求的方式
+地址栏直接输入URL
+表单的action属性
+a标签的href属性;link的href
+src属性:img的src;script的src; iframe的src
+ajax发送请求
+postMessage H5新的API
+f">
+<meta property="og:updated_time" content="2017-04-12T02:51:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端发送请求的方式">
+<meta name="twitter:description" content="域名解析系统
+先去本机的host的文件查找对应的IP,如果在本机host文件中找到,就返回对应的IP;如果没有的话,就去公网查找,公网没有的话就无法上网;
+
+前端发送请求的方式
+地址栏直接输入URL
+表单的action属性
+a标签的href属性;link的href
+src属性:img的src;script的src; iframe的src
+ajax发送请求
+postMessage H5新的API
+f">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/12/博学谷项目 <二>/"/>
+
+
+
+
+
+  <title> 前端发送请求的方式 | 高工@博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">高工@博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习的技能和遇到的问题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/博学谷项目 <二>/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                前端发送请求的方式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T10:39:04+08:00">
+                2017-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="域名解析系统"><a href="#域名解析系统" class="headerlink" title="域名解析系统"></a>域名解析系统</h2><ul>
+<li>先去本机的host的文件查找对应的IP,如果在本机host文件中找到,就返回对应的IP;如果没有的话,就去公网查找,公网没有的话就无法上网;</li>
+</ul>
+<h2 id="前端发送请求的方式"><a href="#前端发送请求的方式" class="headerlink" title="前端发送请求的方式"></a>前端发送请求的方式</h2><ul>
+<li>地址栏直接输入URL</li>
+<li>表单的action属性</li>
+<li>a标签的href属性;link的href</li>
+<li>src属性:img的src;script的src; iframe的src</li>
+<li>ajax发送请求</li>
+<li>postMessage H5新的API</li>
+<li>flash插件</li>
+<li>location.href<ol>
+<li>补充:URL的规范格式 scheme://host:port /path?query#frament;</li>
+</ol>
+<ul>
+<li>scheme 表示协议 http https ftp file ssh;</li>
+<li>host 表示域名或者IP地址;</li>
+<li>port 端口;用来确定计算机上某个网络应用程序;</li>
+<li>path 路径;域名之后,参数(?)之前的内容:/abc/qqq等</li>
+<li>query 查询字符串;作用,向服务器传递参数数据;格式:键=值&amp;键=值</li>
+<li>frament: hash 锚点,定位页面的某一部分;结合ID;</li>
+</ul>
+</li>
+</ul>
+<h2 id="路径问题"><a href="#路径问题" class="headerlink" title="路径问题"></a>路径问题</h2><ul>
+<li>绝对路径 / 等效于直接写IP地址<a href="http://localhost" target="_blank" rel="external">http://localhost</a></li>
+<li>相对路径:  ./代表当前路径 ../代表上层路径</li>
+<li>跳转到根路径<code>&lt;a href=&quot;/tom.html&quot;&gt;</code></li>
+</ul>
+<h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><ul>
+<li>cookie写入之后,只要是访问同一个网站,都会带着cookie进行访问;</li>
+<li>在PHP中session start();开启session会话;让服务器知道曾经来过,保存访问状态;SESSID</li>
+<li>session是服务端的,客户端向服务端发送SESSID,进行服务器与客户端的关联,服务器返回该用户的信息;</li>
+<li>SESSID可以保持客户端与服务器之间的联系状态;实现不同页面间的数据共享</li>
+</ul>
+<h2 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h2><ul>
+<li><p>jsonp</p>
+<ul>
+<li>jsonp返回的数据应该是函数的调用<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ecName = $_GET[<span class="string">'callback'</span>];<span class="comment">//获取到函数名;</span></div><div class="line">echo $ecName.<span class="string">"("</span>data.<span class="string">")"</span>;<span class="comment">//返回函数的调用;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>cors 配置服务器,</p>
+</li>
+<li>反向代理 其原理类似于CORS</li>
+<li>flash插件,但是现在已经很少用了;</li>
+</ul>
+<h2 id="PHP-相关问题"><a href="#PHP-相关问题" class="headerlink" title="PHP 相关问题"></a>PHP 相关问题</h2><ul>
+<li>PHP既可以做前端页面渲染,也可以单独作为接口返回数据;</li>
+<li>&lt;?php include()?&gt;(PHP中导入页面)<br><code>count($arr == 2)</code> 等同于js中<code>arr.length == 2</code>;</li>
+</ul>
+<h2 id="模块化规范"><a href="#模块化规范" class="headerlink" title="模块化规范"></a>模块化规范</h2><ul>
+<li>浏览器端的规范：<ol>
+<li>AMD：requirejs</li>
+<li>CMD:seajs （淘宝的技术）</li>
+<li>commonjs - nodejs 同步加载，后端的奇数</li>
+</ol>
+</li>
+<li>服务器端的规范<ol>
+<li>commonjs:nodejs </li>
+</ol>
+</li>
+</ul>
+<h2 id="requirejs使用"><a href="#requirejs使用" class="headerlink" title="requirejs使用"></a>requirejs使用</h2><ol>
+<li>解决了命名冲突 （不同模块中的相同变量不会冲突）</li>
+<li>解决了文件依赖问题</li>
+<li>如果requirejs加载的时候，指定了data-main属性，那么根路径就变成了入口文件所处的路径;<ol>
+<li>不使用data-main的时候，在通过require加载文件时可以直接使用相对路径；</li>
+<li>但是在使用data-main的同时，再使用require加载其他模块文件，文件的根路径发生了改变，此时可以重新定义默认的根路径；</li>
+<li>requirejs处理非模块化文件</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> &lt;script src=<span class="string">'require.js'</span> data-main=<span class="string">'main.js'</span> &gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"> &lt;script&gt;</div><div class="line">     <span class="comment">//加载文件，通过data-main的路径进行定位</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'./m4'</span>]);</div><div class="line">     <span class="comment">//或者重新设置默认的根路径</span></div><div class="line">     <span class="built_in">require</span>.config(&#123;</div><div class="line">         <span class="attr">baseUrl</span>:<span class="string">'./js/'</span></div><div class="line">     &#125;);</div><div class="line">     <span class="comment">//相对于根路径的路径</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'/module/m4'</span>]);</div><div class="line">      <span class="comment">//将abc文件中foo的非模块化文件到处成为模块化文件</span></div><div class="line">    shim:&#123;</div><div class="line">        <span class="string">'../abc'</span>:&#123;</div><div class="line">         <span class="comment">//给模块起一个别名；如果自定义模块起了一个名字，在用的时候必须与那个名字保持一致；</span></div><div class="line">            exports:<span class="string">'foo'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">          paths:&#123;</div><div class="line">         <span class="attr">ggg</span>:<span class="string">"js/jquery"</span>;</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/19/同步操作与异步操作的异同/" rel="next" title="同步操作与异步操作的异同">
+                <i class="fa fa-chevron-left"></i> 同步操作与异步操作的异同
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/12/博学谷项目 <四>/" rel="prev" title="常用的JS文件上传与表单插件">
+                常用的JS文件上传与表单插件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/king2.jpeg"
+               alt="Gaonana" />
+          <p class="site-author-name" itemprop="name">Gaonana</p>
+           
+              <p class="site-description motion-element" itemprop="description">coding,有洁癖才能更完美</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gaona0704" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.sdifenzhou.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#域名解析系统"><span class="nav-number">1.</span> <span class="nav-text">域名解析系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端发送请求的方式"><span class="nav-number">2.</span> <span class="nav-text">前端发送请求的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路径问题"><span class="nav-number">3.</span> <span class="nav-text">路径问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie和session"><span class="nav-number">4.</span> <span class="nav-text">cookie和session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域解决方案"><span class="nav-number">5.</span> <span class="nav-text">跨域解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP-相关问题"><span class="nav-number">6.</span> <span class="nav-text">PHP 相关问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化规范"><span class="nav-number">7.</span> <span class="nav-text">模块化规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#requirejs使用"><span class="nav-number">8.</span> <span class="nav-text">requirejs使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gaonana</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

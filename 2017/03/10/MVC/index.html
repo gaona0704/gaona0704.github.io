@@ -1,0 +1,839 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="高工@博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="小知识点
+绝大多数网站目前都是 服务端渲染 + 客户端渲染 相结合；
+交互方式： 异步请求 和 同步请求；
+服务端：请求 + 处理 + 响应；
+URL：http://www.example.com/a/b/c?name=lisi$age=18#123;
+端口号之后的 / 是用来个主机名端口号 做区分的；
+请求路径URL就是一个标识，在真是的文件中不一定有对应的实际目录；URL标识是由开发人员自己制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVC">
+<meta property="og:url" content="http://yoursite.com/2017/03/10/MVC/index.html">
+<meta property="og:site_name" content="高工@博客">
+<meta property="og:description" content="小知识点
+绝大多数网站目前都是 服务端渲染 + 客户端渲染 相结合；
+交互方式： 异步请求 和 同步请求；
+服务端：请求 + 处理 + 响应；
+URL：http://www.example.com/a/b/c?name=lisi$age=18#123;
+端口号之后的 / 是用来个主机名端口号 做区分的；
+请求路径URL就是一个标识，在真是的文件中不一定有对应的实际目录；URL标识是由开发人员自己制">
+<meta property="og:updated_time" content="2017-04-12T06:41:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MVC">
+<meta name="twitter:description" content="小知识点
+绝大多数网站目前都是 服务端渲染 + 客户端渲染 相结合；
+交互方式： 异步请求 和 同步请求；
+服务端：请求 + 处理 + 响应；
+URL：http://www.example.com/a/b/c?name=lisi$age=18#123;
+端口号之后的 / 是用来个主机名端口号 做区分的；
+请求路径URL就是一个标识，在真是的文件中不一定有对应的实际目录；URL标识是由开发人员自己制">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/10/MVC/"/>
+
+
+
+
+
+  <title> MVC | 高工@博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">高工@博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习的技能和遇到的问题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/10/MVC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MVC
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T08:50:15+08:00">
+                2017-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ul>
+<li>绝大多数网站目前都是 服务端渲染 + 客户端渲染 相结合；</li>
+<li>交互方式： 异步请求 和 同步请求；</li>
+<li>服务端：请求 + 处理 + 响应；</li>
+<li>URL：<a href="http://www.example.com/a/b/c?name=lisi$age=18#123" target="_blank" rel="external">http://www.example.com/a/b/c?name=lisi$age=18#123</a>;<ul>
+<li>端口号之后的 / 是用来个主机名端口号 做区分的；</li>
+<li>请求路径URL就是一个标识，在真是的文件中不一定有对应的实际目录；URL标识是由开发人员自己制定的；</li>
+</ul>
+</li>
+<li>图片的请求方式永远是 post;</li>
+</ul>
+<h2 id="服务端渲染-MVC"><a href="#服务端渲染-MVC" class="headerlink" title="服务端渲染 MVC"></a>服务端渲染 MVC</h2><ul>
+<li>通过model拿数据</li>
+<li>读文件把模板字符串读取出来</li>
+<li>利用模板引擎解析替换渲染</li>
+<li>最后将结果发送给用户； </li>
+<li>view 一个文件，存储了模板字符串</li>
+<li>model.js负责提供数据 （也叫作数据业务model）</li>
+<li>handle相当于controller：核心作用就是处理请求，如果是服务端渲染，通过model拿数据，view，将model业务数据和view数据进行整合，最后发送给用户；</li>
+<li>MVC是一种架构方式，或者是模块化的一种划分方式；核心：模块的单一职责；讲整个应用程序划分为多个模块去协同处理；</li>
+</ul>
+<h3 id="MVC-模块划分"><a href="#MVC-模块划分" class="headerlink" title="MVC 模块划分"></a>MVC 模块划分</h3><ul>
+<li>MVC模块划分方式在任何技术领域都存在；</li>
+<li>MVVM：model；view；view-model</li>
+</ul>
+<h3 id="事件委派"><a href="#事件委派" class="headerlink" title="事件委派"></a>事件委派</h3><ul>
+<li>$(‘body’).on(‘click’,’.remove’,function(){});</li>
+<li>给body里面的remove绑定事件；</li>
+</ul>
+<h3 id="客户端渲染和服务端渲染"><a href="#客户端渲染和服务端渲染" class="headerlink" title="客户端渲染和服务端渲染"></a>客户端渲染和服务端渲染</h3><ul>
+<li>如果要处理SEO,一定要服务端渲染；</li>
+<li>如果是不考虑SEO，优先考虑客户端渲染</li>
+<li>客户端渲染的好处是，减轻服务端压力，提高用户体验；</li>
+</ul>
+<h1 id="express-外置路由使用"><a href="#express-外置路由使用" class="headerlink" title="express 外置路由使用"></a>express 外置路由使用</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1:加载 express模块</span></div><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="comment">//2:调用express.Router()方法</span></div><div class="line"><span class="keyword">var</span> subApp = express.Router();</div><div class="line"></div><div class="line"><span class="comment">//3：为router添加不同的路由</span></div><div class="line">subApp.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;)</div><div class="line">subApp.get(<span class="string">'/add'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;)</div><div class="line">subApp.get(<span class="string">'/info'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;)</div><div class="line"><span class="comment">//4.将router路由容器到处</span></div><div class="line"><span class="built_in">module</span>.exports = subApp;</div></pre></td></tr></table></figure>
+<ul>
+<li>在app.js中</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在appJS 文件中引入router，将router中的路由引入到appJS 中；</span></div><div class="line">app.use(router);</div></pre></td></tr></table></figure>
+<h3 id="动态绝对路径"><a href="#动态绝对路径" class="headerlink" title="动态绝对路径"></a>动态绝对路径</h3><ul>
+<li>动态绝对路径</li>
+<li>_dirname 可以动态获取当前文件模块所属目录的绝对路径，而且不受你 执行 node 命令所处终端目录影响；利用这个属性可以拼接一个动态绝对路径；</li>
+<li><code>fs.readFile(_dirname+&#39;/&#39;+&#39;a.txt&#39;,function(err,data){})</code></li>
+<li><code>var path = require(&#39;path&#39;); fs.readFile(path.join(_dirname,&#39;./data/a.txt&#39;))</code>;使用path，不管文件路径中有没有./；他都会自动拼接</li>
+<li>node中，为每一个模块提供了一个属性 _dirname;<ul>
+<li>可以动态的获取当前文件所属目录的绝对路径</li>
+<li>_dirname </li>
+</ul>
+</li>
+<li><p>一般操作文件的相对路径只有在开发一些全局命令行工具的时候才会用到；</p>
+</li>
+<li><p>express没有内置模板，使用ejs, ()</p>
+</li>
+<li>使用ejs，会默认去views文件夹中去找数据，页面必须以后缀名为 .ejs 命名；index.ejs;</li>
+<li><code>app.set(&#39;view engine&#39;,&#39;ejs&#39;)</code></li>
+<li>ejs的模板语法是 &lt;% %&gt;格式，</li>
+<li>设置模板文件存取目录<code>app.set(&#39;views&#39;,&#39;./test-view&#39;)</code>;这样就不自动去views目录去查找文件了，而是去<code>./test/view</code>目录去查找文件了；</li>
+</ul>
+<h2 id="node中文件上传模块-formidable"><a href="#node中文件上传模块-formidable" class="headerlink" title="node中文件上传模块 formidable"></a>node中文件上传模块 formidable</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm()</div><div class="line"></div><div class="line"><span class="comment">// 配置上传的文件路径</span></div><div class="line">form.uploadDir = <span class="string">"./img/"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 配置保持文件扩展名</span></div><div class="line">form.keepExtensions = <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="comment">// 同时将普通数据放到了回调函数的 fields 中了（是一个对象）</span></div><div class="line"><span class="comment">// 默认 formidable 将表单中的数据存储到了操作系统的临时目录中了</span></div><div class="line"><span class="comment">// 同时将该文件的大小、路径等信息存储到了 files 对象中了</span></div><div class="line">form.parse(req, <span class="function"><span class="keyword">function</span> (<span class="params">err, fields, files</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (err) &#123;</div><div class="line">    <span class="keyword">throw</span> err</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">var</span> body = fields</div><div class="line">  <span class="keyword">var</span> avatarPath = files.avatar.path</div><div class="line">  avatarPath = avatarPath.substr(avatarPath.lastIndexOf(<span class="string">'\\'</span>) + <span class="number">1</span>)</div><div class="line">  body.avatar = <span class="string">'img/'</span> + avatarPath</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/09/Mac上mongobd 的使用/" rel="next" title="Mac上mongobd 的使用">
+                <i class="fa fa-chevron-left"></i> Mac上mongobd 的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/14/Gulp基本使用/" rel="prev" title="Gulp基本使用">
+                Gulp基本使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/king2.jpeg"
+               alt="Gaonana" />
+          <p class="site-author-name" itemprop="name">Gaonana</p>
+           
+              <p class="site-description motion-element" itemprop="description">coding,有洁癖才能更完美</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gaona0704" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.sdifenzhou.com/" title="Title" target="_blank">Title</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小知识点"><span class="nav-number">1.</span> <span class="nav-text">小知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端渲染-MVC"><span class="nav-number">1.1.</span> <span class="nav-text">服务端渲染 MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC-模块划分"><span class="nav-number">1.1.1.</span> <span class="nav-text">MVC 模块划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件委派"><span class="nav-number">1.1.2.</span> <span class="nav-text">事件委派</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端渲染和服务端渲染"><span class="nav-number">1.1.3.</span> <span class="nav-text">客户端渲染和服务端渲染</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#express-外置路由使用"><span class="nav-number">2.</span> <span class="nav-text">express 外置路由使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态绝对路径"><span class="nav-number">2.0.1.</span> <span class="nav-text">动态绝对路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node中文件上传模块-formidable"><span class="nav-number">2.1.</span> <span class="nav-text">node中文件上传模块 formidable</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gaonana</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
