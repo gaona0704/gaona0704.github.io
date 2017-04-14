@@ -103,7 +103,7 @@ url重写可以解决用户禁用cookie的情况下依然可以保持客户端�
 sessionStorage 、 localStorage 和 cookie 都是在浏览器端存储的数据；
 sessionStorage 在同源的同窗口始终存在数据。窗口关闭，数据销毁；  
 url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务">
-<meta property="og:updated_time" content="2017-04-12T13:16:48.000Z">
+<meta property="og:updated_time" content="2017-04-14T08:14:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cookie 和 Session 的使用">
 <meta name="twitter:description" content="cookie 和 session 的使用cookie和sessioncookie&amp;gt; cookie进行状态管理。http是无状态管理
@@ -415,9 +415,17 @@ url重写可以解决用户禁用cookie的情况下依然可以保持客户端�
 <li>session 通过在服务器端记录信息确定用户身份；</li>
 <li>cookie 数据还有路径(path)的概念，可以限制 cookie 只在某个另下访问。因为每次 http 请求都会携带 cookie，所以cookie 只适合保存很小的数据。</li>
 <li>http 协议是无状态协议。是无法从连接上跟踪会话的；</li>
-<li>第一次发送请求，res 会向客户端浏览器颁发一个 cookie， 客户端吧 cookie 存取来，再次访问的时候会一同提交给 服务器<h3 id="location的内置属性"><a href="#location的内置属性" class="headerlink" title="location的内置属性"></a>location的内置属性</h3></li>
+<li>第一次发送请求，res 会向客户端浏览器颁发一个 cookie， 客户端吧 cookie 存取来，再次访问的时候会一同提交给 服务器</li>
+<li>SessionStorage 存在于服务端的内存中；</li>
 </ol>
 </li>
+</ul>
+<h3 id="cookie-和session"><a href="#cookie-和session" class="headerlink" title="cookie 和session"></a>cookie 和session</h3><h3 id="LocalStorage-和-sessionStorage"><a href="#LocalStorage-和-sessionStorage" class="headerlink" title="LocalStorage 和 sessionStorage"></a>LocalStorage 和 sessionStorage</h3><pre><code>+ LocalStorage 对应的是 持久 Cookie
++ sessionStorage 对应的是 会话 Cookie
++ Cookie 是用来做状态保持的
+    - Cookie 的数据，浏览器会默认把 cookie 放到 请求报文中发送给服务器
++ LocalStorage 和 sessionStorage 是用来 做本地存储的，没有 Http 协议交互内容；
+</code></pre><h3 id="location的内置属性"><a href="#location的内置属性" class="headerlink" title="location的内置属性"></a>location的内置属性</h3><ul>
 <li>页面跳转<code>location.href=&#39;/index/index.html&#39;</code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ancestorOrigins:DOMStringList,</div><div class="line">assign:()</div><div class="line">hash:""</div><div class="line">host:"mybxg.com"</div><div class="line">hostname:"mybxg.com"</div><div class="line">href:"http://mybxg.com/index/index"</div><div class="line">origin:"http://mybxg.com"</div><div class="line">pathname:"/index/index"</div><div class="line">port:""</div><div class="line">protocol:"http:"</div><div class="line">reload:reload()</div><div class="line">replace:()</div><div class="line">search:""</div><div class="line">toString:toString()</div><div class="line">valueOf:valueOf()</div><div class="line">__proto__:Location</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -631,7 +639,7 @@ url重写可以解决用户禁用cookie的情况下依然可以保持客户端�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie-和-session-的使用"><span class="nav-number">1.</span> <span class="nav-text">cookie 和 session 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie和session"><span class="nav-number">1.1.</span> <span class="nav-text">cookie和session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie"><span class="nav-number">1.1.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie的分类"><span class="nav-number">1.1.2.</span> <span class="nav-text">cookie的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie-使用"><span class="nav-number">1.1.3.</span> <span class="nav-text">$.cookie()使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session-和-cookie之间的区别"><span class="nav-number">1.1.4.</span> <span class="nav-text">session 和 cookie之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location的内置属性"><span class="nav-number">1.1.5.</span> <span class="nav-text">location的内置属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache"><span class="nav-number">1.2.</span> <span class="nav-text">Apache</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cookie-和-session-的使用"><span class="nav-number">1.</span> <span class="nav-text">cookie 和 session 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie和session"><span class="nav-number">1.1.</span> <span class="nav-text">cookie和session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie"><span class="nav-number">1.1.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie的分类"><span class="nav-number">1.1.2.</span> <span class="nav-text">cookie的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie-使用"><span class="nav-number">1.1.3.</span> <span class="nav-text">$.cookie()使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session-和-cookie之间的区别"><span class="nav-number">1.1.4.</span> <span class="nav-text">session 和 cookie之间的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie-和session"><span class="nav-number">1.1.5.</span> <span class="nav-text">cookie 和session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LocalStorage-和-sessionStorage"><span class="nav-number">1.1.6.</span> <span class="nav-text">LocalStorage 和 sessionStorage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location的内置属性"><span class="nav-number">1.1.7.</span> <span class="nav-text">location的内置属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache"><span class="nav-number">1.2.</span> <span class="nav-text">Apache</span></a></li></ol></li></ol></div>
             
 
           </div>
