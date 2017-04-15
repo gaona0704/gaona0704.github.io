@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-14T08:14:03.000Z</updated>
+  <updated>2017-04-15T02:22:34.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,24 +20,28 @@
     <link href="http://yoursite.com/2017/04/08/cookie%20%E5%92%8C%20session%20%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://yoursite.com/2017/04/08/cookie 和 session 的使用/</id>
     <published>2017-04-08T04:39:04.000Z</published>
-    <updated>2017-04-14T08:14:03.000Z</updated>
+    <updated>2017-04-15T02:22:34.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="cookie-和-session-的使用"><a href="#cookie-和-session-的使用" class="headerlink" title="cookie 和 session 的使用"></a>cookie 和 session 的使用</h1><h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><pre><code>&gt; cookie进行状态管理。http是无状态管理
-</code></pre><ol>
-<li>sessionStorage 、 localStorage 和 cookie 都是在浏览器端存储的数据；</li>
+    <content type="html"><![CDATA[<h1 id="cookie-和-session-的使用"><a href="#cookie-和-session-的使用" class="headerlink" title="cookie 和 session 的使用"></a>cookie 和 session 的使用</h1><h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><ol>
+<li>Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份</li>
+<li>当 客户端第一次请求服务端时，会创建一个Session对象，所有该客户的状态信息都保存在这个Session对象里。服务端会创建一个sessionID，并将其保存在cookie中在cookie中名为sessionID:值；当再次发送请求时，服务器会先检查req中是否有sessionID，并为其分配对应 的内容；</li>
+<li>cookie可以通过ＪＳ写入，有大小，和安全性等问题，但是方便，通过设置可以在多路径中进行访问。</li>
+<li><p>例如购物车的demo，信息就可以存储在cookie中；用户名，密码等信息可以存在session中，返回的sessionid存储在cookie中，配合使用；</p>
+</li>
+<li><p>cookie进行状态管理。http是无状态管理</p>
+</li>
 <li>sessionStorage 在同源的同窗口始终存在数据。窗口关闭，数据销毁；  </li>
 <li>url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务端的通信状态(这个是后台写的)</li>
 <li><code>document.cookie</code>可以访问cookie;</li>
 <li>cookie的格式:键值对;</li>
 <li>多个cookie之间使用分号和空格隔开;例如:<code>username=zhangsan; age=12</code>;</li>
 <li><code>document.cookie = &#39;username=zhangsan&#39;</code>在浏览器中是有缓存的,关闭浏览区可以清除;<h3 id="cookie的分类"><a href="#cookie的分类" class="headerlink" title="cookie的分类"></a>cookie的分类</h3></li>
-<li>session cookie 会话cookie:关闭浏览器之后自动清除,但是可以增加其有效期,以下例子增加了5天的有效期。</li>
+<li>会话cookie(session cookie ):关闭浏览器之后自动清除,但是可以增加其有效期,以下例子增加了5天的有效期。</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.setDate(date.getDate()+<span class="number">5</span>); </div><div class="line"><span class="built_in">document</span>.cookie=<span class="string">"username=lisi; expires="</span>+date.toGMTString();</div></pre></td></tr></table></figure>
 <ol>
-<li>persistant cookie 持久cookie:关闭浏览器</li>
-<li>获得cookie,封装函数</li>
-<li>在子路径设置的cookie,在父路径下是获取不到的;反过来可以<br> 不可以跨域获取cookie,但是可以跨页面共享;</li>
+<li>持久cookie(persistant cookie ): 关闭浏览器,仍然存在。</li>
+<li>在子路径设置的cookie,在父路径下是获取不到的;反过来可以。不可以跨域获取cookie,但是可以跨页面共享;</li>
 <li><p>可以用jquery-cookie插件应用;</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//设置cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,expires</span>) </span>&#123;</div><div class="line">         <span class="built_in">document</span>.cookie = key +<span class="string">'='</span>+value+<span class="string">';expires='</span>+expires+<span class="string">"; path=/"</span>;</div><div class="line">     &#125;</div><div class="line"><span class="comment">//获得cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>) </span>&#123;</div><div class="line">     <span class="keyword">var</span> cookie = <span class="built_in">document</span>.cookie;</div><div class="line">     <span class="keyword">var</span> arr = cookie.split(<span class="string">'; '</span>);</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">         <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">         <span class="keyword">if</span>(cname == kv[<span class="number">0</span>])&#123;</div><div class="line">             <span class="keyword">return</span> kv[<span class="number">1</span>];</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 </li>
