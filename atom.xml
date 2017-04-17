@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-17T16:42:57.000Z</updated>
+  <updated>2017-04-17T16:58:00.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/03/22/Angular%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/"/>
     <id>http://yoursite.com/2017/03/22/Angular项目中实现图片懒加载/</id>
     <published>2017-03-21T16:39:04.000Z</published>
-    <updated>2017-04-17T16:42:57.000Z</updated>
+    <updated>2017-04-17T16:58:00.000Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li>这两天一直纠结angular的图片懒加载插件中无法自拔。在使用过程深深感到js学艺不精的痛苦，想修改源码又不会修改，只能尽力压榨如何使用插件上。这里主要谈谈在使用插件的过程遇到的一些问题。</li>
@@ -55,72 +55,11 @@
   </entry>
   
   <entry>
-    <title>Gulp基本使用</title>
-    <link href="http://yoursite.com/2017/03/14/Gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2017/03/14/Gulp基本使用/</id>
-    <published>2017-03-14T04:39:04.000Z</published>
-    <updated>2017-04-12T03:47:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Gulp的基本使用"><a href="#Gulp的基本使用" class="headerlink" title="Gulp的基本使用"></a>Gulp的基本使用</h1><h2 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h2><ul>
-<li>则在该ngCtl的作用域内的HTML标签, 其值或者操作都可以通过$scope的方式跟js中的属性和方法进行绑定. </li>
-</ul>
-<h2 id="脏值检测"><a href="#脏值检测" class="headerlink" title="脏值检测"></a>脏值检测</h2><ul>
-<li>当数值发生变化时，触发了一个事件，去调用这个脏值检测的函数；</li>
-<li>路径与目录的关系；</li>
-</ul>
-<h2 id="php中数据格式的转换"><a href="#php中数据格式的转换" class="headerlink" title="php中数据格式的转换"></a>php中数据格式的转换</h2><ul>
-<li>在PHP中，将数组以json对象的格式进行输出， json_encode(array);</li>
-<li>在PHP中，将对象形式的数据转换成数组， json_decode(obj,true);<ul>
-<li>注意参数为true时，才会转换成数组；</li>
-</ul>
-</li>
-<li>PHP中如果需要同时输出两组数据，可以将这个对象格式的数据转换成数组，然后</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> header(<span class="string">'Content-Type:application/json'</span>);</div><div class="line">  $recUrl = <span class="string">'https://moment.douban.com/api/auth_authors/rec?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line"> $allUrl = <span class="string">'https://moment.douban.com/api/auth_authors/all?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line">$recResult = file_get_contents($recUrl); <span class="comment">//&#123;&#125;</span></div><div class="line">$allResult = file_get_contents($allResult);  <span class="comment">//  &#123;&#125;</span></div><div class="line"></div><div class="line"> <span class="comment">//先将json 数据转换成PHP数组</span></div><div class="line"> <span class="comment">//然后再讲PHP数组处理成二维数组,再转成json</span></div><div class="line"> $recResult = json_decode($recResult,<span class="literal">true</span>);<span class="comment">//参数为true的话,才转换成一个数组;</span></div><div class="line"> $allResult = json_decode($allResult);</div><div class="line"></div><div class="line"> $result = array(<span class="string">'rec'</span> =&gt; $recResult,<span class="string">'all'</span> =&gt; $allResult);</div><div class="line"> <span class="comment">//最后将这个数组格式的数据转换成json进行输出；</span></div><div class="line"> echo json_encode($result);</div></pre></td></tr></table></figure>
-<h2 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h2><h3 id="Gulp-构建工具"><a href="#Gulp-构建工具" class="headerlink" title="Gulp 构建工具"></a>Gulp 构建工具</h3><ul>
-<li><p>常见的构建工具： Gulp Grunt F.I.S  webpack;</p>
-</li>
-<li><p>gulp jianshi//调用监视任务</p>
-</li>
-<li>gulp init 回车之后会生成一个 package.json的文件，主要是说明文件的一些基本信息，说明书；</li>
-<li>npm install gulp –save-dev项目依赖；直接在package.json中添加依赖信息；</li>
-<li>autoprefixer()自动添加css私有前缀</li>
-<li><p>注释：build:js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;-- build:js scripts/all.js--&gt;</div><div class="line"><span class="comment">//会自动创建scripts文件夹，并将里面的script进行合并</span></div><div class="line">    &lt;script src=‘’&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">‘’</span>&gt;</span><span class="xml"></span></span></div><div class="line"><span class="tag">&lt;<span class="name">--endbuild--</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>gulp 一次执行多个任务</p>
-<ul>
-<li>gulp.task(‘default’,[‘a’,’b’,’c’]);</li>
-<li>命令行：gulp default;</li>
-</ul>
-</li>
-</ul>
-<h3 id="缓存问题的解决–参考浏览器-协商缓存；雅虎13条"><a href="#缓存问题的解决–参考浏览器-协商缓存；雅虎13条" class="headerlink" title="缓存问题的解决–参考浏览器 协商缓存；雅虎13条"></a>缓存问题的解决–参考浏览器 协商缓存；雅虎13条</h3><ul>
-<li>浏览器是以请求地址作为缓存条件的，只要是地址没变，浏览器就是会用缓存，地址变了，就会重新请求；</li>
-<li>内容更改的时候地址更新；可以使用md5加密；（md5是一种加密方式，加密的内容不变，加密后的信息是一致的，）–md5在线加密；</li>
-<li><code>md5加密</code>这种方式叫做指纹加密</li>
-<li>gulp有一个插件 rev</li>
-</ul>
-<h2 id="Gulp-基本使用案例"><a href="#Gulp-基本使用案例" class="headerlink" title="Gulp 基本使用案例"></a>Gulp 基本使用案例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</div><div class="line"></div><div class="line">    less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>),</div><div class="line"></div><div class="line">    cssmin = <span class="built_in">require</span>(<span class="string">'gulp-cssmin'</span>),</div><div class="line"></div><div class="line">    autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>),</div><div class="line"></div><div class="line">    rev = <span class="built_in">require</span>(<span class="string">'gulp-rev'</span>),</div><div class="line"></div><div class="line">    rename = <span class="built_in">require</span>(<span class="string">'gulp-rename'</span>),</div><div class="line"></div><div class="line">    imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>),</div><div class="line"></div><div class="line">    useref = <span class="built_in">require</span>(<span class="string">'gulp-useref'</span>),</div><div class="line"></div><div class="line">    uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>),</div><div class="line"></div><div class="line">    gulpif = <span class="built_in">require</span>(<span class="string">'gulp-if'</span>),</div><div class="line"></div><div class="line">    htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>),</div><div class="line"></div><div class="line">    revCollector = <span class="built_in">require</span>(<span class="string">'gulp-rev-collector'</span>)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//处理css</span></div><div class="line">gulp.task(<span class="string">'css'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src(<span class="string">'./public/less/main.less'</span>)</div><div class="line">        .pipe(less()) <span class="comment">//将less编译成css</span></div><div class="line">        .pipe(autoprefixer())<span class="comment">//给css添加私有前缀</span></div><div class="line">        .pipe(cssmin())<span class="comment">//将css进行压缩</span></div><div class="line">        .pipe(rev())<span class="comment">//将压缩后的css文件添加版本号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/public/css'</span>))<span class="comment">//将当前的版本存储起来</span></div><div class="line">        .pipe(rev.manifest())<span class="comment">//如果文件进行了修改,记录前后修改的信息,如果有多个,后面的会把前面的覆盖,所以需要重命名</span></div><div class="line">        .pipe(rename(<span class="string">'css-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/rev'</span>))<span class="comment">//将json文件放到rev文件夹里面</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//处理图片信息</span></div><div class="line">gulp.task(<span class="string">'image'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src([<span class="string">'./public/images/**/*'</span>,<span class="string">'./uploads/*'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)<span class="comment">//如果路径文件夹下面还有子文件夹,路径使用/**/*;为了不同的文件保存在不同的文件夹里面,设定base,会自动对应存储;</span></div><div class="line">        .pipe(imagemin())<span class="comment">//压缩图片</span></div><div class="line">        .pipe(rev())<span class="comment">//将图片重新编号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>))<span class="comment">//图片压缩添加序列号后保存</span></div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(rename(<span class="string">'images-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release.rev'</span>))</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//处理js</span></div><div class="line">gulp.task(<span class="string">'useref'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//js文件是在HTML中引入的,所以是在HTML中处理JS文件</span></div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./index.html'</span>)</div><div class="line">        .pipe(useref())<span class="comment">//去HTML文件中查找注释,进行编译压缩等</span></div><div class="line">        .pipe(gulpif(<span class="string">'*.js'</span>,uglify()))<span class="comment">//如果文件中有JS文件,进行压缩JS</span></div><div class="line">        .pipe(gulpif(<span class="string">'*.js'</span>, rev()))<span class="comment">//文件添加序列号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>))</div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(rename(<span class="string">'js-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/rev'</span>));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//处理所有的视图页面HTML</span></div><div class="line">gulp.task(<span class="string">'html'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src(<span class="string">'./views/*.html'</span>)</div><div class="line">        .pipe(htmlmin(&#123;</div><div class="line">            <span class="attr">collapseWhitespace</span>:<span class="literal">true</span></div><div class="line">        &#125;))<span class="comment">//压缩HTML,需要传递参数;将空白区域进行压缩</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/views'</span>));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//处理其他部分</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'other'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src([<span class="string">'./api/*.php'</span>,<span class="string">'./public/fonts/*'</span>,<span class="string">'./favicon.ico'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)</div><div class="line">    <span class="comment">//因为PHP,字体,图标等文件不需要压缩,直接保存就可以</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//替换路径</span></div><div class="line">gulp.task(<span class="string">'rev'</span>,[<span class="string">'css'</span>,<span class="string">'useref'</span>,<span class="string">'image'</span>],<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//将记录文件边的的文件,将其在index里面的路径进行替换;</span></div><div class="line">    <span class="comment">//因为只有等其余文件都加载完成之后,index才能加载,所以需要进行依赖</span></div><div class="line">    <span class="comment">//为了保证其余加载完毕后再加载当前功能,其余功能必须return才行</span></div><div class="line">    gulp.src([<span class="string">'./release/rev/*.json'</span>,<span class="string">'./release/index.html'</span>])</div><div class="line">        .pipe(revCollector())<span class="comment">//进行文件合并</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//最后,将所有的任务放到一个任务中,只执行最后一个任务就可以</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'release'</span>,[<span class="string">'rev'</span>,<span class="string">'other'</span>,<span class="string">'html'</span>]);</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Gulp的基本使用&quot;&gt;&lt;a href=&quot;#Gulp的基本使用&quot; class=&quot;headerlink&quot; title=&quot;Gulp的基本使用&quot;&gt;&lt;/a&gt;Gulp的基本使用&lt;/h1&gt;&lt;h2 id=&quot;数据双向绑定&quot;&gt;&lt;a href=&quot;#数据双向绑定&quot; class=&quot;head
-    
-    </summary>
-    
-      <category term="Gulp" scheme="http://yoursite.com/categories/Gulp/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Cookie机制和session机制的区别</title>
-    <link href="http://yoursite.com/2017/03/12/sessionID%20%E5%92%8C%20cookie/"/>
-    <id>http://yoursite.com/2017/03/12/sessionID 和 cookie/</id>
-    <published>2017-03-11T16:39:04.000Z</published>
-    <updated>2017-04-17T16:57:43.000Z</updated>
+    <link href="http://yoursite.com/2017/03/18/sessionID%20%E5%92%8C%20cookie/"/>
+    <id>http://yoursite.com/2017/03/18/sessionID 和 cookie/</id>
+    <published>2017-03-17T16:39:04.000Z</published>
+    <updated>2017-04-17T17:30:39.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、cookie机制和session机制的区别"><a href="#一、cookie机制和session机制的区别" class="headerlink" title="一、cookie机制和session机制的区别"></a>一、cookie机制和session机制的区别</h1><hr>
 <ul>
@@ -273,6 +212,67 @@
     </summary>
     
       <category term="Angular" scheme="http://yoursite.com/categories/Angular/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Gulp基本使用</title>
+    <link href="http://yoursite.com/2017/03/14/Gulp%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2017/03/14/Gulp基本使用/</id>
+    <published>2017-03-14T04:39:04.000Z</published>
+    <updated>2017-04-12T03:47:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Gulp的基本使用"><a href="#Gulp的基本使用" class="headerlink" title="Gulp的基本使用"></a>Gulp的基本使用</h1><h2 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h2><ul>
+<li>则在该ngCtl的作用域内的HTML标签, 其值或者操作都可以通过$scope的方式跟js中的属性和方法进行绑定. </li>
+</ul>
+<h2 id="脏值检测"><a href="#脏值检测" class="headerlink" title="脏值检测"></a>脏值检测</h2><ul>
+<li>当数值发生变化时，触发了一个事件，去调用这个脏值检测的函数；</li>
+<li>路径与目录的关系；</li>
+</ul>
+<h2 id="php中数据格式的转换"><a href="#php中数据格式的转换" class="headerlink" title="php中数据格式的转换"></a>php中数据格式的转换</h2><ul>
+<li>在PHP中，将数组以json对象的格式进行输出， json_encode(array);</li>
+<li>在PHP中，将对象形式的数据转换成数组， json_decode(obj,true);<ul>
+<li>注意参数为true时，才会转换成数组；</li>
+</ul>
+</li>
+<li>PHP中如果需要同时输出两组数据，可以将这个对象格式的数据转换成数组，然后</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> header(<span class="string">'Content-Type:application/json'</span>);</div><div class="line">  $recUrl = <span class="string">'https://moment.douban.com/api/auth_authors/rec?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line"> $allUrl = <span class="string">'https://moment.douban.com/api/auth_authors/all?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line">$recResult = file_get_contents($recUrl); <span class="comment">//&#123;&#125;</span></div><div class="line">$allResult = file_get_contents($allResult);  <span class="comment">//  &#123;&#125;</span></div><div class="line"></div><div class="line"> <span class="comment">//先将json 数据转换成PHP数组</span></div><div class="line"> <span class="comment">//然后再讲PHP数组处理成二维数组,再转成json</span></div><div class="line"> $recResult = json_decode($recResult,<span class="literal">true</span>);<span class="comment">//参数为true的话,才转换成一个数组;</span></div><div class="line"> $allResult = json_decode($allResult);</div><div class="line"></div><div class="line"> $result = array(<span class="string">'rec'</span> =&gt; $recResult,<span class="string">'all'</span> =&gt; $allResult);</div><div class="line"> <span class="comment">//最后将这个数组格式的数据转换成json进行输出；</span></div><div class="line"> echo json_encode($result);</div></pre></td></tr></table></figure>
+<h2 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h2><h3 id="Gulp-构建工具"><a href="#Gulp-构建工具" class="headerlink" title="Gulp 构建工具"></a>Gulp 构建工具</h3><ul>
+<li><p>常见的构建工具： Gulp Grunt F.I.S  webpack;</p>
+</li>
+<li><p>gulp jianshi//调用监视任务</p>
+</li>
+<li>gulp init 回车之后会生成一个 package.json的文件，主要是说明文件的一些基本信息，说明书；</li>
+<li>npm install gulp –save-dev项目依赖；直接在package.json中添加依赖信息；</li>
+<li>autoprefixer()自动添加css私有前缀</li>
+<li><p>注释：build:js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;-- build:js scripts/all.js--&gt;</div><div class="line"><span class="comment">//会自动创建scripts文件夹，并将里面的script进行合并</span></div><div class="line">    &lt;script src=‘’&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">‘’</span>&gt;</span><span class="xml"></span></span></div><div class="line"><span class="tag">&lt;<span class="name">--endbuild--</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>gulp 一次执行多个任务</p>
+<ul>
+<li>gulp.task(‘default’,[‘a’,’b’,’c’]);</li>
+<li>命令行：gulp default;</li>
+</ul>
+</li>
+</ul>
+<h3 id="缓存问题的解决–参考浏览器-协商缓存；雅虎13条"><a href="#缓存问题的解决–参考浏览器-协商缓存；雅虎13条" class="headerlink" title="缓存问题的解决–参考浏览器 协商缓存；雅虎13条"></a>缓存问题的解决–参考浏览器 协商缓存；雅虎13条</h3><ul>
+<li>浏览器是以请求地址作为缓存条件的，只要是地址没变，浏览器就是会用缓存，地址变了，就会重新请求；</li>
+<li>内容更改的时候地址更新；可以使用md5加密；（md5是一种加密方式，加密的内容不变，加密后的信息是一致的，）–md5在线加密；</li>
+<li><code>md5加密</code>这种方式叫做指纹加密</li>
+<li>gulp有一个插件 rev</li>
+</ul>
+<h2 id="Gulp-基本使用案例"><a href="#Gulp-基本使用案例" class="headerlink" title="Gulp 基本使用案例"></a>Gulp 基本使用案例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</div><div class="line"></div><div class="line">    less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>),</div><div class="line"></div><div class="line">    cssmin = <span class="built_in">require</span>(<span class="string">'gulp-cssmin'</span>),</div><div class="line"></div><div class="line">    autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>),</div><div class="line"></div><div class="line">    rev = <span class="built_in">require</span>(<span class="string">'gulp-rev'</span>),</div><div class="line"></div><div class="line">    rename = <span class="built_in">require</span>(<span class="string">'gulp-rename'</span>),</div><div class="line"></div><div class="line">    imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>),</div><div class="line"></div><div class="line">    useref = <span class="built_in">require</span>(<span class="string">'gulp-useref'</span>),</div><div class="line"></div><div class="line">    uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>),</div><div class="line"></div><div class="line">    gulpif = <span class="built_in">require</span>(<span class="string">'gulp-if'</span>),</div><div class="line"></div><div class="line">    htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>),</div><div class="line"></div><div class="line">    revCollector = <span class="built_in">require</span>(<span class="string">'gulp-rev-collector'</span>)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//处理css</span></div><div class="line">gulp.task(<span class="string">'css'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src(<span class="string">'./public/less/main.less'</span>)</div><div class="line">        .pipe(less()) <span class="comment">//将less编译成css</span></div><div class="line">        .pipe(autoprefixer())<span class="comment">//给css添加私有前缀</span></div><div class="line">        .pipe(cssmin())<span class="comment">//将css进行压缩</span></div><div class="line">        .pipe(rev())<span class="comment">//将压缩后的css文件添加版本号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/public/css'</span>))<span class="comment">//将当前的版本存储起来</span></div><div class="line">        .pipe(rev.manifest())<span class="comment">//如果文件进行了修改,记录前后修改的信息,如果有多个,后面的会把前面的覆盖,所以需要重命名</span></div><div class="line">        .pipe(rename(<span class="string">'css-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/rev'</span>))<span class="comment">//将json文件放到rev文件夹里面</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//处理图片信息</span></div><div class="line">gulp.task(<span class="string">'image'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src([<span class="string">'./public/images/**/*'</span>,<span class="string">'./uploads/*'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)<span class="comment">//如果路径文件夹下面还有子文件夹,路径使用/**/*;为了不同的文件保存在不同的文件夹里面,设定base,会自动对应存储;</span></div><div class="line">        .pipe(imagemin())<span class="comment">//压缩图片</span></div><div class="line">        .pipe(rev())<span class="comment">//将图片重新编号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>))<span class="comment">//图片压缩添加序列号后保存</span></div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(rename(<span class="string">'images-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release.rev'</span>))</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//处理js</span></div><div class="line">gulp.task(<span class="string">'useref'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//js文件是在HTML中引入的,所以是在HTML中处理JS文件</span></div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./index.html'</span>)</div><div class="line">        .pipe(useref())<span class="comment">//去HTML文件中查找注释,进行编译压缩等</span></div><div class="line">        .pipe(gulpif(<span class="string">'*.js'</span>,uglify()))<span class="comment">//如果文件中有JS文件,进行压缩JS</span></div><div class="line">        .pipe(gulpif(<span class="string">'*.js'</span>, rev()))<span class="comment">//文件添加序列号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>))</div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(rename(<span class="string">'js-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/rev'</span>));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//处理所有的视图页面HTML</span></div><div class="line">gulp.task(<span class="string">'html'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src(<span class="string">'./views/*.html'</span>)</div><div class="line">        .pipe(htmlmin(&#123;</div><div class="line">            <span class="attr">collapseWhitespace</span>:<span class="literal">true</span></div><div class="line">        &#125;))<span class="comment">//压缩HTML,需要传递参数;将空白区域进行压缩</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/views'</span>));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//处理其他部分</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'other'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src([<span class="string">'./api/*.php'</span>,<span class="string">'./public/fonts/*'</span>,<span class="string">'./favicon.ico'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)</div><div class="line">    <span class="comment">//因为PHP,字体,图标等文件不需要压缩,直接保存就可以</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//替换路径</span></div><div class="line">gulp.task(<span class="string">'rev'</span>,[<span class="string">'css'</span>,<span class="string">'useref'</span>,<span class="string">'image'</span>],<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//将记录文件边的的文件,将其在index里面的路径进行替换;</span></div><div class="line">    <span class="comment">//因为只有等其余文件都加载完成之后,index才能加载,所以需要进行依赖</span></div><div class="line">    <span class="comment">//为了保证其余加载完毕后再加载当前功能,其余功能必须return才行</span></div><div class="line">    gulp.src([<span class="string">'./release/rev/*.json'</span>,<span class="string">'./release/index.html'</span>])</div><div class="line">        .pipe(revCollector())<span class="comment">//进行文件合并</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//最后,将所有的任务放到一个任务中,只执行最后一个任务就可以</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'release'</span>,[<span class="string">'rev'</span>,<span class="string">'other'</span>,<span class="string">'html'</span>]);</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Gulp的基本使用&quot;&gt;&lt;a href=&quot;#Gulp的基本使用&quot; class=&quot;headerlink&quot; title=&quot;Gulp的基本使用&quot;&gt;&lt;/a&gt;Gulp的基本使用&lt;/h1&gt;&lt;h2 id=&quot;数据双向绑定&quot;&gt;&lt;a href=&quot;#数据双向绑定&quot; class=&quot;head
+    
+    </summary>
+    
+      <category term="Gulp" scheme="http://yoursite.com/categories/Gulp/"/>
     
     
   </entry>
@@ -772,6 +772,40 @@
     </summary>
     
       <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Angular在实际应用中的优缺点</title>
+    <link href="http://yoursite.com/2017/02/12/angular%E5%9C%A8%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E4%B8%AD%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9/"/>
+    <id>http://yoursite.com/2017/02/12/angular在实际应用中的优缺点/</id>
+    <published>2017-02-11T16:39:04.000Z</published>
+    <updated>2017-04-17T17:31:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
+<li>我们是在做创意摄影网时使用的Angular.js 的，</li>
+<li>优点：<ul>
+<li>模板功能强大丰富，并且是声明式的，自带了丰富的Angular指令</li>
+<li>是一个比较完善的前端MV*框架，包含模板、数据双向绑定、路由、模块化、服务、过滤器和依赖注入等所有功能；</li>
+<li>自定义 Directive ，比jQuery插件还灵活；</li>
+<li>ng模块化比较大胆的引入了JAVA的一些东西(依赖注入)，能够很容易的写出可复用性的代码；</li>
+<li>Angular支持单元测试</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;我们是在做创意摄影网时使用的Angular.js 的，&lt;/li&gt;
+&lt;li&gt;优点：&lt;ul&gt;
+&lt;li&gt;模板功能强大丰富，并且是声明式
+    
+    </summary>
+    
+      <category term="Angular" scheme="http://yoursite.com/categories/Angular/"/>
     
     
   </entry>
@@ -1502,119 +1536,6 @@
     
     
       <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NodeJS 基础</title>
-    <link href="http://yoursite.com/2016/04/03/title:%20NodeJS%20%E5%9F%BA%E7%A1%80/"/>
-    <id>http://yoursite.com/2016/04/03/title: NodeJS 基础/</id>
-    <published>2016-04-03T01:06:15.000Z</published>
-    <updated>2017-04-09T11:49:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="NodeJS-day01"><a href="#NodeJS-day01" class="headerlink" title="NodeJS day01"></a>NodeJS day01</h1><h2 id="Nodejs是什么："><a href="#Nodejs是什么：" class="headerlink" title="Nodejs是什么："></a>Nodejs是什么：</h2><ul>
-<li><p>解析执行JS，不包括DOM、Style等；</p>
-<ul>
-<li>是一个构建与 Chrome V8 引擎之上的一个JavaScript运行时环境</li>
-<li>Node 可以像浏览器一样去解析和执行JavaScript代码；</li>
-<li>Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；</li>
-<li>在Node中，没有界面，不再需要关心HTML、CSS</li>
-<li>和DOM style没有任何关系；只需要关注JavaScript；ECMAScript；<ul>
-<li>文件操作</li>
-<li>网络操作</li>
-<li>让JavaScript代码具有了服务器编程能力</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>NodeJS的特性：</p>
-<ul>
-<li>事件驱动 </li>
-<li>非阻塞IO模型：大量的异步编程接口；NodeJS中充满了类似于ajax 一样的ＡＰＩ，回答函数；</li>
-<li>快平台</li>
-<li>单线程</li>
-<li>轻量和高效</li>
-</ul>
-</li>
-<li>npm 是世界上最大的开源库生态系统<ul>
-<li>npm 上发布的第三方包已经接近35万个之多</li>
-</ul>
-</li>
-</ul>
-<h2 id="NodeJS可以做什么"><a href="#NodeJS可以做什么" class="headerlink" title="NodeJS可以做什么"></a>NodeJS可以做什么</h2><ul>
-<li>NodeJS为JavaScript提供了服务端编程的能力（不处理UI）；<ul>
-<li>Java、PHP、Python、。net、Ruby等 做的Node都能做</li>
-<li>网站开发，提供网站服务端</li>
-<li>具有与数据库交互的能力</li>
-<li>移动应用，网络游戏等需要服务的地方Node都可以做；</li>
-<li>CLI(Command Line Interface)命令行接口程序<ul>
-<li>例如：Gulp、hexo、git等</li>
-<li>Node 具有开发命令行工具的能力；<h2 id="Node的应用场景"><a href="#Node的应用场景" class="headerlink" title="Node的应用场景"></a>Node的应用场景</h2></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Node是前端进阶必备的一个能力；</li>
-<li>对IO操作比较频繁；IO：input、 output<ul>
-<li>文件读取</li>
-<li>和数据库交互：网络数据IO<h2 id="一些资源"><a href="#一些资源" class="headerlink" title="一些资源"></a>一些资源</h2></li>
-</ul>
-</li>
-<li>朴灵：《深入浅出Node.js》原理性，阿里出品</li>
-<li>阮一峰的Node.js</li>
-<li>Node入门，nodebegin.org/index-zn-cn 强烈推荐</li>
-</ul>
-<h2 id="Node-程序的运行"><a href="#Node-程序的运行" class="headerlink" title="Node 程序的运行"></a>Node 程序的运行</h2><ol>
-<li>在终端的任何目录下输入<code>node</code>命令，都可以执行<code>node.exe</code>程序<ul>
-<li>核心就在于通过操作系统</li>
-</ul>
-</li>
-<li>参数</li>
-</ol>
-<h2 id="Node中的ECMAScript"><a href="#Node中的ECMAScript" class="headerlink" title="Node中的ECMAScript"></a>Node中的ECMAScript</h2><ol>
-<li>Node中的window 是 global<h2 id="Node核心模块"><a href="#Node核心模块" class="headerlink" title="Node核心模块"></a>Node核心模块</h2></li>
-<li>Node把绝大多数的API，都封装到了一份具名的核心模块了，例如文件操作的<code>fs</code>; 网络操作的<code>http</code>等；</li>
-<li>也就是说，使用核心模块，必须先加载才可以使用；</li>
-</ol>
-<blockquote>
-<p>核心模块以位移的标识名称进行暴露，使用时，通过<code>require</code>进行引入</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="built_in">require</span>(<span class="string">'唯一标识的模块名称'</span>)；</div></pre></td></tr></table></figure>
-<h3 id="在Node中使用第三方包"><a href="#在Node中使用第三方包" class="headerlink" title="在Node中使用第三方包"></a>在Node中使用第三方包</h3><ol>
-<li>通过 npm 下载</li>
-<li>通过 rquire 函数引包</li>
-<li>查看第三方的API，try-try-see;</li>
-</ol>
-<h3 id="用户自定义模块"><a href="#用户自定义模块" class="headerlink" title="用户自定义模块"></a>用户自定义模块</h3><ol>
-<li>在Node中，也提供了一种所谓的JavaScript模块化解决方案，（类似以requireJS）；</li>
-</ol>
-<h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ol>
-<li>chrome浏览器每次会发送两次请求，一次请求icon；一次请求数据；</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/a</div><div class="line">/favicon.ico</div></pre></td></tr></table></figure>
-<ol>
-<li>Node 获取请求路径 var url = res.url;</li>
-<li>不同的响应头</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//HTML格式，网页面中写数据的时候不会出现中文乱码；</span></div><div class="line">res.writeHead(<span class="number">200</span>,&#123;</div><div class="line">        <span class="string">'Content-Type'</span>:<span class="string">'text/html;charset=utf-8'</span></div><div class="line">    &#125;)；</div><div class="line">    res.writeHead(<span class="number">200</span>,&#123;</div><div class="line">    <span class="comment">//响应的内容是简单文本</span></div><div class="line">    <span class="string">'Content-Type'</span>:<span class="string">'text/plain; charset=utf-8'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<ol>
-<li><code>./data/a.txt = data.a.txt</code>;</li>
-<li>如果 fs.readFile(‘/data/a.txt’);则去脚本文件的根路径下面去找 C/data/a.txt文件</li>
-<li>数组转换成字符串 JSON.stringfy(array);</li>
-<li><code>res.end(data)</code>=== <code>res.write(data) res.end()</code>;</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;NodeJS-day01&quot;&gt;&lt;a href=&quot;#NodeJS-day01&quot; class=&quot;headerlink&quot; title=&quot;NodeJS day01&quot;&gt;&lt;/a&gt;NodeJS day01&lt;/h1&gt;&lt;h2 id=&quot;Nodejs是什么：&quot;&gt;&lt;a href=&quot;#Nod
-    
-    </summary>
-    
-      <category term="Node" scheme="http://yoursite.com/categories/Node/"/>
-    
-    
-      <category term="Node" scheme="http://yoursite.com/tags/Node/"/>
     
   </entry>
   
