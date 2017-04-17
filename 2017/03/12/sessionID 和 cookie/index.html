@@ -89,15 +89,40 @@
 
 
 
-<meta name="description" content="coding,有洁癖才能更完美">
-<meta property="og:type" content="website">
-<meta property="og:title" content="高工@博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="一、cookie机制和session机制的区别
+
+具体来说cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。
+同时我们也看到，由于才服务器端保持状态的方案在客户端也需要保存一个标识，所以session机制可能需要借助于cookie机制来达到保存标识的目的，但实际上还有其他选择
+
+
+二、会话cookie和持久cookie的区别
+
+如果不设置过期时间">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie机制和session机制的区别">
+<meta property="og:url" content="http://yoursite.com/2017/03/12/sessionID 和 cookie/index.html">
 <meta property="og:site_name" content="高工@博客">
-<meta property="og:description" content="coding,有洁癖才能更完美">
+<meta property="og:description" content="一、cookie机制和session机制的区别
+
+具体来说cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。
+同时我们也看到，由于才服务器端保持状态的方案在客户端也需要保存一个标识，所以session机制可能需要借助于cookie机制来达到保存标识的目的，但实际上还有其他选择
+
+
+二、会话cookie和持久cookie的区别
+
+如果不设置过期时间">
+<meta property="og:updated_time" content="2017-04-17T16:57:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高工@博客">
-<meta name="twitter:description" content="coding,有洁癖才能更完美">
+<meta name="twitter:title" content="Cookie机制和session机制的区别">
+<meta name="twitter:description" content="一、cookie机制和session机制的区别
+
+具体来说cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。
+同时我们也看到，由于才服务器端保持状态的方案在客户端也需要保存一个标识，所以session机制可能需要借助于cookie机制来达到保存标识的目的，但实际上还有其他选择
+
+
+二、会话cookie和持久cookie的区别
+
+如果不设置过期时间">
 
 
 
@@ -125,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/12/sessionID 和 cookie/"/>
 
 
 
 
 
-  <title> 高工@博客 </title>
+  <title> Cookie机制和session机制的区别 | 高工@博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,9 +181,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -261,350 +284,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/Angular项目中实现图片懒加载/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/22/Angular项目中实现图片懒加载/" itemprop="url">
-                  Angular项目中实现图片懒加载
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T00:39:04+08:00">
-                2017-03-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>这两天一直纠结angular的图片懒加载插件中无法自拔。在使用过程深深感到js学艺不精的痛苦，想修改源码又不会修改，只能尽力压榨如何使用插件上。这里主要谈谈在使用插件的过程遇到的一些问题。</li>
-</ul>
-<h2 id="问题1：图片加载一排之后不再加载"><a href="#问题1：图片加载一排之后不再加载" class="headerlink" title="问题1：图片加载一排之后不再加载"></a>问题1：图片加载一排之后不再加载</h2><ul>
-<li><p>使用angular-imglazyload这个插件，主要是因为这个插件小，并且不依赖jQuery库，整合到项目上运行，竟然发现只有第一排加载了，滚动后都没有响应。下面是我的代码部分：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-repeat</span>=<span class="string">"Digest in Digest_cont track by $index"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-ui-lazyload</span>=<span class="string">"&#123;&#123;Digest.val&#125;&#125;"</span> <span class="attr">onerror</span>=<span class="string">"this.src='img/default@2x_300X300.png'"</span>  <span class="attr">nf-if</span>=<span class="string">"Digest.type=='img'"</span>  <span class="attr">alt</span>=<span class="string">""</span> &gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-if</span>=<span class="string">"Digest.type=='txt'"</span>&gt;</span>&#123;&#123; ::Digest.val &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>然后我在CSS定义了loading图片，加载中先看到的是加载过程中的图片</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span><span class="selector-attr">[data-ui-lazyload]</span>&#123;</div><div class="line">     <span class="attribute">background</span>:<span class="built_in">url</span>(../img/icons/liading.gif) no-repeat center center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>一开始也不知道是什么情况，就将循环图片的html代码一层层的往上排查，经过反复查找发现是 图片的某个祖先元素设置了定位：<code>position:absolute</code>，这就导致了图片的div脱离了文档流，而imglazyload插件又是根据Windows监听滚动事件的。</p>
-</li>
-<li>解决方案：这里的解决办法就是把定位改为 <code>relative</code>就可以了。<h2 id="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"><a href="#问题2：loading图片不出现，出现的一直是onerror定义的默认图片" class="headerlink" title="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"></a>问题2：loading图片不出现，出现的一直是onerror定义的默认图片</h2></li>
-<li>在加载过程中，不知道为什么，图片一直显示的是onerror定义的默认图片，而不是图片加载之后的图片。但是确实是得到了图片的src路径；经过排查发现，问题的主要原因是img的 <code>src=&#39;&#39;</code>属性导致的。在页面的渲染过程中，浏览器是默认查找不到图片的src路径的，只有在请求发送成功，得到返回数据之后，才能进行渲染。</li>
-<li>解决方案： 直接将 img 标签中的 src 属性删除，然后等图片加载成功之后动态添加即可。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/14/Gulp基本使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/14/Gulp基本使用/" itemprop="url">
-                  Gulp基本使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-14T12:39:04+08:00">
-                2017-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Gulp/" itemprop="url" rel="index">
-                    <span itemprop="name">Gulp</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Gulp的基本使用"><a href="#Gulp的基本使用" class="headerlink" title="Gulp的基本使用"></a>Gulp的基本使用</h1><h2 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h2><ul>
-<li>则在该ngCtl的作用域内的HTML标签, 其值或者操作都可以通过$scope的方式跟js中的属性和方法进行绑定. </li>
-</ul>
-<h2 id="脏值检测"><a href="#脏值检测" class="headerlink" title="脏值检测"></a>脏值检测</h2><ul>
-<li>当数值发生变化时，触发了一个事件，去调用这个脏值检测的函数；</li>
-<li>路径与目录的关系；</li>
-</ul>
-<h2 id="php中数据格式的转换"><a href="#php中数据格式的转换" class="headerlink" title="php中数据格式的转换"></a>php中数据格式的转换</h2><ul>
-<li>在PHP中，将数组以json对象的格式进行输出， json_encode(array);</li>
-<li>在PHP中，将对象形式的数据转换成数组， json_decode(obj,true);<ul>
-<li>注意参数为true时，才会转换成数组；</li>
-</ul>
-</li>
-<li>PHP中如果需要同时输出两组数据，可以将这个对象格式的数据转换成数组，然后</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> header(<span class="string">'Content-Type:application/json'</span>);</div><div class="line">  $recUrl = <span class="string">'https://moment.douban.com/api/auth_authors/rec?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line"> $allUrl = <span class="string">'https://moment.douban.com/api/auth_authors/all?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line">$recResult = file_get_contents($recUrl); <span class="comment">//&#123;&#125;</span></div><div class="line">$allResult = file_get_contents($allResult);  <span class="comment">//  &#123;&#125;</span></div><div class="line"></div><div class="line"> <span class="comment">//先将json 数据转换成PHP数组</span></div><div class="line"> <span class="comment">//然后再讲PHP数组处理成二维数组,再转成json</span></div><div class="line"> $recResult = json_decode($recResult,<span class="literal">true</span>);<span class="comment">//参数为true的话,才转换成一个数组;</span></div><div class="line"> $allResult = json_decode($allResult);</div><div class="line"></div><div class="line"> $result = array(<span class="string">'rec'</span> =&gt; $recResult,<span class="string">'all'</span> =&gt; $allResult);</div><div class="line"> <span class="comment">//最后将这个数组格式的数据转换成json进行输出；</span></div><div class="line"> echo json_encode($result);</div></pre></td></tr></table></figure>
-<h2 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h2><h3 id="Gulp-构建工具"><a href="#Gulp-构建工具" class="headerlink" title="Gulp 构建工具"></a>Gulp 构建工具</h3><ul>
-<li><p>常见的构建工具： Gulp Grunt F.I.S  webpack;</p>
-</li>
-<li><p>gulp jianshi//调用监视任务</p>
-</li>
-<li>gulp init 回车之后会生成一个 package.json的文件，主要是说明文件的一些基本信息，说明书；</li>
-<li>npm install gulp –save-dev项目依赖；直接在package.json中添加依赖信息；</li>
-<li>autoprefixer()自动添加css私有前缀</li>
-<li><p>注释：build:js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;-- build:js scripts/all.js--&gt;</div><div class="line"><span class="comment">//会自动创建scripts文件夹，并将里面的script进行合并</span></div><div class="line">    &lt;script src=‘’&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">‘’</span>&gt;</span><span class="xml"></span></span></div><div class="line"><span class="tag">&lt;<span class="name">--endbuild--</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>gulp 一次执行多个任务</p>
-<ul>
-<li>gulp.task(‘default’,[‘a’,’b’,’c’]);</li>
-<li>命令行：gulp default;</li>
-</ul>
-</li>
-</ul>
-<h3 id="缓存问题的解决–参考浏览器-协商缓存；雅虎13条"><a href="#缓存问题的解决–参考浏览器-协商缓存；雅虎13条" class="headerlink" title="缓存问题的解决–参考浏览器 协商缓存；雅虎13条"></a>缓存问题的解决–参考浏览器 协商缓存；雅虎13条</h3><ul>
-<li>浏览器是以请求地址作为缓存条件的，只要是地址没变，浏览器就是会用缓存，地址变了，就会重新请求；</li>
-<li>内容更改的时候地址更新；可以使用md5加密；（md5是一种加密方式，加密的内容不变，加密后的信息是一致的，）–md5在线加密；</li>
-<li><code>md5加密</code>这种方式叫做指纹加密</li>
-<li>gulp有一个插件 rev</li>
-</ul>
-<h2 id="Gulp-基本使用案例"><a href="#Gulp-基本使用案例" class="headerlink" title="Gulp 基本使用案例"></a>Gulp 基本使用案例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</div><div class="line"></div><div class="line">    less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>),</div><div class="line"></div><div class="line">    cssmin = <span class="built_in">require</span>(<span class="string">'gulp-cssmin'</span>),</div><div class="line"></div><div class="line">    autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>),</div><div class="line"></div><div class="line">    rev = <span class="built_in">require</span>(<span class="string">'gulp-rev'</span>),</div><div class="line"></div><div class="line">    rename = <span class="built_in">require</span>(<span class="string">'gulp-rename'</span>),</div><div class="line"></div><div class="line">    imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>),</div><div class="line"></div><div class="line">    useref = <span class="built_in">require</span>(<span class="string">'gulp-useref'</span>),</div><div class="line"></div><div class="line">    uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>),</div><div class="line"></div><div class="line">    gulpif = <span class="built_in">require</span>(<span class="string">'gulp-if'</span>),</div><div class="line"></div><div class="line">    htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>),</div><div class="line"></div><div class="line">    revCollector = <span class="built_in">require</span>(<span class="string">'gulp-rev-collector'</span>)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//处理css</span></div><div class="line">gulp.task(<span class="string">'css'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src(<span class="string">'./public/less/main.less'</span>)</div><div class="line">        .pipe(less()) <span class="comment">//将less编译成css</span></div><div class="line">        .pipe(autoprefixer())<span class="comment">//给css添加私有前缀</span></div><div class="line">        .pipe(cssmin())<span class="comment">//将css进行压缩</span></div><div class="line">        .pipe(rev())<span class="comment">//将压缩后的css文件添加版本号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/public/css'</span>))<span class="comment">//将当前的版本存储起来</span></div><div class="line">        .pipe(rev.manifest())<span class="comment">//如果文件进行了修改,记录前后修改的信息,如果有多个,后面的会把前面的覆盖,所以需要重命名</span></div><div class="line">        .pipe(rename(<span class="string">'css-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/rev'</span>))<span class="comment">//将json文件放到rev文件夹里面</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//处理图片信息</span></div><div class="line">gulp.task(<span class="string">'image'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src([<span class="string">'./public/images/**/*'</span>,<span class="string">'./uploads/*'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)<span class="comment">//如果路径文件夹下面还有子文件夹,路径使用/**/*;为了不同的文件保存在不同的文件夹里面,设定base,会自动对应存储;</span></div><div class="line">        .pipe(imagemin())<span class="comment">//压缩图片</span></div><div class="line">        .pipe(rev())<span class="comment">//将图片重新编号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>))<span class="comment">//图片压缩添加序列号后保存</span></div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(rename(<span class="string">'images-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release.rev'</span>))</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//处理js</span></div><div class="line">gulp.task(<span class="string">'useref'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//js文件是在HTML中引入的,所以是在HTML中处理JS文件</span></div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./index.html'</span>)</div><div class="line">        .pipe(useref())<span class="comment">//去HTML文件中查找注释,进行编译压缩等</span></div><div class="line">        .pipe(gulpif(<span class="string">'*.js'</span>,uglify()))<span class="comment">//如果文件中有JS文件,进行压缩JS</span></div><div class="line">        .pipe(gulpif(<span class="string">'*.js'</span>, rev()))<span class="comment">//文件添加序列号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>))</div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(rename(<span class="string">'js-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/rev'</span>));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//处理所有的视图页面HTML</span></div><div class="line">gulp.task(<span class="string">'html'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src(<span class="string">'./views/*.html'</span>)</div><div class="line">        .pipe(htmlmin(&#123;</div><div class="line">            <span class="attr">collapseWhitespace</span>:<span class="literal">true</span></div><div class="line">        &#125;))<span class="comment">//压缩HTML,需要传递参数;将空白区域进行压缩</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/views'</span>));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//处理其他部分</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'other'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src([<span class="string">'./api/*.php'</span>,<span class="string">'./public/fonts/*'</span>,<span class="string">'./favicon.ico'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)</div><div class="line">    <span class="comment">//因为PHP,字体,图标等文件不需要压缩,直接保存就可以</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//替换路径</span></div><div class="line">gulp.task(<span class="string">'rev'</span>,[<span class="string">'css'</span>,<span class="string">'useref'</span>,<span class="string">'image'</span>],<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//将记录文件边的的文件,将其在index里面的路径进行替换;</span></div><div class="line">    <span class="comment">//因为只有等其余文件都加载完成之后,index才能加载,所以需要进行依赖</span></div><div class="line">    <span class="comment">//为了保证其余加载完毕后再加载当前功能,其余功能必须return才行</span></div><div class="line">    gulp.src([<span class="string">'./release/rev/*.json'</span>,<span class="string">'./release/index.html'</span>])</div><div class="line">        .pipe(revCollector())<span class="comment">//进行文件合并</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//最后,将所有的任务放到一个任务中,只执行最后一个任务就可以</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'release'</span>,[<span class="string">'rev'</span>,<span class="string">'other'</span>,<span class="string">'html'</span>]);</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -634,10 +316,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/03/12/sessionID 和 cookie/" itemprop="url">
-                  Cookie机制和session机制的区别
-                </a>
+                Cookie机制和session机制的区别
               
             
           </h1>
@@ -710,9 +389,7 @@
       
 
       
-        
-          
-            <h1 id="一、cookie机制和session机制的区别"><a href="#一、cookie机制和session机制的区别" class="headerlink" title="一、cookie机制和session机制的区别"></a>一、cookie机制和session机制的区别</h1><hr>
+        <h1 id="一、cookie机制和session机制的区别"><a href="#一、cookie机制和session机制的区别" class="headerlink" title="一、cookie机制和session机制的区别"></a>一、cookie机制和session机制的区别</h1><hr>
 <ul>
 <li>具体来说cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。</li>
 <li>同时我们也看到，由于才服务器端保持状态的方案在客户端也需要保存一个标识，所以session机制可能需要借助于cookie机制来达到保存标识的目的，但实际上还有其他选择</li>
@@ -855,20 +532,27 @@
 <p>不可更改对象因为一旦创建之后就不能更改，所以每次要修改会话中属性的值的时候，都需要<br>调用setAttribute(“someIdentifier”,newValue)来代替原有的属性的值，否则属性的值不会被更新<br>可更改对象因为其自身一般提供了修改自身属性的方法，所以每次要修改会话中属性的值的时<br>候，只要调用该可更改对象的相关修改自身属性的方法就可以了。这意味着我们就不需要调<br>用setAttribute方法了</p>
 <hr>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -876,25 +560,42 @@
       
 
       
-
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/10/MVC/" rel="next" title="MVC">
+                <i class="fa fa-chevron-left"></i> MVC
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/14/Gulp基本使用/" rel="prev" title="Gulp基本使用">
+                Gulp基本使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -902,6 +603,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -921,8 +626,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/king2.jpeg"
@@ -1016,6 +730,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、cookie机制和session机制的区别"><span class="nav-number">1.</span> <span class="nav-text">一、cookie机制和session机制的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、会话cookie和持久cookie的区别"><span class="nav-number">2.</span> <span class="nav-text">二、会话cookie和持久cookie的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、如何利用实现自动登录"><span class="nav-number">3.</span> <span class="nav-text">三、如何利用实现自动登录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、cookie的发送"><span class="nav-number">4.</span> <span class="nav-text">五、cookie的发送</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、cookie的读取"><span class="nav-number">5.</span> <span class="nav-text">六、cookie的读取</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1135,6 +865,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
