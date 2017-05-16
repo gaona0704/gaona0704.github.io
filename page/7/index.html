@@ -272,6 +272,432 @@
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/03/ canvas 基本用法总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/03/ canvas 基本用法总结/" itemprop="url">
+                  Canvas 基本用法总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-03T12:39:04+08:00">
+                2016-08-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/canvas/" itemprop="url" rel="index">
+                    <span itemprop="name">canvas</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="canvas-基本用法总结"><a href="#canvas-基本用法总结" class="headerlink" title="canvas 基本用法总结"></a>canvas 基本用法总结</h1><h2 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h2><ol>
+<li>canvas 在IE8之前有兼容性问题；</li>
+<li>矩形的绘制<ul>
+<li><code>rect(x,y,width,height)</code>这个需要<code>stroke()</code>描边</li>
+<li><code>strokeRect(x,y,width,height)</code>;这个就不需要调用stroke描边</li>
+<li><code>fillRect()</code>填充显示长方形，不需要单独填充操作；</li>
+<li><code>clearRect(x,y,width,height)</code>;将特定位置的长方形清空；清空画布：<code>clearRect(0,0,cas.width,cas.height)</code>;</li>
+<li>注意: <code>clearRect</code>不能清空路径,但是能清空描边或填充</li>
+</ul>
+</li>
+<li><code>cxt.save() cxt.restore()</code>表示保存上次的绘制状态（包括fillStyle 和 strockeStyle）;<br>  <code>save()</code>可以保存多次绘制状态，以栈的方式存储;<code>后进先出</code>；</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> cxt.beginPath();</div><div class="line"><span class="comment">//会存储fillStyle和strokeStyle</span></div><div class="line">cxt.restore();<span class="comment">//恢复最后一次保存的状态</span></div><div class="line">cxt.restore();<span class="comment">//恢复倒数第二次的状态</span></div><div class="line">cxt.rect(<span class="number">50</span>,<span class="number">50</span>,<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">cxt.stroke();</div><div class="line">cxt.fill();</div></pre></td></tr></table></figure>
+<h3 id="三、绘制圆弧"><a href="#三、绘制圆弧" class="headerlink" title="三、绘制圆弧"></a>三、绘制圆弧</h3><ul>
+<li><p><code>arc(x,y,r,startAngle,endAngle,false)</code>,false代表顺时针绘制，true逆时针绘制；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">圆的弧度 = <span class="number">2</span>πr；角度 = <span class="number">360</span>°</div><div class="line">所以 <span class="number">1</span>° = <span class="built_in">Math</span>.PI/<span class="number">180</span>;</div><div class="line"><span class="number">90</span>° = <span class="number">90</span> * <span class="built_in">Math</span>.PI/<span class="number">180</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>水平往右方向为起始点；</p>
+</li>
+<li>绘制连续的路径，如果起始点与上一个的终点一致，就无需moveTo；<h3 id="四、数组-foreach和map方法使用"><a href="#四、数组-foreach和map方法使用" class="headerlink" title="四、数组 foreach和map方法使用"></a>四、数组 foreach和map方法使用</h3></li>
+<li><code>foreach(function(item,index,arr){})</code> ,没有返回值；</li>
+<li><code>arr.map(function(item,index){})</code>,操作之后，会返回修改之后的数组，有返回值<h3 id="五、逐帧动画"><a href="#五、逐帧动画" class="headerlink" title="五、逐帧动画"></a>五、逐帧动画</h3></li>
+<li><code>requestAnimationFrame()</code>，同setTimeout作用类似；<h3 id="六、-canvas文字"><a href="#六、-canvas文字" class="headerlink" title="六、 canvas文字"></a>六、 canvas文字</h3></li>
+<li>cxt.font(10px 宋体);</li>
+<li>cxt.strokeText(text,x,y,max-width);一般最后一个参数不设置；（空心文字）；</li>
+<li>cxt.fillText(text,x,y)(实芯文字)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cxt.font = <span class="string">"30px 微软雅黑"</span>;</div><div class="line">cxt.strokeText(str,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">cxt.fillText(str,<span class="number">100</span>,<span class="number">300</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="七、-有独立路径的方法"><a href="#七、-有独立路径的方法" class="headerlink" title="七、 有独立路径的方法"></a>七、 有独立路径的方法</h3><ul>
+<li>strokeRect();</li>
+<li>fillRect();</li>
+<li>strokeText();</li>
+<li>fillText();<h3 id="八、-文字对齐方式"><a href="#八、-文字对齐方式" class="headerlink" title="八、 文字对齐方式"></a>八、 文字对齐方式</h3></li>
+<li>textAlign：水平方向<ul>
+<li>direction属性，两个值：rtl,ltr;</li>
+<li>textAligh=”left” 居左对齐,是指文本的右边与参照物的左边对齐;</li>
+<li>textAligh=”right” 居右对齐</li>
+<li>textAligh=”center” 居中对齐</li>
+</ul>
+</li>
+<li>textBaseline：处置方向对齐<ul>
+<li>top; bottom; middle; hanging;alphabetic(文本基线是字母基线);ideographic;</li>
+</ul>
+</li>
+</ul>
+<h3 id="九、-图片加载问题"><a href="#九、-图片加载问题" class="headerlink" title="九、 图片加载问题"></a>九、 图片加载问题</h3><ul>
+<li><p>通过<code>document.body.appedChild(&#39;img&#39;)</code>追加到页面中的img,不能直接获取到图片的宽和高，必须等图片加载完成之后才能获得;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</div><div class="line">img.src = <span class="string">'king2.jpeg'</span>;</div><div class="line"><span class="comment">//图片加载完成之后,才能获取图片的宽高,才能加载</span></div><div class="line"><span class="comment">//图片的加载需要时间;</span></div><div class="line">img.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">cxt.drawImage(img,<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>cxt.drawImage()有两种参数形式:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一种写法,5个参数</span></div><div class="line"><span class="comment">//参数2,3画布上定位的图片,参数4,5只图片的宽和高;</span></div><div class="line">cxt.drawImage(img,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>);</div><div class="line"></div><div class="line"><span class="comment">//第二种写法,9个参数</span></div><div class="line"><span class="comment">//1:图片,2,3:要裁剪的图片在原图片上的位置,等同于精灵图的位置;4、5裁剪区域的宽和高,6,7图片要在画布上的起始位置,8,9,图片在画布上的宽和高;</span></div><div class="line"><span class="comment">//此时裁剪的是第二排的第二个图片</span></div><div class="line">cxt.drawImage(img,<span class="number">40</span>,<span class="number">65</span>,<span class="number">40</span>,<span class="number">65</span>,cas.width/<span class="number">2</span><span class="number">-20</span>,cas.height/<span class="number">2</span><span class="number">-34.5</span>,<span class="number">40</span>,<span class="number">65</span>)</div><div class="line"><span class="built_in">Math</span>.PI = <span class="number">180</span>°</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###　十、canvas旋转</p>
+<ul>
+<li>只能是旋转之后,在画出图形,不能画出图形之后再旋转;</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cxt.rotate(<span class="number">10</span>*<span class="built_in">Math</span>.PI/<span class="number">180</span>);</div><div class="line">cxt.strokeRect(<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">200</span>);</div></pre></td></tr></table></figure>
+<h1 id="拓展："><a href="#拓展：" class="headerlink" title="拓展："></a>拓展：</h1><h2 id="一、函数的赋值"><a href="#一、函数的赋值" class="headerlink" title="一、函数的赋值"></a>一、函数的赋值</h2><ul>
+<li>1: 逗号表达式，逗号分隔的表达式会从左往右逐个执行，但是以最后一个结果为准。</li>
+<li><p>2:函数立即调用的语法I结构有两种：</p>
+<ul>
+<li>（）（）</li>
+<li>（+ - ！ ~）function（）{}（）等；</li>
+<li>二进制运算：按位，与或非  异或<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = (<span class="number">11</span>+<span class="number">12</span>,<span class="number">23</span>+<span class="number">23</span>,foo());</div><div class="line"><span class="built_in">console</span>.log(num);</div><div class="line"><span class="comment">//此时会以最后一个逗号之后的值为准，返回foo()的返回值赋值给num;</span></div><div class="line">都是函数立即调用：不同符号代表不同含义；按位运算，与或非，异或等；</div><div class="line">(funcyion(n)&#123;</div><div class="line">    <span class="built_in">console</span>.log(n)</div><div class="line">&#125;)(num);</div><div class="line">~<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line">!<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    conosole.log(n);</div><div class="line">&#125;(num);</div><div class="line">+<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line">-<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(n);</div><div class="line">&#125;(num);</div><div class="line"><span class="comment">//这种形式的写法会将function转换为表达式</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>3：将数值型参数转换成布尔值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param</span>)</span>&#123;</div><div class="line">    <span class="comment">//将parameter转换为true；</span></div><div class="line">    <span class="keyword">var</span> flag = !!param;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>4：两个事件队列，第一个出错，第二个仍会正常进行</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一个报错，第二个时间到了，第二个也会正常执行；</span></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(abc);</div><div class="line">&#125;,<span class="number">10</span>)</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">123</span>);</div><div class="line">&#125;,<span class="number">0</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二、修改原型指向"><a href="#二、修改原型指向" class="headerlink" title="二、修改原型指向"></a>二、修改原型指向</h2><ul>
+<li>实例产生之后，再修改构造函数的原型，对实例中的数据没有影响；按时回影响instanceof的判断；</li>
+<li>只有当<code>foo.__proto__==Foo.prototype</code>成立时，<code>foo instanceof Foo</code>才成立；<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.flag = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">info</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.info = info;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo(<span class="string">'123'</span>);<span class="comment">//此时Foo.prototype = &#123;&#125;;</span></div><div class="line">Foo.prototype = <span class="keyword">new</span> fn();</div><div class="line"><span class="built_in">console</span>.log(foo <span class="keyword">instanceof</span> Foo)<span class="comment">//结果是false；,</span></div><div class="line"><span class="comment">//foo.__proto__是原来Foo的原型；</span></div><div class="line"><span class="comment">//现在Foo的prototype = fn;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="三、arr-map"><a href="#三、arr-map" class="headerlink" title="三、arr.map"></a>三、arr.map</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'1.5'</span>,<span class="string">'2.5'</span>,<span class="string">'3.5'</span>];</div><div class="line"><span class="built_in">console</span>.log(arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.Floor(item)</div><div class="line">    <span class="comment">//结果为['1','2','3];</span></div><div class="line">&#125;))</div><div class="line"><span class="built_in">console</span>.log(arr);==<span class="comment">//结果还是原数组['1.5','2.5','3.5'];</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/19/Git 使用总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/19/Git 使用总结/" itemprop="url">
+                  Git 使用总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-19T12:39:04+08:00">
+                2016-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="git-使用总结"><a href="#git-使用总结" class="headerlink" title="git 使用总结"></a>git 使用总结</h1><h1 id="git的两种工作流程"><a href="#git的两种工作流程" class="headerlink" title="git的两种工作流程"></a>git的两种工作流程</h1><ol>
+<li>下载代码,在下载代码的基础上做开发,然后提交</li>
+<li>或者git init 生成一个仓库,在这个生成的基础上添加代码,再推到主仓库上<h1 id="lt-lt-移位运算"><a href="#lt-lt-移位运算" class="headerlink" title="&lt;&lt; 移位运算"></a><code>&lt;&lt;</code> 移位运算</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line"><span class="built_in">console</span>.log(a &lt;&lt; <span class="number">2</span>);</div><div class="line"><span class="comment">//向左移动两位,乘以2^2,结果就是2*4 = 8;</span></div><div class="line"><span class="comment">//向右移动1位除以2,a&gt;&gt;1,结果就是2/2 = 1;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="创建共享仓库"><a href="#创建共享仓库" class="headerlink" title="创建共享仓库"></a>创建共享仓库</h2><ul>
+<li>共享仓库的必须以<code>.git</code> 结尾;<code>demo.git</code></li>
+<li><code>git init --bare</code> 创建一个共享仓库</li>
+<li><code>git pull 远程仓库的地址 远程分支:本地分支</code>或者<code>git clone 远程仓库的地址 文件名称</code>下载代码</li>
+<li><code>git push 远程仓库的地址 本地分支:远程分支</code>  推送代码<blockquote>
+<p> git pull = git fetch + git merge</p>
+</blockquote>
+</li>
+<li><code>git fetch</code>远程获取代码,但是不合并代码</li>
+<li><code>git merge</code> 通过fetch过来的代码可以通过merge命令进行合并;<h2 id="查看分支和修改分支名称"><a href="#查看分支和修改分支名称" class="headerlink" title="查看分支和修改分支名称"></a>查看分支和修改分支名称</h2></li>
+<li><code>git remote</code>查看远程仓库的别名  没有就用下一条创建</li>
+<li><code>git remote add 别名名称(origin) 仓库地址(root@180.76.188.62:/root/demo.git)</code> 添加远程仓库的别名</li>
+<li><code>git branch -r</code>查看远程分支</li>
+<li><code>git branch</code>查看本地分支</li>
+<li><code>git remote show origin</code>查看远程仓库别名的具体地址</li>
+</ul>
+<h2 id="git-pull-和-git-clone-的主要区别"><a href="#git-pull-和-git-clone-的主要区别" class="headerlink" title="git pull 和 git clone 的主要区别"></a>git pull 和 git clone 的主要区别</h2><ul>
+<li>1:<code>git clone</code>的项目户自动建立 <code>origin</code>远程仓库地址的别名,自动创建了关联,再更新代码时直接<code>git pull</code>就可以拉下来代码;</li>
+<li>2:<code>git pull</code>拉下来的代码,如果需要建立跟踪分支,需要执行<code>git branch --set-upstream -to==origin/master master</code>;<code>origin/master</code>表示远程分支;<code>master</code>表示本地分支</li>
+</ul>
+<h1 id="git使用总结"><a href="#git使用总结" class="headerlink" title="git使用总结"></a>git使用总结</h1><h2 id="已经存在的项目"><a href="#已经存在的项目" class="headerlink" title="已经存在的项目"></a>已经存在的项目</h2><ul>
+<li>管理员分配git账号; 或者 生成自己的公钥和私钥,提交各管理员,授予权限;</li>
+<li><code>git clone 仓库地址</code>下载代码,进行操作<h2 id="新项目"><a href="#新项目" class="headerlink" title="新项目"></a>新项目</h2></li>
+<li>在github上创建一个空仓库;</li>
+<li>在自己本地<code>git clone git@(仓库地址)</code>直接生成git文件;</li>
+<li>编辑代码,</li>
+<li><code>git add test.html</code>添加到暂存区</li>
+<li><code>git commit -m &quot;&quot;</code>添加到本地仓库</li>
+<li><code>git push origin master</code>推送到网上仓库成功 <h2 id="新项目第二种更新方式"><a href="#新项目第二种更新方式" class="headerlink" title="新项目第二种更新方式"></a>新项目第二种更新方式</h2></li>
+<li>在本地建立文件夹,<code>git init</code>,编辑内容</li>
+<li><code>git add</code></li>
+<li><code>git commit -m &quot;&quot;</code></li>
+<li><code>git remote add origin git@github等地址</code>将本地仓库与网上仓库建立连接和跟踪; </li>
+<li><code>git push -u origin master</code>本地代码推送上去(-u与当前的别名进行关联)</li>
+<li><code>git pull</code>以后就直接使用这个命令更新本地仓库的代码</li>
+<li><code>git push</code>直接推送代码,更新就可以了;<h1 id="git分支管理"><a href="#git分支管理" class="headerlink" title="git分支管理"></a>git分支管理</h1></li>
+</ul>
+<ol>
+<li><code>git clone</code>克隆代码</li>
+<li><code>git checkout -b buy</code>创建并切换分支，</li>
+<li>操作分支</li>
+<li><code>git checkout master</code>切换到主分支</li>
+<li>创建另一个新分支bugfix,编辑,编辑之后再次切换到主分支;</li>
+</ol>
+<ul>
+<li><code>git checkout -d bugfix</code>删除bugfix分支;删除的是本地分支</li>
+<li>删除远程分支<code>git push origin --delete</code> </li>
+</ul>
+<ol>
+<li><code>git merge bugfix</code>;</li>
+<li><code>git merge buy</code><h1 id="git-stash-缓存代码"><a href="#git-stash-缓存代码" class="headerlink" title="git stash 缓存代码"></a>git stash 缓存代码</h1></li>
+</ol>
+<ul>
+<li>使用<code>git stash</code>可以将正在进行中的环境保存起来;master分支将会恢复到修改之前的状态;等紧急操作做完之后,</li>
+<li>使用<code>git stash pop</code>取出之前保存的操作;继续编辑</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/12/Mac 本地安装 gulp 遇到的坑/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -414,403 +840,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/09/title: Mac操作系统总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/09/title: Mac操作系统总结/" itemprop="url">
-                  Mac操作系统总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-09T19:48:15+08:00">
-                2016-04-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Mac-操作系统"><a href="#Mac-操作系统" class="headerlink" title="Mac 操作系统"></a>Mac 操作系统</h1><h2 id="bash-profile的恢复"><a href="#bash-profile的恢复" class="headerlink" title="bash_profile的恢复"></a>bash_profile的恢复</h2><ul>
-<li>修改了 <code>.bash_profile</code> 的配置，如果配置不对。很容出现许多内置命令都无法识别。不管输入什么命令都提示 <code>command not found</code>，连 rm、cd、vi 这些命令都用不了了；</li>
-<li><p>这时候可以使用以下方法进行解决：</p>
-<blockquote>
-<p>export PATH=/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin </p>
-</blockquote>
-</li>
-</ul>
-<h2 id="Mac系统下全局变量的配置"><a href="#Mac系统下全局变量的配置" class="headerlink" title="Mac系统下全局变量的配置"></a>Mac系统下全局变量的配置</h2><ul>
-<li>查看配置的变量：<code>echo $PATH</code></li>
-<li>进入配置文件 <code>vim ~/.bash_profile</code></li>
-<li>输入<code>i</code>进入编辑模式；</li>
-<li>输入<code>export PATH=$PATH:/Users/gaonana/Documents/高娜娜文件/mongodb-osx-x86_64-3.4.3</code>;相当于在PATH变量后面多加一个自己定义的目录；</li>
-<li>点击<code>esc</code>键进入末行模式；</li>
-<li><code>:wq</code>保存配置文件并退出；</li>
-<li>执行<code>source .bash_profile</code>使配置生效</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/03/title: NodeJS 基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/03/title: NodeJS 基础/" itemprop="url">
-                  NodeJS 基础
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-03T09:06:15+08:00">
-                2016-04-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="NodeJS-day01"><a href="#NodeJS-day01" class="headerlink" title="NodeJS day01"></a>NodeJS day01</h1><h2 id="Nodejs是什么："><a href="#Nodejs是什么：" class="headerlink" title="Nodejs是什么："></a>Nodejs是什么：</h2><ul>
-<li><p>解析执行JS，不包括DOM、Style等；</p>
-<ul>
-<li>是一个构建与 Chrome V8 引擎之上的一个JavaScript运行时环境</li>
-<li>Node 可以像浏览器一样去解析和执行JavaScript代码；</li>
-<li>Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；</li>
-<li>在Node中，没有界面，不再需要关心HTML、CSS</li>
-<li>和DOM style没有任何关系；只需要关注JavaScript；ECMAScript；<ul>
-<li>文件操作</li>
-<li>网络操作</li>
-<li>让JavaScript代码具有了服务器编程能力</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>NodeJS的特性：</p>
-<ul>
-<li>事件驱动 </li>
-<li>非阻塞IO模型：大量的异步编程接口；NodeJS中充满了类似于ajax 一样的ＡＰＩ，回答函数；</li>
-<li>快平台</li>
-<li>单线程</li>
-<li>轻量和高效</li>
-</ul>
-</li>
-<li>npm 是世界上最大的开源库生态系统<ul>
-<li>npm 上发布的第三方包已经接近35万个之多</li>
-</ul>
-</li>
-</ul>
-<h2 id="NodeJS可以做什么"><a href="#NodeJS可以做什么" class="headerlink" title="NodeJS可以做什么"></a>NodeJS可以做什么</h2><ul>
-<li>NodeJS为JavaScript提供了服务端编程的能力（不处理UI）；<ul>
-<li>Java、PHP、Python、。net、Ruby等 做的Node都能做</li>
-<li>网站开发，提供网站服务端</li>
-<li>具有与数据库交互的能力</li>
-<li>移动应用，网络游戏等需要服务的地方Node都可以做；</li>
-<li>CLI(Command Line Interface)命令行接口程序<ul>
-<li>例如：Gulp、hexo、git等</li>
-<li>Node 具有开发命令行工具的能力；<h2 id="Node的应用场景"><a href="#Node的应用场景" class="headerlink" title="Node的应用场景"></a>Node的应用场景</h2></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Node是前端进阶必备的一个能力；</li>
-<li>对IO操作比较频繁；IO：input、 output<ul>
-<li>文件读取</li>
-<li>和数据库交互：网络数据IO<h2 id="一些资源"><a href="#一些资源" class="headerlink" title="一些资源"></a>一些资源</h2></li>
-</ul>
-</li>
-<li>朴灵：《深入浅出Node.js》原理性，阿里出品</li>
-<li>阮一峰的Node.js</li>
-<li>Node入门，nodebegin.org/index-zn-cn 强烈推荐</li>
-</ul>
-<h2 id="Node-程序的运行"><a href="#Node-程序的运行" class="headerlink" title="Node 程序的运行"></a>Node 程序的运行</h2><ol>
-<li>在终端的任何目录下输入<code>node</code>命令，都可以执行<code>node.exe</code>程序<ul>
-<li>核心就在于通过操作系统</li>
-</ul>
-</li>
-<li>参数</li>
-</ol>
-<h2 id="Node中的ECMAScript"><a href="#Node中的ECMAScript" class="headerlink" title="Node中的ECMAScript"></a>Node中的ECMAScript</h2><ol>
-<li>Node中的window 是 global<h2 id="Node核心模块"><a href="#Node核心模块" class="headerlink" title="Node核心模块"></a>Node核心模块</h2></li>
-<li>Node把绝大多数的API，都封装到了一份具名的核心模块了，例如文件操作的<code>fs</code>; 网络操作的<code>http</code>等；</li>
-<li>也就是说，使用核心模块，必须先加载才可以使用；</li>
-</ol>
-<blockquote>
-<p>核心模块以位移的标识名称进行暴露，使用时，通过<code>require</code>进行引入</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="built_in">require</span>(<span class="string">'唯一标识的模块名称'</span>)；</div></pre></td></tr></table></figure>
-<h3 id="在Node中使用第三方包"><a href="#在Node中使用第三方包" class="headerlink" title="在Node中使用第三方包"></a>在Node中使用第三方包</h3><ol>
-<li>通过 npm 下载</li>
-<li>通过 rquire 函数引包</li>
-<li>查看第三方的API，try-try-see;</li>
-</ol>
-<h3 id="用户自定义模块"><a href="#用户自定义模块" class="headerlink" title="用户自定义模块"></a>用户自定义模块</h3><ol>
-<li>在Node中，也提供了一种所谓的JavaScript模块化解决方案，（类似以requireJS）；</li>
-</ol>
-<h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ol>
-<li>chrome浏览器每次会发送两次请求，一次请求icon；一次请求数据；</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/a</div><div class="line">/favicon.ico</div></pre></td></tr></table></figure>
-<ol>
-<li>Node 获取请求路径 var url = res.url;</li>
-<li>不同的响应头</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//HTML格式，网页面中写数据的时候不会出现中文乱码；</span></div><div class="line">res.writeHead(<span class="number">200</span>,&#123;</div><div class="line">        <span class="string">'Content-Type'</span>:<span class="string">'text/html;charset=utf-8'</span></div><div class="line">    &#125;)；</div><div class="line">    res.writeHead(<span class="number">200</span>,&#123;</div><div class="line">    <span class="comment">//响应的内容是简单文本</span></div><div class="line">    <span class="string">'Content-Type'</span>:<span class="string">'text/plain; charset=utf-8'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<ol>
-<li><code>./data/a.txt = data.a.txt</code>;</li>
-<li>如果 fs.readFile(‘/data/a.txt’);则去脚本文件的根路径下面去找 C/data/a.txt文件</li>
-<li>数组转换成字符串 JSON.stringfy(array);</li>
-<li><code>res.end(data)</code>=== <code>res.write(data) res.end()</code>;</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -855,7 +889,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -866,7 +900,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

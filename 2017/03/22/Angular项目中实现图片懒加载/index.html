@@ -101,7 +101,7 @@
 
 问题1：图片加载一排之后不再加载
 使用angular-imglazyload这个插件，主要是因为这个插件小，并且不依赖jQuery库，整合到项目上运行，竟然发现只有第一排加载了，滚动后都没有响应。下面是我的">
-<meta property="og:updated_time" content="2017-04-17T16:58:00.000Z">
+<meta property="og:updated_time" content="2017-04-18T11:55:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Angular项目中实现图片懒加载">
 <meta name="twitter:description" content="这两天一直纠结angular的图片懒加载插件中无法自拔。在使用过程深深感到js学艺不精的痛苦，想修改源码又不会修改，只能尽力压榨如何使用插件上。这里主要谈谈在使用插件的过程遇到的一些问题。
@@ -389,6 +389,22 @@
 <li>解决方案：这里的解决办法就是把定位改为 <code>relative</code>就可以了。<h2 id="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"><a href="#问题2：loading图片不出现，出现的一直是onerror定义的默认图片" class="headerlink" title="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"></a>问题2：loading图片不出现，出现的一直是onerror定义的默认图片</h2></li>
 <li>在加载过程中，不知道为什么，图片一直显示的是onerror定义的默认图片，而不是图片加载之后的图片。但是确实是得到了图片的src路径；经过排查发现，问题的主要原因是img的 <code>src=&#39;&#39;</code>属性导致的。在页面的渲染过程中，浏览器是默认查找不到图片的src路径的，只有在请求发送成功，得到返回数据之后，才能进行渲染。</li>
 <li>解决方案： 直接将 img 标签中的 src 属性删除，然后等图片加载成功之后动态添加即可。</li>
+<li>​</li>
+</ul>
+<h1 id="问题3：使用jQuery插件时this无法使用"><a href="#问题3：使用jQuery插件时this无法使用" class="headerlink" title="问题3：使用jQuery插件时this无法使用"></a>问题3：使用jQuery插件时this无法使用</h1><ul>
+<li><p>要想在angular中使用jQuery插件，需要使用自定义指令（Directive）方式加载jQuery插件，但是发现this在jQuery中是无法调用的。</p>
+</li>
+<li><p>在angular中引入jQuery</p>
+<ul>
+<li>首先需要创建一个指令，采用@input方式，初始化jQuery插件；</li>
+<li>在ngOnChanges时，也就是参数通过@input传入时，初始化jQuery插件</li>
+<li>初始化jQuery插件需要获取dom元素，所以我们引入ElementRef，用来获取dom 元素。</li>
+</ul>
+</li>
+<li><p>问题出现了：jQuery中回调函数，如果直接使用this，回调是无法获取angular的函数的，所以这里采用 bind的形式，把this传递进去，河阳angular中的函数才会被正确的调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ngOnChange()&#123;</div><div class="line">  $(<span class="keyword">this</span>._elementRef.nativeElement).daterangepicker(<span class="keyword">this</span>.dateRangePickerOptions,<span class="keyword">this</span>.dateCallback.bind(<span class="keyword">this</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
 </ul>
 
       
@@ -435,6 +451,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/16/sublime快捷键/" rel="prev" title="Sublime快捷键总结">
+                Sublime快捷键总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -506,7 +526,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -517,7 +537,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -595,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题1：图片加载一排之后不再加载"><span class="nav-number">1.</span> <span class="nav-text">问题1：图片加载一排之后不再加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题2：loading图片不出现，出现的一直是onerror定义的默认图片"><span class="nav-number">2.</span> <span class="nav-text">问题2：loading图片不出现，出现的一直是onerror定义的默认图片</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题1：图片加载一排之后不再加载"><span class="nav-number">1.</span> <span class="nav-text">问题1：图片加载一排之后不再加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题2：loading图片不出现，出现的一直是onerror定义的默认图片"><span class="nav-number">2.</span> <span class="nav-text">问题2：loading图片不出现，出现的一直是onerror定义的默认图片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题3：使用jQuery插件时this无法使用"><span class="nav-number"></span> <span class="nav-text">问题3：使用jQuery插件时this无法使用</span></a></div>
             
 
           </div>

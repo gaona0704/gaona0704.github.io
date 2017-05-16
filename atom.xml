@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-17T16:58:00.000Z</updated>
+  <updated>2017-05-16T06:35:56.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,74 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Mac修改本地hosts文件</title>
+    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
+    <published>2017-05-16T06:35:04.000Z</published>
+    <updated>2017-05-16T06:35:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
+
+<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
+<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
+<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
+<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Sublime快捷键总结</title>
+    <link href="http://yoursite.com/2017/05/16/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://yoursite.com/2017/05/16/sublime快捷键/</id>
+    <published>2017-05-16T06:35:04.000Z</published>
+    <updated>2017-05-16T06:38:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="sublime-快捷键"><a href="#sublime-快捷键" class="headerlink" title="sublime 快捷键"></a>sublime 快捷键</h1><ul>
+<li><code>command + shift + o</code> 直接在浏览器中打开预览</li>
+<li>在编辑Markdown文件时，<code>command+ alt + o</code>可边编辑边预览</li>
+<li><code>alt+command+1</code>窗口显示1屏</li>
+<li><code>alt+command+2</code>窗口显示2屏</li>
+<li><code>shift+command+d</code>复制一行</li>
+<li><code>command+L</code>选定一行，可连续选定多行</li>
+<li><code>alt+command+插入点</code>可同时对多个插入点进行编辑</li>
+<li><code>command+enter</code>可直接另起一行进行编辑</li>
+<li><code>command+delete</code>可删除当前插入点前面的所有内容；连续按两次，可以删除整行内容</li>
+<li><code>command+k</code>连续点击两次，可删除当前插入点后面的所有内容</li>
+<li><code>command+f</code>查找</li>
+<li><code>command+shift+f</code>查找替换</li>
+<li><code>command+r</code>是调用方法</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;sublime-快捷键&quot;&gt;&lt;a href=&quot;#sublime-快捷键&quot; class=&quot;headerlink&quot; title=&quot;sublime 快捷键&quot;&gt;&lt;/a&gt;sublime 快捷键&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;command + shift + o&lt;/c
+    
+    </summary>
+    
+      <category term="sublime" scheme="http://yoursite.com/categories/sublime/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Angular项目中实现图片懒加载</title>
     <link href="http://yoursite.com/2017/03/22/Angular%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/"/>
     <id>http://yoursite.com/2017/03/22/Angular项目中实现图片懒加载/</id>
     <published>2017-03-21T16:39:04.000Z</published>
-    <updated>2017-04-17T16:58:00.000Z</updated>
+    <updated>2017-04-18T11:55:50.000Z</updated>
     
     <content type="html"><![CDATA[<ul>
 <li>这两天一直纠结angular的图片懒加载插件中无法自拔。在使用过程深深感到js学艺不精的痛苦，想修改源码又不会修改，只能尽力压榨如何使用插件上。这里主要谈谈在使用插件的过程遇到的一些问题。</li>
@@ -37,6 +100,22 @@
 <li>解决方案：这里的解决办法就是把定位改为 <code>relative</code>就可以了。<h2 id="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"><a href="#问题2：loading图片不出现，出现的一直是onerror定义的默认图片" class="headerlink" title="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"></a>问题2：loading图片不出现，出现的一直是onerror定义的默认图片</h2></li>
 <li>在加载过程中，不知道为什么，图片一直显示的是onerror定义的默认图片，而不是图片加载之后的图片。但是确实是得到了图片的src路径；经过排查发现，问题的主要原因是img的 <code>src=&#39;&#39;</code>属性导致的。在页面的渲染过程中，浏览器是默认查找不到图片的src路径的，只有在请求发送成功，得到返回数据之后，才能进行渲染。</li>
 <li>解决方案： 直接将 img 标签中的 src 属性删除，然后等图片加载成功之后动态添加即可。</li>
+<li>​</li>
+</ul>
+<h1 id="问题3：使用jQuery插件时this无法使用"><a href="#问题3：使用jQuery插件时this无法使用" class="headerlink" title="问题3：使用jQuery插件时this无法使用"></a>问题3：使用jQuery插件时this无法使用</h1><ul>
+<li><p>要想在angular中使用jQuery插件，需要使用自定义指令（Directive）方式加载jQuery插件，但是发现this在jQuery中是无法调用的。</p>
+</li>
+<li><p>在angular中引入jQuery</p>
+<ul>
+<li>首先需要创建一个指令，采用@input方式，初始化jQuery插件；</li>
+<li>在ngOnChanges时，也就是参数通过@input传入时，初始化jQuery插件</li>
+<li>初始化jQuery插件需要获取dom元素，所以我们引入ElementRef，用来获取dom 元素。</li>
+</ul>
+</li>
+<li><p>问题出现了：jQuery中回调函数，如果直接使用this，回调是无法获取angular的函数的，所以这里采用 bind的形式，把this传递进去，河阳angular中的函数才会被正确的调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ngOnChange()&#123;</div><div class="line">  $(<span class="keyword">this</span>._elementRef.nativeElement).daterangepicker(<span class="keyword">this</span>.dateRangePickerOptions,<span class="keyword">this</span>.dateCallback.bind(<span class="keyword">this</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
 </ul>
 ]]></content>
     
@@ -1468,74 +1547,6 @@
     
       <category term="Git" scheme="http://yoursite.com/categories/Git/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Mac 中 Gulp 的本地安装</title>
-    <link href="http://yoursite.com/2016/04/12/Mac%20%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85%20gulp%20%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/"/>
-    <id>http://yoursite.com/2016/04/12/Mac 本地安装 gulp 遇到的坑/</id>
-    <published>2016-04-12T04:39:04.000Z</published>
-    <updated>2017-04-12T02:41:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Mac-中-gulp-的本地安装"><a href="#Mac-中-gulp-的本地安装" class="headerlink" title="Mac 中 gulp 的本地安装"></a>Mac 中 gulp 的本地安装</h1><h2 id="gulp-的安装"><a href="#gulp-的安装" class="headerlink" title="gulp 的安装"></a>gulp 的安装</h2><ol>
-<li>首先需要确保你已经安装了 nodejs 环境，然后以全局的方式安装 gulp<br><code>sudo npm install -g gulp</code></li>
-<li>全局安装 gulp 后，需要在你的工作目录单独安装一次，切换到你的工作目录，打开命令行<br><code>npm install gulp</code> </li>
-</ol>
-<h2 id="gulp-不能本地安装"><a href="#gulp-不能本地安装" class="headerlink" title="gulp 不能本地安装"></a>gulp 不能本地安装</h2><p>在安装过程中发现，即使在本地安装 gulp,系统也是默认将 gulp 安装在了全局目录下，经过查询资料，对于此类问题的解决方式做以下总结：</p>
-<ol>
-<li>出现此类问题，是因为系统默认将你的 npm 全局安装设置为 true 了，你需要将其改回来。</li>
-<li>来到你的本地，在 <code>Macintosh HD</code> 中找到你的用户，通过 <code>shift + command + .</code> 将系统中隐藏的文件夹显示，找到 <code>.npmrc</code> ，此时，这个文件中 ，你的内容应该是 <code>global = true</code>; 将其 改为 <code>global = false</code>  之后，就可以在本地进行安装了</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Mac-中-gulp-的本地安装&quot;&gt;&lt;a href=&quot;#Mac-中-gulp-的本地安装&quot; class=&quot;headerlink&quot; title=&quot;Mac 中 gulp 的本地安装&quot;&gt;&lt;/a&gt;Mac 中 gulp 的本地安装&lt;/h1&gt;&lt;h2 id=&quot;gulp-的安装&quot;
-    
-    </summary>
-    
-      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mac操作系统总结</title>
-    <link href="http://yoursite.com/2016/04/09/title:%20Mac%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2016/04/09/title: Mac操作系统总结/</id>
-    <published>2016-04-09T11:48:15.000Z</published>
-    <updated>2017-04-09T11:48:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Mac-操作系统"><a href="#Mac-操作系统" class="headerlink" title="Mac 操作系统"></a>Mac 操作系统</h1><h2 id="bash-profile的恢复"><a href="#bash-profile的恢复" class="headerlink" title="bash_profile的恢复"></a>bash_profile的恢复</h2><ul>
-<li>修改了 <code>.bash_profile</code> 的配置，如果配置不对。很容出现许多内置命令都无法识别。不管输入什么命令都提示 <code>command not found</code>，连 rm、cd、vi 这些命令都用不了了；</li>
-<li><p>这时候可以使用以下方法进行解决：</p>
-<blockquote>
-<p>export PATH=/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin </p>
-</blockquote>
-</li>
-</ul>
-<h2 id="Mac系统下全局变量的配置"><a href="#Mac系统下全局变量的配置" class="headerlink" title="Mac系统下全局变量的配置"></a>Mac系统下全局变量的配置</h2><ul>
-<li>查看配置的变量：<code>echo $PATH</code></li>
-<li>进入配置文件 <code>vim ~/.bash_profile</code></li>
-<li>输入<code>i</code>进入编辑模式；</li>
-<li>输入<code>export PATH=$PATH:/Users/gaonana/Documents/高娜娜文件/mongodb-osx-x86_64-3.4.3</code>;相当于在PATH变量后面多加一个自己定义的目录；</li>
-<li>点击<code>esc</code>键进入末行模式；</li>
-<li><code>:wq</code>保存配置文件并退出；</li>
-<li>执行<code>source .bash_profile</code>使配置生效</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Mac-操作系统&quot;&gt;&lt;a href=&quot;#Mac-操作系统&quot; class=&quot;headerlink&quot; title=&quot;Mac 操作系统&quot;&gt;&lt;/a&gt;Mac 操作系统&lt;/h1&gt;&lt;h2 id=&quot;bash-profile的恢复&quot;&gt;&lt;a href=&quot;#bash-profile的恢
-    
-    </summary>
-    
-      <category term="Node" scheme="http://yoursite.com/categories/Node/"/>
-    
-    
-      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
     
   </entry>
   
