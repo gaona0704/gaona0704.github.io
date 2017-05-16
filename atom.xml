@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-16T06:38:35.000Z</updated>
+  <updated>2017-05-16T09:46:07.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac配置Apache-Tomcat服务</title>
+    <link href="http://yoursite.com/2017/05/16/Mac%E9%85%8D%E7%BD%AEApache-Tomcat%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://yoursite.com/2017/05/16/Mac配置Apache-Tomcat服务/</id>
+    <published>2017-05-16T09:03:04.000Z</published>
+    <updated>2017-05-16T09:46:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="第一步：下载Tomcat"><a href="#第一步：下载Tomcat" class="headerlink" title="第一步：下载Tomcat"></a>第一步：下载Tomcat</h2><p></p><p>直接上官网 <code>http://tomcat.apache.org/download-80.cgi</code>上下载对应版本的Tomcat包</p><br><img src="../img/tomcat-download.png" width="600" height="300" alt=""><p></p>
+<h2 id="第二步：将下载好的包放到本地目录中"><a href="#第二步：将下载好的包放到本地目录中" class="headerlink" title="第二步：将下载好的包放到本地目录中"></a>第二步：将下载好的包放到本地目录中</h2><ol>
+<li>在你的Finder中，通过<code>commnd+.</code>显示隐藏的文件夹</li>
+<li>进入/usr/local,将下载好的Tomcat包放到/local目录中</li>
+</ol>
+<p><img src="../img/tomcat-mulu.png" width="600" height="300" alt=""></p>
+<h2 id="第三步：配置环境变量"><a href="#第三步：配置环境变量" class="headerlink" title="第三步：配置环境变量"></a>第三步：配置环境变量</h2><p></p><p>为了方便以后对Tomcat的操作，可以将Tomcat的bin目录放到全局变量中，配置方法如下</p><p></p>
+<ol>
+<li>查看配置的变量：<code>echo $PATH</code></li>
+<li>进入配置文件 <code>vim ~/.bash_profile</code></li>
+<li>输入<code>i</code>进入编辑模式；</li>
+<li>输入<code>export PATH=$PATH:/Users/gaonana/Documents/高娜娜文件/mongodb-osx-x86_64-3.4.3</code>;相当于在PATH变量后面多加一个自己定义的目录；</li>
+<li>点击<code>esc</code>键进入末行模式；</li>
+<li><code>:wq</code>保存配置文件并退出；</li>
+<li>执行<code>source .bash_profile</code>使配置生效</li>
+</ol>
+<h2 id="第四步：-启动Tomcat"><a href="#第四步：-启动Tomcat" class="headerlink" title="第四步： 启动Tomcat"></a>第四步： 启动Tomcat</h2><ol>
+<li>配置环境变量后，可以很便捷的terminal中通过 <code>startup.sh</code>启动Tomcat服务器；<blockquote>
+<p>注意：如果当 <code>startup.sh</code>后出现<code>permission denied</code>时，需要对此目录进行权限设置。在terminal中，输入<code>sudo chmod 755 xxx/bin/*.sh</code>(xxx表示Tomcat的路径)；输入密码就可以了。</p>
+</blockquote>
+</li>
+<li>在浏览器中输入 <code>localhost:8080</code>就可以直接入Tomcat服务,显示一下页面即成功</li>
+</ol>
+<p><img src="../img/tomcat-yemian.png" width="600" height="300" alt=""></p>
+<ol>
+<li>通过<code>shutdown.sh</code> 可以终止程序</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;第一步：下载Tomcat&quot;&gt;&lt;a href=&quot;#第一步：下载Tomcat&quot; class=&quot;headerlink&quot; title=&quot;第一步：下载Tomcat&quot;&gt;&lt;/a&gt;第一步：下载Tomcat&lt;/h2&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;直接上官网 &lt;code&gt;http://tomc
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Sublime快捷键总结</title>
@@ -1465,87 +1512,6 @@
     </summary>
     
       <category term="canvas" scheme="http://yoursite.com/categories/canvas/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Git 使用总结</title>
-    <link href="http://yoursite.com/2016/04/19/Git%20%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2016/04/19/Git 使用总结/</id>
-    <published>2016-04-19T04:39:04.000Z</published>
-    <updated>2017-04-12T04:12:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="git-使用总结"><a href="#git-使用总结" class="headerlink" title="git 使用总结"></a>git 使用总结</h1><h1 id="git的两种工作流程"><a href="#git的两种工作流程" class="headerlink" title="git的两种工作流程"></a>git的两种工作流程</h1><ol>
-<li>下载代码,在下载代码的基础上做开发,然后提交</li>
-<li>或者git init 生成一个仓库,在这个生成的基础上添加代码,再推到主仓库上<h1 id="lt-lt-移位运算"><a href="#lt-lt-移位运算" class="headerlink" title="&lt;&lt; 移位运算"></a><code>&lt;&lt;</code> 移位运算</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line"><span class="built_in">console</span>.log(a &lt;&lt; <span class="number">2</span>);</div><div class="line"><span class="comment">//向左移动两位,乘以2^2,结果就是2*4 = 8;</span></div><div class="line"><span class="comment">//向右移动1位除以2,a&gt;&gt;1,结果就是2/2 = 1;</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="创建共享仓库"><a href="#创建共享仓库" class="headerlink" title="创建共享仓库"></a>创建共享仓库</h2><ul>
-<li>共享仓库的必须以<code>.git</code> 结尾;<code>demo.git</code></li>
-<li><code>git init --bare</code> 创建一个共享仓库</li>
-<li><code>git pull 远程仓库的地址 远程分支:本地分支</code>或者<code>git clone 远程仓库的地址 文件名称</code>下载代码</li>
-<li><code>git push 远程仓库的地址 本地分支:远程分支</code>  推送代码<blockquote>
-<p> git pull = git fetch + git merge</p>
-</blockquote>
-</li>
-<li><code>git fetch</code>远程获取代码,但是不合并代码</li>
-<li><code>git merge</code> 通过fetch过来的代码可以通过merge命令进行合并;<h2 id="查看分支和修改分支名称"><a href="#查看分支和修改分支名称" class="headerlink" title="查看分支和修改分支名称"></a>查看分支和修改分支名称</h2></li>
-<li><code>git remote</code>查看远程仓库的别名  没有就用下一条创建</li>
-<li><code>git remote add 别名名称(origin) 仓库地址(root@180.76.188.62:/root/demo.git)</code> 添加远程仓库的别名</li>
-<li><code>git branch -r</code>查看远程分支</li>
-<li><code>git branch</code>查看本地分支</li>
-<li><code>git remote show origin</code>查看远程仓库别名的具体地址</li>
-</ul>
-<h2 id="git-pull-和-git-clone-的主要区别"><a href="#git-pull-和-git-clone-的主要区别" class="headerlink" title="git pull 和 git clone 的主要区别"></a>git pull 和 git clone 的主要区别</h2><ul>
-<li>1:<code>git clone</code>的项目户自动建立 <code>origin</code>远程仓库地址的别名,自动创建了关联,再更新代码时直接<code>git pull</code>就可以拉下来代码;</li>
-<li>2:<code>git pull</code>拉下来的代码,如果需要建立跟踪分支,需要执行<code>git branch --set-upstream -to==origin/master master</code>;<code>origin/master</code>表示远程分支;<code>master</code>表示本地分支</li>
-</ul>
-<h1 id="git使用总结"><a href="#git使用总结" class="headerlink" title="git使用总结"></a>git使用总结</h1><h2 id="已经存在的项目"><a href="#已经存在的项目" class="headerlink" title="已经存在的项目"></a>已经存在的项目</h2><ul>
-<li>管理员分配git账号; 或者 生成自己的公钥和私钥,提交各管理员,授予权限;</li>
-<li><code>git clone 仓库地址</code>下载代码,进行操作<h2 id="新项目"><a href="#新项目" class="headerlink" title="新项目"></a>新项目</h2></li>
-<li>在github上创建一个空仓库;</li>
-<li>在自己本地<code>git clone git@(仓库地址)</code>直接生成git文件;</li>
-<li>编辑代码,</li>
-<li><code>git add test.html</code>添加到暂存区</li>
-<li><code>git commit -m &quot;&quot;</code>添加到本地仓库</li>
-<li><code>git push origin master</code>推送到网上仓库成功 <h2 id="新项目第二种更新方式"><a href="#新项目第二种更新方式" class="headerlink" title="新项目第二种更新方式"></a>新项目第二种更新方式</h2></li>
-<li>在本地建立文件夹,<code>git init</code>,编辑内容</li>
-<li><code>git add</code></li>
-<li><code>git commit -m &quot;&quot;</code></li>
-<li><code>git remote add origin git@github等地址</code>将本地仓库与网上仓库建立连接和跟踪; </li>
-<li><code>git push -u origin master</code>本地代码推送上去(-u与当前的别名进行关联)</li>
-<li><code>git pull</code>以后就直接使用这个命令更新本地仓库的代码</li>
-<li><code>git push</code>直接推送代码,更新就可以了;<h1 id="git分支管理"><a href="#git分支管理" class="headerlink" title="git分支管理"></a>git分支管理</h1></li>
-</ul>
-<ol>
-<li><code>git clone</code>克隆代码</li>
-<li><code>git checkout -b buy</code>创建并切换分支，</li>
-<li>操作分支</li>
-<li><code>git checkout master</code>切换到主分支</li>
-<li>创建另一个新分支bugfix,编辑,编辑之后再次切换到主分支;</li>
-</ol>
-<ul>
-<li><code>git checkout -d bugfix</code>删除bugfix分支;删除的是本地分支</li>
-<li>删除远程分支<code>git push origin --delete</code> </li>
-</ul>
-<ol>
-<li><code>git merge bugfix</code>;</li>
-<li><code>git merge buy</code><h1 id="git-stash-缓存代码"><a href="#git-stash-缓存代码" class="headerlink" title="git stash 缓存代码"></a>git stash 缓存代码</h1></li>
-</ol>
-<ul>
-<li>使用<code>git stash</code>可以将正在进行中的环境保存起来;master分支将会恢复到修改之前的状态;等紧急操作做完之后,</li>
-<li>使用<code>git stash pop</code>取出之前保存的操作;继续编辑</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;git-使用总结&quot;&gt;&lt;a href=&quot;#git-使用总结&quot; class=&quot;headerlink&quot; title=&quot;git 使用总结&quot;&gt;&lt;/a&gt;git 使用总结&lt;/h1&gt;&lt;h1 id=&quot;git的两种工作流程&quot;&gt;&lt;a href=&quot;#git的两种工作流程&quot; class=&quot;
-    
-    </summary>
-    
-      <category term="Git" scheme="http://yoursite.com/categories/Git/"/>
     
     
   </entry>
