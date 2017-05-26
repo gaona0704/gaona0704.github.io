@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-24T05:35:24.000Z</updated>
+  <updated>2017-05-26T09:19:10.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,70 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>视频播放插件 video.js的使用</title>
+    <link href="http://yoursite.com/2017/05/26/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E6%8F%92%E4%BB%B6-video.js%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2017/05/26/视频播放插件-video.js的使用/</id>
+    <published>2017-05-26T08:49:04.000Z</published>
+    <updated>2017-05-26T09:19:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>video.js是一个开源的HTML5 jQuery 视频插件，即可以播放h5视频，也可以用来播放flash视频，是一个多平台支持的产品，大多数浏览器都支持。</p>
+<h3 id="第一步：引入-Video-js-的JS和CSS文件。"><a href="#第一步：引入-Video-js-的JS和CSS文件。" class="headerlink" title="第一步：引入 Video.js 的JS和CSS文件。"></a>第一步：引入 Video.js 的JS和CSS文件。</h3><ul>
+<li>方法1：可以下载Video.js的源码放到自己的服务器上；</li>
+<li>方法2：可以使用免费的CDN托管版本<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"http://vjs.zencdn.net/4.12/video-js.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://vjs.zencdn.net/4.12/video.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件"><a href="#第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件" class="headerlink" title="第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件"></a>第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;videojs.options.flash.swf = <span class="string">"video-js.swf"</span>;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h3 id="第三步：页面中加入video标签"><a href="#第三步：页面中加入video标签" class="headerlink" title="第三步：页面中加入video标签"></a>第三步：页面中加入video标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">	<span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">”my_video_1″</span> <span class="attr">class</span>=<span class="string">”video-js</span> <span class="attr">vjs-default-skin</span>” </span></div><div class="line">	<span class="attr">controls</span> <span class="attr">preload</span>=<span class="string">”auto”</span> <span class="attr">width</span>=<span class="string">”640″</span> <span class="attr">height</span>=<span class="string">”264″</span> <span class="attr">poster</span>=<span class="string">”my_video_poster.png”</span> <span class="attr">data-setup</span>=<span class="string">”&#123;&#125;”</span>&gt;</div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”my_video.mp4″</span> <span class="attr">type</span>=<span class="string">’video/mp4′</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”my_video.webm”</span> <span class="attr">type</span>=<span class="string">’video/webm’</span>&gt;</span></div><div class="line">	//以下两个样式可以选择性的在页面中添加</div><div class="line">	<span class="tag">&lt;<span class="name">track</span> <span class="attr">kind</span>=<span class="string">"captions"</span> <span class="attr">src</span>=<span class="string">"demo.captions.vtt"</span> <span class="attr">srclang</span>=<span class="string">"en"</span> <span class="attr">label</span>=<span class="string">"English"</span>&gt;</span><span class="tag">&lt;/<span class="name">track</span>&gt;</span><span class="comment">&lt;!-- Tracks need an ending tag thanks to IE9 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">track</span> <span class="attr">kind</span>=<span class="string">"subtitles"</span> <span class="attr">src</span>=<span class="string">"demo.captions.vtt"</span> <span class="attr">srclang</span>=<span class="string">"en"</span> <span class="attr">label</span>=<span class="string">"English"</span>&gt;</span><span class="tag">&lt;/<span class="name">track</span>&gt;</span><span class="comment">&lt;!-- Tracks need an ending tag thanks to IE9 --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>poster中放的是视频的缩略图；</li>
+<li>在页面加载中，video会判断浏览器支持哪个格式视频，会自动加载可播放的视频。<ul>
+<li>第一个source 放的是指向mp4视频，</li>
+<li>第二个指向的是webm视频。<h3 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h3>默认情况下，大的播放按钮放在了左上角的，这样就不会覆盖视频内容。如果你想让这个播放按钮居中，你可以给你的 video 标签添加额外的 vjs-big-play-centered 样式，比如：<br><code>class=&quot;video-js vjs-default-skin vjs-big-play-centered&quot;</code>;<br>如果你还对播放按钮样式不满意可重新定义<code>.video-js .vjs-big-play-button{/*这里的样式重写*/}</code>。<h3 id="视频自动播放"><a href="#视频自动播放" class="headerlink" title="视频自动播放"></a>视频自动播放</h3>设置自动播放，将下面的代码加到html中的代码后面<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> myPlayer = videojs(<span class="string">'example_video_1'</span>);</div><div class="line">    videojs(<span class="string">"example_video_1"</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> myPlayer = <span class="keyword">this</span>;</div><div class="line">        myPlayer.play();</div><div class="line">    &#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;video.js是一个开源的HTML5 jQuery 视频插件，即可以播放h5视频，也可以用来播放flash视频，是一个多平台支持的产品，大多数浏览器都支持。&lt;/p&gt;
+&lt;h3 id=&quot;第一步：引入-Video-js-的JS和CSS文件。&quot;&gt;&lt;a href=&quot;#第一步：引入-
+    
+    </summary>
+    
+      <category term="jQuery" scheme="http://yoursite.com/categories/jQuery/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>form表单常见样式整理(包括非空验证的JS)</title>
+    <link href="http://yoursite.com/2017/05/25/form%E8%A1%A8%E5%8D%95%E5%8F%8A%E9%9D%9E%E7%A9%BA%E9%AA%8C%E8%AF%81%20%EF%BC%88CSS+JS%EF%BC%89/"/>
+    <id>http://yoursite.com/2017/05/25/form表单及非空验证 （CSS+JS）/</id>
+    <published>2017-05-25T03:34:04.000Z</published>
+    <updated>2017-05-25T07:29:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在前端工作中，form表单是很常用的样式，通常情况下我们也需要对其进行非空验证和一些常用的基本验证，比如邮箱，手机等。虽然h5的新特性中已经提供了部分API，但是由于需求不同，我们对表单的样式、写作方式也会不同，现对form表单进行整理如下：</p>
+<p>表单样式整体如下：</p>
+<p><img src="../img/form-example.png" width="600" height="300" alt=""><br>布局分析：    </p>
+<pre><code>+ 整个布局分为3部分，提交不一定写成表单，可以由div
+</code></pre><p> sudo spctl –master-disable</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在前端工作中，form表单是很常用的样式，通常情况下我们也需要对其进行非空验证和一些常用的基本验证，比如邮箱，手机等。虽然h5的新特性中已经提供了部分API，但是由于需求不同，我们对表单的样式、写作方式也会不同，现对form表单进行整理如下：&lt;/p&gt;
+&lt;p&gt;表单样式整体如下
+    
+    </summary>
+    
+      <category term="Web" scheme="http://yoursite.com/categories/Web/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>$.Post()使用</title>
@@ -117,33 +181,6 @@
   </entry>
   
   <entry>
-    <title>Mac修改本地hosts文件</title>
-    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
-    <published>2017-05-16T06:35:04.000Z</published>
-    <updated>2017-05-16T06:35:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
-
-<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
-<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
-<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
-<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
-    
-    </summary>
-    
-      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Sublime快捷键总结</title>
     <link href="http://yoursite.com/2017/05/16/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>http://yoursite.com/2017/05/16/sublime快捷键/</id>
@@ -175,6 +212,33 @@
     </summary>
     
       <category term="sublime" scheme="http://yoursite.com/categories/sublime/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mac修改本地hosts文件</title>
+    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
+    <published>2017-05-16T06:35:04.000Z</published>
+    <updated>2017-05-16T06:35:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
+
+<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
+<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
+<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
+<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
     
     
   </entry>
@@ -1204,169 +1268,6 @@
     </summary>
     
       <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Angular 自定义模块以及路由的配置</title>
-    <link href="http://yoursite.com/2016/12/08/Angular%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E4%BB%A5%E5%8F%8A%E8%B7%AF%E7%94%B1%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
-    <id>http://yoursite.com/2016/12/08/Angular 自定义模块以及路由的配置/</id>
-    <published>2016-12-08T04:39:04.000Z</published>
-    <updated>2017-04-12T03:42:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Angular-自定义模块以及路由的配置"><a href="#Angular-自定义模块以及路由的配置" class="headerlink" title="Angular 自定义模块以及路由的配置"></a>Angular 自定义模块以及路由的配置</h1><h2 id="自定义服务，-service和-factory"><a href="#自定义服务，-service和-factory" class="headerlink" title="自定义服务，$service和$factory"></a>自定义服务，<code>$service</code>和<code>$factory</code></h2><ul>
-<li>App.controller(); 内置控制器</li>
-<li>App.directive(); 内置指令</li>
-<li>App.filter(); 内置过滤器</li>
-<li>App.factory(); 内置服务</li>
-<li>App.service(); 内置服务</li>
-<li>App.config(); 配置块</li>
-<li>App.run(); 运行块</li>
-</ul>
-<h2 id="配置块和运行块"><a href="#配置块和运行块" class="headerlink" title="配置块和运行块"></a>配置块和运行块</h2><ul>
-<li>App.config():一个参数，为数组；[]；App.config([]);</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">App.config([<span class="string">'$logProvider'</span>,<span class="string">'$filterProvider'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$logProvider,$filterProvider</span>) </span>&#123;</div><div class="line"><span class="comment">//通过$logProvider对$log进行配置;</span></div><div class="line">$logProvider.debugEnabled(<span class="literal">false</span>);</div><div class="line">$filterProvider.register(<span class="string">'capitalize'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">input</span>) </span>&#123;</div><div class="line">       <span class="keyword">return</span> (input[<span class="number">0</span>].toUpperCase() + input.slice(<span class="number">1</span>));</div><div class="line">   &#125;</div><div class="line">&#125;)</div><div class="line">&#125;]);</div><div class="line"><span class="comment">//这样在配置好之后，在HTML中就可以直接使用‘capitalize’服务了</span></div><div class="line">&lt;p ng-controller=<span class="string">'DemoCtrl'</span>&gt; 《name | capitalize》&lt;<span class="regexp">/p&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="运行块"><a href="#运行块" class="headerlink" title="运行块"></a>运行块</h3><ul>
-<li>$rootScope:  AngularJS的根作用域，可定于全局变量</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">App.run([<span class="string">'$rootScope'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$rootScope</span>) </span>&#123;</div><div class="line">       $rootScope.name = <span class="string">'顺治'</span>;</div><div class="line">   &#125;])</div><div class="line">   <span class="comment">//这个name在此文件中的任何一个控制器中都可以使用；</span></div></pre></td></tr></table></figure>
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><ul>
-<li>路由是URL地址与程序的映射关系；通过调整地址的变化，可以‘调用或执行’ 某一具体的程序；</li>
-<li>SPA：single page application 单页面展示所有功能；</li>
-<li>多页面最明显的一个缺点就是每次更新页面都要进行刷新，不能得到很好的用户体验；</li>
-<li>AngularJS的路由是建立在单页面的基础之上的；</li>
-<li><code>onhashchange</code>:检测地址栏中地址的变化，绑在window上的</li>
-<li>PHP中：<code>file_get_contents(&#39;./views/&#39;.$hash.&#39;.html&#39;)</code>;获取文件中的内容</li>
-<li>锚链接就是点断的路由，就是地址与程序的映射关系；</li>
-</ul>
-<h3 id="路由的配置"><a href="#路由的配置" class="headerlink" title="路由的配置"></a>路由的配置</h3><ul>
-<li>路由经过设置才能使用</li>
-<li>模块需要依赖路由 <code>var Music = angular.module(&#39;Music&#39;,[&#39;ngRoute&#39;]);</code></li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"> &lt;nav&gt;</div><div class="line"> //锚点中有参数的时候，不会影响到路由；ß</div><div class="line">    &lt;a href="#!/login?name=小明"&gt;登录&lt;/a&gt; //地址必须写成  #！/的形式</div><div class="line">    &lt;a href="#!/register"&gt;注册&lt;/a&gt;</div><div class="line">&lt;/nav&gt;</div><div class="line">    &lt;!-- ng-view 是一个占位符--&gt;</div><div class="line">&lt;div ng-view&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">var App = angular.module('App',['ngRoute']);</div><div class="line">//路由是需要配置才能使用;</div><div class="line">App.config(['$routeProvider',function ($routeProvider) &#123;</div><div class="line">    //两个参数path 和 route</div><div class="line">    //第一个参数:路由</div><div class="line">    //第二个参数是路由的配置</div><div class="line">    $routeProvider.when('/register',&#123;</div><div class="line">        //template:"&lt;h1&gt;首页&lt;/h1&gt;",简单的内容</div><div class="line">        templateUrl:'./views/register.html' //可以引入URL地址</div><div class="line">        //为当前视图文件分配控制器;</div><div class="line">        controller:'RegisterCtrl',</div><div class="line">    &#125;).when('/login',&#123;</div><div class="line">        //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">        templateUrl:'./views/login.html'</div><div class="line">    &#125;).otherwise(&#123;</div><div class="line">        //如果都不符合,可以设置默认值</div><div class="line">        redirectTo:'/register'</div><div class="line">    &#125;)</div><div class="line">&#125;])</div><div class="line"></div><div class="line">App.controller('RegisterCtrl',['$scope',function ($scope) &#123;</div><div class="line">    $scope.title = '注册';</div><div class="line">&#125;])</div><div class="line"></div><div class="line">//然后在register.html页面中就可以直接进行数据绑定 &lt;h1&gt;《title》&lt;/h1&gt;;</div></pre></td></tr></table></figure>
-<ul>
-<li>可以使用路由，也就是说开发者可以根据地址的变化执行不同的业务逻辑；路由需要  配置  后才能被使用；</li>
-<li><p>使用when方法监听地址的变化，然后处理相应的逻辑；</p>
-</li>
-<li><p>参数传递可以有两种方式，一种方式是通过地址传参：</p>
-<ul>
-<li>地址传参：其格式为?key1=val&amp;key2=val2;.when(‘/login?name=lisi&amp;age=17’)</li>
-<li><p>通过路由传参: 路由/:参数名</p>
-</li>
-<li><p>！！！注意：地址的格式（/login/:name/:pass）必须与路由的格式（#!/login/小明/12345）完全保持一致，一一对应；</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;a href="#!/login/小明/12345"&gt;登录&lt;/a&gt;</div><div class="line">.when('/login/:name/:pass',&#123;</div><div class="line"></div><div class="line">    //template:"&lt;h1&gt;登录&lt;/h1&gt;",</div><div class="line">    templateUrl:'./views/login.html'</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-<li><p>获取路由中传递的参数 <code>var parameter = $routeParams</code>;</p>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Angular-自定义模块以及路由的配置&quot;&gt;&lt;a href=&quot;#Angular-自定义模块以及路由的配置&quot; class=&quot;headerlink&quot; title=&quot;Angular 自定义模块以及路由的配置&quot;&gt;&lt;/a&gt;Angular 自定义模块以及路由的配置&lt;/h1&gt;&lt;
-    
-    </summary>
-    
-      <category term="Angular" scheme="http://yoursite.com/categories/Angular/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Angualar 过滤器、依赖注入等</title>
-    <link href="http://yoursite.com/2016/11/25/%20Angualar%20%E8%BF%87%E6%BB%A4%E5%99%A8%E3%80%81%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E7%AD%89/"/>
-    <id>http://yoursite.com/2016/11/25/ Angualar 过滤器、依赖注入等/</id>
-    <published>2016-11-25T04:39:04.000Z</published>
-    <updated>2017-04-12T03:40:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Angualar-过滤器、依赖注入等"><a href="#Angualar-过滤器、依赖注入等" class="headerlink" title="Angualar 过滤器、依赖注入等"></a>Angualar 过滤器、依赖注入等</h1><h2 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h2><ul>
-<li>触发脏值检测 <code>scope.$digest()</code>;监听视图中的数据改变；ng-click事件内部中自动封装了这个检测，也可以手动添加；</li>
-<li>form 表单有默认的submit事件，通过回车就可以触发；。form中如果有action，那么在submit之后，action也会重新发送一次请求，会刷新页面，所以，当使用submit提交数据时，可以将默认的action删除；</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">   <span class="tag">&lt;<span class="name">form</span> <span class="attr">ng-submit</span>=<span class="string">'show()'</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>todos<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"new-todo"</span> <span class="attr">ng-model</span>=<span class="string">'msg'</span> <span class="attr">placeholder</span>=<span class="string">"What needs to be done?"</span> <span class="attr">autofocus</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">//angularJS通过ng-model将V与M进行绑定；</div><div class="line">//所以input中的value值就等于$scope.msg; 所以实际上$scope.msg = $('input').val();只不过这一步是AngularJS内部做的；</div><div class="line">//所以`$scope.msg=""`就直接将input的val值置空了；</div></pre></td></tr></table></figure>
-<ul>
-<li>AngularJS 遍历，获取当前元素的index值</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"todo-list"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"item in tabs "</span>&gt;</span>//item可以获取当前元素</div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"view"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-click</span>=<span class="string">"change($index)"</span> <span class="attr">class</span>=<span class="string">"toggle"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span> //$index 代表当前元素所对应的index值</div><div class="line">				<span class="tag">&lt;<span class="name">label</span>&gt;</span>《item.tab》<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">button</span>  <span class="attr">class</span>=<span class="string">"destroy"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<ul>
-<li>在angular中，涉及到通过判断而决定某个样式显示或隐藏时，尽量通过 ng-class=”{attr:flag}”来决定，不用再在js中进行if判断了；</li>
-</ul>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ul>
-<li>根作用于  <code>ng-app=&quot;App&quot;</code>所处的作用域</li>
-</ul>
-<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><ul>
-<li>在AngularJS中使用过滤器格式化展示数据，在“《》”中使用”|”来调用过滤器，使用“：”传递参数；</li>
-<li>价格过滤器 <code>《price|currency:&#39;￥&#39;：1》</code>;冒号后面是传参数，多个参数多个冒号链接，：1表示表刘一个小数；</li>
-<li>时间过滤器 <code>《now | date:&quot;yyyy-MM-dd hh:mm:ss&quot;》</code></li>
-<li>控制排序方向 <code>《list | orderBy:&quot;score&quot;:&quot;true&quot;》</code>  true为反向排序，false为正向排序，默认为false；</li>
-<li>常用内置过滤器</li>
-<li><img src="media/14904890310833/14905800642259.jpg" alt=""></li>
-</ul>
-<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><ul>
-<li>采用 ‘注入’ 的方式可以解决开发过程中的依赖的关系，成为依赖注入；</li>
-<li>一般 注入是通过 ‘参数’ 的形式实现的；</li>
-<li><code>$http</code> 同 <code>$scope</code> 一样，也是AngularJS内置的功能。可以提供发送异步请求的功能；</li>
-</ul>
-<h2 id="服务（重点）"><a href="#服务（重点）" class="headerlink" title="服务（重点）"></a>服务（重点）</h2><ul>
-<li><code>$</code>AngularJS内置的服务；<code>ng-</code> AngularJS 内置的指令；</li>
-<li>常见的内置服务：需要在依赖中写入，然后才可以使用<ul>
-<li>$scope</li>
-<li>$interval</li>
-<li>$timeout</li>
-<li>$log</li>
-<li>$http</li>
-</ul>
-</li>
-</ul>
-<h3 id="log-服务-调试信息的输出"><a href="#log-服务-调试信息的输出" class="headerlink" title="$log 服务 调试信息的输出"></a>$log 服务 调试信息的输出</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$log.error(<span class="string">'这是一个错误'</span>);</div><div class="line">$log.warn(<span class="string">'这个一个警告'</span>);</div><div class="line">$log.log(<span class="string">'这是一个console.log'</span>);</div><div class="line">$log.debug(<span class="string">'这是一个调试'</span>);</div><div class="line">$log.info(<span class="string">'这是一个普通内容'</span>);</div></pre></td></tr></table></figure>
-<h3 id="timeout和-interval"><a href="#timeout和-interval" class="headerlink" title="$timeout和 $interval"></a><code>$timeout</code>和 <code>$interval</code></h3><ul>
-<li>$timeout 服务，延时显示数据，$interval 服务：计时器</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> App.controller(<span class="string">'DemoCtrl'</span>,[<span class="string">'$timeout'</span>,<span class="string">'$log'</span>,<span class="string">'$interval'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$timeout,$log,$interval</span>) </span>&#123;</div><div class="line">    <span class="comment">//$timeout是一个函数</span></div><div class="line">    <span class="comment">//延时3秒后显示内容;</span></div><div class="line">    $timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        $log.info(<span class="string">'我哈哈哈,我等了3秒'</span>)</div><div class="line">    &#125;,<span class="number">3000</span>);</div><div class="line"></div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">    $interval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        $log.info(i++);</div><div class="line">    &#125;,<span class="number">1000</span>)</div><div class="line">&#125;])</div></pre></td></tr></table></figure>
-<h3 id="http-专门发起异步请求"><a href="#http-专门发起异步请求" class="headerlink" title="$http 专门发起异步请求"></a>$http 专门发起异步请求</h3><ul>
-<li>2、在PHP中 $_POST 是专门接收 formData格式数据的，即“Content-Type:application/x-www-form-urlencoded”;  但是不能接收 Content-Type：application/json; </li>
-<li>3、当headers为“Content-Type:application/x-www-form-urlencoded”时，上传的data格式为 <code>data:&quot;name=itcast&amp;age=11&quot;</code>; </li>
-<li>4、当headers为<code>“Content-Type:application/json”</code>时，传递的参数格式为：<code>data:{&quot;name&quot;:&quot;itcast&quot;,&quot;name&quot;:18}</code>;</li>
-</ul>
-<h4 id="AngularJS-http总结"><a href="#AngularJS-http总结" class="headerlink" title="AngularJS $http总结"></a>AngularJS $http总结</h4><ol>
-<li>$http发送请求的方式有3种：method：“get”/“post”/‘jsonp’;</li>
-<li>参数的传递方式为：params:</li>
-</ol>
-<h5 id="get方式请求"><a href="#get方式请求" class="headerlink" title="get方式请求"></a>get方式请求</h5><ul>
-<li>“get”方式发送请求时，正常发送；参数以params:{name:’lisi’,age:18}发送;<ul>
-<li>不管以什么方式传递参数，内部都会转换成 ？name=lisi&amp;age=18的形式</li>
-<li>在PHP中将传入的参数以json对象的形式输出</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">    $http(&#123;</div><div class="line">      <span class="attr">url</span>:<span class="string">'./example.php'</span>,</div><div class="line">      <span class="attr">method</span>:<span class="string">'get'</span>,</div><div class="line">      <span class="attr">params</span>:&#123;<span class="attr">name</span>:<span class="string">'lisi'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;,</div><div class="line">      </div><div class="line">  &#125;).success(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(data);</div><div class="line">  &#125;)</div><div class="line"><span class="comment">//在PHP中代码：</span></div><div class="line">$name = $_GET[<span class="string">'name'</span>];</div><div class="line">$age = $_GET[<span class="string">'age'</span>];</div><div class="line">$array = [<span class="string">'name'</span>=&gt;$name,<span class="string">'age'</span>=&gt;$age];</div><div class="line"><span class="comment">//var_dump($array);</span></div><div class="line"><span class="comment">//将传递的参数放到数组中,并将数组转换成json对象格式进行输出;</span></div><div class="line">echo json_encode($array);</div><div class="line"><span class="comment">//结果为：&#123;name: "lisi", age: "18"&#125;</span></div></pre></td></tr></table></figure>
-<h5 id="post方式请求"><a href="#post方式请求" class="headerlink" title="post方式请求"></a>post方式请求</h5><ul>
-<li><p>“post”请求，需要注意两点</p>
-<ol>
-<li>设置请求头：headers:“Content-Type:application/x-www-form-urlencoded”；</li>
-<li><p>参数以data传递form data，data：“name=lisi&amp;age=17”；请求头与参数必须保持一致；</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//post请求</span></div><div class="line">$http(&#123;</div><div class="line">    <span class="attr">url</span>: <span class="string">'./example.php'</span>,</div><div class="line">    <span class="attr">method</span>: <span class="string">'post'</span>,</div><div class="line">    <span class="attr">data</span>: <span class="string">'name=lisi&amp;age=17'</span>,</div><div class="line">    <span class="attr">headers</span>: &#123;</div><div class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded'</span></div><div class="line">    &#125;</div><div class="line">&#125;).success(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ul>
-<h5 id="JSONP-的原理"><a href="#JSONP-的原理" class="headerlink" title="JSONP 的原理"></a>JSONP 的原理</h5><blockquote>
-<p>前端传递一个实现定义好的函数名，给服务端，然后服务端接收这个函数名并拼凑一个“（）”，并返回，前端就接收到了 这个函数的调用；<br>在jQuery中，我们不写callback的明细，ajax会自动帮我们生成一个，jQuery+序列号+时间戳等；但是在angularJS中，他们有帮我们封装，所以必须手动加上；</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$http(&#123;</div><div class="line">        <span class="attr">url</span>:<span class="string">'./example.php'</span>,</div><div class="line">        <span class="attr">method</span>:<span class="string">'jsonp'</span>,</div><div class="line">        <span class="attr">params</span>:&#123;</div><div class="line">            <span class="comment">//callback必须用'JSON_CALLBACK'进行占位，后端返回回调函数：angular.callbacks._0(lisi)；这个回调函数的结果就是success时的data数据；</span></div><div class="line">            callback:<span class="string">'JSON_CALLBACK'</span>,</div><div class="line">            <span class="attr">name</span>:<span class="string">'lisi'</span>,</div><div class="line">            <span class="attr">age</span>:<span class="number">17</span></div><div class="line">        &#125;</div><div class="line">    &#125;).success(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Angualar-过滤器、依赖注入等&quot;&gt;&lt;a href=&quot;#Angualar-过滤器、依赖注入等&quot; class=&quot;headerlink&quot; title=&quot;Angualar 过滤器、依赖注入等&quot;&gt;&lt;/a&gt;Angualar 过滤器、依赖注入等&lt;/h1&gt;&lt;h2 id=&quot;小
-    
-    </summary>
-    
-      <category term="Angular" scheme="http://yoursite.com/categories/Angular/"/>
     
     
   </entry>

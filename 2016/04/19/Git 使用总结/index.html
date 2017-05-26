@@ -105,7 +105,7 @@
 
 
 创">
-<meta property="og:updated_time" content="2017-04-12T04:12:15.000Z">
+<meta property="og:updated_time" content="2017-05-26T08:48:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 使用总结">
 <meta name="twitter:description" content="git 使用总结git的两种工作流程
@@ -394,11 +394,15 @@
 </blockquote>
 </li>
 <li><code>git fetch</code>远程获取代码,但是不合并代码</li>
-<li><code>git merge</code> 通过fetch过来的代码可以通过merge命令进行合并;<h2 id="查看分支和修改分支名称"><a href="#查看分支和修改分支名称" class="headerlink" title="查看分支和修改分支名称"></a>查看分支和修改分支名称</h2></li>
+<li><code>git merge</code> 通过fetch过来的代码可以通过merge命令进行合并;</li>
+</ul>
+<h2 id="查看分支和修改分支名称"><a href="#查看分支和修改分支名称" class="headerlink" title="查看分支和修改分支名称"></a>查看分支和修改分支名称</h2><ul>
 <li><code>git remote</code>查看远程仓库的别名  没有就用下一条创建</li>
 <li><code>git remote add 别名名称(origin) 仓库地址(root@180.76.188.62:/root/demo.git)</code> 添加远程仓库的别名</li>
 <li><code>git branch -r</code>查看远程分支</li>
 <li><code>git branch</code>查看本地分支</li>
+<li><code>git branch abc</code>添加名为abc的分枝</li>
+<li><code>git checkout abc</code>将编辑状态切换到分枝abc上</li>
 <li><code>git remote show origin</code>查看远程仓库别名的具体地址</li>
 </ul>
 <h2 id="git-pull-和-git-clone-的主要区别"><a href="#git-pull-和-git-clone-的主要区别" class="headerlink" title="git pull 和 git clone 的主要区别"></a>git pull 和 git clone 的主要区别</h2><ul>
@@ -440,6 +444,10 @@
 <ul>
 <li>使用<code>git stash</code>可以将正在进行中的环境保存起来;master分支将会恢复到修改之前的状态;等紧急操作做完之后,</li>
 <li>使用<code>git stash pop</code>取出之前保存的操作;继续编辑</li>
+</ul>
+<h2 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h2><ul>
+<li>git diff<br> 此命令比较的是工作目录(workingtree)和暂存区快照(index)之间的差异。也就是修改之后，还没有暂存起来的变化内容</li>
+<li>git diff –cached</li>
 </ul>
 
       
@@ -561,7 +569,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -572,7 +580,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -650,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-使用总结"><span class="nav-number">1.</span> <span class="nav-text">git 使用总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git的两种工作流程"><span class="nav-number">2.</span> <span class="nav-text">git的两种工作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-lt-移位运算"><span class="nav-number">3.</span> <span class="nav-text"><< 移位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建共享仓库"><span class="nav-number">3.1.</span> <span class="nav-text">创建共享仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看分支和修改分支名称"><span class="nav-number">3.2.</span> <span class="nav-text">查看分支和修改分支名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-pull-和-git-clone-的主要区别"><span class="nav-number">3.3.</span> <span class="nav-text">git pull 和 git clone 的主要区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git使用总结"><span class="nav-number">4.</span> <span class="nav-text">git使用总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#已经存在的项目"><span class="nav-number">4.1.</span> <span class="nav-text">已经存在的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新项目"><span class="nav-number">4.2.</span> <span class="nav-text">新项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新项目第二种更新方式"><span class="nav-number">4.3.</span> <span class="nav-text">新项目第二种更新方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git分支管理"><span class="nav-number">5.</span> <span class="nav-text">git分支管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-stash-缓存代码"><span class="nav-number">6.</span> <span class="nav-text">git stash 缓存代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-使用总结"><span class="nav-number">1.</span> <span class="nav-text">git 使用总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git的两种工作流程"><span class="nav-number">2.</span> <span class="nav-text">git的两种工作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-lt-移位运算"><span class="nav-number">3.</span> <span class="nav-text"><< 移位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建共享仓库"><span class="nav-number">3.1.</span> <span class="nav-text">创建共享仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看分支和修改分支名称"><span class="nav-number">3.2.</span> <span class="nav-text">查看分支和修改分支名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-pull-和-git-clone-的主要区别"><span class="nav-number">3.3.</span> <span class="nav-text">git pull 和 git clone 的主要区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git使用总结"><span class="nav-number">4.</span> <span class="nav-text">git使用总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#已经存在的项目"><span class="nav-number">4.1.</span> <span class="nav-text">已经存在的项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新项目"><span class="nav-number">4.2.</span> <span class="nav-text">新项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新项目第二种更新方式"><span class="nav-number">4.3.</span> <span class="nav-text">新项目第二种更新方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git分支管理"><span class="nav-number">5.</span> <span class="nav-text">git分支管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-stash-缓存代码"><span class="nav-number">6.</span> <span class="nav-text">git stash 缓存代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-diff"><span class="nav-number">6.1.</span> <span class="nav-text">git diff</span></a></li></ol></li></ol></div>
             
 
           </div>
