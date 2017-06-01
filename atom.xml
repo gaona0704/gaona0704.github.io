@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-01T03:34:43.000Z</updated>
+  <updated>2017-06-01T05:55:25.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git使用中的撤销操作</title>
+    <link href="http://yoursite.com/2017/06/01/git%E4%BD%BF%E7%94%A8%E4%B8%AD%E7%9A%84%E6%92%A4%E9%94%80%E6%93%8D%E4%BD%9C/"/>
+    <id>http://yoursite.com/2017/06/01/git使用中的撤销操作/</id>
+    <published>2017-06-01T05:24:04.000Z</published>
+    <updated>2017-06-01T05:55:25.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在git的使用过程中，有的时候操作会有失误，会进行撤销操作，下面是两个总结：</p>
+<ol>
+<li>为文件进行了操作，但是没有什么实质性的修改，使用 <code>git status</code>时，会发现文件一致是 modified 状态，这是我们想要撤销，恢复到修改前的版本<ul>
+<li>这一步一定要确定这个文件缺失是要恢复到修改前的版本！<br><code>git checkout -- 文件名</code></li>
+</ul>
+</li>
+<li>撤销 git add 添加到暂存区的 操作：<br>当使用git add * 将全部修改的文件加入了暂存区域， 要撤销自己不想加入的文件时，使用以下命令<br><code>git reset HEAD 文件名</code>可以将 modified 文件撤回</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在git的使用过程中，有的时候操作会有失误，会进行撤销操作，下面是两个总结：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;为文件进行了操作，但是没有什么实质性的修改，使用 &lt;code&gt;git status&lt;/code&gt;时，会发现文件一致是 modified 状态，这是我们想要撤销，恢复到修改
+    
+    </summary>
+    
+      <category term="git" scheme="http://yoursite.com/categories/git/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Background-Size 使用</title>
@@ -235,6 +265,33 @@
   </entry>
   
   <entry>
+    <title>Mac修改本地hosts文件</title>
+    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
+    <published>2017-05-16T06:35:04.000Z</published>
+    <updated>2017-05-16T06:35:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
+
+<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
+<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
+<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
+<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Sublime快捷键总结</title>
     <link href="http://yoursite.com/2017/05/16/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>http://yoursite.com/2017/05/16/sublime快捷键/</id>
@@ -266,33 +323,6 @@
     </summary>
     
       <category term="sublime" scheme="http://yoursite.com/categories/sublime/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mac修改本地hosts文件</title>
-    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
-    <published>2017-05-16T06:35:04.000Z</published>
-    <updated>2017-05-16T06:35:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
-
-<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
-<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
-<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
-<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
-    
-    </summary>
-    
-      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
     
     
   </entry>
@@ -1104,113 +1134,6 @@
     </summary>
     
       <category term="Angular" scheme="http://yoursite.com/categories/Angular/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>同步操作与异步操作的异同</title>
-    <link href="http://yoursite.com/2017/01/19/%E5%90%8C%E6%AD%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E7%9A%84%E5%BC%82%E5%90%8C/"/>
-    <id>http://yoursite.com/2017/01/19/同步操作与异步操作的异同/</id>
-    <published>2017-01-19T04:39:04.000Z</published>
-    <updated>2017-04-12T06:42:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ol>
-<li>Node命令本质上是一个 应用程序；</li>
-<li>Node的核心模块<ul>
-<li>文件读写 fs</li>
-<li>构建Http服务 http</li>
-</ul>
-</li>
-<li>第三方模块<ul>
-<li>npm install 第三方模块名称</li>
-<li>使用require 函数加载</li>
-<li>看文档使用  </li>
-<li>moment 格式化事件moment(time).format(‘YYYY-MM-DD HH:mm:ss’)</li>
-</ul>
-</li>
-<li>在Node中使用art-template 模块引擎；</li>
-<li>浏览器默认不支持JavaScript模块化，只能通过script标签去加载模块以及他们之间的依赖；</li>
-<li>node天生支持模块化<ul>
-<li>模块与模块之间提供可特定的通信交互规则<ul>
-<li>module.exports  相当于return</li>
-<li>require 相当于requireJS中的额 define[依赖项]，function（依赖项）；</li>
-<li>exports</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>一个JS文件就是一个模块化；</li>
-<li>一个模块化就是私有作用域（没有全局作用域的概念）； </li>
-</ul>
-<ol>
-<li>将编码之后的中文解码： decodeURI(URL) ；将中文转换成code编码格式：encodeURI(URL);</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">encodeURI</span>(<span class="string">'中国'</span>)</div><div class="line">---&gt; <span class="string">"%E4%B8%AD%E5%9B%BD"</span></div><div class="line"><span class="built_in">decodeURI</span>(<span class="string">'%E4%B8%AD%E5%9B%BD'</span>)</div><div class="line">===&gt; <span class="string">"中国"</span></div></pre></td></tr></table></figure>
-<ol>
-<li><code>data = JSON.stringify(data,null,&quot;  &quot;)</code>将对象格式的文件转换成字符串格式，第三个参数为<code>“  ”</code>，中间是两个空格，表示向后台提交数据的时候，仍然保持两个空格的缩进；</li>
-<li>没有文件的 POST 提交，还是会把数据格式化成为查询字符串的格式，也就是相当于（get参数）的方式进行提交；有文件上传的是form Data的格式提交</li>
-</ol>
-<h2 id="同步操作与异步操作的异同"><a href="#同步操作与异步操作的异同" class="headerlink" title="同步操作与异步操作的异同"></a>同步操作与异步操作的异同</h2><ol>
-<li>异步API</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">111</span>);</div><div class="line">fs.readfile(<span class="string">'./data/a.txt'</span>),<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">222</span>);</div><div class="line">&#125;</div><div class="line">fs.readfile(<span class="string">'./data/a.txt'</span>),<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">444</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">consle.log(<span class="number">333</span>);</div><div class="line"><span class="comment">//输出的结果是：</span></div><div class="line"><span class="comment">//111;333; 222和444的顺序的不一定的；</span></div><div class="line"><span class="comment">//222和444是异步进行的，无法保证其先后顺序；</span></div></pre></td></tr></table></figure>
-<ol>
-<li>同步API fs.readFileSync(‘./data/a.txt’)<ul>
-<li>var dataA = fs.readFileSync(‘./data/a.txt’).toString();默认读取到的是二进制数据；</li>
-<li>同步ＡＰＩ是按照先后顺序执行的； </li>
-</ul>
-</li>
-<li>关于文件中的同步和异步，优先使用异步操作<ul>
-<li>异步操作都是通过一个回调函数来获取异步操作结果，第一个参数是err;<ul>
-<li>有限判断err是否出错</li>
-<li>操作成功，err就是null；</li>
-<li>操作失败，err 就是错误对象</li>
-<li>在异步操作中，无法使用try-catch捕获异常；</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">    <span class="comment">//异步读取不能使用try catch 捕获异常</span></div><div class="line"> <span class="keyword">try</span>&#123;</div><div class="line">    fs.readFile(<span class="string">'./0-hello word.js'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">err,data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">    <span class="comment">//得到的data是undefined；因为错误，读取不到信息</span></div><div class="line">    &#125;);</div><div class="line">&#125;<span class="keyword">catch</span> (e)&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'失败'</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">//同步读取可以使用 try-catch捕获异常</span></div></pre></td></tr></table></figure>
-<ul>
-<li>同步操作直接使用变量去接收操作结果； </li>
-</ul>
-<h2 id="封装异步API"><a href="#封装异步API" class="headerlink" title="封装异步API"></a>封装异步API</h2><ul>
-<li>通过callback去拿结果</li>
-<li>如果自定义异步API中有异常错误，继续使用callback向外抛出</li>
-</ul>
-<h3 id="使用nodemon-实现改完代码服务自动重启"><a href="#使用nodemon-实现改完代码服务自动重启" class="headerlink" title="使用nodemon 实现改完代码服务自动重启"></a>使用nodemon 实现改完代码服务自动重启</h3><ul>
-<li>npm install –g nodemon</li>
-<li>使用<ul>
-<li>nodemon.app.js </li>
-</ul>
-</li>
-</ul>
-<h1 id="Web中的路径"><a href="#Web中的路径" class="headerlink" title="Web中的路径"></a>Web中的路径</h1><ul>
-<li>url本质上只是一个标识而已，所以看到的文件名不一定是真实的文件名</li>
-<li>绝大多数情况下，需要开发人员自定义标识<ul>
-<li>为了好看，路由更简单</li>
-<li>为了更加灵活的控制</li>
-<li>URL路径以<code>“/”</code>开头，是绝对路径</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link href=<span class="string">"/assets/css/main.css"</span>&gt;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;小知识点&quot;&gt;&lt;a href=&quot;#小知识点&quot; class=&quot;headerlink&quot; title=&quot;小知识点&quot;&gt;&lt;/a&gt;小知识点&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;Node命令本质上是一个 应用程序；&lt;/li&gt;
-&lt;li&gt;Node的核心模块&lt;ul&gt;
-&lt;li&gt;文件读写 fs&lt;/l
-    
-    </summary>
-    
-      <category term="Node" scheme="http://yoursite.com/categories/Node/"/>
     
     
   </entry>
