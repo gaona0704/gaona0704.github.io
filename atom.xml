@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-01T05:55:25.000Z</updated>
+  <updated>2017-06-08T08:15:26.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>以HTML格式打开 *.Httl 或者*.Php文件</title>
+    <link href="http://yoursite.com/2017/06/08/html%E6%A0%BC%E5%BC%8F%E6%89%93%E5%BC%80*.httl%E6%88%96%E8%80%85*.php%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/06/08/html格式打开*.httl或者*.php文件/</id>
+    <published>2017-06-08T08:15:04.000Z</published>
+    <updated>2017-06-08T08:15:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在webstorm或者intellij IDEA 中打开 <em>.httl 或者 </em>.php文件时，由于文件格式问题，会导致整个页面的颜色都是白色，在编辑页面时，代码不会提示，这就大大的降低的开发效率。偶然间发现，可以以HTML格式去打开这些文件，那这些文件就可以以html样式结构进行展示，在进行编码的时候也会出现提示。</p>
+<p>现在就以 itellij IDEA 为例进行设置讲解：<br>1：进入preference<br>2：进入editor  ——&gt;  File Types;<br>3:  找到 HTML，在下面追加 你想要打开的文件格式</p>
+<p><img src="../img/001.png" width="600" height="300" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在webstorm或者intellij IDEA 中打开 &lt;em&gt;.httl 或者 &lt;/em&gt;.php文件时，由于文件格式问题，会导致整个页面的颜色都是白色，在编辑页面时，代码不会提示，这就大大的降低的开发效率。偶然间发现，可以以HTML格式去打开这些文件，那这些文件就可以
+    
+    </summary>
+    
+      <category term="HTML" scheme="http://yoursite.com/categories/HTML/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Git使用中的撤销操作</title>
@@ -265,33 +288,6 @@
   </entry>
   
   <entry>
-    <title>Mac修改本地hosts文件</title>
-    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
-    <published>2017-05-16T06:35:04.000Z</published>
-    <updated>2017-05-16T06:35:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
-
-<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
-<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
-<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
-<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
-    
-    </summary>
-    
-      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Sublime快捷键总结</title>
     <link href="http://yoursite.com/2017/05/16/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>http://yoursite.com/2017/05/16/sublime快捷键/</id>
@@ -323,6 +319,33 @@
     </summary>
     
       <category term="sublime" scheme="http://yoursite.com/categories/sublime/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mac修改本地hosts文件</title>
+    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
+    <published>2017-05-16T06:35:04.000Z</published>
+    <updated>2017-05-16T06:35:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
+
+<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
+<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
+<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
+<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
     
     
   </entry>
@@ -1100,40 +1123,6 @@
     </summary>
     
       <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Angular在实际应用中的优缺点</title>
-    <link href="http://yoursite.com/2017/02/12/angular%E5%9C%A8%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E4%B8%AD%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9/"/>
-    <id>http://yoursite.com/2017/02/12/angular在实际应用中的优缺点/</id>
-    <published>2017-02-11T16:39:04.000Z</published>
-    <updated>2017-04-17T17:31:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
-<li>我们是在做创意摄影网时使用的Angular.js 的，</li>
-<li>优点：<ul>
-<li>模板功能强大丰富，并且是声明式的，自带了丰富的Angular指令</li>
-<li>是一个比较完善的前端MV*框架，包含模板、数据双向绑定、路由、模块化、服务、过滤器和依赖注入等所有功能；</li>
-<li>自定义 Directive ，比jQuery插件还灵活；</li>
-<li>ng模块化比较大胆的引入了JAVA的一些东西(依赖注入)，能够很容易的写出可复用性的代码；</li>
-<li>Angular支持单元测试</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;我们是在做创意摄影网时使用的Angular.js 的，&lt;/li&gt;
-&lt;li&gt;优点：&lt;ul&gt;
-&lt;li&gt;模板功能强大丰富，并且是声明式
-    
-    </summary>
-    
-      <category term="Angular" scheme="http://yoursite.com/categories/Angular/"/>
     
     
   </entry>
