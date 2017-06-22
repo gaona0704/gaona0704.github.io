@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-08T08:15:26.000Z</updated>
+  <updated>2017-06-21T06:02:34.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/06/20/PHP%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2017/06/20/PHP学习中的笔记/</id>
+    <published>2017-06-20T02:48:35.000Z</published>
+    <updated>2017-06-21T06:02:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="PHP学习中的笔记"><a href="#PHP学习中的笔记" class="headerlink" title="PHP学习中的笔记"></a>PHP学习中的笔记</h2><ul>
+<li>defined 是判断是都存在这个值；</li>
+<li>define是设置某个量的值；</li>
+<li>layout.html 是入口文件。通过模板语法{<strong>CONTENT</strong>}像框架中填写主要内容。然后根据URL地址解析，寻找对应的方法与数据。</li>
+<li>php中isset()函数，用来检测变量是否设置；</li>
+<li>unset():销毁指定的变量</li>
+<li>在core.php中的应用路径解析，页面加载，先判断是否设置了 isset($GET[‘app’]),<ul>
+<li>页面初始化，没有请求，也就是<code>isset($GET[&#39;app&#39;])</code>没有值，默认使 $app_name=web;所以将apps/web/tpl/index/index.html中的内容渲染到content区域；<h3 id="Volist标签，-present标签与其类似"><a href="#Volist标签，-present标签与其类似" class="headerlink" title="Volist标签， present标签与其类似"></a>Volist标签， present标签与其类似</h3></li>
+</ul>
+</li>
+<li>name和id属性是必须的；name：表示要输出的数据模板变量；id表示循环变量；key:循环的key变量，默认值为i;</li>
+<li>Volist标签的name属性表示模板赋值的变量名称，因此不可随意在模板文件中改变。id表示当前的循环变量，可以随意指定，但确保不要和name属性冲突。</li>
+<li>使用前，首先应该对模板进行赋值，例如：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$User = M(<span class="string">'User'</span>);<span class="comment">//M方法：意思是创建一个user模型，对应数据库中的User表，</span></div><div class="line">$User = D(<span class="string">'User'</span>);<span class="comment">//D方法：实例化模型 。 该方法可能和以下代码等效：import('@.Model.UserModel'); $User = new UserModel();</span></div><div class="line">$list = $User-&gt;select(); <span class="comment">//从数据库中选取数据；</span></div><div class="line">$<span class="keyword">this</span>-&gt;assign(<span class="string">'list'</span>,$list);  <span class="comment">//吧数组打印出来，渲染模板；</span></div><div class="line"><span class="comment">//在PHP中，例如$db=new db();实例化；使用$db的属性和方法： $db -&gt; host = 'localhost'; $db -&gt; printHost();这就相当于js中的db.host = 'localhost';db.printHost();调用方法；</span></div><div class="line">&lt;volist name=<span class="string">"list"</span> id=<span class="string">"vo"</span>&gt;</div><div class="line">    &#123;$vo.id&#125;</div><div class="line">    &#123;$vo.name&#125;</div><div class="line">&lt;<span class="regexp">/volist&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="thinkPHP中M方法和D方法的区别"><a href="#thinkPHP中M方法和D方法的区别" class="headerlink" title="thinkPHP中M方法和D方法的区别:"></a>thinkPHP中M方法和D方法的区别:</h3><p>M方法实例化模型无需用户为每个数据表定义模型类，如果D方法没有找到定义的模型类，则会自动调用M方法。通俗一点说：M实例化参数是数据库的表名。D实例化的是你自己在Model文件夹下面建立的模型文件。</p>
+<h3 id="思路过程："><a href="#思路过程：" class="headerlink" title="思路过程："></a>思路过程：</h3><p>1：在indexAction.class.php中定义的获得到的是index.html页面中<volist name="newspic">的数据<br>2：由此找到了数据库中对应的数据：</volist></p>
+<pre><code>+ $articleModel = M(&apos;Article&apos;); ------找到数据库中 to_article表；
++ $cyjigou_id = 2;  -------找到category_id = 2的所有数据；
++ 然后对应上了，获得到了所有入住机构的数据；
++ 里面的content字段就是入住机构的详细介绍；
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;PHP学习中的笔记&quot;&gt;&lt;a href=&quot;#PHP学习中的笔记&quot; class=&quot;headerlink&quot; title=&quot;PHP学习中的笔记&quot;&gt;&lt;/a&gt;PHP学习中的笔记&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;defined 是判断是都存在这个值；&lt;/li&gt;
+&lt;li&gt;define是
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/06/12/bootstrap%20%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%A0%B7%E5%BC%8F%E7%9A%84%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2017/06/12/bootstrap 使用过程中样式的总结/</id>
+    <published>2017-06-12T09:39:49.000Z</published>
+    <updated>2017-06-12T09:39:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="bootstrap-使用过程中样式的总结"><a href="#bootstrap-使用过程中样式的总结" class="headerlink" title="bootstrap 使用过程中样式的总结"></a>bootstrap 使用过程中样式的总结</h2><h3 id="container与container-fluid的区别"><a href="#container与container-fluid的区别" class="headerlink" title="container与container-fluid的区别"></a>container与container-fluid的区别</h3><pre><code>+ container
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;bootstrap-使用过程中样式的总结&quot;&gt;&lt;a href=&quot;#bootstrap-使用过程中样式的总结&quot; class=&quot;headerlink&quot; title=&quot;bootstrap 使用过程中样式的总结&quot;&gt;&lt;/a&gt;bootstrap 使用过程中样式的总结&lt;/h2&gt;&lt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>以HTML格式打开 *.Httl 或者*.Php文件</title>
@@ -895,234 +955,6 @@
     </summary>
     
       <category term="Node" scheme="http://yoursite.com/categories/Node/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>常用的JS文件上传与表单插件</title>
-    <link href="http://yoursite.com/2017/02/12/%E5%8D%9A%E5%AD%A6%E8%B0%B7%E9%A1%B9%E7%9B%AE%20%3C%E5%9B%9B%3E/"/>
-    <id>http://yoursite.com/2017/02/12/博学谷项目 &lt;四&gt;/</id>
-    <published>2017-02-12T04:39:04.000Z</published>
-    <updated>2017-04-12T03:29:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="常用的JS文件上传与表单插件"><a href="#常用的JS文件上传与表单插件" class="headerlink" title="常用的JS文件上传与表单插件"></a>常用的JS文件上传与表单插件</h1><h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><ul>
-<li>BFC（格式化上下文）：BFC盒子是独立布局的，盒子内元素的布局不会影响盒子外面的元素。在同一个BFC中两个相邻的盒子在垂直方向上会发生margin垂直内边距塌陷的问题；</li>
-<li>BFC是指浏览器中创建来了一个独立的渲染区域，该区域内所有元素的布局不会影响到区域外元素的布局，这个渲染区域支队块级元素起作用；</li>
-</ul>
-<h2 id="jS插件"><a href="#jS插件" class="headerlink" title="jS插件"></a>jS插件</h2><ul>
-<li>bootstrap</li>
-<li>jquery</li>
-<li>模块化开发：requirejs</li>
-<li>滚动下拉刷新，滚动加载：onscroll</li>
-<li>文件上传：uplodify</li>
-<li>表单提交：jquery form</li>
-<li>日期插件：bootstrap-detepicker</li>
-<li>表单验证 validate</li>
-<li>富文本编辑器 CKeditor</li>
-<li>图片裁切 Jcrop</li>
-<li>三级联动 jQuery-region</li>
-<li>模板引擎 artTemplate</li>
-<li>angular js</li>
-<li>vue</li>
-<li>react</li>
-<li>node js</li>
-<li>混合开发 ionic; react native</li>
-</ul>
-<h3 id="日期插件地址"><a href="#日期插件地址" class="headerlink" title="日期插件地址"></a>日期插件地址</h3><ul>
-<li><a href="https://github.com/uxsolutions/bootstrap-datepicker" target="_blank" rel="external">bootstrap-datepicker</a></li>
-</ul>
-<h3 id="表单验证插件"><a href="#表单验证插件" class="headerlink" title="表单验证插件"></a>表单验证插件</h3><ul>
-<li>地址： <a href="https://github.com/DiegoLopesLima/validate" target="_blank" rel="external">validate</a></li>
-<li>data-required 非空判断</li>
-<li>data-pattern 匹配正则</li>
-<li>data-description 提示信息</li>
-<li>data-describedby 指定提示信息的位置</li>
-<li>data-validate 指定自定义规则的属性</li>
-<li>data-conditional 自定义规则判断，值是一个规则判断函数 </li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;input name=<span class="string">'tc_join_date'</span> data-description=<span class="string">'joinDate'</span> data-describedby=<span class="string">'tcJoinDateInfo'</span> type=<span class="string">"text"</span> data-date-language=<span class="string">'zh-CN'</span> data-provide=<span class="string">'datepicker'</span> data-date-end-date=<span class="string">'0d'</span> data-date-format=<span class="string">'yyyy-mm-dd'</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control input-sm "</span> value=<span class="string">"&#123;&#123;tc_join_date&#125;&#125;"</span>&gt;</div><div class="line"></div><div class="line"> $(<span class="string">'#ajaxForm'</span>).validate(&#123;</div><div class="line">      <span class="attr">sendForm</span> : <span class="literal">false</span>,</div><div class="line">      <span class="attr">valid</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">          $(<span class="keyword">this</span>).ajaxSubmit(&#123;</div><div class="line">              <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line">              <span class="attr">url</span>:url,</div><div class="line">              <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">              <span class="attr">success</span>:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">                  <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                      location.href = <span class="string">'/teacher/teacher_list'</span></div><div class="line">                  &#125;</div><div class="line"></div><div class="line"></div><div class="line">              &#125;</div><div class="line">          &#125;)</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">description</span>:&#123;</div><div class="line">          <span class="attr">tcName</span>:&#123;</div><div class="line">              <span class="attr">required</span>:<span class="string">'用户名不能为空'</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">tcPass</span>:&#123;</div><div class="line">              <span class="attr">required</span>:<span class="string">'密码不能为空'</span>,</div><div class="line">              <span class="attr">pattern</span>:<span class="string">'只能是六位数字'</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">joinDate</span>:&#123;</div><div class="line">              <span class="attr">require</span>:<span class="string">'入职日期不能为空'</span></div><div class="line">          &#125;</div><div class="line"></div><div class="line">      &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
-<h3 id="表单提交插件"><a href="#表单提交插件" class="headerlink" title="表单提交插件"></a>表单提交插件</h3><ul>
-<li>地址：  </li>
-</ul>
-<ul>
-<li><a href="https://github.com/jquery-form/form" target="_blank" rel="external">form</a></li>
-<li>省略提交地址</li>
-<li>添加新数据</li>
-<li>处理回调函数  </li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#profileForm"</span>).validate(&#123;</div><div class="line">            <span class="attr">sendForm</span> : <span class="literal">false</span>,</div><div class="line">            <span class="attr">valid</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">                <span class="comment">//同步更新富文本内容变化</span></div><div class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> instance <span class="keyword">in</span> CKEDITOR.instances)&#123;</div><div class="line">                    CKEDITOR.instances[instance].updateElement();</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">var</span> p = $(<span class="string">'#p'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                <span class="keyword">var</span> c = $(<span class="string">'#c'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                <span class="keyword">var</span> d = $(<span class="string">'#d'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                <span class="keyword">var</span> hometown = p+<span class="string">'|'</span>+c+<span class="string">'|'</span>+d;</div><div class="line">                $(<span class="keyword">this</span>).ajaxSubmit(&#123;</div><div class="line">                    <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line"></div><div class="line">                    <span class="attr">url</span>:<span class="string">'/api/teacher/modify'</span>,</div><div class="line">                    <span class="attr">data</span>:&#123;<span class="attr">tc_hometown</span>:hometown&#125;,</div><div class="line">                    <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">                    <span class="attr">success</span>:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">                        <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                            <span class="built_in">console</span>.log(data);</div><div class="line">                            location.reload();</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;)</div></pre></td></tr></table></figure>
-<h3 id="uploadify基本使用"><a href="#uploadify基本使用" class="headerlink" title="uploadify基本使用"></a>uploadify基本使用</h3><ul>
-<li><a href="http://www.uploadify.com/" target="_blank" rel="external">uploadify</a></li>
-<li>fileObjName 文件名称</li>
-<li>buttonText 按钮文本</li>
-<li>buttonClass 按钮样式</li>
-<li>fileTypeExts 支持的扩展名</li>
-<li>fileSizeLimit 文件的大小限制</li>
-<li>uploader 上传的路径</li>
-<li>swf flash文件的位置</li>
-<li>onUploadSuccess 上传成功的回调函数</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#upfile'</span>).uploadify(&#123;</div><div class="line">            <span class="attr">width</span>:<span class="number">120</span>,</div><div class="line">            <span class="attr">height</span>:<span class="number">120</span>,</div><div class="line">            <span class="attr">buttonText</span>:<span class="string">""</span>,</div><div class="line">            <span class="attr">fileObjName</span>:<span class="string">'tc_avatar'</span>,</div><div class="line">            <span class="attr">swf</span>:<span class="string">'/public/assets/uploadify/uploadify.swf'</span>,</div><div class="line">            <span class="attr">uploader</span>:<span class="string">'/api/uploader/avatar'</span>,</div><div class="line">            <span class="attr">onUploadSuccess</span>:<span class="function"><span class="keyword">function</span> (<span class="params">file,data</span>) </span>&#123;</div><div class="line">                <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(data);</div><div class="line">                $(<span class="string">'.preview img'</span>).attr(<span class="string">'src'</span>,data.result.path);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
-<h3 id="php文件上传处理"><a href="#php文件上传处理" class="headerlink" title="php文件上传处理"></a>php文件上传处理</h3><ul>
-<li>$_FILES 用来获取上传的文件（具体包含了一些参数）</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Array</span></div><div class="line">(</div><div class="line">    [picture] =&gt; <span class="keyword">Array</span></div><div class="line">        (</div><div class="line">            [name] =&gt; abc.png  文件的名称</div><div class="line">            [type] =&gt; application/octet-stream  文件的传输格式</div><div class="line">            [tmp_name] =&gt; D:\wamp\tmp\phpDE88.tmp  服务器临时文件路径</div><div class="line">            [error] =&gt; <span class="number">0</span> 错误代码</div><div class="line">            [size] =&gt; <span class="number">1792</span> 文件大小</div><div class="line">        )</div><div class="line">)</div></pre></td></tr></table></figure>
-<ul>
-<li>move_uploaded_file 移动文件</li>
-</ul>
-<h3 id="背景图片截图插件"><a href="#背景图片截图插件" class="headerlink" title="背景图片截图插件"></a>背景图片截图插件</h3><ul>
-<li>Jcrop</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> picture = $(<span class="string">'.preview img'</span>),jcrop_api;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cropPic</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    jcrop_api&amp;&amp;jcrop_api.destroy();</div><div class="line">    picture.Jcrop(&#123;</div><div class="line">        <span class="comment">// bgColor:'pink',//设置选取的背景颜色</span></div><div class="line">        acpectRatio:<span class="number">2</span>,<span class="comment">//设置宽高比</span></div><div class="line">        keySupport:<span class="literal">true</span>,<span class="comment">//支持键盘控制</span></div><div class="line">        boxWidth:<span class="number">400</span>,<span class="comment">//设置背景图片,即画布的宽高</span></div><div class="line">        <span class="comment">//boxHeight:400,</span></div><div class="line">    &#125;,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">//回调函数</span></div><div class="line">        picture_api = <span class="keyword">this</span>;</div><div class="line">        <span class="comment">//获取画布的宽度和高度;</span></div><div class="line">        <span class="keyword">var</span> width = <span class="keyword">this</span>.ui.stage.width,</div><div class="line">            height = <span class="keyword">this</span>.ui.stage.height,</div><div class="line">            x = <span class="number">0</span>,</div><div class="line">            y = height/<span class="number">4</span>;</div><div class="line">        <span class="comment">//console.log(height);</span></div><div class="line">        picture_api.newSelection();</div><div class="line">        <span class="comment">//设置图片加载完成后,选框自动选中的位置</span></div><div class="line">        <span class="comment">//picture_api.setSelect([x,y,width,height/2]);</span></div><div class="line">        picture_api.animateTo([x,y,width,height/<span class="number">2</span>]);</div><div class="line">        <span class="comment">//获取截取图片的x,y,w,h;</span></div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
-<h3 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h3><ul>
-<li><a href="http://ueditor.baidu.com/website/" target="_blank" rel="external">ueditor</a></li>
-<li><a href="http://ckeditor.com/" target="_blank" rel="external">ckeditor</a></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;textarea id=<span class="string">'text'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span></div><div class="line"><span class="comment">//加载富文本</span></div><div class="line">        CKEDITOR.replace(<span class="string">'ckeditor'</span>, &#123;</div><div class="line">            <span class="comment">//toolbarGroups:[]</span></div><div class="line">        &#125;);</div><div class="line">        <span class="comment">//同步更新富文本内容变化</span></div><div class="line">           <span class="keyword">for</span>(<span class="keyword">var</span> instance <span class="keyword">in</span> CKEDITOR.instances)&#123;</div><div class="line">               CKEDITOR.instances[instance].updateElement();</div><div class="line">           &#125;</div></pre></td></tr></table></figure>
-<h3 id="三级联动"><a href="#三级联动" class="headerlink" title="三级联动"></a>三级联动</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div class='region'&gt;</div><div class="line">    &lt;select name="tc_province" id='p' data-id=&#123;&#123;tc_province&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">                &lt;option &gt;请选择省&lt;/option&gt;</div><div class="line"></div><div class="line">  &lt;/select&gt;</div><div class="line">  &lt;select name="tc_city" id='c' data-id=&#123;&#123;tc_city&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">      &lt;option &gt;请选择市&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">  &lt;select name="tc_district" id='d' data-id=&#123;&#123;tc_district&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">      &lt;option &gt;请选择区县&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">    //三级联动,加载数据</div><div class="line">$('.region').region(&#123;</div><div class="line">    url:'../lib/jquery-region/region.json'</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h2 id="编程理论基础"><a href="#编程理论基础" class="headerlink" title="编程理论基础"></a>编程理论基础</h2><ul>
-<li>服务器</li>
-<li>项目开发流程</li>
-<li>编程，逻辑思维</li>
-<li>模块化（nodejs/fis/webpack）</li>
-<li>路径</li>
-<li>路由</li>
-<li>数据库</li>
-<li>协议（网络通信）</li>
-<li>网站（静态网站和动态网站）</li>
-<li>后台接口</li>
-<li>前端渲染和后台渲染</li>
-</ul>
-<h2 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h2><ul>
-<li><p>原生的绑定事件会发生覆盖</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>jquery的绑定事件都是会叠加</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#btn'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div><div class="line">$(<span class="string">'#btn'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>location.search</code>得到的是URL地址中所有的参数<code>?tc_id=3&amp;username=12</code>;</p>
-</li>
-</ul>
-<ul>
-<li><p>可以通过<code>location</code>来获取地址栏中所携带的所有信息；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pathname = location.search;</div><div class="line"><span class="keyword">var</span> pcname = pathname.sclice(<span class="number">1</span>); <span class="comment">//将？截取掉</span></div><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> arr = pcname.split(<span class="string">'&amp;'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</div><div class="line">    <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">    obj[kv[<span class="number">0</span>]]=kv[<span class="number">1</span>];</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">    <span class="comment">//将URL中的参数和值以键值对的形式放到obj中；</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>PHP中，将数组以json对象的形式输出： <code>json_encode($arr)</code>；</li>
-</ul>
-<h2 id="表单验证插件-1"><a href="#表单验证插件-1" class="headerlink" title="表单验证插件"></a>表单验证插件</h2><ul>
-<li>form表单中，不写提交地址，默认提交到当前页面，地址栏中；</li>
-<li><code>jquery-validate</code>表单验证的插件；</li>
-<li><code>jquery-form</code>表单提交的插件 <code>$(&#39;form&#39;).ajaxSubmit({ })</code></li>
-<li>文件上传插件 <code>webupload</code>和<code>uploadify</code></li>
-</ul>
-<p>你都做过什么，遇到什么问题，你是怎么解决的；<br>nodejs是怎么用的；</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;常用的JS文件上传与表单插件&quot;&gt;&lt;a href=&quot;#常用的JS文件上传与表单插件&quot; class=&quot;headerlink&quot; title=&quot;常用的JS文件上传与表单插件&quot;&gt;&lt;/a&gt;常用的JS文件上传与表单插件&lt;/h1&gt;&lt;h2 id=&quot;BFC&quot;&gt;&lt;a href=&quot;#BF
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>前端发送请求的方式</title>
-    <link href="http://yoursite.com/2017/02/12/%E5%8D%9A%E5%AD%A6%E8%B0%B7%E9%A1%B9%E7%9B%AE%20%3C%E4%BA%8C%3E/"/>
-    <id>http://yoursite.com/2017/02/12/博学谷项目 &lt;二&gt;/</id>
-    <published>2017-02-12T02:39:04.000Z</published>
-    <updated>2017-04-12T02:51:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="域名解析系统"><a href="#域名解析系统" class="headerlink" title="域名解析系统"></a>域名解析系统</h2><ul>
-<li>先去本机的host的文件查找对应的IP,如果在本机host文件中找到,就返回对应的IP;如果没有的话,就去公网查找,公网没有的话就无法上网;</li>
-</ul>
-<h2 id="前端发送请求的方式"><a href="#前端发送请求的方式" class="headerlink" title="前端发送请求的方式"></a>前端发送请求的方式</h2><ul>
-<li>地址栏直接输入URL</li>
-<li>表单的action属性</li>
-<li>a标签的href属性;link的href</li>
-<li>src属性:img的src;script的src; iframe的src</li>
-<li>ajax发送请求</li>
-<li>postMessage H5新的API</li>
-<li>flash插件</li>
-<li>location.href<ol>
-<li>补充:URL的规范格式 scheme://host:port /path?query#frament;</li>
-</ol>
-<ul>
-<li>scheme 表示协议 http https ftp file ssh;</li>
-<li>host 表示域名或者IP地址;</li>
-<li>port 端口;用来确定计算机上某个网络应用程序;</li>
-<li>path 路径;域名之后,参数(?)之前的内容:/abc/qqq等</li>
-<li>query 查询字符串;作用,向服务器传递参数数据;格式:键=值&amp;键=值</li>
-<li>frament: hash 锚点,定位页面的某一部分;结合ID;</li>
-</ul>
-</li>
-</ul>
-<h2 id="路径问题"><a href="#路径问题" class="headerlink" title="路径问题"></a>路径问题</h2><ul>
-<li>绝对路径 / 等效于直接写IP地址<a href="http://localhost" target="_blank" rel="external">http://localhost</a></li>
-<li>相对路径:  ./代表当前路径 ../代表上层路径</li>
-<li>跳转到根路径<code>&lt;a href=&quot;/tom.html&quot;&gt;</code></li>
-</ul>
-<h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><ul>
-<li>cookie写入之后,只要是访问同一个网站,都会带着cookie进行访问;</li>
-<li>在PHP中session start();开启session会话;让服务器知道曾经来过,保存访问状态;SESSID</li>
-<li>session是服务端的,客户端向服务端发送SESSID,进行服务器与客户端的关联,服务器返回该用户的信息;</li>
-<li>SESSID可以保持客户端与服务器之间的联系状态;实现不同页面间的数据共享</li>
-</ul>
-<h2 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h2><ul>
-<li><p>jsonp</p>
-<ul>
-<li>jsonp返回的数据应该是函数的调用<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ecName = $_GET[<span class="string">'callback'</span>];<span class="comment">//获取到函数名;</span></div><div class="line">echo $ecName.<span class="string">"("</span>data.<span class="string">")"</span>;<span class="comment">//返回函数的调用;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>cors 配置服务器,</p>
-</li>
-<li>反向代理 其原理类似于CORS</li>
-<li>flash插件,但是现在已经很少用了;</li>
-</ul>
-<h2 id="PHP-相关问题"><a href="#PHP-相关问题" class="headerlink" title="PHP 相关问题"></a>PHP 相关问题</h2><ul>
-<li>PHP既可以做前端页面渲染,也可以单独作为接口返回数据;</li>
-<li>&lt;?php include()?&gt;(PHP中导入页面)<br><code>count($arr == 2)</code> 等同于js中<code>arr.length == 2</code>;</li>
-</ul>
-<h2 id="模块化规范"><a href="#模块化规范" class="headerlink" title="模块化规范"></a>模块化规范</h2><ul>
-<li>浏览器端的规范：<ol>
-<li>AMD：requirejs</li>
-<li>CMD:seajs （淘宝的技术）</li>
-<li>commonjs - nodejs 同步加载，后端的奇数</li>
-</ol>
-</li>
-<li>服务器端的规范<ol>
-<li>commonjs:nodejs </li>
-</ol>
-</li>
-</ul>
-<h2 id="requirejs使用"><a href="#requirejs使用" class="headerlink" title="requirejs使用"></a>requirejs使用</h2><ol>
-<li>解决了命名冲突 （不同模块中的相同变量不会冲突）</li>
-<li>解决了文件依赖问题</li>
-<li>如果requirejs加载的时候，指定了data-main属性，那么根路径就变成了入口文件所处的路径;<ol>
-<li>不使用data-main的时候，在通过require加载文件时可以直接使用相对路径；</li>
-<li>但是在使用data-main的同时，再使用require加载其他模块文件，文件的根路径发生了改变，此时可以重新定义默认的根路径；</li>
-<li>requirejs处理非模块化文件</li>
-</ol>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> &lt;script src=<span class="string">'require.js'</span> data-main=<span class="string">'main.js'</span> &gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"> &lt;script&gt;</div><div class="line">     <span class="comment">//加载文件，通过data-main的路径进行定位</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'./m4'</span>]);</div><div class="line">     <span class="comment">//或者重新设置默认的根路径</span></div><div class="line">     <span class="built_in">require</span>.config(&#123;</div><div class="line">         <span class="attr">baseUrl</span>:<span class="string">'./js/'</span></div><div class="line">     &#125;);</div><div class="line">     <span class="comment">//相对于根路径的路径</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'/module/m4'</span>]);</div><div class="line">      <span class="comment">//将abc文件中foo的非模块化文件到处成为模块化文件</span></div><div class="line">    shim:&#123;</div><div class="line">        <span class="string">'../abc'</span>:&#123;</div><div class="line">         <span class="comment">//给模块起一个别名；如果自定义模块起了一个名字，在用的时候必须与那个名字保持一致；</span></div><div class="line">            exports:<span class="string">'foo'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">          paths:&#123;</div><div class="line">         <span class="attr">ggg</span>:<span class="string">"js/jquery"</span>;</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;域名解析系统&quot;&gt;&lt;a href=&quot;#域名解析系统&quot; class=&quot;headerlink&quot; title=&quot;域名解析系统&quot;&gt;&lt;/a&gt;域名解析系统&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;先去本机的host的文件查找对应的IP,如果在本机host文件中找到,就返回对应的IP;如果没有
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
   </entry>

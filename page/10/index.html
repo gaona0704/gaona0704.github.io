@@ -272,6 +272,443 @@
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/25/ Angualar 过滤器、依赖注入等/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/25/ Angualar 过滤器、依赖注入等/" itemprop="url">
+                  Angualar 过滤器、依赖注入等
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-25T12:39:04+08:00">
+                2016-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Angualar-过滤器、依赖注入等"><a href="#Angualar-过滤器、依赖注入等" class="headerlink" title="Angualar 过滤器、依赖注入等"></a>Angualar 过滤器、依赖注入等</h1><h2 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h2><ul>
+<li>触发脏值检测 <code>scope.$digest()</code>;监听视图中的数据改变；ng-click事件内部中自动封装了这个检测，也可以手动添加；</li>
+<li>form 表单有默认的submit事件，通过回车就可以触发；。form中如果有action，那么在submit之后，action也会重新发送一次请求，会刷新页面，所以，当使用submit提交数据时，可以将默认的action删除；</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">   <span class="tag">&lt;<span class="name">form</span> <span class="attr">ng-submit</span>=<span class="string">'show()'</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>todos<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"new-todo"</span> <span class="attr">ng-model</span>=<span class="string">'msg'</span> <span class="attr">placeholder</span>=<span class="string">"What needs to be done?"</span> <span class="attr">autofocus</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">//angularJS通过ng-model将V与M进行绑定；</div><div class="line">//所以input中的value值就等于$scope.msg; 所以实际上$scope.msg = $('input').val();只不过这一步是AngularJS内部做的；</div><div class="line">//所以`$scope.msg=""`就直接将input的val值置空了；</div></pre></td></tr></table></figure>
+<ul>
+<li>AngularJS 遍历，获取当前元素的index值</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"todo-list"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"item in tabs "</span>&gt;</span>//item可以获取当前元素</div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"view"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">ng-click</span>=<span class="string">"change($index)"</span> <span class="attr">class</span>=<span class="string">"toggle"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span>&gt;</span> //$index 代表当前元素所对应的index值</div><div class="line">				<span class="tag">&lt;<span class="name">label</span>&gt;</span>《item.tab》<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">button</span>  <span class="attr">class</span>=<span class="string">"destroy"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>在angular中，涉及到通过判断而决定某个样式显示或隐藏时，尽量通过 ng-class=”{attr:flag}”来决定，不用再在js中进行if判断了；</li>
+</ul>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><ul>
+<li>根作用于  <code>ng-app=&quot;App&quot;</code>所处的作用域</li>
+</ul>
+<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><ul>
+<li>在AngularJS中使用过滤器格式化展示数据，在“《》”中使用”|”来调用过滤器，使用“：”传递参数；</li>
+<li>价格过滤器 <code>《price|currency:&#39;￥&#39;：1》</code>;冒号后面是传参数，多个参数多个冒号链接，：1表示表刘一个小数；</li>
+<li>时间过滤器 <code>《now | date:&quot;yyyy-MM-dd hh:mm:ss&quot;》</code></li>
+<li>控制排序方向 <code>《list | orderBy:&quot;score&quot;:&quot;true&quot;》</code>  true为反向排序，false为正向排序，默认为false；</li>
+<li>常用内置过滤器</li>
+<li><img src="media/14904890310833/14905800642259.jpg" alt=""></li>
+</ul>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><ul>
+<li>采用 ‘注入’ 的方式可以解决开发过程中的依赖的关系，成为依赖注入；</li>
+<li>一般 注入是通过 ‘参数’ 的形式实现的；</li>
+<li><code>$http</code> 同 <code>$scope</code> 一样，也是AngularJS内置的功能。可以提供发送异步请求的功能；</li>
+</ul>
+<h2 id="服务（重点）"><a href="#服务（重点）" class="headerlink" title="服务（重点）"></a>服务（重点）</h2><ul>
+<li><code>$</code>AngularJS内置的服务；<code>ng-</code> AngularJS 内置的指令；</li>
+<li>常见的内置服务：需要在依赖中写入，然后才可以使用<ul>
+<li>$scope</li>
+<li>$interval</li>
+<li>$timeout</li>
+<li>$log</li>
+<li>$http</li>
+</ul>
+</li>
+</ul>
+<h3 id="log-服务-调试信息的输出"><a href="#log-服务-调试信息的输出" class="headerlink" title="$log 服务 调试信息的输出"></a>$log 服务 调试信息的输出</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$log.error(<span class="string">'这是一个错误'</span>);</div><div class="line">$log.warn(<span class="string">'这个一个警告'</span>);</div><div class="line">$log.log(<span class="string">'这是一个console.log'</span>);</div><div class="line">$log.debug(<span class="string">'这是一个调试'</span>);</div><div class="line">$log.info(<span class="string">'这是一个普通内容'</span>);</div></pre></td></tr></table></figure>
+<h3 id="timeout和-interval"><a href="#timeout和-interval" class="headerlink" title="$timeout和 $interval"></a><code>$timeout</code>和 <code>$interval</code></h3><ul>
+<li>$timeout 服务，延时显示数据，$interval 服务：计时器</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> App.controller(<span class="string">'DemoCtrl'</span>,[<span class="string">'$timeout'</span>,<span class="string">'$log'</span>,<span class="string">'$interval'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">$timeout,$log,$interval</span>) </span>&#123;</div><div class="line">    <span class="comment">//$timeout是一个函数</span></div><div class="line">    <span class="comment">//延时3秒后显示内容;</span></div><div class="line">    $timeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        $log.info(<span class="string">'我哈哈哈,我等了3秒'</span>)</div><div class="line">    &#125;,<span class="number">3000</span>);</div><div class="line"></div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">    $interval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        $log.info(i++);</div><div class="line">    &#125;,<span class="number">1000</span>)</div><div class="line">&#125;])</div></pre></td></tr></table></figure>
+<h3 id="http-专门发起异步请求"><a href="#http-专门发起异步请求" class="headerlink" title="$http 专门发起异步请求"></a>$http 专门发起异步请求</h3><ul>
+<li>2、在PHP中 $_POST 是专门接收 formData格式数据的，即“Content-Type:application/x-www-form-urlencoded”;  但是不能接收 Content-Type：application/json; </li>
+<li>3、当headers为“Content-Type:application/x-www-form-urlencoded”时，上传的data格式为 <code>data:&quot;name=itcast&amp;age=11&quot;</code>; </li>
+<li>4、当headers为<code>“Content-Type:application/json”</code>时，传递的参数格式为：<code>data:{&quot;name&quot;:&quot;itcast&quot;,&quot;name&quot;:18}</code>;</li>
+</ul>
+<h4 id="AngularJS-http总结"><a href="#AngularJS-http总结" class="headerlink" title="AngularJS $http总结"></a>AngularJS $http总结</h4><ol>
+<li>$http发送请求的方式有3种：method：“get”/“post”/‘jsonp’;</li>
+<li>参数的传递方式为：params:</li>
+</ol>
+<h5 id="get方式请求"><a href="#get方式请求" class="headerlink" title="get方式请求"></a>get方式请求</h5><ul>
+<li>“get”方式发送请求时，正常发送；参数以params:{name:’lisi’,age:18}发送;<ul>
+<li>不管以什么方式传递参数，内部都会转换成 ？name=lisi&amp;age=18的形式</li>
+<li>在PHP中将传入的参数以json对象的形式输出</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">    $http(&#123;</div><div class="line">      <span class="attr">url</span>:<span class="string">'./example.php'</span>,</div><div class="line">      <span class="attr">method</span>:<span class="string">'get'</span>,</div><div class="line">      <span class="attr">params</span>:&#123;<span class="attr">name</span>:<span class="string">'lisi'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;,</div><div class="line">      </div><div class="line">  &#125;).success(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(data);</div><div class="line">  &#125;)</div><div class="line"><span class="comment">//在PHP中代码：</span></div><div class="line">$name = $_GET[<span class="string">'name'</span>];</div><div class="line">$age = $_GET[<span class="string">'age'</span>];</div><div class="line">$array = [<span class="string">'name'</span>=&gt;$name,<span class="string">'age'</span>=&gt;$age];</div><div class="line"><span class="comment">//var_dump($array);</span></div><div class="line"><span class="comment">//将传递的参数放到数组中,并将数组转换成json对象格式进行输出;</span></div><div class="line">echo json_encode($array);</div><div class="line"><span class="comment">//结果为：&#123;name: "lisi", age: "18"&#125;</span></div></pre></td></tr></table></figure>
+<h5 id="post方式请求"><a href="#post方式请求" class="headerlink" title="post方式请求"></a>post方式请求</h5><ul>
+<li><p>“post”请求，需要注意两点</p>
+<ol>
+<li>设置请求头：headers:“Content-Type:application/x-www-form-urlencoded”；</li>
+<li><p>参数以data传递form data，data：“name=lisi&amp;age=17”；请求头与参数必须保持一致；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//post请求</span></div><div class="line">$http(&#123;</div><div class="line">    <span class="attr">url</span>: <span class="string">'./example.php'</span>,</div><div class="line">    <span class="attr">method</span>: <span class="string">'post'</span>,</div><div class="line">    <span class="attr">data</span>: <span class="string">'name=lisi&amp;age=17'</span>,</div><div class="line">    <span class="attr">headers</span>: &#123;</div><div class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded'</span></div><div class="line">    &#125;</div><div class="line">&#125;).success(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h5 id="JSONP-的原理"><a href="#JSONP-的原理" class="headerlink" title="JSONP 的原理"></a>JSONP 的原理</h5><blockquote>
+<p>前端传递一个实现定义好的函数名，给服务端，然后服务端接收这个函数名并拼凑一个“（）”，并返回，前端就接收到了 这个函数的调用；<br>在jQuery中，我们不写callback的明细，ajax会自动帮我们生成一个，jQuery+序列号+时间戳等；但是在angularJS中，他们有帮我们封装，所以必须手动加上；</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$http(&#123;</div><div class="line">        <span class="attr">url</span>:<span class="string">'./example.php'</span>,</div><div class="line">        <span class="attr">method</span>:<span class="string">'jsonp'</span>,</div><div class="line">        <span class="attr">params</span>:&#123;</div><div class="line">            <span class="comment">//callback必须用'JSON_CALLBACK'进行占位，后端返回回调函数：angular.callbacks._0(lisi)；这个回调函数的结果就是success时的data数据；</span></div><div class="line">            callback:<span class="string">'JSON_CALLBACK'</span>,</div><div class="line">            <span class="attr">name</span>:<span class="string">'lisi'</span>,</div><div class="line">            <span class="attr">age</span>:<span class="number">17</span></div><div class="line">        &#125;</div><div class="line">    &#125;).success(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/10/Angular入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/10/Angular入门/" itemprop="url">
+                  Angular入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-10T12:39:04+08:00">
+                2016-11-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/angular/" itemprop="url" rel="index">
+                    <span itemprop="name">angular</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="angular入门"><a href="#angular入门" class="headerlink" title="angular入门"></a>angular入门</h1><h2 id="angular简介"><a href="#angular简介" class="headerlink" title="angular简介"></a>angular简介</h2><ul>
+<li>angular是一个框架，诸多类库的集合，以数据和逻辑为核心；</li>
+</ul>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><ul>
+<li>modal-view-controller 模型-视图-控制器</li>
+<li>模型：服务端专门处理后台传入的数据；一般指操作数据库</li>
+<li>控制器：将服务端处理好的数据传给前端； 连接模型和视图的桥梁；</li>
+<li>视图：将内容、数据呈现给；HTML展示</li>
+<li>使用mvc框架，会更高效，易于管理和高效</li>
+</ul>
+<h2 id="AngularJS应用"><a href="#AngularJS应用" class="headerlink" title="AngularJS应用"></a>AngularJS应用</h2><ul>
+<li>在任意DOM元素上使用一个属性 ng-app,就可以定义一个AngularJS的应用；</li>
+<li>ng-app属性所有的DOM元素所包含的所有子元素都属于应用的一部分；</li>
+<li>引用了angular框架下，会引入一个全局对象，angular；</li>
+<li>在此对象下有若干对象，其中angular.module()可以实例化一个对象；</li>
+<li><code>angular.module(&#39;App&#39;,[])</code>两个参数：<ul>
+<li>1：模块化名称</li>
+<li>2：依赖;[]暂时不依赖任何对象</li>
+</ul>
+</li>
+<li>控制器<code>App.controller()</code>两个参数<ul>
+<li>1：名称</li>
+<li>2：依赖;<ul>
+<li>关于依赖，依赖的数组里，最后一个单元必须是一个函数 </li>
+<li><code>App.controller(&#39;DemoCtrl&#39;,[’$scope‘,function($scope){}])</code></li>
+</ul>
+</li>
+<li>$scope 就是我们所需要的 M；</li>
+</ul>
+</li>
+</ul>
+<h3 id="angular的内置指令"><a href="#angular的内置指令" class="headerlink" title="angular的内置指令"></a>angular的内置指令</h3><ul>
+<li>ng-show 是通过 display：none 和 display：block来决定显示和隐藏的</li>
+<li>ng-if 如果ng-if=’false’,那么在HTML中就没有了这个DOM节点了；</li>
+<li>ng-class 值得类型可以是对象，并且此对象的属性是真是存在的类样式，属性值决定了此属性是否应用，true为应用，false不应用 <code>ng-class={box:true,red:true}</code>为应用box这个类样式</li>
+<li><code>ng-include = “&#39;aside.html&#39;”</code>;需要将aside.html用’’包裹起来的；<ul>
+<li>浏览器端 JS不能够读取本地文件，因为浏览器JS是运行在客户端的，出于安全考虑，是不允许读取用户磁盘文件的； </li>
+<li>ng-include是通过ajax发出请求，得到数据的；</li>
+</ul>
+</li>
+<li>表单禁用 <code>disabled</code>,只要属性存在，不管是什么值，都表示禁用<ul>
+<li><code>input type=&#39;text&#39; disabled 或者disabled=&#39;&#39;true/false</code> ；只要存在都是禁用</li>
+<li>在angular中，<code>ng-disabled = &#39;true&#39;表单禁用</code>；<code>ng-disabled = &#39;false&#39;表单应用</code></li>
+</ul>
+</li>
+<li>无值属性:都可以进行设置属性值；<ul>
+<li>ng-disabled</li>
+<li>ng-readonly</li>
+<li>ng-checked</li>
+<li>ng-selected </li>
+</ul>
+</li>
+<li>ng-src 和 ng-href ;如果在HTML中直接写src=《path》，虽然在解析完成后地址会加载，但是会先报错；</li>
+</ul>
+<h3 id="Angular自定义指令"><a href="#Angular自定义指令" class="headerlink" title="Angular自定义指令"></a>Angular自定义指令</h3><ul>
+<li>angular是一个模块实例</li>
+<li>.controller()来定义一个模块</li>
+<li>.directive()来自定义属性；</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;p cls&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div><div class="line"><span class="comment">//自定义指令结构</span></div><div class="line">App.directive(<span class="string">'cls'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//return 回来是一个对象或者是函数，通常情况下都是对象</span></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="comment">//E : element DOM元素</span></div><div class="line">        <span class="comment">//C: class</span></div><div class="line">        <span class="comment">//M: mark:注释</span></div><div class="line">        <span class="comment">//A:attribute 属性</span></div><div class="line">        restrict:<span class="string">"A"</span>,</div><div class="line">        <span class="attr">replace</span>:<span class="string">"true"</span>,<span class="comment">//模板中的标签会将HTML中的标签进行替换</span></div><div class="line">        template:<span class="string">"&lt;h1&gt;这是通过自定义指令添加的内容&lt;/h1&gt;"</span>，</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="AngualrJS-双向数据绑定"><a href="#AngualrJS-双向数据绑定" class="headerlink" title="AngualrJS 双向数据绑定"></a>AngualrJS 双向数据绑定</h3><ul>
+<li>通过表单元素添加 ng-model 属性；</li>
+<li>ng-bind</li>
+<li><p>花括号(使用《》代替)</p>
+<ul>
+<li>《》是ng-bind的简写</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">'name'</span>&gt;<span class="comment">//input可以直接获取module中的$scope.name的值</span></div><div class="line">&lt;h1 ng-bind=<span class="string">'name'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">&lt;h2&gt;《name》&lt;<span class="regexp">/h2&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>只有表单元素才可以从视图向模型传送数据</p>
+</li>
+</ul>
+<h3 id="AngularJS数据处理"><a href="#AngularJS数据处理" class="headerlink" title="AngularJS数据处理"></a>AngularJS数据处理</h3><ul>
+<li><code>ng-switch = &quot;item&quot;</code> === <code>ng-switch on = &quot;item&quot;</code></li>
+<li>闪烁问题处理，可以添加 ng-cloak指令 <code>&lt;h1 ng-cloak&gt;《name》&lt;/h1&gt;</code>;</li>
+<li>angular 的遍历</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;li ng-repeat='item in lists'&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</div><div class="line">//或者是</div><div class="line">&lt;li ng-repeat='item in lists'&gt;</div><div class="line">    &lt;span ng-bind='item'&gt;&lt;/span&gt;</div><div class="line">&lt;/li&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/03/ canvas 基本用法总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -486,368 +923,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/19/Git 使用总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/19/Git 使用总结/" itemprop="url">
-                  Git 使用总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-19T12:39:04+08:00">
-                2016-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="git-使用总结"><a href="#git-使用总结" class="headerlink" title="git 使用总结"></a>git 使用总结</h1><h1 id="git的两种工作流程"><a href="#git的两种工作流程" class="headerlink" title="git的两种工作流程"></a>git的两种工作流程</h1><ol>
-<li>下载代码,在下载代码的基础上做开发,然后提交</li>
-<li>或者git init 生成一个仓库,在这个生成的基础上添加代码,再推到主仓库上<h1 id="lt-lt-移位运算"><a href="#lt-lt-移位运算" class="headerlink" title="&lt;&lt; 移位运算"></a><code>&lt;&lt;</code> 移位运算</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line"><span class="built_in">console</span>.log(a &lt;&lt; <span class="number">2</span>);</div><div class="line"><span class="comment">//向左移动两位,乘以2^2,结果就是2*4 = 8;</span></div><div class="line"><span class="comment">//向右移动1位除以2,a&gt;&gt;1,结果就是2/2 = 1;</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="创建共享仓库"><a href="#创建共享仓库" class="headerlink" title="创建共享仓库"></a>创建共享仓库</h2><ul>
-<li>共享仓库的必须以<code>.git</code> 结尾;<code>demo.git</code></li>
-<li><code>git init --bare</code> 创建一个共享仓库</li>
-<li><code>git pull 远程仓库的地址 远程分支:本地分支</code>或者<code>git clone 远程仓库的地址 文件名称</code>下载代码</li>
-<li><code>git push 远程仓库的地址 本地分支:远程分支</code>  推送代码<blockquote>
-<p> git pull = git fetch + git merge</p>
-</blockquote>
-</li>
-<li><code>git fetch</code>远程获取代码,但是不合并代码</li>
-<li><code>git merge</code> 通过fetch过来的代码可以通过merge命令进行合并;</li>
-</ul>
-<h2 id="查看分支和修改分支名称"><a href="#查看分支和修改分支名称" class="headerlink" title="查看分支和修改分支名称"></a>查看分支和修改分支名称</h2><ul>
-<li><code>git remote</code>查看远程仓库的别名  没有就用下一条创建</li>
-<li><code>git remote add 别名名称(origin) 仓库地址(root@180.76.188.62:/root/demo.git)</code> 添加远程仓库的别名</li>
-<li><code>git branch -r</code>查看远程分支</li>
-<li><code>git branch</code>查看本地分支</li>
-<li><code>git branch abc</code>添加名为abc的分枝</li>
-<li><code>git checkout abc</code>将编辑状态切换到分枝abc上</li>
-<li><code>git remote show origin</code>查看远程仓库别名的具体地址</li>
-</ul>
-<h2 id="git-pull-和-git-clone-的主要区别"><a href="#git-pull-和-git-clone-的主要区别" class="headerlink" title="git pull 和 git clone 的主要区别"></a>git pull 和 git clone 的主要区别</h2><ul>
-<li>1:<code>git clone</code>的项目户自动建立 <code>origin</code>远程仓库地址的别名,自动创建了关联,再更新代码时直接<code>git pull</code>就可以拉下来代码;</li>
-<li>2:<code>git pull</code>拉下来的代码,如果需要建立跟踪分支,需要执行<code>git branch --set-upstream -to==origin/master master</code>;<code>origin/master</code>表示远程分支;<code>master</code>表示本地分支</li>
-</ul>
-<h1 id="git使用总结"><a href="#git使用总结" class="headerlink" title="git使用总结"></a>git使用总结</h1><h2 id="已经存在的项目"><a href="#已经存在的项目" class="headerlink" title="已经存在的项目"></a>已经存在的项目</h2><ul>
-<li>管理员分配git账号; 或者 生成自己的公钥和私钥,提交各管理员,授予权限;</li>
-<li><code>git clone 仓库地址</code>下载代码,进行操作<h2 id="新项目"><a href="#新项目" class="headerlink" title="新项目"></a>新项目</h2></li>
-<li>在github上创建一个空仓库;</li>
-<li>在自己本地<code>git clone git@(仓库地址)</code>直接生成git文件;</li>
-<li>编辑代码,</li>
-<li><code>git add test.html</code>添加到暂存区</li>
-<li><code>git commit -m &quot;&quot;</code>添加到本地仓库</li>
-<li><code>git push origin master</code>推送到网上仓库成功 <h2 id="新项目第二种更新方式"><a href="#新项目第二种更新方式" class="headerlink" title="新项目第二种更新方式"></a>新项目第二种更新方式</h2></li>
-<li>在本地建立文件夹,<code>git init</code>,编辑内容</li>
-<li><code>git add</code></li>
-<li><code>git commit -m &quot;&quot;</code></li>
-<li><code>git remote add origin git@github等地址</code>将本地仓库与网上仓库建立连接和跟踪; </li>
-<li><code>git push -u origin master</code>本地代码推送上去(-u与当前的别名进行关联)</li>
-<li><code>git pull</code>以后就直接使用这个命令更新本地仓库的代码</li>
-<li><code>git push</code>直接推送代码,更新就可以了;<h1 id="git分支管理"><a href="#git分支管理" class="headerlink" title="git分支管理"></a>git分支管理</h1></li>
-</ul>
-<ol>
-<li><code>git clone</code>克隆代码</li>
-<li><code>git checkout -b buy</code>创建并切换分支，</li>
-<li>操作分支</li>
-<li><code>git checkout master</code>切换到主分支</li>
-<li>创建另一个新分支bugfix,编辑,编辑之后再次切换到主分支;</li>
-</ol>
-<ul>
-<li><code>git checkout -d bugfix</code>删除bugfix分支;删除的是本地分支</li>
-<li>删除远程分支<code>git push origin --delete</code> </li>
-</ul>
-<ol>
-<li><code>git merge bugfix</code>;</li>
-<li><code>git merge buy</code><h1 id="git-stash-缓存代码"><a href="#git-stash-缓存代码" class="headerlink" title="git stash 缓存代码"></a>git stash 缓存代码</h1></li>
-</ol>
-<ul>
-<li>使用<code>git stash</code>可以将正在进行中的环境保存起来;master分支将会恢复到修改之前的状态;等紧急操作做完之后,</li>
-<li>使用<code>git stash pop</code>取出之前保存的操作;继续编辑</li>
-</ul>
-<h2 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h2><ul>
-<li>git diff<br> 此命令比较的是工作目录(workingtree)和暂存区快照(index)之间的差异。也就是修改之后，还没有暂存起来的变化内容</li>
-<li>git diff –cached</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/12/Mac 本地安装 gulp 遇到的坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/12/Mac 本地安装 gulp 遇到的坑/" itemprop="url">
-                  Mac 中 Gulp 的本地安装
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-12T12:39:04+08:00">
-                2016-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Mac-中-gulp-的本地安装"><a href="#Mac-中-gulp-的本地安装" class="headerlink" title="Mac 中 gulp 的本地安装"></a>Mac 中 gulp 的本地安装</h1><h2 id="gulp-的安装"><a href="#gulp-的安装" class="headerlink" title="gulp 的安装"></a>gulp 的安装</h2><ol>
-<li>首先需要确保你已经安装了 nodejs 环境，然后以全局的方式安装 gulp<br><code>sudo npm install -g gulp</code></li>
-<li>全局安装 gulp 后，需要在你的工作目录单独安装一次，切换到你的工作目录，打开命令行<br><code>npm install gulp</code> </li>
-</ol>
-<h2 id="gulp-不能本地安装"><a href="#gulp-不能本地安装" class="headerlink" title="gulp 不能本地安装"></a>gulp 不能本地安装</h2><p>在安装过程中发现，即使在本地安装 gulp,系统也是默认将 gulp 安装在了全局目录下，经过查询资料，对于此类问题的解决方式做以下总结：</p>
-<ol>
-<li>出现此类问题，是因为系统默认将你的 npm 全局安装设置为 true 了，你需要将其改回来。</li>
-<li>来到你的本地，在 <code>Macintosh HD</code> 中找到你的用户，通过 <code>shift + command + .</code> 将系统中隐藏的文件夹显示，找到 <code>.npmrc</code> ，此时，这个文件中 ，你的内容应该是 <code>global = true</code>; 将其 改为 <code>global = false</code>  之后，就可以在本地进行安装了</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -897,7 +972,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
