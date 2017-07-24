@@ -305,7 +305,7 @@
     <link href="http://yoursite.com/2017/05/16/Mac%E9%85%8D%E7%BD%AEApache-Tomcat%E6%9C%8D%E5%8A%A1/"/>
     <id>http://yoursite.com/2017/05/16/Mac配置Apache-Tomcat服务/</id>
     <published>2017-05-16T09:03:04.000Z</published>
-    <updated>2017-05-16T09:46:07.000Z</updated>
+    <updated>2017-06-27T09:01:16.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="第一步：下载Tomcat"><a href="#第一步：下载Tomcat" class="headerlink" title="第一步：下载Tomcat"></a>第一步：下载Tomcat</h2><p></p><p>直接上官网 <code>http://tomcat.apache.org/download-80.cgi</code>上下载对应版本的Tomcat包</p><br><img src="../img/tomcat-download.png" width="600" height="300" alt=""><p></p>
 <h2 id="第二步：将下载好的包放到本地目录中"><a href="#第二步：将下载好的包放到本地目录中" class="headerlink" title="第二步：将下载好的包放到本地目录中"></a>第二步：将下载好的包放到本地目录中</h2><ol>
