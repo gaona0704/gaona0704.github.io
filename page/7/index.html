@@ -272,189 +272,6 @@
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/14/Gulp基本使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/14/Gulp基本使用/" itemprop="url">
-                  Gulp基本使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-14T12:39:04+08:00">
-                2017-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Gulp/" itemprop="url" rel="index">
-                    <span itemprop="name">Gulp</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Gulp的基本使用"><a href="#Gulp的基本使用" class="headerlink" title="Gulp的基本使用"></a>Gulp的基本使用</h1><h2 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h2><ul>
-<li>则在该ngCtl的作用域内的HTML标签, 其值或者操作都可以通过$scope的方式跟js中的属性和方法进行绑定. </li>
-</ul>
-<h2 id="脏值检测"><a href="#脏值检测" class="headerlink" title="脏值检测"></a>脏值检测</h2><ul>
-<li>当数值发生变化时，触发了一个事件，去调用这个脏值检测的函数；</li>
-<li>路径与目录的关系；</li>
-</ul>
-<h2 id="php中数据格式的转换"><a href="#php中数据格式的转换" class="headerlink" title="php中数据格式的转换"></a>php中数据格式的转换</h2><ul>
-<li>在PHP中，将数组以json对象的格式进行输出， json_encode(array);</li>
-<li>在PHP中，将对象形式的数据转换成数组， json_decode(obj,true);<ul>
-<li>注意参数为true时，才会转换成数组；</li>
-</ul>
-</li>
-<li>PHP中如果需要同时输出两组数据，可以将这个对象格式的数据转换成数组，然后</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> header(<span class="string">'Content-Type:application/json'</span>);</div><div class="line">  $recUrl = <span class="string">'https://moment.douban.com/api/auth_authors/rec?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line"> $allUrl = <span class="string">'https://moment.douban.com/api/auth_authors/all?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line">$recResult = file_get_contents($recUrl); <span class="comment">//&#123;&#125;</span></div><div class="line">$allResult = file_get_contents($allResult);  <span class="comment">//  &#123;&#125;</span></div><div class="line"></div><div class="line"> <span class="comment">//先将json 数据转换成PHP数组</span></div><div class="line"> <span class="comment">//然后再讲PHP数组处理成二维数组,再转成json</span></div><div class="line"> $recResult = json_decode($recResult,<span class="literal">true</span>);<span class="comment">//参数为true的话,才转换成一个数组;</span></div><div class="line"> $allResult = json_decode($allResult);</div><div class="line"></div><div class="line"> $result = array(<span class="string">'rec'</span> =&gt; $recResult,<span class="string">'all'</span> =&gt; $allResult);</div><div class="line"> <span class="comment">//最后将这个数组格式的数据转换成json进行输出；</span></div><div class="line"> echo json_encode($result);</div></pre></td></tr></table></figure>
-<h2 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h2><h3 id="Gulp-构建工具"><a href="#Gulp-构建工具" class="headerlink" title="Gulp 构建工具"></a>Gulp 构建工具</h3><ul>
-<li><p>常见的构建工具： Gulp Grunt F.I.S  webpack;</p>
-</li>
-<li><p>gulp jianshi//调用监视任务</p>
-</li>
-<li>gulp init 回车之后会生成一个 package.json的文件，主要是说明文件的一些基本信息，说明书；</li>
-<li>npm install gulp –save-dev项目依赖；直接在package.json中添加依赖信息；</li>
-<li>autoprefixer()自动添加css私有前缀</li>
-<li><p>注释：build:js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;-- build:js scripts/all.js--&gt;</div><div class="line"><span class="comment">//会自动创建scripts文件夹，并将里面的script进行合并</span></div><div class="line">    &lt;script src=‘’&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">‘’</span>&gt;</span><span class="xml"></span></span></div><div class="line"><span class="tag">&lt;<span class="name">--endbuild--</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>gulp 一次执行多个任务</p>
-<ul>
-<li>gulp.task(‘default’,[‘a’,’b’,’c’]);</li>
-<li>命令行：gulp default;</li>
-</ul>
-</li>
-</ul>
-<h3 id="缓存问题的解决–参考浏览器-协商缓存；雅虎13条"><a href="#缓存问题的解决–参考浏览器-协商缓存；雅虎13条" class="headerlink" title="缓存问题的解决–参考浏览器 协商缓存；雅虎13条"></a>缓存问题的解决–参考浏览器 协商缓存；雅虎13条</h3><ul>
-<li>浏览器是以请求地址作为缓存条件的，只要是地址没变，浏览器就是会用缓存，地址变了，就会重新请求；</li>
-<li>内容更改的时候地址更新；可以使用md5加密；（md5是一种加密方式，加密的内容不变，加密后的信息是一致的，）–md5在线加密；</li>
-<li><code>md5加密</code>这种方式叫做指纹加密</li>
-<li>gulp有一个插件 rev</li>
-</ul>
-<h2 id="Gulp-基本使用案例"><a href="#Gulp-基本使用案例" class="headerlink" title="Gulp 基本使用案例"></a>Gulp 基本使用案例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</div><div class="line"></div><div class="line">    less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>),</div><div class="line"></div><div class="line">    cssmin = <span class="built_in">require</span>(<span class="string">'gulp-cssmin'</span>),</div><div class="line"></div><div class="line">    autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>),</div><div class="line"></div><div class="line">    rev = <span class="built_in">require</span>(<span class="string">'gulp-rev'</span>),</div><div class="line"></div><div class="line">    rename = <span class="built_in">require</span>(<span class="string">'gulp-rename'</span>),</div><div class="line"></div><div class="line">    imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>),</div><div class="line"></div><div class="line">    useref = <span class="built_in">require</span>(<span class="string">'gulp-useref'</span>),</div><div class="line"></div><div class="line">    uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>),</div><div class="line"></div><div class="line">    gulpif = <span class="built_in">require</span>(<span class="string">'gulp-if'</span>),</div><div class="line"></div><div class="line">    htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>),</div><div class="line"></div><div class="line">    revCollector = <span class="built_in">require</span>(<span class="string">'gulp-rev-collector'</span>)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//处理css</span></div><div class="line">gulp.task(<span class="string">'css'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src(<span class="string">'./public/less/main.less'</span>)</div><div class="line">        .pipe(less()) <span class="comment">//将less编译成css</span></div><div class="line">        .pipe(autoprefixer())<span class="comment">//给css添加私有前缀</span></div><div class="line">        .pipe(cssmin())<span class="comment">//将css进行压缩</span></div><div class="line">        .pipe(rev())<span class="comment">//将压缩后的css文件添加版本号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/public/css'</span>))<span class="comment">//将当前的版本存储起来</span></div><div class="line">        .pipe(rev.manifest())<span class="comment">//如果文件进行了修改,记录前后修改的信息,如果有多个,后面的会把前面的覆盖,所以需要重命名</span></div><div class="line">        .pipe(rename(<span class="string">'css-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/rev'</span>))<span class="comment">//将json文件放到rev文件夹里面</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//处理图片信息</span></div><div class="line">gulp.task(<span class="string">'image'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src([<span class="string">'./public/images/**/*'</span>,<span class="string">'./uploads/*'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)<span class="comment">//如果路径文件夹下面还有子文件夹,路径使用/**/*;为了不同的文件保存在不同的文件夹里面,设定base,会自动对应存储;</span></div><div class="line">        .pipe(imagemin())<span class="comment">//压缩图片</span></div><div class="line">        .pipe(rev())<span class="comment">//将图片重新编号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>))<span class="comment">//图片压缩添加序列号后保存</span></div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(rename(<span class="string">'images-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release.rev'</span>))</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//处理js</span></div><div class="line">gulp.task(<span class="string">'useref'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//js文件是在HTML中引入的,所以是在HTML中处理JS文件</span></div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./index.html'</span>)</div><div class="line">        .pipe(useref())<span class="comment">//去HTML文件中查找注释,进行编译压缩等</span></div><div class="line">        .pipe(gulpif(<span class="string">'*.js'</span>,uglify()))<span class="comment">//如果文件中有JS文件,进行压缩JS</span></div><div class="line">        .pipe(gulpif(<span class="string">'*.js'</span>, rev()))<span class="comment">//文件添加序列号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>))</div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(rename(<span class="string">'js-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/rev'</span>));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//处理所有的视图页面HTML</span></div><div class="line">gulp.task(<span class="string">'html'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src(<span class="string">'./views/*.html'</span>)</div><div class="line">        .pipe(htmlmin(&#123;</div><div class="line">            <span class="attr">collapseWhitespace</span>:<span class="literal">true</span></div><div class="line">        &#125;))<span class="comment">//压缩HTML,需要传递参数;将空白区域进行压缩</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/views'</span>));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//处理其他部分</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'other'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src([<span class="string">'./api/*.php'</span>,<span class="string">'./public/fonts/*'</span>,<span class="string">'./favicon.ico'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)</div><div class="line">    <span class="comment">//因为PHP,字体,图标等文件不需要压缩,直接保存就可以</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//替换路径</span></div><div class="line">gulp.task(<span class="string">'rev'</span>,[<span class="string">'css'</span>,<span class="string">'useref'</span>,<span class="string">'image'</span>],<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//将记录文件边的的文件,将其在index里面的路径进行替换;</span></div><div class="line">    <span class="comment">//因为只有等其余文件都加载完成之后,index才能加载,所以需要进行依赖</span></div><div class="line">    <span class="comment">//为了保证其余加载完毕后再加载当前功能,其余功能必须return才行</span></div><div class="line">    gulp.src([<span class="string">'./release/rev/*.json'</span>,<span class="string">'./release/index.html'</span>])</div><div class="line">        .pipe(revCollector())<span class="comment">//进行文件合并</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//最后,将所有的任务放到一个任务中,只执行最后一个任务就可以</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'release'</span>,[<span class="string">'rev'</span>,<span class="string">'other'</span>,<span class="string">'html'</span>]);</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/10/MVC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -808,6 +625,209 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/08/cookie 和 session 的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/08/cookie 和 session 的使用/" itemprop="url">
+                  Cookie 和 Session 的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-08T12:39:04+08:00">
+                2017-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/storage/" itemprop="url" rel="index">
+                    <span itemprop="name">storage</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="cookie-和-session-的使用"><a href="#cookie-和-session-的使用" class="headerlink" title="cookie 和 session 的使用"></a>cookie 和 session 的使用</h1><h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><ol>
+<li>Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份</li>
+<li>当 客户端第一次请求服务端时，会创建一个Session对象，所有该客户的状态信息都保存在这个Session对象里。服务端会创建一个sessionID，并将其保存在cookie中在cookie中名为sessionID:值；当再次发送请求时，服务器会先检查req中是否有sessionID，并为其分配对应 的内容；</li>
+<li>cookie可以通过ＪＳ写入，有大小，和安全性等问题，但是方便，通过设置可以在多路径中进行访问。</li>
+<li><p>例如购物车的demo，信息就可以存储在cookie中；用户名，密码等信息可以存在session中，返回的sessionid存储在cookie中，配合使用；</p>
+</li>
+<li><p>cookie进行状态管理。http是无状态管理</p>
+</li>
+<li>sessionStorage 在同源的同窗口始终存在数据。窗口关闭，数据销毁；  </li>
+<li>url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务端的通信状态(这个是后台写的)</li>
+<li><code>document.cookie</code>可以访问cookie;</li>
+<li>cookie的格式:键值对;</li>
+<li>多个cookie之间使用分号和空格隔开;例如:<code>username=zhangsan; age=12</code>;</li>
+<li><code>document.cookie = &#39;username=zhangsan&#39;</code>在浏览器中是有缓存的,关闭浏览区可以清除;<h3 id="cookie的分类"><a href="#cookie的分类" class="headerlink" title="cookie的分类"></a>cookie的分类</h3></li>
+<li>会话cookie(session cookie ):关闭浏览器之后自动清除,但是可以增加其有效期,以下例子增加了5天的有效期。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.setDate(date.getDate()+<span class="number">5</span>); </div><div class="line"><span class="built_in">document</span>.cookie=<span class="string">"username=lisi; expires="</span>+date.toGMTString();</div></pre></td></tr></table></figure>
+<ol>
+<li>持久cookie(persistant cookie ): 关闭浏览器,仍然存在。</li>
+<li>在子路径设置的cookie,在父路径下是获取不到的;反过来可以。不可以跨域获取cookie,但是可以跨页面共享;</li>
+<li><p>可以用jquery-cookie插件应用;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//设置cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,expires</span>) </span>&#123;</div><div class="line">         <span class="built_in">document</span>.cookie = key +<span class="string">'='</span>+value+<span class="string">';expires='</span>+expires+<span class="string">"; path=/"</span>;</div><div class="line">     &#125;</div><div class="line"><span class="comment">//获得cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>) </span>&#123;</div><div class="line">     <span class="keyword">var</span> cookie = <span class="built_in">document</span>.cookie;</div><div class="line">     <span class="keyword">var</span> arr = cookie.split(<span class="string">'; '</span>);</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">         <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">         <span class="keyword">if</span>(cname == kv[<span class="number">0</span>])&#123;</div><div class="line">             <span class="keyword">return</span> kv[<span class="number">1</span>];</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>encodeURLComponent</code>该方法会对url地址中的特殊字符进行编码(当参数中包含URL特殊字符的时候可以使用该方法进行编码处理);</p>
+</li>
+<li>获取sessionID<br><code>console.log($.cookie(&#39;PHPSESSID&#39;))</code>;<h3 id="cookie-使用"><a href="#cookie-使用" class="headerlink" title="$.cookie()使用"></a>$.cookie()使用</h3></li>
+<li>新添加一个cookie会话;<code>$.cookie(&#39;username&#39;,&#39;zhangsan&#39;)</code>;</li>
+<li>创建cookie并设置有效期为7天;<code>$.cookie(&#39;age&#39;,&#39;18&#39;,{expires:7})</code>;此时的cookie称作持久cookie,即<code>persistant cookie</code>;</li>
+<li>创建cookie并设置cookie的有效路径<code>$.cookie(&#39;username&#39;,&#39;lisi&#39;,{expires:7,path:&#39;/&#39;})</code>;<ul>
+<li>在默认情况下,只有cookie的页面才能读取该cookie信息,如果想让另一个页面读取该cookie信息,必须设置cookie的路径;cookie的路径用于设置能够读取cookie的顶级目录,即根目录,可以让当前项目下所有的网页都能相互读取cookie,</li>
+</ul>
+</li>
+<li><code>raw:true</code>;在读写cookie时自动使用<code>encodeURLComponen</code>进行编码和解码;</li>
+<li>删除cookie可以使用null作为cookie的值就可以<code>$.cookie(&#39;username&#39;,null)</code><h3 id="session-和-cookie之间的区别"><a href="#session-和-cookie之间的区别" class="headerlink" title="session 和 cookie之间的区别"></a>session 和 cookie之间的区别</h3></li>
+</ol>
+<ul>
+<li>共同点： 数据都是保存在浏览器端，且是同源的</li>
+<li>区别：<ol>
+<li>cookie 通过在客户端记录信息确定用户身份， 数据始终在同源的 http 请求中携带，即cookie在浏览器和服务器之间来回传递；</li>
+<li>session 通过在服务器端记录信息确定用户身份；</li>
+<li>cookie 数据还有路径(path)的概念，可以限制 cookie 只在某个另下访问。因为每次 http 请求都会携带 cookie，所以cookie 只适合保存很小的数据。</li>
+<li>http 协议是无状态协议。是无法从连接上跟踪会话的；</li>
+<li>第一次发送请求，res 会向客户端浏览器颁发一个 cookie， 客户端吧 cookie 存取来，再次访问的时候会一同提交给 服务器</li>
+<li>SessionStorage 存在于服务端的内存中；</li>
+</ol>
+</li>
+</ul>
+<h3 id="cookie-和session"><a href="#cookie-和session" class="headerlink" title="cookie 和session"></a>cookie 和session</h3><h3 id="LocalStorage-和-sessionStorage"><a href="#LocalStorage-和-sessionStorage" class="headerlink" title="LocalStorage 和 sessionStorage"></a>LocalStorage 和 sessionStorage</h3><pre><code>+ LocalStorage 对应的是 持久 Cookie
++ sessionStorage 对应的是 会话 Cookie
++ Cookie 是用来做状态保持的
+    - Cookie 的数据，浏览器会默认把 cookie 放到 请求报文中发送给服务器
++ LocalStorage 和 sessionStorage 是用来 做本地存储的，没有 Http 协议交互内容；
+</code></pre><h3 id="location的内置属性"><a href="#location的内置属性" class="headerlink" title="location的内置属性"></a>location的内置属性</h3><ul>
+<li>页面跳转<code>location.href=&#39;/index/index.html&#39;</code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ancestorOrigins:DOMStringList,</div><div class="line">assign:()</div><div class="line">hash:""</div><div class="line">host:"mybxg.com"</div><div class="line">hostname:"mybxg.com"</div><div class="line">href:"http://mybxg.com/index/index"</div><div class="line">origin:"http://mybxg.com"</div><div class="line">pathname:"/index/index"</div><div class="line">port:""</div><div class="line">protocol:"http:"</div><div class="line">reload:reload()</div><div class="line">replace:()</div><div class="line">search:""</div><div class="line">toString:toString()</div><div class="line">valueOf:valueOf()</div><div class="line">__proto__:Location</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><ul>
+<li>静态资源服务器</li>
+<li>项目管理软件: JIRA 禅道(跟踪工程进度更新,项目管理软件)</li>
+<li>jQuery中的return false既可以阻止默认行为也可以阻止冒泡;但是原生JS中的return false 只能阻止默认行为;</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -857,7 +877,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -868,7 +888,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

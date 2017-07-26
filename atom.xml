@@ -199,11 +199,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2017/06/20/PHP%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yoursite.com/2017/06/20/PHP学习中的笔记/</id>
-    <published>2017-06-20T02:48:35.000Z</published>
-    <updated>2017-06-21T06:02:34.000Z</updated>
+    <title>Php相关记录</title>
+    <link href="http://yoursite.com/2017/07/10/PHP%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2017/07/10/PHP学习中的笔记/</id>
+    <published>2017-07-10T02:17:04.000Z</published>
+    <updated>2017-07-26T00:33:26.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="PHP学习中的笔记"><a href="#PHP学习中的笔记" class="headerlink" title="PHP学习中的笔记"></a>PHP学习中的笔记</h2><ul>
 <li>defined 是判断是都存在这个值；</li>
@@ -236,24 +236,7 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2017/06/12/bootstrap%20%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%A0%B7%E5%BC%8F%E7%9A%84%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2017/06/12/bootstrap 使用过程中样式的总结/</id>
-    <published>2017-06-12T09:39:49.000Z</published>
-    <updated>2017-06-12T09:39:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="bootstrap-使用过程中样式的总结"><a href="#bootstrap-使用过程中样式的总结" class="headerlink" title="bootstrap 使用过程中样式的总结"></a>bootstrap 使用过程中样式的总结</h2><h3 id="container与container-fluid的区别"><a href="#container与container-fluid的区别" class="headerlink" title="container与container-fluid的区别"></a>container与container-fluid的区别</h3><pre><code>+ container
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;bootstrap-使用过程中样式的总结&quot;&gt;&lt;a href=&quot;#bootstrap-使用过程中样式的总结&quot; class=&quot;headerlink&quot; title=&quot;bootstrap 使用过程中样式的总结&quot;&gt;&lt;/a&gt;bootstrap 使用过程中样式的总结&lt;/h2&gt;&lt;
-    
-    </summary>
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
     
     
   </entry>
@@ -531,6 +514,33 @@
   </entry>
   
   <entry>
+    <title>Mac修改本地hosts文件</title>
+    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
+    <published>2017-05-16T06:35:04.000Z</published>
+    <updated>2017-05-16T06:35:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
+
+<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
+<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
+<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
+<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Sublime快捷键总结</title>
     <link href="http://yoursite.com/2017/05/16/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>http://yoursite.com/2017/05/16/sublime快捷键/</id>
@@ -562,33 +572,6 @@
     </summary>
     
       <category term="sublime" scheme="http://yoursite.com/categories/sublime/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mac修改本地hosts文件</title>
-    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
-    <published>2017-05-16T06:35:04.000Z</published>
-    <updated>2017-05-16T06:35:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
-
-<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
-<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
-<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
-<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
-    
-    </summary>
-    
-      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
     
     
   </entry>
@@ -948,6 +931,68 @@
     </summary>
     
       <category term="Node" scheme="http://yoursite.com/categories/Node/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mac上mongobd 的使用</title>
+    <link href="http://yoursite.com/2017/03/09/Mac%E4%B8%8Amongobd%20%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2017/03/09/Mac上mongobd 的使用/</id>
+    <published>2017-03-09T01:33:15.000Z</published>
+    <updated>2017-04-12T06:43:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ol>
+<li><p>对MVC的理解</p>
+<ul>
+<li>MVC是一种软件开发模块化架构方式，适用于web开发的代码架构阻止模式；就是用来解耦视图和数据，利用c控制器去调度视图和模型数据的交互；</li>
+<li>提高代码的可维护性<ul>
+<li>解耦了视图和数据的直接交互；</li>
+<li>视图数据和业务数据是完全分开的；</li>
+<li>视图数据：例如表单提交上来的数据；</li>
+<li>业务数据：真是的数据库中的数据； </li>
+</ul>
+</li>
+<li>增加代码的可重用性</li>
+<li>划分方式： 模块职责的单一；</li>
+<li>MVVM的核心：数据驱动视图</li>
+</ul>
+</li>
+<li><p>mongod –dbpath /Users/gaonana/Documents/高娜娜文件/data/db </p>
+</li>
+</ol>
+<h2 id="Mac上mongobd-的使用"><a href="#Mac上mongobd-的使用" class="headerlink" title="Mac上mongobd 的使用"></a>Mac上mongobd 的使用</h2><ol>
+<li>官网下载  <code>mongocd.org</code></li>
+<li>配置环境变量<ul>
+<li>具体配置参考<code>Mac操作系统总结</code>文档</li>
+</ul>
+</li>
+<li><code>mongod --version</code>有版本号表示安装成功</li>
+<li><code>mogond --dbpath $dbpath(数据库数据文件路径)</code>进入data所在的路径，启动服务；</li>
+<li>4步骤中，可以讲data文件夹建立在<code>Macintosh HD</code>的根目录下面，data文件夹，db文件夹；以后再启动mongod服务的时候直接使用<code>mongod</code>就可以启动；</li>
+<li>在另一个命令行界面，<code>mongo</code>命令就可以操作数据库了；</li>
+<li><code>show dbs</code>查看当前服务实力上所有的实例</li>
+</ol>
+<h2 id="数据库介绍"><a href="#数据库介绍" class="headerlink" title="数据库介绍"></a>数据库介绍</h2><ul>
+<li>数据库实例 -&gt; 数据库 -&gt; 表 -&gt; 记录；</li>
+<li>一个数据服务中可以有多个数据库</li>
+<li>一个数据库中可以有多个集合<ul>
+<li>MongoDB中，把表称之为集合</li>
+<li>集合，简单理解就是一个数组</li>
+<li>在一个集合中，可以有多个对象（json）,上一个人特殊的json对象，在mongodb中，叫做bson;</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用-MongoDB-官方提供的-mongodb-驱动包-操作-mongodb数据库；"><a href="#使用-MongoDB-官方提供的-mongodb-驱动包-操作-mongodb数据库；" class="headerlink" title="使用 MongoDB 官方提供的 mongodb     驱动包 操作 mongodb数据库；"></a>使用 MongoDB 官方提供的 mongodb     驱动包 操作 mongodb数据库；</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;小知识点&quot;&gt;&lt;a href=&quot;#小知识点&quot; class=&quot;headerlink&quot; title=&quot;小知识点&quot;&gt;&lt;/a&gt;小知识点&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;对MVC的理解&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MVC是一种软件开发模块化架构方式，适用于web开发的代码架构阻
+    
+    </summary>
     
     
   </entry>

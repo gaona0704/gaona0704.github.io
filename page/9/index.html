@@ -272,222 +272,6 @@
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/博学谷项目 <二>/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/12/博学谷项目 <二>/" itemprop="url">
-                  前端发送请求的方式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T10:39:04+08:00">
-                2017-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="域名解析系统"><a href="#域名解析系统" class="headerlink" title="域名解析系统"></a>域名解析系统</h2><ul>
-<li>先去本机的host的文件查找对应的IP,如果在本机host文件中找到,就返回对应的IP;如果没有的话,就去公网查找,公网没有的话就无法上网;</li>
-</ul>
-<h2 id="前端发送请求的方式"><a href="#前端发送请求的方式" class="headerlink" title="前端发送请求的方式"></a>前端发送请求的方式</h2><ul>
-<li>地址栏直接输入URL</li>
-<li>表单的action属性</li>
-<li>a标签的href属性;link的href</li>
-<li>src属性:img的src;script的src; iframe的src</li>
-<li>ajax发送请求</li>
-<li>postMessage H5新的API</li>
-<li>flash插件</li>
-<li>location.href<ol>
-<li>补充:URL的规范格式 scheme://host:port /path?query#frament;</li>
-</ol>
-<ul>
-<li>scheme 表示协议 http https ftp file ssh;</li>
-<li>host 表示域名或者IP地址;</li>
-<li>port 端口;用来确定计算机上某个网络应用程序;</li>
-<li>path 路径;域名之后,参数(?)之前的内容:/abc/qqq等</li>
-<li>query 查询字符串;作用,向服务器传递参数数据;格式:键=值&amp;键=值</li>
-<li>frament: hash 锚点,定位页面的某一部分;结合ID;</li>
-</ul>
-</li>
-</ul>
-<h2 id="路径问题"><a href="#路径问题" class="headerlink" title="路径问题"></a>路径问题</h2><ul>
-<li>绝对路径 / 等效于直接写IP地址<a href="http://localhost" target="_blank" rel="external">http://localhost</a></li>
-<li>相对路径:  ./代表当前路径 ../代表上层路径</li>
-<li>跳转到根路径<code>&lt;a href=&quot;/tom.html&quot;&gt;</code></li>
-</ul>
-<h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><ul>
-<li>cookie写入之后,只要是访问同一个网站,都会带着cookie进行访问;</li>
-<li>在PHP中session start();开启session会话;让服务器知道曾经来过,保存访问状态;SESSID</li>
-<li>session是服务端的,客户端向服务端发送SESSID,进行服务器与客户端的关联,服务器返回该用户的信息;</li>
-<li>SESSID可以保持客户端与服务器之间的联系状态;实现不同页面间的数据共享</li>
-</ul>
-<h2 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h2><ul>
-<li><p>jsonp</p>
-<ul>
-<li>jsonp返回的数据应该是函数的调用<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ecName = $_GET[<span class="string">'callback'</span>];<span class="comment">//获取到函数名;</span></div><div class="line">echo $ecName.<span class="string">"("</span>data.<span class="string">")"</span>;<span class="comment">//返回函数的调用;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>cors 配置服务器,</p>
-</li>
-<li>反向代理 其原理类似于CORS</li>
-<li>flash插件,但是现在已经很少用了;</li>
-</ul>
-<h2 id="PHP-相关问题"><a href="#PHP-相关问题" class="headerlink" title="PHP 相关问题"></a>PHP 相关问题</h2><ul>
-<li>PHP既可以做前端页面渲染,也可以单独作为接口返回数据;</li>
-<li>&lt;?php include()?&gt;(PHP中导入页面)<br><code>count($arr == 2)</code> 等同于js中<code>arr.length == 2</code>;</li>
-</ul>
-<h2 id="模块化规范"><a href="#模块化规范" class="headerlink" title="模块化规范"></a>模块化规范</h2><ul>
-<li>浏览器端的规范：<ol>
-<li>AMD：requirejs</li>
-<li>CMD:seajs （淘宝的技术）</li>
-<li>commonjs - nodejs 同步加载，后端的奇数</li>
-</ol>
-</li>
-<li>服务器端的规范<ol>
-<li>commonjs:nodejs </li>
-</ol>
-</li>
-</ul>
-<h2 id="requirejs使用"><a href="#requirejs使用" class="headerlink" title="requirejs使用"></a>requirejs使用</h2><ol>
-<li>解决了命名冲突 （不同模块中的相同变量不会冲突）</li>
-<li>解决了文件依赖问题</li>
-<li>如果requirejs加载的时候，指定了data-main属性，那么根路径就变成了入口文件所处的路径;<ol>
-<li>不使用data-main的时候，在通过require加载文件时可以直接使用相对路径；</li>
-<li>但是在使用data-main的同时，再使用require加载其他模块文件，文件的根路径发生了改变，此时可以重新定义默认的根路径；</li>
-<li>requirejs处理非模块化文件</li>
-</ol>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> &lt;script src=<span class="string">'require.js'</span> data-main=<span class="string">'main.js'</span> &gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"> &lt;script&gt;</div><div class="line">     <span class="comment">//加载文件，通过data-main的路径进行定位</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'./m4'</span>]);</div><div class="line">     <span class="comment">//或者重新设置默认的根路径</span></div><div class="line">     <span class="built_in">require</span>.config(&#123;</div><div class="line">         <span class="attr">baseUrl</span>:<span class="string">'./js/'</span></div><div class="line">     &#125;);</div><div class="line">     <span class="comment">//相对于根路径的路径</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'/module/m4'</span>]);</div><div class="line">      <span class="comment">//将abc文件中foo的非模块化文件到处成为模块化文件</span></div><div class="line">    shim:&#123;</div><div class="line">        <span class="string">'../abc'</span>:&#123;</div><div class="line">         <span class="comment">//给模块起一个别名；如果自定义模块起了一个名字，在用的时候必须与那个名字保持一致；</span></div><div class="line">            exports:<span class="string">'foo'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">          paths:&#123;</div><div class="line">         <span class="attr">ggg</span>:<span class="string">"js/jquery"</span>;</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/angular在实际应用中的优缺点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -858,6 +642,186 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/ Angular项目基本构建模块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/14/ Angular项目基本构建模块/" itemprop="url">
+                  Angular项目基本构建模块
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-14T12:39:04+08:00">
+                2016-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Angular项目基本构建模块"><a href="#Angular项目基本构建模块" class="headerlink" title="Angular项目基本构建模块"></a>Angular项目基本构建模块</h1><h2 id="angular中jQuery的使用"><a href="#angular中jQuery的使用" class="headerlink" title="angular中jQuery的使用"></a>angular中jQuery的使用</h2><ul>
+<li>angular可以讲一个原生的DOM对象转换成一个jQuery对象；</li>
+<li>如果angular中没有引入jQuery，那么angular中只包含了部分jQuery方法；</li>
+<li>引入了jQuery后，jqList</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn'</span>);</div><div class="line">   angular.element = jQuery;</div><div class="line">   angular.element(btn).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">       angular.element(box).css(<span class="string">'backgroundColor'</span>,<span class="string">'pink'</span>);</div><div class="line">       angular.element(box).animate(&#123;</div><div class="line">           <span class="attr">width</span>:<span class="number">200</span>,</div><div class="line">           <span class="attr">height</span>:<span class="number">200</span>,</div><div class="line">       &#125;,<span class="number">500</span>);</div><div class="line">   &#125;)</div></pre></td></tr></table></figure>
+<h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><ul>
+<li>基于NodeJS的一个静态资源管路工具；</li>
+</ul>
+<h3 id="豆瓣一刻"><a href="#豆瓣一刻" class="headerlink" title="豆瓣一刻"></a>豆瓣一刻</h3><ul>
+<li>前端分包<ul>
+<li>视图： views<ul>
+<li>views</li>
+<li>tpls</li>
+<li>templates</li>
+</ul>
+</li>
+<li>静态资源 public<ul>
+<li>public(imgs/less/fonts/libs等)</li>
+<li>static</li>
+<li>assets  </li>
+</ul>
+</li>
+<li>脚本 scripts </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li>uploads</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><meta name="referrer" content="never"> 可以突破防盗链</li>
+<li>使用time()函数可以获取当前服务器的时间（时间戳）；<code>echo time()</code>;</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">echo time();</div><div class="line">echo <span class="string">"&lt;br/&gt;"</span>;</div><div class="line">echo date(<span class="string">'Y-m-d H:i:s'</span>,time());--<span class="number">-2017</span><span class="number">-03</span><span class="number">-29</span> <span class="number">09</span>:<span class="number">23</span>:<span class="number">40</span></div><div class="line"></div><div class="line">phpinfo()<span class="comment">//可以火气PHP的详细信息，包括安装目录所支持的模块扩展等很多信息；</span></div><div class="line">strtotime(<span class="string">'-1day'</span>);前一天</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -907,7 +871,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -918,7 +882,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
