@@ -77,7 +77,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="HappynessCoder" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="高工@博客" type="application/atom+xml" />
 
 
 
@@ -91,12 +91,12 @@
 
 <meta name="description" content="coding,有洁癖才能更完美">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HappynessCoder">
+<meta property="og:title" content="高工@博客">
 <meta property="og:url" content="http://yoursite.com/page/13/index.html">
-<meta property="og:site_name" content="HappynessCoder">
+<meta property="og:site_name" content="高工@博客">
 <meta property="og:description" content="coding,有洁癖才能更完美">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HappynessCoder">
+<meta name="twitter:title" content="高工@博客">
 <meta name="twitter:description" content="coding,有洁癖才能更完美">
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <title> HappynessCoder </title>
+  <title> 高工@博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -169,12 +169,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">HappynessCoder</span>
+        <span class="site-title">高工@博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">记录学习的技能和遇到的问题</p>
       
   </div>
 
@@ -272,7 +272,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/21/git day01命令基础/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/03/title: NodeJS 基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gaonana">
@@ -281,7 +281,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HappynessCoder">
+      <meta itemprop="name" content="高工@博客">
     </span>
 
     
@@ -294,8 +294,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/21/git day01命令基础/" itemprop="url">
-                  Git 基础命令
+                <a class="post-title-link" href="/2016/04/03/title: NodeJS 基础/" itemprop="url">
+                  NodeJS 基础
                 </a>
               
             
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-21T18:26:25+08:00">
-                2016-06-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-03T09:06:15+08:00">
+                2016-04-03
               </time>
             
 
@@ -334,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index">
-                    <span itemprop="name">Diary</span>
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
                   </a>
                 </span>
 
@@ -371,7 +371,439 @@
       
         
           
-            <h1 id="一、模块化开发"><a href="#一、模块化开发" class="headerlink" title="一、模块化开发"></a>一、模块化开发</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//这里会形成一个封闭的空间;</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">FOO</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> FB = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.FOO = FOO;</div><div class="line">&#125;)(<span class="built_in">window</span>);<span class="comment">//通过window将接口暴露出去</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">fb</span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Sky</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    fb.Sky = Sky;</div><div class="line">&#125;)(FB)</div><div class="line"><span class="comment">//这样，通过模块化开发，可以通过FOO.Sky等来调用各种方法。具体可以参考飞翔的小鸟案例；</span></div></pre></td></tr></table></figure>
+            <h1 id="NodeJS-day01"><a href="#NodeJS-day01" class="headerlink" title="NodeJS day01"></a>NodeJS day01</h1><h2 id="Nodejs是什么："><a href="#Nodejs是什么：" class="headerlink" title="Nodejs是什么："></a>Nodejs是什么：</h2><ul>
+<li><p>解析执行JS，不包括DOM、Style等；</p>
+<ul>
+<li>是一个构建与 Chrome V8 引擎之上的一个JavaScript运行时环境</li>
+<li>Node 可以像浏览器一样去解析和执行JavaScript代码；</li>
+<li>Chrome V8引擎是所有浏览器里面解析和执行 JS 代码块 最快的；</li>
+<li>在Node中，没有界面，不再需要关心HTML、CSS</li>
+<li>和DOM style没有任何关系；只需要关注JavaScript；ECMAScript；<ul>
+<li>文件操作</li>
+<li>网络操作</li>
+<li>让JavaScript代码具有了服务器编程能力</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>NodeJS的特性：</p>
+<ul>
+<li>事件驱动 </li>
+<li>非阻塞IO模型：大量的异步编程接口；NodeJS中充满了类似于ajax 一样的ＡＰＩ，回答函数；</li>
+<li>快平台</li>
+<li>单线程</li>
+<li>轻量和高效</li>
+</ul>
+</li>
+<li>npm 是世界上最大的开源库生态系统<ul>
+<li>npm 上发布的第三方包已经接近35万个之多</li>
+</ul>
+</li>
+</ul>
+<h2 id="NodeJS可以做什么"><a href="#NodeJS可以做什么" class="headerlink" title="NodeJS可以做什么"></a>NodeJS可以做什么</h2><ul>
+<li>NodeJS为JavaScript提供了服务端编程的能力（不处理UI）；<ul>
+<li>Java、PHP、Python、。net、Ruby等 做的Node都能做</li>
+<li>网站开发，提供网站服务端</li>
+<li>具有与数据库交互的能力</li>
+<li>移动应用，网络游戏等需要服务的地方Node都可以做；</li>
+<li>CLI(Command Line Interface)命令行接口程序<ul>
+<li>例如：Gulp、hexo、git等</li>
+<li>Node 具有开发命令行工具的能力；<h2 id="Node的应用场景"><a href="#Node的应用场景" class="headerlink" title="Node的应用场景"></a>Node的应用场景</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Node是前端进阶必备的一个能力；</li>
+<li>对IO操作比较频繁；IO：input、 output<ul>
+<li>文件读取</li>
+<li>和数据库交互：网络数据IO<h2 id="一些资源"><a href="#一些资源" class="headerlink" title="一些资源"></a>一些资源</h2></li>
+</ul>
+</li>
+<li>朴灵：《深入浅出Node.js》原理性，阿里出品</li>
+<li>阮一峰的Node.js</li>
+<li>Node入门，nodebegin.org/index-zn-cn 强烈推荐</li>
+</ul>
+<h2 id="Node-程序的运行"><a href="#Node-程序的运行" class="headerlink" title="Node 程序的运行"></a>Node 程序的运行</h2><ol>
+<li>在终端的任何目录下输入<code>node</code>命令，都可以执行<code>node.exe</code>程序<ul>
+<li>核心就在于通过操作系统</li>
+</ul>
+</li>
+<li>参数</li>
+</ol>
+<h2 id="Node中的ECMAScript"><a href="#Node中的ECMAScript" class="headerlink" title="Node中的ECMAScript"></a>Node中的ECMAScript</h2><ol>
+<li>Node中的window 是 global<h2 id="Node核心模块"><a href="#Node核心模块" class="headerlink" title="Node核心模块"></a>Node核心模块</h2></li>
+<li>Node把绝大多数的API，都封装到了一份具名的核心模块了，例如文件操作的<code>fs</code>; 网络操作的<code>http</code>等；</li>
+<li>也就是说，使用核心模块，必须先加载才可以使用；</li>
+</ol>
+<blockquote>
+<p>核心模块以位移的标识名称进行暴露，使用时，通过<code>require</code>进行引入</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="built_in">require</span>(<span class="string">'唯一标识的模块名称'</span>)；</div></pre></td></tr></table></figure>
+<h3 id="在Node中使用第三方包"><a href="#在Node中使用第三方包" class="headerlink" title="在Node中使用第三方包"></a>在Node中使用第三方包</h3><ol>
+<li>通过 npm 下载</li>
+<li>通过 rquire 函数引包</li>
+<li>查看第三方的API，try-try-see;</li>
+</ol>
+<h3 id="用户自定义模块"><a href="#用户自定义模块" class="headerlink" title="用户自定义模块"></a>用户自定义模块</h3><ol>
+<li>在Node中，也提供了一种所谓的JavaScript模块化解决方案，（类似以requireJS）；</li>
+</ol>
+<h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ol>
+<li>chrome浏览器每次会发送两次请求，一次请求icon；一次请求数据；</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/a</div><div class="line">/favicon.ico</div></pre></td></tr></table></figure>
+<ol>
+<li>Node 获取请求路径 var url = res.url;</li>
+<li>不同的响应头</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//HTML格式，网页面中写数据的时候不会出现中文乱码；</span></div><div class="line">res.writeHead(<span class="number">200</span>,&#123;</div><div class="line">        <span class="string">'Content-Type'</span>:<span class="string">'text/html;charset=utf-8'</span></div><div class="line">    &#125;)；</div><div class="line">    res.writeHead(<span class="number">200</span>,&#123;</div><div class="line">    <span class="comment">//响应的内容是简单文本</span></div><div class="line">    <span class="string">'Content-Type'</span>:<span class="string">'text/plain; charset=utf-8'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ol>
+<li><code>./data/a.txt = data.a.txt</code>;</li>
+<li>如果 fs.readFile(‘/data/a.txt’);则去脚本文件的根路径下面去找 C/data/a.txt文件</li>
+<li>数组转换成字符串 JSON.stringfy(array);</li>
+<li><code>res.end(data)</code>=== <code>res.write(data) res.end()</code>;</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/24/ Github 使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/24/ Github 使用/" itemprop="url">
+                  Github使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-24T12:39:04+08:00">
+                2016-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="github使用"><a href="#github使用" class="headerlink" title="github使用"></a>github使用</h1><h2 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h2><p>###三个区域</p>
+<ul>
+<li>工作目录</li>
+<li>暂存区</li>
+<li>本地仓库<h3 id="文件的四个状态"><a href="#文件的四个状态" class="headerlink" title="文件的四个状态"></a>文件的四个状态</h3></li>
+<li>未跟踪 untracked</li>
+<li>已暂存 staged</li>
+<li>已提交 coomited</li>
+<li>已修改 modified<h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3></li>
+<li><code>git add file</code><ul>
+<li>将未跟踪的文件加到暂存区</li>
+<li>把暂存区修改的内容从新提交到暂存区</li>
+</ul>
+</li>
+<li><code>git commit -m &quot;备注&quot;</code><ul>
+<li>将暂存区的内容提交到本地仓库中</li>
+</ul>
+</li>
+<li><code>git rm --cached files</code><ul>
+<li>将暂存的文件移动到工作目录</li>
+</ul>
+</li>
+<li><code>git checkout files</code><ul>
+<li>暂存区中修改的的内容撤销掉</li>
+</ul>
+</li>
+<li><code>git reset HEAD(表示本地仓库中最后一次提交,commitId)</code><ul>
+<li><code>--hard</code>工作目录、暂存区、本地仓库都会变化;</li>
+<li><code>--soft</code>只会回滚本地仓库,工作目录和暂存区不会变化</li>
+<li><code>--mixed</code>默认的,用本地仓库的版本覆盖暂存区文件,也会回滚本地仓库,不会修改工作目录<h2 id="远程仓库-共享仓库"><a href="#远程仓库-共享仓库" class="headerlink" title="远程仓库(共享仓库)"></a>远程仓库(共享仓库)</h2></li>
+</ul>
+</li>
+<li><code>git clone</code>克隆远程仓库全部内容</li>
+<li><code>git pull</code>从远程仓库中下载最新版本,覆盖本地分支内容<ul>
+<li><code>git pull 远程仓库地址 远程分支:本地分支</code></li>
+</ul>
+</li>
+<li><code>git push</code>提交本地代码版本<ul>
+<li><code>git push 远程仓库地址 本地分支:远程分支</code></li>
+</ul>
+</li>
+<li><code>git fetch</code>从远程仓库下载最新版本内容,但是不合并,需要手动使用`git merge<pre><code>合并;
+</code></pre></li>
+<li><code>git remote</code>查看远程分支别名</li>
+<li><code>gitremote add origin</code>添加远程仓库地址的别名</li>
+<li><code>git remote show origin</code>查看远程仓库别名的二聚体地址<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2></li>
+<li><code>git branch 分支名称</code> 创建分支</li>
+<li><code>git branch -r</code>查看远程分支</li>
+<li><code>git branch -a</code>查看所有分支</li>
+<li><code>git checkout 分支名称</code> 切换分支</li>
+<li><code>git checkout -b 分支名称</code> 创建并切换分支</li>
+<li><code>git branch -d 分支名称</code> 删除本地分支</li>
+<li><code>git push origin --delete</code> 删除远程分支</li>
+<li><code>git merge 来源分支</code> 合并分支</li>
+<li><code>git stash</code> 保存当前版本状态</li>
+<li><code>git stash pop</code>恢复保存的版本状态</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/14/Git 基本命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/14/Git 基本命令/" itemprop="url">
+                  Git 基本命令
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-14T12:39:04+08:00">
+                2016-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Git-基本命令"><a href="#Git-基本命令" class="headerlink" title="Git 基本命令"></a>Git 基本命令</h1><h1 id="一、模块化开发"><a href="#一、模块化开发" class="headerlink" title="一、模块化开发"></a>一、模块化开发</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//这里会形成一个封闭的空间;</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">FOO</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> FB = &#123;&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">window</span>.FOO = FOO;</div><div class="line">&#125;)(<span class="built_in">window</span>);<span class="comment">//通过window将接口暴露出去</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">fb</span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Sky</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    fb.Sky = Sky;</div><div class="line">&#125;)(FB)</div><div class="line"><span class="comment">//这样，通过模块化开发，可以通过FOO.Sky等来调用各种方法。具体可以参考飞翔的小鸟案例；</span></div></pre></td></tr></table></figure>
 <h1 id="二、Git"><a href="#二、Git" class="headerlink" title="二、Git"></a>二、Git</h1><h2 id="1-Shell-编程脚本-命令解析器"><a href="#1-Shell-编程脚本-命令解析器" class="headerlink" title="1. Shell 编程脚本 命令解析器"></a>1. Shell 编程脚本 命令解析器</h2><ul>
 <li><code>.bat  .sh</code>文件存储的都是一些脚本，命令<h2 id="2-常用的shell命令（bash）"><a href="#2-常用的shell命令（bash）" class="headerlink" title="2. 常用的shell命令（bash）"></a>2. 常用的shell命令（bash）</h2></li>
 </ul>
@@ -381,21 +813,19 @@
 <li><code>mkdir abc</code> 创建一个新的目录abc;</li>
 <li><code>ls</code> list当前目录的所有文件列表</li>
 <li><code>ls -a</code>list下的所有文件，包括隐藏文件</li>
-<li><p><code>less</code> 查看文件 等同于 <code>more a.txt</code>;<br> <code>tail a.txt</code>查看文件的结尾内容，可以自己设定显示几行  <code>tail -n 1 a.txt</code></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gaonanadeMacBook-Pro:git gaonana$ tail -n 1 a.txt </div><div class="line">hello</div><div class="line">gaonanadeMacBook-Pro:git gaonana$ tail -n 2 a.txt </div><div class="line">abc</div><div class="line">hello</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>touch a.txt</code>创建a文件</p>
-</li>
+<li><code>less</code> 查看文件 等同于 <code>more a.txt</code>;<br> <code>tail a.txt</code>查看文件的结尾内容，可以自己设定显示几行  <code>tail -n 1 a.txt</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gaonanadeMacBook-Pro:git gaonana$ tail -n 1 a.txt </div><div class="line">hello</div><div class="line">gaonanadeMacBook-Pro:git gaonana$ tail -n 2 a.txt </div><div class="line">abc</div><div class="line">hello</div></pre></td></tr></table></figure>
+<ol>
+<li><code>touch a.txt</code>创建a文件</li>
 <li><code>cat a.txt</code>查看a文件中的内容；</li>
 <li><code>echo 写入内容 &gt; a.txt</code> <code>&gt;</code>覆盖操作;<br> <code>&gt;&gt;</code>追加操作</li>
 <li><code>ctrl+c</code>或者<code>q</code>直接退出当前运行程序；<h2 id="3-Vi"><a href="#3-Vi" class="headerlink" title="3. Vi"></a>3. Vi</h2>有3种模式：命令模式，编辑模式，底行模式</li>
 </ol>
 <ul>
 <li><code>vi hi.txt</code>打开hi.txt 文件</li>
-<li><p><code>esc</code>不能编辑;</p>
-</li>
-<li><p><code>shift+:</code>退出编辑格式，<code>wq</code>保存并退出，<code>q</code>不保存直接退出</p>
-</li>
+<li><code>esc</code>不能编辑;</li>
+<li><code>shift+:</code>退出编辑格式，<code>wq</code>保存并退出，<code>q</code>不保存直接退出</li>
 <li><code>dd</code>在命令模式，直接删除一行<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">这个问题必须现在解决吗</div><div class="line">这个问题目前有几种解决方法</div><div class="line">我有多少成本可以使用</div><div class="line">放开成本限制 有没有更优解</div><div class="line">站在比当前问题高一级的视角配上训练有素的方法,能让人成为更优秀的problem solver</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -432,7 +862,7 @@
 <li>未追踪 untracked 工作目录刚创建的文件</li>
 <li>已暂存 staged 从工作目录提交到暂存区的文件</li>
 <li>已提交 commited 从暂存区提交到本地仓库的文件</li>
-<li>已修改 modified 暂存区修改过的文件<h1 id="Git使用"><a href="#Git使用" class="headerlink" title="Git使用"></a>Git使用</h1></li>
+<li>已修改 modified 暂存区修改过的文件<h1 id="三、Git命令整理"><a href="#三、Git命令整理" class="headerlink" title="三、Git命令整理"></a>三、Git命令整理</h1></li>
 <li>创建一个文件夹 <code>git init</code>,创建一个仓库</li>
 <li><code>git config --global user.name &quot;name&quot;</code>和<code>git config --global user.email &quot;email&quot;</code>配置用户信息</li>
 <li><code>git status</code>查看git状态信息</li>
@@ -502,7 +932,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span>
   </nav>
 
 
@@ -547,7 +977,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -558,7 +988,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -569,7 +999,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -612,10 +1042,6 @@
               Links
             </div>
             <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
-                </li>
               
                 <li class="links-of-blogroll-item">
                   <a href="http://www.sdifenzhou.com/" title="Title" target="_blank">Title</a>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-21T06:02:34.000Z</updated>
+  <updated>2017-07-24T05:50:49.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,189 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue中引用jQuery和jQuery插件</title>
+    <link href="http://yoursite.com/2017/07/24/Vue%E4%B8%AD%E5%BC%95%E7%94%A8jQuery%E5%92%8CjQuery%E6%8F%92%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/07/24/Vue中引用jQuery和jQuery插件/</id>
+    <published>2017-07-24T02:34:04.000Z</published>
+    <updated>2017-07-24T05:50:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在Vue项目中，难免会用到 jQuery，即使用不到jQuery，也有可能会用到jQuery插件，现在将整理一下，如何在 vue-cli生成的Vue+webpack项目中引入jQuery，使用jQuery插件</p>
+<h2 id="Vue中引用jQuery"><a href="#Vue中引用jQuery" class="headerlink" title="Vue中引用jQuery"></a>Vue中引用jQuery</h2><p>1：首先下载jQuery</p>
+<ul>
+<li>npm install jQuery -D<br>2: 修改 webpack.base.config.js中的 两处配置文件</li>
+<li>在build文件中的webpack.base.config中修改<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"><span class="comment">//在module.exports中加入plugins</span></div><div class="line">plugins: [</div><div class="line">       <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">'common.js'</span>),</div><div class="line">       <span class="keyword">new</span> webpack.ProvidePlugin(&#123;</div><div class="line">           <span class="attr">jQuery</span>: <span class="string">"jquery"</span>,</div><div class="line">           <span class="attr">$</span>: <span class="string">"jquery"</span></div><div class="line">       &#125;)</div><div class="line"></div><div class="line">   ],</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>3：如果在全局使用$,则在main.js中引入$； 否则在组件文件内引入即可<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span>;</div></pre></td></tr></table></figure></p>
+<h2 id="Vue中使用jQuery插件"><a href="#Vue中使用jQuery插件" class="headerlink" title="Vue中使用jQuery插件"></a>Vue中使用jQuery插件</h2><p>引入了jQuery之后，就要开始引入 jQuery插件了。<br>jQuery插件直接在组件内部使用，<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">	<span class="comment">//引入jQuery</span></div><div class="line">	<span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">"jquery"</span></div><div class="line">	<span class="comment">//引入插件的 JS</span></div><div class="line">	<span class="keyword">import</span> <span class="string">'../../directive/viewer-jquery.min.js'</span>;</div><div class="line">	<span class="comment">//在&lt;style&gt;&lt;/style&gt;中引入CSS文件</span></div><div class="line">	@<span class="keyword">import</span> <span class="string">"../../directive/viewer.min.css"</span>;</div><div class="line">	<span class="comment">//对于插件的调用，需要在 页面中的DOM元素加载完成自后再进行绑定，所以需要在</span></div><div class="line">	mouted 或者 updated状态之后再调用</div><div class="line">	updated()&#123;</div><div class="line"><span class="comment">//          alert(1);</span></div><div class="line">            $(<span class="string">'#ace-images'</span>).viewer(&#123;</div><div class="line">                <span class="attr">url</span>: <span class="string">'data-original'</span>,</div><div class="line">            &#125;);</div><div class="line">        &#125;,</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在Vue项目中，难免会用到 jQuery，即使用不到jQuery，也有可能会用到jQuery插件，现在将整理一下，如何在 vue-cli生成的Vue+webpack项目中引入jQuery，使用jQuery插件&lt;/p&gt;
+&lt;h2 id=&quot;Vue中引用jQuery&quot;&gt;&lt;a hre
+    
+    </summary>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue项目中的点</title>
+    <link href="http://yoursite.com/2017/07/21/Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E7%82%B9/"/>
+    <id>http://yoursite.com/2017/07/21/Vue项目中的点/</id>
+    <published>2017-07-21T02:17:04.000Z</published>
+    <updated>2017-07-21T09:42:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="在Vue项目中引入图片"><a href="#在Vue项目中引入图片" class="headerlink" title="在Vue项目中引入图片"></a>在Vue项目中引入图片</h2> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> default_avatar <span class="keyword">from</span> <span class="string">'assets/default_avatar.jpg'</span>;</div><div class="line">data() &#123;</div><div class="line">     <span class="keyword">return</span> &#123;</div><div class="line">       <span class="attr">log</span>: errLogStore.state.errLog,</div><div class="line">    <span class="attr">default_avatar</span>: default_avatar</div><div class="line">     &#125;</div><div class="line">   &#125;,</div><div class="line">   <span class="comment">//然后再在内容区域引入default_avatar</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;在Vue项目中引入图片&quot;&gt;&lt;a href=&quot;#在Vue项目中引入图片&quot; class=&quot;headerlink&quot; title=&quot;在Vue项目中引入图片&quot;&gt;&lt;/a&gt;在Vue项目中引入图片&lt;/h2&gt; &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;
+    
+    </summary>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue学习笔记</title>
+    <link href="http://yoursite.com/2017/07/19/vue-cli%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%AE%89%E8%A3%85/"/>
+    <id>http://yoursite.com/2017/07/19/vue-cli使用与安装/</id>
+    <published>2017-07-19T02:39:04.000Z</published>
+    <updated>2017-07-26T00:30:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="vue-cli-安装与使用"><a href="#vue-cli-安装与使用" class="headerlink" title="vue-cli 安装与使用"></a>vue-cli 安装与使用</h2><p>1: sudo npm install vue-cli -g<br>2: vue init webpack-simple vue-webpack-simple-demo<br>3: cd 文件名<br>4: npm install  加载模块   （有的时候网上教程使用cnpm;指的是国内淘宝镜像安装）<br>5: npm run dev 运行项目</p>
+<h2 id="模块下载"><a href="#模块下载" class="headerlink" title="模块下载"></a>模块下载</h2><p>npm install <package-name> –save-dev  //下载的时候一定要–save-dev.这样别人拿到项目之后npm install 就可以直接使用。</package-name></p>
+<h2 id="Vue-组件"><a href="#Vue-组件" class="headerlink" title="Vue 组件"></a>Vue 组件</h2><p>组件：一个大对象<br>定义组件的方式：</p>
+<h3 id="1：全局组件"><a href="#1：全局组件" class="headerlink" title="1：全局组件"></a>1：全局组件</h3><p>1： 全局组件：Vue.extend({template:”content”})；</p>
+<ul>
+<li>2： 组件里面当数据时，data必须是函数的形式，函数必须返回的是json； √<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;div id="app"&gt;</div><div class="line">	&lt;aaa&gt;&lt;/aaa&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">var Aaa = Vue.extend(&#123;</div><div class="line">     data()&#123;</div><div class="line">     	return&#123;</div><div class="line">    		 msg:"我是标题"</div><div class="line">    	 &#125;</div><div class="line">     &#125;,</div><div class="line">     template:"&lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;"</div><div class="line">    &#125;);</div><div class="line">     Vue.component('aaa',Aaa);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-局部组件"><a href="#2-局部组件" class="headerlink" title="2:局部组件"></a>2:局部组件</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;div id="app"&gt;</div><div class="line">	&lt;aaa&gt;&lt;/aaa&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">var Aaa = Vue.extend(&#123;</div><div class="line">     data()&#123;</div><div class="line">     	return&#123;</div><div class="line">    		 msg:"我是标题"</div><div class="line">    	 &#125;</div><div class="line">     &#125;,</div><div class="line">     template:"&lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;"</div><div class="line">    &#125;);</div><div class="line">     //Vue.component('aaa',Aaa);-----这里是全局组件</div><div class="line">     var vm = new Vue(&#123;</div><div class="line">       el:"#app",</div><div class="line">       data:&#123;</div><div class="line">         msg:"true";</div><div class="line">       &#125;,</div><div class="line">       components:&#123;</div><div class="line">         aaa:Aaa  //------这里面是VM实例化的组件</div><div class="line">       &#125;</div><div class="line">     &#125;)</div></pre></td></tr></table></figure>
+<h3 id="3-动态组件"><a href="#3-动态组件" class="headerlink" title="3: 动态组件"></a>3: 动态组件</h3><p><code>&lt;component :is=&quot;组件的名称    &quot;&gt;&lt;/component&gt;</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">	 <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">          <span class="attr">el</span>:<span class="string">"#app"</span>,</div><div class="line"><span class="comment">//4:动态组件</span></div><div class="line">          data:&#123;</div><div class="line">              <span class="attr">a</span>:<span class="string">"aaa"</span>,</div><div class="line">              <span class="attr">b</span>:<span class="string">"bbb"</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">components</span>:&#123;</div><div class="line">              <span class="string">"aaa"</span>:&#123;</div><div class="line">                  <span class="attr">template</span>:<span class="string">"&lt;h2&gt;这是aaa组件&lt;/h2&gt;"</span></div><div class="line">              &#125;,</div><div class="line">              <span class="string">"bbb"</span>:&#123;</div><div class="line">                  <span class="attr">template</span>:<span class="string">"&lt;h2&gt;这是bbb组件&lt;/h2&gt;"</span></div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="Vue-学习笔记"><a href="#Vue-学习笔记" class="headerlink" title="Vue 学习笔记"></a>Vue 学习笔记</h2><p>1: GET请求<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       <span class="keyword">this</span>.$http.get(<span class="string">'aa.txt'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">       	alert(res.data);</div><div class="line">       &#125;,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">       	alert(res.status);</div><div class="line">       &#125;);</div><div class="line">    &#125;,</div></pre></td></tr></table></figure></p>
+<p>2: post请求<br>post请求与GET请求不同的是：post请求需要设置请求头。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">call:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.$http.post(<span class="string">'01-post.php'</span>,&#123;</div><div class="line">   	<span class="attr">a</span>:<span class="number">3</span>,<span class="comment">//参数</span></div><div class="line">    	b:<span class="number">5</span></div><div class="line">    &#125;,&#123;</div><div class="line">    	<span class="attr">emulateJSON</span>:<span class="literal">true</span>; <span class="comment">//设置请求头</span></div><div class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">   	 alert(res.data); <span class="comment">//响应成功处理函数</span></div><div class="line">    &#125;,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">    	alert(res.status); <span class="comment">//响应失败处理函数</span></div><div class="line">    &#125;)</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>3： jsonp请求<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">jsp:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;			<span class="keyword">this</span>.$http.jsonp(<span class="string">'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su'</span>,&#123;</div><div class="line">  	 	<span class="attr">wd</span>:<span class="string">'a'</span>;<span class="comment">//参数</span></div><div class="line">   &#125;,&#123;</div><div class="line">   	<span class="attr">jsonp</span>:<span class="string">'cb'</span> <span class="comment">//默认为callback，当为cb时，需要写成cb;</span></div><div class="line">   &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">   	alert(res.data.s); <span class="comment">//响应成功的函数</span></div><div class="line">   &#125;,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">   	alert(res.status); <span class="comment">//响应失败的函数；</span></div><div class="line">   &#125;)</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><ul>
+<li>交互：vue-resource ajax两部分</li>
+<li>Vue中相当于window.onload功能的部分<ul>
+<li>钩子函数  。编译值将文本中的   花括号  等编程真正的数据</li>
+<li>1:created -&gt; 实例已经创建。  2：beforeCompile -&gt;编译之前   3：compiled：  –》编译之后   4：ready  –》创建节点，相当于window.onload事件<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">     <span class="attr">el</span>:<span class="string">"#App"</span>,  <span class="comment">// 这个可以暂时不写，可以手动挂在。vm.$mount("#App")</span></div><div class="line">     data:&#123;</div><div class="line">       <span class="attr">msg</span>:<span class="string">"well"</span></div><div class="line">     &#125;,</div><div class="line">     <span class="attr">created</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       alert(<span class="string">"实例已经创建了"</span>)；</div><div class="line">     &#125;，</div><div class="line">     beforeCompile:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       alert(<span class="string">"编译之前"</span>)；</div><div class="line">     &#125;，</div><div class="line">     compiled:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       alert(<span class="string">"编译之后"</span>)；</div><div class="line">     &#125;，</div><div class="line">     ready:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       alert(<span class="string">"真正的将文本节点插入到文档中，相当于window.onload"</span>)</div><div class="line">     &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Vue中事件的处理，过滤器"><a href="#Vue中事件的处理，过滤器" class="headerlink" title="Vue中事件的处理，过滤器"></a>Vue中事件的处理，过滤器</h2><h2 id="解决-花括号-闪现问题"><a href="#解决-花括号-闪现问题" class="headerlink" title="解决 花括号 闪现问题"></a>解决 花括号 闪现问题</h2><p>1：v-cloak一般用在比较大的段落</p>
+<p><style><br>    [v-cloak]{display: none;}<br></style><br>2：将文本中的内容标签按照格式显示出来 双{<i>斜体文本</i>双}。此时使用3个 三个左{<i>文本变斜</i>}(3个})<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">v-text   ===  &#123;&#123;msg&#125;&#125;;     v-html === &#123;&#123;&#123;msg&#125;&#125;&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="计算属性的使用-computed-最后一定记得return；"><a href="#计算属性的使用-computed-最后一定记得return；" class="headerlink" title="计算属性的使用  computed 最后一定记得return；"></a>计算属性的使用  computed 最后一定记得return；</h2><p>computed:function(){<br>  b:function(){   //这种形式默认调用的是 b的GET方法<br>    return this.a+1; //此时b是实例Vue的属性，不是函数，直接this.b就可以调用<br>  }<br>}<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">computed:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     b:&#123;</div><div class="line">       <span class="attr">get</span>:fuction()&#123;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">this</span>.a+<span class="number">2</span>;</div><div class="line">       &#125;,</div><div class="line">       <span class="attr">set</span>:<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</div><div class="line">          <span class="keyword">this</span>.a = val;</div><div class="line">       &#125;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     vm.b = <span class="number">10</span>; <span class="comment">//这个10就是set当中的val值。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Vue中的自定义属性"><a href="#Vue中的自定义属性" class="headerlink" title="Vue中的自定义属性"></a>Vue中的自定义属性</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">     <span class="attr">aa</span>:<span class="number">11</span>,  <span class="comment">//这个是自定义属性，通过&#123;&#123;aa&#125;&#125;是获取不到的， vm.$options.aa</span></div><div class="line">     data:&#123;</div><div class="line">       <span class="attr">a</span>:<span class="number">1</span></div><div class="line">     &#125;</div><div class="line">&#125;).$mount(<span class="string">"#box"</span>);</div></pre></td></tr></table></figure>
+<h2 id="Vue-中循环重复添加数据-track-by"><a href="#Vue-中循环重复添加数据-track-by" class="headerlink" title="Vue 中循环重复添加数据  track-by"></a>Vue 中循环重复添加数据  track-by</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">track-by</span>=<span class="string">"$index"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><ul>
+<li><p>limitBy 有两个参数，第一个 取几个数；第二个，从哪开始</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items | limitBy 2 items.length-1"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>filterBy “a” 第一个以a开头的显示</p>
+</li>
+<li>orderBy “1”/“-1”;1为正序排列，   -1位倒叙排列</li>
+<li>自定义过滤器<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Vue.filter(<span class="string">'toDo'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">input,a,b</span>)</span>&#123;<span class="comment">//a,b为参数&#125;</span></div><div class="line">)</div><div class="line"><span class="comment">//将毫秒级时间转化为 yyyy-mm-dd格式</span></div><div class="line">Vue.filter(<span class="string">"date"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">input</span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>(input);</div><div class="line">     <span class="keyword">return</span> oDate.getFullYear()+<span class="string">"-"</span>+(oDate.getMonth()+<span class="number">1</span>+oDate.getHours()+<span class="string">":"</span>+oDate.getMinutes()+<span class="string">":"</span>+oDate.getSeconds());</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="属性绑定样式"><a href="#属性绑定样式" class="headerlink" title="属性绑定样式"></a>属性绑定样式</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-drag:style</span>=<span class="string">"width:'100px'"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Vue-组件的定义"><a href="#Vue-组件的定义" class="headerlink" title="Vue 组件的定义"></a>Vue 组件的定义</h2><ul>
+<li>this.$emit(“name”,this.a);   //将子组件的a数据发送到父组件中</li>
+<li>父组件通过@name=”get” 进行接收</li>
+<li>子集向父级发送数据<ul>
+<li>vm.$emit(事件名，数据)；<h3 id="slot-：占位置使用"><a href="#slot-：占位置使用" class="headerlink" title="slot ：占位置使用"></a>slot ：占位置使用</h3><h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h2></li>
+</ul>
+</li>
+<li>vue-resource:做交互使用</li>
+<li>vue-router：路由<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;$route.params |json&#125;&#125; ----  &#123; &quot;id&quot;: &quot;002&quot; &#125;  ; 获取到的是当前参数</div><div class="line">      &lt;br&gt;</div><div class="line">      &#123;&#123;$route.path&#125;&#125;  ----  /news/detail/002?a=1&amp;b=2； 获取到的是路径</div><div class="line">      &lt;br&gt;</div><div class="line">      &#123;&#123;$route.query | json&#125;&#125;  ----&#123; &quot;a&quot;: &quot;1&quot;, &quot;b&quot;: &quot;2&quot; &#125;; 获取到的是参数</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="vue-loader"><a href="#vue-loader" class="headerlink" title="vue-loader"></a>vue-loader</h2><ul>
+<li>模块化开发 webpack。同css-loader/style-loader一样。</li>
+<li>vue-loader是基于 webpack的</li>
+<li>.vue文件 要依赖vue-loader,而vue-loader需要webpack将.vue文件编译成浏览器能读懂的文件</li>
+<li>.vue文件放置的是Vue组件的代码 ：1：template  2：script  3：style</li>
+<li>babel_loader: 将ES6代码编译成 浏览器识别的代码</li>
+<li>webpack目录结构<ul>
+<li>index.htm</li>
+<li>main.js 入口文件</li>
+<li>App.vue  唯一的Vue文件</li>
+<li>package.json  工程文件(项目依赖，名称、配置)</li>
+<li>webpack.config.js  webpack的配置文件</li>
+<li>vue-html-loader //编译 .Vue文件中的template中的内容</li>
+<li>css-loader/vue-style-loader //编译CSS文件</li>
+<li>vue-hot-reload-api@1.3.2 //加载js文件。改完代码后，验证代码是否正确 </li>
+<li>webpack-dev-server –inline(热刷新) –hot  –port(默认8080) 8082(修改为8082)</li>
+</ul>
+</li>
+</ul>
+<h2 id="ES6模块化开发"><a href="#ES6模块化开发" class="headerlink" title="ES6模块化开发"></a>ES6模块化开发</h2><ul>
+<li>导出模块：export default{}</li>
+<li>引入模块： import Vue(模块名) from “vue”地址</li>
+<li>–save-dev 在下载文件的同时，将其写到配置文件中</li>
+<li>必须依赖的框架，在下载的时候 –save; 文件在package.json 中的 devDependecies</li>
+<li>开发环境所依赖的框架，下载时使用 –save -dev;保存在dependecies中</li>
+</ul>
+<h2 id="vue-cli-脚手架"><a href="#vue-cli-脚手架" class="headerlink" title="vue-cli 脚手架"></a>vue-cli 脚手架</h2><ul>
+<li>Vue init 模板名称 本地文件夹名称 (vue init webpack-simple  crmInnoway) </li>
+<li>加载CSS样式的时候，需要下载 style-loader css-loader file-loader -D;</li>
+<li>UI中的字体图标是需要 file-loader进行加载的</li>
+<li>在webpack.config.json里面配置等</li>
+<li><p>！！！！主要，修改完webpack.config.json 之后记得重启服务</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line"><span class="attr">loader</span>: <span class="string">'style-loader!css-loader'</span></div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line"><span class="attr">test</span>: <span class="regexp">/\.(png|jpe?g|gif|svg)(\?\S*)?$/</span>,</div><div class="line"><span class="attr">loader</span>: <span class="string">'file-loader'</span>,</div><div class="line"><span class="attr">query</span>: &#123;</div><div class="line"><span class="attr">name</span>: <span class="string">'[name].[ext]?[hash]'</span></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果想使用less的话，需要下载两个文件 “less   和 less-loader”,然后配置<br>{</p>
+<pre><code>    test: /\.less$/,
+    loader: &apos;less&apos;
+},
+</code></pre></li>
+</ul>
+<h2 id="Vue2-0-注意"><a href="#Vue2-0-注意" class="headerlink" title="Vue2.0 注意"></a>Vue2.0 注意</h2><ul>
+<li>1：在组件中，每一个template里面必须有一个根元素</li>
+<li>2：生命周期的变化<ul>
+<li>mounted 挂载  代替 1.X中的ready</li>
+</ul>
+</li>
+<li>3： ： = v-bind</li>
+<li>4： 双向数据绑定，v-model=”message”。这个message是变量，不用 花括号 包裹</li>
+<li>​<h2 id="vuex-集中管理数据"><a href="#vuex-集中管理数据" class="headerlink" title="vuex 集中管理数据"></a>vuex 集中管理数据</h2></li>
+<li>vuex提供两个方法<ul>
+<li>mapAction 管理事件(行为)</li>
+<li>mapGetters  获取数据</li>
+<li>1：state ：用来存储数据，全局使用的数据</li>
+<li>2: mutations:存放一些方法，用来处理state的变化</li>
+<li>3：actions:通过{commit,state}来提交状态的变化。处理一些逻辑关系</li>
+<li>4：getters:获取做种的数据，进行返回</li>
+<li>5：最后将 state、mutations、actions、getters进行返回。<h2 id="使用mock-js创建假数据"><a href="#使用mock-js创建假数据" class="headerlink" title="使用mock.js创建假数据"></a>使用mock.js创建假数据</h2></li>
+</ul>
+</li>
+<li>使用axios动态加载 npm i axios axios-mock-adapter  -D</li>
+<li>下载mock   sudo npm i mockjs -D<h2 id="element-ui"><a href="#element-ui" class="headerlink" title="element-ui"></a>element-ui</h2></li>
+<li>label-positon =”left”  会添加 text-align:left 属性</li>
+<li>:default-active=”$route.path”  表示当前激活菜单的 index</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;vue-cli-安装与使用&quot;&gt;&lt;a href=&quot;#vue-cli-安装与使用&quot; class=&quot;headerlink&quot; title=&quot;vue-cli 安装与使用&quot;&gt;&lt;/a&gt;vue-cli 安装与使用&lt;/h2&gt;&lt;p&gt;1: sudo npm install vue-cl
+    
+    </summary>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -761,196 +944,6 @@
       &lt;h1 id=&quot;小知识点&quot;&gt;&lt;a href=&quot;#小知识点&quot; class=&quot;headerlink&quot; title=&quot;小知识点&quot;&gt;&lt;/a&gt;小知识点&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;绝大多数网站目前都是 服务端渲染 + 客户端渲染 相结合；&lt;/li&gt;
 &lt;li&gt;交互方式： 异步请求 和 同步请求
-    
-    </summary>
-    
-      <category term="Node" scheme="http://yoursite.com/categories/Node/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mac上mongobd 的使用</title>
-    <link href="http://yoursite.com/2017/03/09/Mac%E4%B8%8Amongobd%20%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2017/03/09/Mac上mongobd 的使用/</id>
-    <published>2017-03-09T01:33:15.000Z</published>
-    <updated>2017-04-12T06:43:52.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ol>
-<li><p>对MVC的理解</p>
-<ul>
-<li>MVC是一种软件开发模块化架构方式，适用于web开发的代码架构阻止模式；就是用来解耦视图和数据，利用c控制器去调度视图和模型数据的交互；</li>
-<li>提高代码的可维护性<ul>
-<li>解耦了视图和数据的直接交互；</li>
-<li>视图数据和业务数据是完全分开的；</li>
-<li>视图数据：例如表单提交上来的数据；</li>
-<li>业务数据：真是的数据库中的数据； </li>
-</ul>
-</li>
-<li>增加代码的可重用性</li>
-<li>划分方式： 模块职责的单一；</li>
-<li>MVVM的核心：数据驱动视图</li>
-</ul>
-</li>
-<li><p>mongod –dbpath /Users/gaonana/Documents/高娜娜文件/data/db </p>
-</li>
-</ol>
-<h2 id="Mac上mongobd-的使用"><a href="#Mac上mongobd-的使用" class="headerlink" title="Mac上mongobd 的使用"></a>Mac上mongobd 的使用</h2><ol>
-<li>官网下载  <code>mongocd.org</code></li>
-<li>配置环境变量<ul>
-<li>具体配置参考<code>Mac操作系统总结</code>文档</li>
-</ul>
-</li>
-<li><code>mongod --version</code>有版本号表示安装成功</li>
-<li><code>mogond --dbpath $dbpath(数据库数据文件路径)</code>进入data所在的路径，启动服务；</li>
-<li>4步骤中，可以讲data文件夹建立在<code>Macintosh HD</code>的根目录下面，data文件夹，db文件夹；以后再启动mongod服务的时候直接使用<code>mongod</code>就可以启动；</li>
-<li>在另一个命令行界面，<code>mongo</code>命令就可以操作数据库了；</li>
-<li><code>show dbs</code>查看当前服务实力上所有的实例</li>
-</ol>
-<h2 id="数据库介绍"><a href="#数据库介绍" class="headerlink" title="数据库介绍"></a>数据库介绍</h2><ul>
-<li>数据库实例 -&gt; 数据库 -&gt; 表 -&gt; 记录；</li>
-<li>一个数据服务中可以有多个数据库</li>
-<li>一个数据库中可以有多个集合<ul>
-<li>MongoDB中，把表称之为集合</li>
-<li>集合，简单理解就是一个数组</li>
-<li>在一个集合中，可以有多个对象（json）,上一个人特殊的json对象，在mongodb中，叫做bson;</li>
-</ul>
-</li>
-</ul>
-<h2 id="使用-MongoDB-官方提供的-mongodb-驱动包-操作-mongodb数据库；"><a href="#使用-MongoDB-官方提供的-mongodb-驱动包-操作-mongodb数据库；" class="headerlink" title="使用 MongoDB 官方提供的 mongodb     驱动包 操作 mongodb数据库；"></a>使用 MongoDB 官方提供的 mongodb     驱动包 操作 mongodb数据库；</h2>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;小知识点&quot;&gt;&lt;a href=&quot;#小知识点&quot; class=&quot;headerlink&quot; title=&quot;小知识点&quot;&gt;&lt;/a&gt;小知识点&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;对MVC的理解&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;MVC是一种软件开发模块化架构方式，适用于web开发的代码架构阻
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Cookie 和 Session 的使用</title>
-    <link href="http://yoursite.com/2017/03/08/cookie%20%E5%92%8C%20session%20%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2017/03/08/cookie 和 session 的使用/</id>
-    <published>2017-03-08T04:39:04.000Z</published>
-    <updated>2017-04-17T16:57:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="cookie-和-session-的使用"><a href="#cookie-和-session-的使用" class="headerlink" title="cookie 和 session 的使用"></a>cookie 和 session 的使用</h1><h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><ol>
-<li>Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份</li>
-<li>当 客户端第一次请求服务端时，会创建一个Session对象，所有该客户的状态信息都保存在这个Session对象里。服务端会创建一个sessionID，并将其保存在cookie中在cookie中名为sessionID:值；当再次发送请求时，服务器会先检查req中是否有sessionID，并为其分配对应 的内容；</li>
-<li>cookie可以通过ＪＳ写入，有大小，和安全性等问题，但是方便，通过设置可以在多路径中进行访问。</li>
-<li><p>例如购物车的demo，信息就可以存储在cookie中；用户名，密码等信息可以存在session中，返回的sessionid存储在cookie中，配合使用；</p>
-</li>
-<li><p>cookie进行状态管理。http是无状态管理</p>
-</li>
-<li>sessionStorage 在同源的同窗口始终存在数据。窗口关闭，数据销毁；  </li>
-<li>url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务端的通信状态(这个是后台写的)</li>
-<li><code>document.cookie</code>可以访问cookie;</li>
-<li>cookie的格式:键值对;</li>
-<li>多个cookie之间使用分号和空格隔开;例如:<code>username=zhangsan; age=12</code>;</li>
-<li><code>document.cookie = &#39;username=zhangsan&#39;</code>在浏览器中是有缓存的,关闭浏览区可以清除;<h3 id="cookie的分类"><a href="#cookie的分类" class="headerlink" title="cookie的分类"></a>cookie的分类</h3></li>
-<li>会话cookie(session cookie ):关闭浏览器之后自动清除,但是可以增加其有效期,以下例子增加了5天的有效期。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.setDate(date.getDate()+<span class="number">5</span>); </div><div class="line"><span class="built_in">document</span>.cookie=<span class="string">"username=lisi; expires="</span>+date.toGMTString();</div></pre></td></tr></table></figure>
-<ol>
-<li>持久cookie(persistant cookie ): 关闭浏览器,仍然存在。</li>
-<li>在子路径设置的cookie,在父路径下是获取不到的;反过来可以。不可以跨域获取cookie,但是可以跨页面共享;</li>
-<li><p>可以用jquery-cookie插件应用;</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//设置cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,expires</span>) </span>&#123;</div><div class="line">         <span class="built_in">document</span>.cookie = key +<span class="string">'='</span>+value+<span class="string">';expires='</span>+expires+<span class="string">"; path=/"</span>;</div><div class="line">     &#125;</div><div class="line"><span class="comment">//获得cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>) </span>&#123;</div><div class="line">     <span class="keyword">var</span> cookie = <span class="built_in">document</span>.cookie;</div><div class="line">     <span class="keyword">var</span> arr = cookie.split(<span class="string">'; '</span>);</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">         <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">         <span class="keyword">if</span>(cname == kv[<span class="number">0</span>])&#123;</div><div class="line">             <span class="keyword">return</span> kv[<span class="number">1</span>];</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>encodeURLComponent</code>该方法会对url地址中的特殊字符进行编码(当参数中包含URL特殊字符的时候可以使用该方法进行编码处理);</p>
-</li>
-<li>获取sessionID<br><code>console.log($.cookie(&#39;PHPSESSID&#39;))</code>;<h3 id="cookie-使用"><a href="#cookie-使用" class="headerlink" title="$.cookie()使用"></a>$.cookie()使用</h3></li>
-<li>新添加一个cookie会话;<code>$.cookie(&#39;username&#39;,&#39;zhangsan&#39;)</code>;</li>
-<li>创建cookie并设置有效期为7天;<code>$.cookie(&#39;age&#39;,&#39;18&#39;,{expires:7})</code>;此时的cookie称作持久cookie,即<code>persistant cookie</code>;</li>
-<li>创建cookie并设置cookie的有效路径<code>$.cookie(&#39;username&#39;,&#39;lisi&#39;,{expires:7,path:&#39;/&#39;})</code>;<ul>
-<li>在默认情况下,只有cookie的页面才能读取该cookie信息,如果想让另一个页面读取该cookie信息,必须设置cookie的路径;cookie的路径用于设置能够读取cookie的顶级目录,即根目录,可以让当前项目下所有的网页都能相互读取cookie,</li>
-</ul>
-</li>
-<li><code>raw:true</code>;在读写cookie时自动使用<code>encodeURLComponen</code>进行编码和解码;</li>
-<li>删除cookie可以使用null作为cookie的值就可以<code>$.cookie(&#39;username&#39;,null)</code><h3 id="session-和-cookie之间的区别"><a href="#session-和-cookie之间的区别" class="headerlink" title="session 和 cookie之间的区别"></a>session 和 cookie之间的区别</h3></li>
-</ol>
-<ul>
-<li>共同点： 数据都是保存在浏览器端，且是同源的</li>
-<li>区别：<ol>
-<li>cookie 通过在客户端记录信息确定用户身份， 数据始终在同源的 http 请求中携带，即cookie在浏览器和服务器之间来回传递；</li>
-<li>session 通过在服务器端记录信息确定用户身份；</li>
-<li>cookie 数据还有路径(path)的概念，可以限制 cookie 只在某个另下访问。因为每次 http 请求都会携带 cookie，所以cookie 只适合保存很小的数据。</li>
-<li>http 协议是无状态协议。是无法从连接上跟踪会话的；</li>
-<li>第一次发送请求，res 会向客户端浏览器颁发一个 cookie， 客户端吧 cookie 存取来，再次访问的时候会一同提交给 服务器</li>
-<li>SessionStorage 存在于服务端的内存中；</li>
-</ol>
-</li>
-</ul>
-<h3 id="cookie-和session"><a href="#cookie-和session" class="headerlink" title="cookie 和session"></a>cookie 和session</h3><h3 id="LocalStorage-和-sessionStorage"><a href="#LocalStorage-和-sessionStorage" class="headerlink" title="LocalStorage 和 sessionStorage"></a>LocalStorage 和 sessionStorage</h3><pre><code>+ LocalStorage 对应的是 持久 Cookie
-+ sessionStorage 对应的是 会话 Cookie
-+ Cookie 是用来做状态保持的
-    - Cookie 的数据，浏览器会默认把 cookie 放到 请求报文中发送给服务器
-+ LocalStorage 和 sessionStorage 是用来 做本地存储的，没有 Http 协议交互内容；
-</code></pre><h3 id="location的内置属性"><a href="#location的内置属性" class="headerlink" title="location的内置属性"></a>location的内置属性</h3><ul>
-<li>页面跳转<code>location.href=&#39;/index/index.html&#39;</code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ancestorOrigins:DOMStringList,</div><div class="line">assign:()</div><div class="line">hash:""</div><div class="line">host:"mybxg.com"</div><div class="line">hostname:"mybxg.com"</div><div class="line">href:"http://mybxg.com/index/index"</div><div class="line">origin:"http://mybxg.com"</div><div class="line">pathname:"/index/index"</div><div class="line">port:""</div><div class="line">protocol:"http:"</div><div class="line">reload:reload()</div><div class="line">replace:()</div><div class="line">search:""</div><div class="line">toString:toString()</div><div class="line">valueOf:valueOf()</div><div class="line">__proto__:Location</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><ul>
-<li>静态资源服务器</li>
-<li>项目管理软件: JIRA 禅道(跟踪工程进度更新,项目管理软件)</li>
-<li>jQuery中的return false既可以阻止默认行为也可以阻止冒泡;但是原生JS中的return false 只能阻止默认行为;</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;cookie-和-session-的使用&quot;&gt;&lt;a href=&quot;#cookie-和-session-的使用&quot; class=&quot;headerlink&quot; title=&quot;cookie 和 session 的使用&quot;&gt;&lt;/a&gt;cookie 和 session 的使用&lt;/h1&gt;&lt;
-    
-    </summary>
-    
-      <category term="storage" scheme="http://yoursite.com/categories/storage/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Formidable插件使用</title>
-    <link href="http://yoursite.com/2017/03/06/formidable%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2017/03/06/formidable插件使用/</id>
-    <published>2017-03-06T00:50:15.000Z</published>
-    <updated>2017-04-17T16:57:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="formidable插件使用"><a href="#formidable插件使用" class="headerlink" title="formidable插件使用"></a>formidable插件使用</h1><h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><ul>
-<li>JS中的模块化为AMD（requireJS）或 CMD</li>
-<li>在Node中，模块化成为CommonJS；</li>
-<li>require</li>
-<li>exports  是module.exports的别名</li>
-<li>module.exports</li>
-</ul>
-<h2 id="require加载模块查找规则"><a href="#require加载模块查找规则" class="headerlink" title="require加载模块查找规则"></a>require加载模块查找规则</h2><ul>
-<li>优先从缓存中进行加载<ul>
-<li>如果一个模块被加载过以后，会直接被缓存起来，下次加载的时候直接从缓存中读取</li>
-<li>加载的是模块中 module.exports的值，而不是应用；</li>
-</ul>
-</li>
-<li>核心模块</li>
-<li>自定义模块</li>
-<li>第三方模块查找顺序</li>
-</ul>
-<h2 id="CURD-案例"><a href="#CURD-案例" class="headerlink" title="CURD 案例"></a>CURD 案例</h2><ul>
-<li>表单如果想要上传文件，必须将表单设置<code>enctype=&#39;multipart/form-data&#39;</code></li>
-<li>npm init -y 快速初始化npm</li>
-</ul>
-<h3 id="文件上传插件-formidable-实际开发还是使用uploadify第三方插件"><a href="#文件上传插件-formidable-实际开发还是使用uploadify第三方插件" class="headerlink" title="文件上传插件 formidable,实际开发还是使用uploadify第三方插件"></a>文件上传插件 formidable,实际开发还是使用uploadify第三方插件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm();</div><div class="line">form.parse</div></pre></td></tr></table></figure>
-<ul>
-<li>普通的ajax请求是无法上传file的，在XMLHttpRequest2中对formData进行了支持；</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData();</div><div class="line">$.ajax(&#123;</div><div class="line">       <span class="attr">url</span>:<span class="string">'/add'</span>,</div><div class="line">       <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line">       <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">       <span class="attr">data</span>:formData,</div><div class="line">       <span class="attr">processData</span>:<span class="literal">false</span>,<span class="comment">//告诉jQuery不去处理data数据</span></div><div class="line">        contentType:<span class="literal">false</span>,<span class="comment">//jquery会自动去设置请求头为application/x-www-urlencode;设置这个参数会高数jQuery不要去设置，使用其默认的enctype='multipart/form-data;</span></div><div class="line">         success:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">           <span class="comment">//自动跳转到HTML页面,进行渲染</span></div><div class="line">            <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                <span class="comment">//console.log(location.href);</span></div><div class="line">                location.href=<span class="string">'/'</span>;</div><div class="line">            &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> fs.readFile(<span class="string">'./data.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</div><div class="line">    <span class="comment">//读取文件得到的数据data都是二进制格式，可以将其转换成JSON对象</span></div><div class="line">    data = <span class="built_in">JSON</span>.parse(data);</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;formidable插件使用&quot;&gt;&lt;a href=&quot;#formidable插件使用&quot; class=&quot;headerlink&quot; title=&quot;formidable插件使用&quot;&gt;&lt;/a&gt;formidable插件使用&lt;/h1&gt;&lt;h2 id=&quot;CommonJS&quot;&gt;&lt;a href
     
     </summary>
     
