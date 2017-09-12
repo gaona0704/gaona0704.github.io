@@ -272,7 +272,7 @@
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/background-size/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/PHP学习中的笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gaonana">
@@ -294,8 +294,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/01/background-size/" itemprop="url">
-                  Background-Size 使用
+                <a class="post-title-link" href="/2017/07/10/PHP学习中的笔记/" itemprop="url">
+                  Php相关记录
                 </a>
               
             
@@ -311,7 +311,315 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T10:32:04+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T10:17:04+08:00">
+                2017-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="PHP学习中的笔记"><a href="#PHP学习中的笔记" class="headerlink" title="PHP学习中的笔记"></a>PHP学习中的笔记</h2><ul>
+<li>defined 是判断是都存在这个值；</li>
+<li>define是设置某个量的值；</li>
+<li>layout.html 是入口文件。通过模板语法{<strong>CONTENT</strong>}像框架中填写主要内容。然后根据URL地址解析，寻找对应的方法与数据。</li>
+<li>php中isset()函数，用来检测变量是否设置；</li>
+<li>unset():销毁指定的变量</li>
+<li>在core.php中的应用路径解析，页面加载，先判断是否设置了 isset($GET[‘app’]),<ul>
+<li>页面初始化，没有请求，也就是<code>isset($GET[&#39;app&#39;])</code>没有值，默认使 $app_name=web;所以将apps/web/tpl/index/index.html中的内容渲染到content区域；<h3 id="Volist标签，-present标签与其类似"><a href="#Volist标签，-present标签与其类似" class="headerlink" title="Volist标签， present标签与其类似"></a>Volist标签， present标签与其类似</h3></li>
+</ul>
+</li>
+<li>name和id属性是必须的；name：表示要输出的数据模板变量；id表示循环变量；key:循环的key变量，默认值为i;</li>
+<li>Volist标签的name属性表示模板赋值的变量名称，因此不可随意在模板文件中改变。id表示当前的循环变量，可以随意指定，但确保不要和name属性冲突。</li>
+<li>使用前，首先应该对模板进行赋值，例如：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$User = M(<span class="string">'User'</span>);<span class="comment">//M方法：意思是创建一个user模型，对应数据库中的User表，</span></div><div class="line">$User = D(<span class="string">'User'</span>);<span class="comment">//D方法：实例化模型 。 该方法可能和以下代码等效：import('@.Model.UserModel'); $User = new UserModel();</span></div><div class="line">$list = $User-&gt;select(); <span class="comment">//从数据库中选取数据；</span></div><div class="line">$<span class="keyword">this</span>-&gt;assign(<span class="string">'list'</span>,$list);  <span class="comment">//吧数组打印出来，渲染模板；</span></div><div class="line"><span class="comment">//在PHP中，例如$db=new db();实例化；使用$db的属性和方法： $db -&gt; host = 'localhost'; $db -&gt; printHost();这就相当于js中的db.host = 'localhost';db.printHost();调用方法；</span></div><div class="line">&lt;volist name=<span class="string">"list"</span> id=<span class="string">"vo"</span>&gt;</div><div class="line">    &#123;$vo.id&#125;</div><div class="line">    &#123;$vo.name&#125;</div><div class="line">&lt;<span class="regexp">/volist&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="thinkPHP中M方法和D方法的区别"><a href="#thinkPHP中M方法和D方法的区别" class="headerlink" title="thinkPHP中M方法和D方法的区别:"></a>thinkPHP中M方法和D方法的区别:</h3><p>M方法实例化模型无需用户为每个数据表定义模型类，如果D方法没有找到定义的模型类，则会自动调用M方法。通俗一点说：M实例化参数是数据库的表名。D实例化的是你自己在Model文件夹下面建立的模型文件。</p>
+<h3 id="思路过程："><a href="#思路过程：" class="headerlink" title="思路过程："></a>思路过程：</h3><p>1：在indexAction.class.php中定义的获得到的是index.html页面中<volist name="newspic">的数据<br>2：由此找到了数据库中对应的数据：</volist></p>
+<pre><code>+ $articleModel = M(&apos;Article&apos;); ------找到数据库中 to_article表；
++ $cyjigou_id = 2;  -------找到category_id = 2的所有数据；
++ 然后对应上了，获得到了所有入住机构的数据；
++ 里面的content字段就是入住机构的详细介绍；
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/html格式打开*.httl或者*.php文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/08/html格式打开*.httl或者*.php文件/" itemprop="url">
+                  以HTML格式打开 *.Httl 或者*.Php文件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-08T16:15:04+08:00">
+                2017-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在webstorm或者intellij IDEA 中打开 <em>.httl 或者 </em>.php文件时，由于文件格式问题，会导致整个页面的颜色都是白色，在编辑页面时，代码不会提示，这就大大的降低的开发效率。偶然间发现，可以以HTML格式去打开这些文件，那这些文件就可以以html样式结构进行展示，在进行编码的时候也会出现提示。</p>
+<p>现在就以 itellij IDEA 为例进行设置讲解：<br>1：进入preference<br>2：进入editor  ——&gt;  File Types;<br>3:  找到 HTML，在下面追加 你想要打开的文件格式</p>
+<p><img src="../img/001.png" width="600" height="300" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/git使用中的撤销操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gaonana">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="高工@博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/01/git使用中的撤销操作/" itemprop="url">
+                  Git使用中的撤销操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T13:24:04+08:00">
                 2017-06-01
               </time>
             
@@ -334,8 +642,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
                   </a>
                 </span>
 
@@ -371,318 +679,14 @@
       
         
           
-            <p>今天运维人员发现了一个线上bug，banner图片在显示的时候总是显示部分区域，不能显完全，在排查的过程中，发现banner图的父元素设置 <code>width:100%;min-width:1200px;</code>；div设置了最小宽度，为1200px；但是banner图的宽为2000px，超出div宽度的部分被裁切掉了。</p>
-<p>要想图片显示为div的大小，自动缩放，可以设置 背景图片的大小即 background-size属性，正好借此机会对background-size属性进行总结。</p>
-<p>background-size属性一共有5个值：auto、length、percent、cover、contain。</p>
-<p>1：默认值为：auto，auto；<br>2：length 和 percent一共是两个值，第一个值是设置图片的宽度，第二个值是图片的高度。如果只有一个值，那么第二个值默认为auto。<br>3：percent：为百分比值，背景图片的大小是根据相对的背景区域来做调整的；</p>
-<blockquote>
-<p>当图片较大，背景区域太小的时候，可通过 background-size：100% 100%；来达到，图片完全展示的效果</p>
-</blockquote>
-<p>4：contain：等比例放大，某一边顶格后，立即停止放大，另一百为空白区域；<br>5：cover：等比例放大，直到两边都顶格。如果有一边超出范围，那么就会出现图片缺失的问题。</p>
-<h2 id="background-设置多背景"><a href="#background-设置多背景" class="headerlink" title="background 设置多背景"></a>background 设置多背景</h2><p>在CSS3中，可以设置多重背景，background的值为：url  重复   位置/大小<br>注意： 这几个属性的值可以交换位置，但是  位置/大小  必须在一起，并且中间以/分割；<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">background:</div><div class="line">	url('img/lyf.jpg') top left/100px 100px no-repeat;// 位置/大小 重复</div><div class="line">	url('img/lyf.jpg') no-repeat top center/100px 100px ;重复 位置/大小</div><div class="line">url('img/haha.jpg') no-repeat top right / 100px 100px;重复 位置/大小</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/31/ajaxFileupload(文件上传插件，自己封装的)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/31/ajaxFileupload(文件上传插件，自己封装的)/" itemprop="url">
-                  ajaxFileupload(文件上传插件，自己封装的)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T17:13:04+08:00">
-                2017-05-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div></pre></td><td class="code"><pre><div class="line">	<span class="comment">// JavaScript Document</span></div><div class="line">jQuery.extend(&#123;</div><div class="line">    <span class="attr">createUploadIframe</span>: <span class="function"><span class="keyword">function</span>(<span class="params">id, uri</span>)</span></div><div class="line"> &#123;</div><div class="line">   <span class="comment">//create frame</span></div><div class="line">            <span class="keyword">var</span> frameId = <span class="string">'jUploadFrame'</span> + id;</div><div class="line">            <span class="keyword">if</span>(<span class="built_in">window</span>.ActiveXObject) &#123;</div><div class="line">                <span class="keyword">var</span> io = <span class="built_in">document</span>.createElement(<span class="string">'&lt;iframe id="'</span> + frameId + <span class="string">'" name="'</span> + frameId + <span class="string">'" /&gt;'</span>);</div><div class="line">                <span class="keyword">if</span>(<span class="keyword">typeof</span> uri== <span class="string">'boolean'</span>)&#123;</div><div class="line">                    io.src = <span class="string">'javascript:false'</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> uri== <span class="string">'string'</span>)&#123;</div><div class="line">                    io.src = uri;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">var</span> io = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>);</div><div class="line">                io.id = frameId;</div><div class="line">                io.name = frameId;</div><div class="line">            &#125;</div><div class="line">            io.style.position = <span class="string">'absolute'</span>;</div><div class="line">            io.style.top = <span class="string">'-1000px'</span>;</div><div class="line">            io.style.left = <span class="string">'-1000px'</span>;</div><div class="line">            <span class="built_in">document</span>.body.appendChild(io);</div><div class="line">            <span class="keyword">return</span> io;   </div><div class="line">    &#125;,</div><div class="line">    <span class="attr">createUploadForm</span>: <span class="function"><span class="keyword">function</span>(<span class="params">id, fileElementId</span>)</span></div><div class="line"> &#123;</div><div class="line">  <span class="comment">//create form </span></div><div class="line">  <span class="keyword">var</span> formId = <span class="string">'jUploadForm'</span> + id;</div><div class="line">  <span class="keyword">var</span> fileId = <span class="string">'jUploadFile'</span> + id;</div><div class="line">  <span class="keyword">var</span> form = jQuery(<span class="string">'&lt;form  action="" method="POST" name="'</span> + formId + <span class="string">'" id="'</span> + formId + <span class="string">'" enctype="multipart/form-data"&gt;&lt;/form&gt;'</span>); </div><div class="line">  <span class="keyword">var</span> oldElement = jQuery(<span class="string">'#'</span> + fileElementId);</div><div class="line">  <span class="keyword">var</span> newElement = jQuery(oldElement).clone();</div><div class="line">  jQuery(oldElement).attr(<span class="string">'id'</span>, fileId);</div><div class="line">  jQuery(oldElement).before(newElement);</div><div class="line">  jQuery(oldElement).appendTo(form);</div><div class="line">  <span class="comment">//set attributes</span></div><div class="line">  jQuery(form).css(<span class="string">'position'</span>, <span class="string">'absolute'</span>);</div><div class="line">  jQuery(form).css(<span class="string">'top'</span>, <span class="string">'-1200px'</span>);</div><div class="line">  jQuery(form).css(<span class="string">'left'</span>, <span class="string">'-1200px'</span>);</div><div class="line">  jQuery(form).appendTo(<span class="string">'body'</span>);  </div><div class="line">  <span class="keyword">return</span> form;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">ajaxFileUpload</span>: <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</div><div class="line">        <span class="comment">// TODO introduce global settings, allowing the client to modify them for all requests, not only timeout  </span></div><div class="line">        s = jQuery.extend(&#123;&#125;, jQuery.ajaxSettings, s);</div><div class="line">        <span class="keyword">var</span> id = s.fileElementId;        </div><div class="line">  <span class="keyword">var</span> form = jQuery.createUploadForm(id, s.fileElementId);</div><div class="line">  <span class="keyword">var</span> io = jQuery.createUploadIframe(id, s.secureuri);</div><div class="line">  <span class="keyword">var</span> frameId = <span class="string">'jUploadFrame'</span> + id;</div><div class="line">  <span class="keyword">var</span> formId = <span class="string">'jUploadForm'</span> + id;  </div><div class="line">        <span class="keyword">if</span>( s.global &amp;&amp; ! jQuery.active++ )</div><div class="line">  &#123;</div><div class="line">   <span class="comment">// Watch for a new set of requests</span></div><div class="line">   jQuery.event.trigger( <span class="string">"ajaxStart"</span> );</div><div class="line">  &#125;            </div><div class="line">        <span class="keyword">var</span> requestDone = <span class="literal">false</span>;</div><div class="line">        <span class="comment">// Create the request object</span></div><div class="line">        <span class="keyword">var</span> xml = &#123;&#125;;   </div><div class="line">        <span class="keyword">if</span>( s.global )</div><div class="line">        &#123;</div><div class="line">         jQuery.event.trigger(<span class="string">"ajaxSend"</span>, [xml, s]);</div><div class="line">        &#125;            </div><div class="line">        <span class="keyword">var</span> uploadCallback = <span class="function"><span class="keyword">function</span>(<span class="params">isTimeout</span>)</span></div><div class="line">  &#123;  </div><div class="line">   <span class="comment">// Wait for a response to come back </span></div><div class="line">   <span class="keyword">var</span> io = <span class="built_in">document</span>.getElementById(frameId);</div><div class="line">            <span class="keyword">try</span> </div><div class="line">   &#123;    </div><div class="line">    <span class="keyword">if</span>(io.contentWindow)</div><div class="line">    &#123;</div><div class="line">      xml.responseText = io.contentWindow.document.body?io.contentWindow.document.body.innerHTML:<span class="literal">null</span>;</div><div class="line">                  xml.responseXML = io.contentWindow.document.XMLDocument?io.contentWindow.document.XMLDocument:io.contentWindow.document;</div><div class="line">      </div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(io.contentDocument)</div><div class="line">    &#123;</div><div class="line">      xml.responseText = io.contentDocument.document.body?io.contentDocument.document.body.innerHTML:<span class="literal">null</span>;</div><div class="line">                 xml.responseXML = io.contentDocument.document.XMLDocument?io.contentDocument.document.XMLDocument:io.contentDocument.document;</div><div class="line">    &#125;      </div><div class="line">            &#125;<span class="keyword">catch</span>(e)</div><div class="line">   &#123;</div><div class="line">    jQuery.handleError(s, xml, <span class="literal">null</span>, e);</div><div class="line">   &#125;</div><div class="line">            <span class="keyword">if</span>( xml || isTimeout == <span class="string">"timeout"</span>) </div><div class="line">   &#123;    </div><div class="line">                requestDone = <span class="literal">true</span>;</div><div class="line">                <span class="keyword">var</span> status;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    status = isTimeout != <span class="string">"timeout"</span> ? <span class="string">"success"</span> : <span class="string">"error"</span>;</div><div class="line">                    <span class="comment">// Make sure that the request was successful or notmodified</span></div><div class="line">                    <span class="keyword">if</span>( status != <span class="string">"error"</span> )</div><div class="line">     &#123;</div><div class="line">                        <span class="comment">// process the data (runs the xml through httpData regardless of callback)</span></div><div class="line">                        <span class="keyword">var</span> data = jQuery.uploadHttpData( xml, s.dataType );                        </div><div class="line">                        <span class="keyword">if</span>( s.success )</div><div class="line">                        &#123;</div><div class="line">       <span class="comment">// ifa local callback was specified, fire it and pass it the data</span></div><div class="line">                         s.success( data, status );</div><div class="line">                        &#125;;                 </div><div class="line">                        <span class="keyword">if</span>( s.global )</div><div class="line">                        &#123;</div><div class="line">       <span class="comment">// Fire the global callback</span></div><div class="line">                         jQuery.event.trigger( <span class="string">"ajaxSuccess"</span>, [xml, s] );</div><div class="line">                        &#125;;                            </div><div class="line">                    &#125; <span class="keyword">else</span></div><div class="line">                    &#123;</div><div class="line">                     jQuery.handleError(s, xml, status);</div><div class="line">                    &#125;</div><div class="line">                        </div><div class="line">                &#125; <span class="keyword">catch</span>(e) </div><div class="line">    &#123;</div><div class="line">                    status = <span class="string">"error"</span>;</div><div class="line">                    jQuery.handleError(s, xml, status, e);</div><div class="line">                &#125;;                </div><div class="line">                <span class="keyword">if</span>( s.global )</div><div class="line">                &#123;</div><div class="line">     <span class="comment">// The request was completed</span></div><div class="line">                 jQuery.event.trigger( <span class="string">"ajaxComplete"</span>, [xml, s] );</div><div class="line">                &#125;;</div><div class="line">                    </div><div class="line"></div><div class="line">                <span class="comment">// Handle the global AJAX counter</span></div><div class="line">                <span class="keyword">if</span>(s.global &amp;&amp; ! --jQuery.active)</div><div class="line">                &#123;</div><div class="line">                 jQuery.event.trigger(<span class="string">"ajaxStop"</span>);</div><div class="line">                &#125;;</div><div class="line">                <span class="keyword">if</span>(s.complete)</div><div class="line">                &#123;</div><div class="line">                  s.complete(xml, status);</div><div class="line">                &#125; ;                 </div><div class="line"></div><div class="line">                jQuery(io).unbind();</div><div class="line"></div><div class="line">                setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">         &#123; <span class="keyword">try</span> </div><div class="line">          &#123;</div><div class="line">           jQuery(io).remove();</div><div class="line">           jQuery(form).remove(); </div><div class="line">           </div><div class="line">          &#125; <span class="keyword">catch</span>(e) </div><div class="line">          &#123;</div><div class="line">           jQuery.handleError(s, xml, <span class="literal">null</span>, e);</div><div class="line">          &#125;         </div><div class="line"></div><div class="line">         &#125;, <span class="number">100</span>);</div><div class="line"></div><div class="line">                xml = <span class="literal">null</span>;</div><div class="line"></div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// Timeout checker</span></div><div class="line">        <span class="keyword">if</span>( s.timeout &gt; <span class="number">0</span> ) </div><div class="line">  &#123;</div><div class="line">            setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                </div><div class="line">                <span class="keyword">if</span>( !requestDone )</div><div class="line">                &#123;</div><div class="line">     <span class="comment">// Check to see ifthe request is still happening</span></div><div class="line">                 uploadCallback( <span class="string">"timeout"</span> );</div><div class="line">                &#125;</div><div class="line">                </div><div class="line">            &#125;, s.timeout);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">try</span> </div><div class="line">  &#123;</div><div class="line">   <span class="keyword">var</span> form = jQuery(<span class="string">'#'</span> + formId);</div><div class="line">   jQuery(form).attr(<span class="string">'action'</span>, s.url);</div><div class="line">   jQuery(form).attr(<span class="string">'method'</span>, <span class="string">'POST'</span>);</div><div class="line">   jQuery(form).attr(<span class="string">'target'</span>, frameId);</div><div class="line">            <span class="keyword">if</span>(form.encoding)</div><div class="line">   &#123;</div><div class="line">                form.encoding = <span class="string">'multipart/form-data'</span>;    </div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">   &#123;    </div><div class="line">                form.enctype = <span class="string">'multipart/form-data'</span>;</div><div class="line">            &#125;   </div><div class="line">            jQuery(form).submit();</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span>(e) </div><div class="line">  &#123;   </div><div class="line">            jQuery.handleError(s, xml, <span class="literal">null</span>, e);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;</div><div class="line">            <span class="built_in">document</span>.getElementById(frameId).attachEvent(<span class="string">'onload'</span>, uploadCallback);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="built_in">document</span>.getElementById(frameId).addEventListener(<span class="string">'load'</span>, uploadCallback, <span class="literal">false</span>);</div><div class="line">        &#125;   </div><div class="line">        <span class="keyword">return</span> &#123;<span class="attr">abort</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;&#125;; </div><div class="line"></div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">uploadHttpData</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> r, type </span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> data = !type;</div><div class="line">        data = type == <span class="string">"xml"</span> || data ? r.responseXML : r.responseText;</div><div class="line">        <span class="comment">// ifthe type is "script", eval it in global context</span></div><div class="line">        <span class="keyword">if</span>( type == <span class="string">"script"</span> )</div><div class="line">        &#123;</div><div class="line">         jQuery.globalEval( data );</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">        <span class="comment">// Get the JavaScript object, ifJSON is used.</span></div><div class="line">        <span class="keyword">if</span>( type == <span class="string">"json"</span> )</div><div class="line">        &#123;</div><div class="line">         <span class="built_in">eval</span>( <span class="string">"data = "</span> + data );</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">        <span class="comment">// evaluate scripts within html</span></div><div class="line">        <span class="keyword">if</span>( type == <span class="string">"html"</span> )</div><div class="line">        &#123;</div><div class="line">         jQuery(<span class="string">"&lt;div&gt;"</span>).html(data).evalScripts();</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">        <span class="keyword">return</span> data;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">    jQuery.extend(&#123;</div><div class="line">        <span class="attr">handleError</span>: <span class="function"><span class="keyword">function</span> (<span class="params">s, xhr, status, e</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (s.error) &#123;</div><div class="line">                s.error.call(s.context || s, xhr, status, e);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (s.global) &#123;</div><div class="line">                (s.context ? jQuery(s.context) : jQuery.event).trigger(<span class="string">"ajaxError"</span>, [xhr, s, e]);</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">httpData</span>: <span class="function"><span class="keyword">function</span> (<span class="params">xhr, type, s</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> ct = xhr.getResponseHeader(<span class="string">"content-type"</span>),</div><div class="line">    xml = type == <span class="string">"xml"</span> || !type &amp;&amp; ct &amp;&amp; ct.indexOf(<span class="string">"xml"</span>) &gt;= <span class="number">0</span>,</div><div class="line">    data = xml ? xhr.responseXML : xhr.responseText;</div><div class="line">            <span class="keyword">if</span> (xml &amp;&amp; data.documentElement.tagName == <span class="string">"parsererror"</span>)</div><div class="line">                <span class="keyword">throw</span> <span class="string">"parsererror"</span>;</div><div class="line">            <span class="keyword">if</span> (s &amp;&amp; s.dataFilter)</div><div class="line">                data = s.dataFilter(data, type);</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> data === <span class="string">"string"</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (type == <span class="string">"script"</span>)</div><div class="line">                    jQuery.globalEval(data);</div><div class="line">                <span class="keyword">if</span> (type == <span class="string">"json"</span>)</div><div class="line">                    data = <span class="built_in">window</span>[<span class="string">"eval"</span>](<span class="string">"("</span> + data + <span class="string">")"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> data;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-<p>在HTML页面中，此方法的调用方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$.ajaxFileUpload(&#123;</div><div class="line">        <span class="attr">url</span>: <span class="string">'?m=common&amp;c=file&amp;a=ajaxUpload&amp;fieldName=bp_file&amp;sAllowExt=pdf,PDF,doc,docx,ppt,PPT,pptx'</span>,</div><div class="line">        <span class="attr">fileElementId</span>: <span class="string">"bp_file"</span>,</div><div class="line">        <span class="attr">dataType</span>: <span class="string">'json'</span>,</div><div class="line">        <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data, status</span>) </span>&#123;</div><div class="line">           <span class="keyword">if</span> (data.statusCode == <span class="number">200</span>) &#123;</div><div class="line">               $(<span class="string">"#bp_file_span"</span>).html(<span class="string">"已上传："</span> + data.attachFileName);</div><div class="line">               $(<span class="string">"input[name='bp']"</span>).val(data.attachFilePath);</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">                msgAlert(<span class="string">"错误"</span>, data.message, <span class="string">"error"</span>);</div><div class="line">              &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">error</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data, status, e</span>) </span>&#123;</div><div class="line">             	msgAlert(<span class="string">"错误"</span>, <span class="string">"错误，请刷新页面重试"</span>, <span class="string">"error"</span>);</div><div class="line">        &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/26/视频播放插件-video.js的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gaonana">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="高工@博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/26/视频播放插件-video.js的使用/" itemprop="url">
-                  视频播放插件 video.js的使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T16:49:04+08:00">
-                2017-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jQuery/" itemprop="url" rel="index">
-                    <span itemprop="name">jQuery</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>video.js是一个开源的HTML5 jQuery 视频插件，即可以播放h5视频，也可以用来播放flash视频，是一个多平台支持的产品，大多数浏览器都支持。</p>
-<h3 id="第一步：引入-Video-js-的JS和CSS文件。"><a href="#第一步：引入-Video-js-的JS和CSS文件。" class="headerlink" title="第一步：引入 Video.js 的JS和CSS文件。"></a>第一步：引入 Video.js 的JS和CSS文件。</h3><ul>
-<li>方法1：可以下载Video.js的源码放到自己的服务器上；</li>
-<li>方法2：可以使用免费的CDN托管版本<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"http://vjs.zencdn.net/4.12/video-js.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://vjs.zencdn.net/4.12/video.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件"><a href="#第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件" class="headerlink" title="第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件"></a>第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;videojs.options.flash.swf = <span class="string">"video-js.swf"</span>;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-<h3 id="第三步：页面中加入video标签"><a href="#第三步：页面中加入video标签" class="headerlink" title="第三步：页面中加入video标签"></a>第三步：页面中加入video标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">	<span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">”my_video_1″</span> <span class="attr">class</span>=<span class="string">”video-js</span> <span class="attr">vjs-default-skin</span>” </span></div><div class="line">	<span class="attr">controls</span> <span class="attr">preload</span>=<span class="string">”auto”</span> <span class="attr">width</span>=<span class="string">”640″</span> <span class="attr">height</span>=<span class="string">”264″</span> <span class="attr">poster</span>=<span class="string">”my_video_poster.png”</span> <span class="attr">data-setup</span>=<span class="string">”&#123;&#125;”</span>&gt;</div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”my_video.mp4″</span> <span class="attr">type</span>=<span class="string">’video/mp4′</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”my_video.webm”</span> <span class="attr">type</span>=<span class="string">’video/webm’</span>&gt;</span></div><div class="line">	//以下两个样式可以选择性的在页面中添加</div><div class="line">	<span class="tag">&lt;<span class="name">track</span> <span class="attr">kind</span>=<span class="string">"captions"</span> <span class="attr">src</span>=<span class="string">"demo.captions.vtt"</span> <span class="attr">srclang</span>=<span class="string">"en"</span> <span class="attr">label</span>=<span class="string">"English"</span>&gt;</span><span class="tag">&lt;/<span class="name">track</span>&gt;</span><span class="comment">&lt;!-- Tracks need an ending tag thanks to IE9 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">track</span> <span class="attr">kind</span>=<span class="string">"subtitles"</span> <span class="attr">src</span>=<span class="string">"demo.captions.vtt"</span> <span class="attr">srclang</span>=<span class="string">"en"</span> <span class="attr">label</span>=<span class="string">"English"</span>&gt;</span><span class="tag">&lt;/<span class="name">track</span>&gt;</span><span class="comment">&lt;!-- Tracks need an ending tag thanks to IE9 --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></div></pre></td></tr></table></figure>
-<ul>
-<li>poster中放的是视频的缩略图；</li>
-<li>在页面加载中，video会判断浏览器支持哪个格式视频，会自动加载可播放的视频。<ul>
-<li>第一个source 放的是指向mp4视频，</li>
-<li>第二个指向的是webm视频。<h3 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h3>默认情况下，大的播放按钮放在了左上角的，这样就不会覆盖视频内容。如果你想让这个播放按钮居中，你可以给你的 video 标签添加额外的 vjs-big-play-centered 样式，比如：<br><code>class=&quot;video-js vjs-default-skin vjs-big-play-centered&quot;</code>;<br>如果你还对播放按钮样式不满意可重新定义<code>.video-js .vjs-big-play-button{/*这里的样式重写*/}</code>。<h3 id="视频自动播放"><a href="#视频自动播放" class="headerlink" title="视频自动播放"></a>视频自动播放</h3>设置自动播放，将下面的代码加到html中的代码后面<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> myPlayer = videojs(<span class="string">'example_video_1'</span>);</div><div class="line">    videojs(<span class="string">"example_video_1"</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> myPlayer = <span class="keyword">this</span>;</div><div class="line">        myPlayer.play();</div><div class="line">    &#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-</li>
+            <p>在git的使用过程中，有的时候操作会有失误，会进行撤销操作，下面是两个总结：</p>
+<ol>
+<li>为文件进行了操作，但是没有什么实质性的修改，使用 <code>git status</code>时，会发现文件一致是 modified 状态，这是我们想要撤销，恢复到修改前的版本<ul>
+<li>这一步一定要确定这个文件缺失是要恢复到修改前的版本！<br><code>git checkout -- 文件名</code></li>
 </ul>
 </li>
-</ul>
+<li>撤销 git add 添加到暂存区的 操作：<br>当使用git add * 将全部修改的文件加入了暂存区域， 要撤销自己不想加入的文件时，使用以下命令<br><code>git reset HEAD 文件名</code>可以将 modified 文件撤回</li>
+</ol>
 
           
         
@@ -721,7 +725,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -766,7 +770,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
