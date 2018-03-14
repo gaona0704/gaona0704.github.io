@@ -271,176 +271,7 @@
   
   
 
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/06/formidable插件使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/06/formidable插件使用/" itemprop="url">
-                  Formidable插件使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-06T08:50:15+08:00">
-                2017-03-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="formidable插件使用"><a href="#formidable插件使用" class="headerlink" title="formidable插件使用"></a>formidable插件使用</h1><h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><ul>
-<li>JS中的模块化为AMD（requireJS）或 CMD</li>
-<li>在Node中，模块化成为CommonJS；</li>
-<li>require</li>
-<li>exports  是module.exports的别名</li>
-<li>module.exports</li>
-</ul>
-<h2 id="require加载模块查找规则"><a href="#require加载模块查找规则" class="headerlink" title="require加载模块查找规则"></a>require加载模块查找规则</h2><ul>
-<li>优先从缓存中进行加载<ul>
-<li>如果一个模块被加载过以后，会直接被缓存起来，下次加载的时候直接从缓存中读取</li>
-<li>加载的是模块中 module.exports的值，而不是应用；</li>
-</ul>
-</li>
-<li>核心模块</li>
-<li>自定义模块</li>
-<li>第三方模块查找顺序</li>
-</ul>
-<h2 id="CURD-案例"><a href="#CURD-案例" class="headerlink" title="CURD 案例"></a>CURD 案例</h2><ul>
-<li>表单如果想要上传文件，必须将表单设置<code>enctype=&#39;multipart/form-data&#39;</code></li>
-<li>npm init -y 快速初始化npm</li>
-</ul>
-<h3 id="文件上传插件-formidable-实际开发还是使用uploadify第三方插件"><a href="#文件上传插件-formidable-实际开发还是使用uploadify第三方插件" class="headerlink" title="文件上传插件 formidable,实际开发还是使用uploadify第三方插件"></a>文件上传插件 formidable,实际开发还是使用uploadify第三方插件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm();</div><div class="line">form.parse</div></pre></td></tr></table></figure>
-<ul>
-<li>普通的ajax请求是无法上传file的，在XMLHttpRequest2中对formData进行了支持；</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> formData = <span class="keyword">new</span> FormData();</div><div class="line">$.ajax(&#123;</div><div class="line">       <span class="attr">url</span>:<span class="string">'/add'</span>,</div><div class="line">       <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line">       <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">       <span class="attr">data</span>:formData,</div><div class="line">       <span class="attr">processData</span>:<span class="literal">false</span>,<span class="comment">//告诉jQuery不去处理data数据</span></div><div class="line">        contentType:<span class="literal">false</span>,<span class="comment">//jquery会自动去设置请求头为application/x-www-urlencode;设置这个参数会高数jQuery不要去设置，使用其默认的enctype='multipart/form-data;</span></div><div class="line">         success:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">           <span class="comment">//自动跳转到HTML页面,进行渲染</span></div><div class="line">            <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                <span class="comment">//console.log(location.href);</span></div><div class="line">                location.href=<span class="string">'/'</span>;</div><div class="line">            &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> fs.readFile(<span class="string">'./data.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</div><div class="line">    <span class="comment">//读取文件得到的数据data都是二进制格式，可以将其转换成JSON对象</span></div><div class="line">    data = <span class="built_in">JSON</span>.parse(data);</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/博学谷项目 <四>/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -695,7 +526,7 @@
   
   
 
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/博学谷项目 <二>/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -719,7 +550,7 @@
               
                 
                 <a class="post-title-link" href="/2017/02/12/博学谷项目 <二>/" itemprop="url">
-                  前端发送请求的方式
+                  学习小笔记<一>
                 </a>
               
             
@@ -758,8 +589,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
                   </a>
                 </span>
 
@@ -1064,7 +895,7 @@
   
   
 
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/19/同步操作与异步操作的异同/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1127,8 +958,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
+                  <a href="/categories/Knowledge/" itemprop="url" rel="index">
+                    <span itemprop="name">Knowledge</span>
                   </a>
                 </span>
 
@@ -1282,6 +1113,186 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/ Angular项目基本构建模块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/14/ Angular项目基本构建模块/" itemprop="url">
+                  Angular项目基本构建模块
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-14T12:39:04+08:00">
+                2016-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Angular项目基本构建模块"><a href="#Angular项目基本构建模块" class="headerlink" title="Angular项目基本构建模块"></a>Angular项目基本构建模块</h1><h2 id="angular中jQuery的使用"><a href="#angular中jQuery的使用" class="headerlink" title="angular中jQuery的使用"></a>angular中jQuery的使用</h2><ul>
+<li>angular可以讲一个原生的DOM对象转换成一个jQuery对象；</li>
+<li>如果angular中没有引入jQuery，那么angular中只包含了部分jQuery方法；</li>
+<li>引入了jQuery后，jqList</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'.btn'</span>);</div><div class="line">   angular.element = jQuery;</div><div class="line">   angular.element(btn).on(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">       angular.element(box).css(<span class="string">'backgroundColor'</span>,<span class="string">'pink'</span>);</div><div class="line">       angular.element(box).animate(&#123;</div><div class="line">           <span class="attr">width</span>:<span class="number">200</span>,</div><div class="line">           <span class="attr">height</span>:<span class="number">200</span>,</div><div class="line">       &#125;,<span class="number">500</span>);</div><div class="line">   &#125;)</div></pre></td></tr></table></figure>
+<h2 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h2><ul>
+<li>基于NodeJS的一个静态资源管路工具；</li>
+</ul>
+<h3 id="豆瓣一刻"><a href="#豆瓣一刻" class="headerlink" title="豆瓣一刻"></a>豆瓣一刻</h3><ul>
+<li>前端分包<ul>
+<li>视图： views<ul>
+<li>views</li>
+<li>tpls</li>
+<li>templates</li>
+</ul>
+</li>
+<li>静态资源 public<ul>
+<li>public(imgs/less/fonts/libs等)</li>
+<li>static</li>
+<li>assets  </li>
+</ul>
+</li>
+<li>脚本 scripts </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><ul>
+<li>uploads</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><meta name="referrer" content="never"> 可以突破防盗链</li>
+<li>使用time()函数可以获取当前服务器的时间（时间戳）；<code>echo time()</code>;</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">echo time();</div><div class="line">echo <span class="string">"&lt;br/&gt;"</span>;</div><div class="line">echo date(<span class="string">'Y-m-d H:i:s'</span>,time());--<span class="number">-2017</span><span class="number">-03</span><span class="number">-29</span> <span class="number">09</span>:<span class="number">23</span>:<span class="number">40</span></div><div class="line"></div><div class="line">phpinfo()<span class="comment">//可以火气PHP的详细信息，包括安装目录所支持的模块扩展等很多信息；</span></div><div class="line">strtotime(<span class="string">'-1day'</span>);前一天</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1331,7 +1342,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1342,7 +1353,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1353,7 +1364,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
