@@ -635,9 +635,9 @@
       <category term="es6" scheme="http://yoursite.com/categories/es6/"/>
     
     
-      <category term="es6" scheme="http://yoursite.com/tags/es6/"/>
-    
       <category term="array" scheme="http://yoursite.com/tags/array/"/>
+    
+      <category term="es6" scheme="http://yoursite.com/tags/es6/"/>
     
       <category term="entries" scheme="http://yoursite.com/tags/entries/"/>
     
