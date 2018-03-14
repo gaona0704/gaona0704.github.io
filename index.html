@@ -431,6 +431,169 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/fetch请求/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/01/25/fetch请求/" itemprop="url">
+                  Fetch请求
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-25T00:00:00+08:00">
+                2018-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-一般的fetch用法"><a href="#1-一般的fetch用法" class="headerlink" title="1 一般的fetch用法"></a>1 一般的fetch用法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fetch(url,option).then(<span class="function"><span class="params">response</span>=&gt;</span>&#123;</div><div class="line">  <span class="comment">//handle HTTP response</span></div><div class="line">&#125;).then(<span class="function"><span class="params">error</span>=&gt;</span>&#123;</div><div class="line">  <span class="comment">//handle HTTP error</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>具体的例子如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">fetch(url, &#123; <span class="comment">//option</span></div><div class="line">  method: <span class="string">"POST"</span>,</div><div class="line">  <span class="attr">body</span>: <span class="built_in">JSON</span>.stringify(data),</div><div class="line">  <span class="attr">headers</span>: &#123;</div><div class="line">    <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">credentials</span>: <span class="string">"same-origin"</span></div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</div><div class="line">  response.status     <span class="comment">//=&gt; number 100–599</span></div><div class="line">  response.statusText <span class="comment">//=&gt; String</span></div><div class="line">  response.headers    <span class="comment">//=&gt; Headers</span></div><div class="line">  response.url        <span class="comment">//=&gt; String</span></div><div class="line">  <span class="keyword">return</span> response.text()</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">  error.message <span class="comment">//=&gt; String</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="2-参数解析"><a href="#2-参数解析" class="headerlink" title="2 参数解析"></a>2 参数解析</h2><h3 id="url-地址-‘-path’"><a href="#url-地址-‘-path’" class="headerlink" title="url 地址: ‘./path’"></a>url 地址: <code>‘./path’</code></h3><h3 id="option"><a href="#option" class="headerlink" title="option :"></a>option :</h3><pre><code>+ method (String) - HTTP request method. Default: `&quot;GET&quot;`
++ body (String, body types) - HTTP request body
++ headers (Object, Headers) - Default: `{}`
++ `credentials` (String) - Authentication credentials mode. Default: `&quot;omit&quot;``&quot;omit&quot;` - don’t include authentication credentials (e.g. cookies) in the request `&quot;same-origin&quot;` - include credentials in requests to the same site `&quot;include&quot;` - include credentials in requests to all sites
+</code></pre><h3 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h3><p>Response represents a HTTP response from the server. Typically a Response is not constructed manually, but is available as argument to the resolved promise callback.</p>
+<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><pre><code>+ `status` (number) - HTTP response code in the 100–599 range
++ `statusText` (String) - Status text as reported by the server, e.g. “Unauthorized”
++ `ok` (boolean) - True if status is HTTP 2xx
++ headers (Headers)
++ url (String)
+</code></pre><h3 id="Body-methods-注意每个方法返回的都是一个Promise对象"><a href="#Body-methods-注意每个方法返回的都是一个Promise对象" class="headerlink" title="Body methods 注意每个方法返回的都是一个Promise对象,"></a>Body methods 注意每个方法返回的都是一个Promise对象,</h3><p>Each of the methods to access the response body returns a Promise that will be resolved when the associated data type is ready.</p>
+<pre><code>+ `text()` - yields the response text as String
++ `json()` - yields the result of JSON.parse(responseText)
++ `blob()` - yields a Blob
++ `arrayBuffer()` - yields an ArrayBuffer
++ `ormData()` - yields FormData that can be forwarded to another request
+</code></pre><h3 id="Other-response-methods"><a href="#Other-response-methods" class="headerlink" title="Other response methods"></a>Other response methods</h3><pre><code>+ `clone()`
++ `Response.error()`
++ `esponse.redirect()`
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/vue使用总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -869,157 +1032,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/Vue中引用jQuery和jQuery插件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/24/Vue中引用jQuery和jQuery插件/" itemprop="url">
-                  Vue中引用jQuery和jQuery插件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T10:34:04+08:00">
-                2017-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在Vue项目中，难免会用到 jQuery，即使用不到jQuery，也有可能会用到jQuery插件，现在将整理一下，如何在 vue-cli生成的Vue+webpack项目中引入jQuery，使用jQuery插件</p>
-<h2 id="Vue中引用jQuery"><a href="#Vue中引用jQuery" class="headerlink" title="Vue中引用jQuery"></a>Vue中引用jQuery</h2><p>1：首先下载jQuery</p>
-<ul>
-<li>npm install jQuery -D<br>2: 修改 webpack.base.config.js中的 两处配置文件</li>
-<li>在build文件中的webpack.base.config中修改<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"><span class="comment">//在module.exports中加入plugins</span></div><div class="line">plugins: [</div><div class="line">       <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">'common.js'</span>),</div><div class="line">       <span class="keyword">new</span> webpack.ProvidePlugin(&#123;</div><div class="line">           <span class="attr">jQuery</span>: <span class="string">"jquery"</span>,</div><div class="line">           <span class="attr">$</span>: <span class="string">"jquery"</span></div><div class="line">       &#125;)</div><div class="line"></div><div class="line">   ],</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>3：如果在全局使用$,则在main.js中引入$； 否则在组件文件内引入即可<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span>;</div></pre></td></tr></table></figure></p>
-<h2 id="Vue中使用jQuery插件"><a href="#Vue中使用jQuery插件" class="headerlink" title="Vue中使用jQuery插件"></a>Vue中使用jQuery插件</h2><p>引入了jQuery之后，就要开始引入 jQuery插件了。<br>jQuery插件直接在组件内部使用，<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">	<span class="comment">//引入jQuery</span></div><div class="line">	<span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">"jquery"</span></div><div class="line">	<span class="comment">//引入插件的 JS</span></div><div class="line">	<span class="keyword">import</span> <span class="string">'../../directive/viewer-jquery.min.js'</span>;</div><div class="line">	<span class="comment">//在&lt;style&gt;&lt;/style&gt;中引入CSS文件</span></div><div class="line">	@<span class="keyword">import</span> <span class="string">"../../directive/viewer.min.css"</span>;</div><div class="line">	<span class="comment">//对于插件的调用，需要在 页面中的DOM元素加载完成自后再进行绑定，所以需要在</span></div><div class="line">	mouted 或者 updated状态之后再调用</div><div class="line">	updated()&#123;</div><div class="line"><span class="comment">//          alert(1);</span></div><div class="line">            $(<span class="string">'#ace-images'</span>).viewer(&#123;</div><div class="line">                <span class="attr">url</span>: <span class="string">'data-original'</span>,</div><div class="line">            &#125;);</div><div class="line">        &#125;,</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1069,7 +1081,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1080,7 +1092,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
