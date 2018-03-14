@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="Amy Gao">
 <meta property="og:description" content="1 一般的fetch用法12345fetch(url,option).then(response=&amp;gt;&amp;#123;  //handle HTTP response&amp;#125;).then(error=&amp;gt;&amp;#123;  //handle HTTP error&amp;#125;)
 具体的例子如下12345678910111213141516fetch(url, &amp;#123; //option  m">
-<meta property="og:updated_time" content="2018-03-14T08:41:18.788Z">
+<meta property="og:updated_time" content="2018-03-14T08:49:27.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fetch请求">
 <meta name="twitter:description" content="1 一般的fetch用法12345fetch(url,option).then(response=&amp;gt;&amp;#123;  //handle HTTP response&amp;#125;).then(error=&amp;gt;&amp;#123;  //handle HTTP error&amp;#125;)
@@ -370,26 +370,33 @@
       
         <h2 id="1-一般的fetch用法"><a href="#1-一般的fetch用法" class="headerlink" title="1 一般的fetch用法"></a>1 一般的fetch用法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fetch(url,option).then(<span class="function"><span class="params">response</span>=&gt;</span>&#123;</div><div class="line">  <span class="comment">//handle HTTP response</span></div><div class="line">&#125;).then(<span class="function"><span class="params">error</span>=&gt;</span>&#123;</div><div class="line">  <span class="comment">//handle HTTP error</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>具体的例子如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">fetch(url, &#123; <span class="comment">//option</span></div><div class="line">  method: <span class="string">"POST"</span>,</div><div class="line">  <span class="attr">body</span>: <span class="built_in">JSON</span>.stringify(data),</div><div class="line">  <span class="attr">headers</span>: &#123;</div><div class="line">    <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">credentials</span>: <span class="string">"same-origin"</span></div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</div><div class="line">  response.status     <span class="comment">//=&gt; number 100–599</span></div><div class="line">  response.statusText <span class="comment">//=&gt; String</span></div><div class="line">  response.headers    <span class="comment">//=&gt; Headers</span></div><div class="line">  response.url        <span class="comment">//=&gt; String</span></div><div class="line">  <span class="keyword">return</span> response.text()</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">  error.message <span class="comment">//=&gt; String</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h2 id="2-参数解析"><a href="#2-参数解析" class="headerlink" title="2 参数解析"></a>2 参数解析</h2><h3 id="url-地址-‘-path’"><a href="#url-地址-‘-path’" class="headerlink" title="url 地址: ‘./path’"></a>url 地址: <code>‘./path’</code></h3><h3 id="option"><a href="#option" class="headerlink" title="option :"></a>option :</h3><pre><code>+ method (String) - HTTP request method. Default: `&quot;GET&quot;`
-+ body (String, body types) - HTTP request body
-+ headers (Object, Headers) - Default: `{}`
-+ `credentials` (String) - Authentication credentials mode. Default: `&quot;omit&quot;``&quot;omit&quot;` - don’t include authentication credentials (e.g. cookies) in the request `&quot;same-origin&quot;` - include credentials in requests to the same site `&quot;include&quot;` - include credentials in requests to all sites
-</code></pre><h3 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h3><p>Response represents a HTTP response from the server. Typically a Response is not constructed manually, but is available as argument to the resolved promise callback.</p>
-<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><pre><code>+ `status` (number) - HTTP response code in the 100–599 range
-+ `statusText` (String) - Status text as reported by the server, e.g. “Unauthorized”
-+ `ok` (boolean) - True if status is HTTP 2xx
-+ headers (Headers)
-+ url (String)
-</code></pre><h3 id="Body-methods-注意每个方法返回的都是一个Promise对象"><a href="#Body-methods-注意每个方法返回的都是一个Promise对象" class="headerlink" title="Body methods 注意每个方法返回的都是一个Promise对象,"></a>Body methods 注意每个方法返回的都是一个Promise对象,</h3><p>Each of the methods to access the response body returns a Promise that will be resolved when the associated data type is ready.</p>
-<pre><code>+ `text()` - yields the response text as String
-+ `json()` - yields the result of JSON.parse(responseText)
-+ `blob()` - yields a Blob
-+ `arrayBuffer()` - yields an ArrayBuffer
-+ `ormData()` - yields FormData that can be forwarded to another request
-</code></pre><h3 id="Other-response-methods"><a href="#Other-response-methods" class="headerlink" title="Other response methods"></a>Other response methods</h3><pre><code>+ `clone()`
-+ `Response.error()`
-+ `esponse.redirect()`
-</code></pre>
+<h2 id="2-参数解析"><a href="#2-参数解析" class="headerlink" title="2 参数解析"></a>2 参数解析</h2><h3 id="url-地址-‘-path’"><a href="#url-地址-‘-path’" class="headerlink" title="url 地址: ‘./path’"></a>url 地址: <code>‘./path’</code></h3><h3 id="option"><a href="#option" class="headerlink" title="option :"></a>option :</h3><ul>
+<li>method (String) - HTTP request method. Default: <code>&quot;GET&quot;</code></li>
+<li>body (String, body types) - HTTP request body</li>
+<li>headers (Object, Headers) - Default: <code>{}</code></li>
+<li><code>credentials</code> (String) - Authentication credentials mode. Default: <code>&quot;omit&quot;``&quot;omit&quot;</code> - don’t include authentication credentials (e.g. cookies) in the request <code>&quot;same-origin&quot;</code> - include credentials in requests to the same site <code>&quot;include&quot;</code> - include credentials in requests to all sites<h3 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h3>Response represents a HTTP response from the server. Typically a Response is not constructed manually, but is available as argument to the resolved promise callback.</li>
+</ul>
+<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><ul>
+<li><code>status</code> (number) - HTTP response code in the 100–599 range</li>
+<li><code>statusText</code> (String) - Status text as reported by the server, e.g. “Unauthorized”</li>
+<li><code>ok</code> (boolean) - True if status is HTTP 2xx</li>
+<li>headers (Headers)</li>
+<li><p>url (String)</p>
+<h3 id="Body-methods-注意每个方法返回的都是一个Promise对象"><a href="#Body-methods-注意每个方法返回的都是一个Promise对象" class="headerlink" title="Body methods 注意每个方法返回的都是一个Promise对象,"></a>Body methods 注意每个方法返回的都是一个Promise对象,</h3><p>Each of the methods to access the response body returns a Promise that will be resolved when the associated data type is ready.</p>
+</li>
+<li><p><code>text()</code> - yields the response text as String</p>
+</li>
+<li><code>json()</code> - yields the result of JSON.parse(responseText)</li>
+<li><code>blob()</code> - yields a Blob</li>
+<li><code>arrayBuffer()</code> - yields an ArrayBuffer</li>
+<li><code>ormData()</code> - yields FormData that can be forwarded to another request</li>
+</ul>
+<h3 id="Other-response-methods"><a href="#Other-response-methods" class="headerlink" title="Other response methods"></a>Other response methods</h3><ul>
+<li><code>clone()</code></li>
+<li><code>Response.error()</code></li>
+<li><code>esponse.redirect()</code></li>
+</ul>
+
       
     </div>
 
@@ -435,8 +442,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/13/vue原理解析/" rel="prev" title="Vue原理解析">
-                Vue原理解析 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/13/ES6-Promise/" rel="prev" title="ES6-Promise">
+                ES6-Promise <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -509,7 +516,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -531,7 +538,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
