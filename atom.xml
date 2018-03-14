@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-14T09:36:19.961Z</updated>
+  <updated>2018-03-14T07:39:38.512Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Vue原理解析</title>
+    <link href="http://yoursite.com/2018/03/13/vue%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/"/>
+    <id>http://yoursite.com/2018/03/13/vue原理解析/</id>
+    <published>2018-03-12T16:00:00.000Z</published>
+    <updated>2018-03-14T07:39:38.512Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h1><p>双向数据绑定的核心是： observer   Dep   Watcher</p>
+<pre><code>+ observer 是一个类，每一个prop和data中都有，他会通过执行 DefinedReactive 给其附属的对象及其子属性，建立 get 和 set 方法。(definedReactive实质上是通过 Object.defineProperty 将每个属性进行包装包装)
++  Dep 会存放所有的 Watcher，每个data和prop都有自己的Dep实例。当数据发生改变时，会notify属性的watch，当watcher去访问属性时，Dep.target属性指向访问的watcher
++  Watcher 可以watch一个方法或者 一个属性。先收集依赖，值改变时，触发callback &apos;expOrFn&apos;。‘expOnFn’可以看做是 Watcher的Getter
+</code></pre><h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><pre><code>+ mutation 对 state 进行状态的修改。commit方法是mutation的内核。dispatch 是 action的内核
+</code></pre><h1 id="一：数据更新-virtual-DOM"><a href="#一：数据更新-virtual-DOM" class="headerlink" title="一：数据更新 virtual DOM"></a>一：数据更新 virtual DOM</h1><ul>
+<li>1.在react中，当有数据发生变化时，会构造新的 React DOM Tree，发生变化的属性值会对此节点进行标注，然后通过一系列diff算法，新旧DOM tree 进行对比，更新渲染完毕。</li>
+<li>2：通过事件改变属性值时，此节点会被标记成脏节点，事件处理完成后，react会找到所有脏节点，并重新渲染。</li>
+<li>3: vue 的精髓就是 响应式数据流。</li>
+<li>4：react和Vue本质上都是借助 virtual DOM 帮助开发者管理DOM</li>
+</ul>
+<h1 id="二、Vue部分生命周期和钩子函数"><a href="#二、Vue部分生命周期和钩子函数" class="headerlink" title="二、Vue部分生命周期和钩子函数"></a>二、Vue部分生命周期和钩子函数</h1><ul>
+<li>1、beforeCreated  组件刚创建，data和el都没有创建</li>
+<li>2、created data完成初始化，el还没挂在</li>
+<li>3、 beforeMounted  data和el完成初始化  。(此时，DOM中，msg的位置在virtualDOM中已经被占用了，到mounted挂载之后，直接填坑，将数据填进去)</li>
+<li>4、mounted  data 和 el 都完成了挂载</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;双向数据绑定&quot;&gt;&lt;a href=&quot;#双向数据绑定&quot; class=&quot;headerlink&quot; title=&quot;双向数据绑定&quot;&gt;&lt;/a&gt;双向数据绑定&lt;/h1&gt;&lt;p&gt;双向数据绑定的核心是： observer   Dep   Watcher&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+ 
+    
+    </summary>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>ES6-Promise</title>
     <link href="http://yoursite.com/2018/03/13/ES6-Promise/"/>
     <id>http://yoursite.com/2018/03/13/ES6-Promise/</id>
     <published>2018-03-12T16:00:00.000Z</published>
-    <updated>2018-03-14T09:36:19.961Z</updated>
+    <updated>2018-03-14T10:23:54.439Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-Promise定义"><a href="#1-Promise定义" class="headerlink" title="1 Promise定义"></a>1 Promise定义</h2><p>Promise是一种异步编程的解决方案,是一个对象(构造函数),从该对象可以获取异步操作的消息</p>
 <p>Promise对象的特点</p>
@@ -89,40 +127,71 @@
   </entry>
   
   <entry>
-    <title>Vue原理解析</title>
-    <link href="http://yoursite.com/2018/03/13/vue%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/"/>
-    <id>http://yoursite.com/2018/03/13/vue原理解析/</id>
-    <published>2018-03-12T16:00:00.000Z</published>
-    <updated>2018-03-14T07:39:38.512Z</updated>
+    <title>Promise源码分析</title>
+    <link href="http://yoursite.com/2018/03/10/Promise%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
+    <id>http://yoursite.com/2018/03/10/Promise源码分析/</id>
+    <published>2018-03-10T02:17:04.000Z</published>
+    <updated>2018-03-14T10:53:59.231Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h1><p>双向数据绑定的核心是： observer   Dep   Watcher</p>
-<pre><code>+ observer 是一个类，每一个prop和data中都有，他会通过执行 DefinedReactive 给其附属的对象及其子属性，建立 get 和 set 方法。(definedReactive实质上是通过 Object.defineProperty 将每个属性进行包装包装)
-+  Dep 会存放所有的 Watcher，每个data和prop都有自己的Dep实例。当数据发生改变时，会notify属性的watch，当watcher去访问属性时，Dep.target属性指向访问的watcher
-+  Watcher 可以watch一个方法或者 一个属性。先收集依赖，值改变时，触发callback &apos;expOrFn&apos;。‘expOnFn’可以看做是 Watcher的Getter
-</code></pre><h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><pre><code>+ mutation 对 state 进行状态的修改。commit方法是mutation的内核。dispatch 是 action的内核
-</code></pre><h1 id="一：数据更新-virtual-DOM"><a href="#一：数据更新-virtual-DOM" class="headerlink" title="一：数据更新 virtual DOM"></a>一：数据更新 virtual DOM</h1><ul>
-<li>1.在react中，当有数据发生变化时，会构造新的 React DOM Tree，发生变化的属性值会对此节点进行标注，然后通过一系列diff算法，新旧DOM tree 进行对比，更新渲染完毕。</li>
-<li>2：通过事件改变属性值时，此节点会被标记成脏节点，事件处理完成后，react会找到所有脏节点，并重新渲染。</li>
-<li>3: vue 的精髓就是 响应式数据流。</li>
-<li>4：react和Vue本质上都是借助 virtual DOM 帮助开发者管理DOM</li>
+    <content type="html"><![CDATA[<p>本文转载至 <a href="https://mp.weixin.qq.com/s/gDCPwMnKkAgbFWo6R6PRpw" target="_blank" rel="external">https://mp.weixin.qq.com/s/gDCPwMnKkAgbFWo6R6PRpw</a></p>
+<h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>为了让大家更容易理解，我们从一个场景开始讲解，让大家一步一步跟着思路思考，相信你一定会更容易看懂。</p>
+<p>考虑下面一种获取用户id的请求处理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//例1</div><div class="line">function getUserId() &#123;</div><div class="line"></div><div class="line">    return new Promise(function(resolve) &#123;</div><div class="line">        //异步请求</div><div class="line">        http.get(url, function(results) &#123;</div><div class="line"></div><div class="line">            resolve(results.id)</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line">getUserId().then(function(id) &#123;</div><div class="line">    //一些处理</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>getUserId方法返回一个promise，可以通过它的then方法注册(注意注册这个词)在promise异步操作成功时执行的回调。这种执行方式，使得异步调用变得十分顺手。</p>
+<h2 id="原理剖析"><a href="#原理剖析" class="headerlink" title="原理剖析"></a>原理剖析</h2><p>那么类似这种功能的Promise怎么实现呢？其实按照上面一句话，实现一个最基础的雏形还是很easy的。<br>极简promise雏形<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Promise(fn) &#123;</div><div class="line">    var value = null,</div><div class="line">    callbacks = [];  //callbacks为数组，因为可能同时有很多个回调</div><div class="line">    this.then = function (onFulfilled) &#123;</div><div class="line">        callbacks.push(onFulfilled);</div><div class="line">    &#125;;</div><div class="line">    function resolve(value) &#123;</div><div class="line">        callbacks.forEach(function (callback) &#123;</div><div class="line">            callback(value);</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    fn(resolve);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上述代码很简单，大致的逻辑是这样的：</p>
+<ul>
+<li>调用then方法，将想要在Promise异步操作成功时执行的回调放入callbacks队列，其实也就是注册回调函数，可以向观察者模式方向思考；</li>
+<li>创建Promise实例时传入的函数会被赋予一个函数类型的参数，即resolve，它接收一个参数value，代表异步操作返回的结果，当一步操作执行成功后，用户会调用resolve方法，这时候其实真正执行的操作是将callbacks队列中的回调一一执行；</li>
 </ul>
-<h1 id="二、Vue部分生命周期和钩子函数"><a href="#二、Vue部分生命周期和钩子函数" class="headerlink" title="二、Vue部分生命周期和钩子函数"></a>二、Vue部分生命周期和钩子函数</h1><ul>
-<li>1、beforeCreated  组件刚创建，data和el都没有创建</li>
-<li>2、created data完成初始化，el还没挂在</li>
-<li>3、 beforeMounted  data和el完成初始化  。(此时，DOM中，msg的位置在virtualDOM中已经被占用了，到mounted挂载之后，直接填坑，将数据填进去)</li>
-<li>4、mounted  data 和 el 都完成了挂载</li>
+<p>可以结合例1中的代码来看，首先new Promise时，传给promise的函数发送异步请求，接着调用promise对象的then属性，注册请求成功的回调函数，然后当异步请求发送成功时，调用resolve(results.id)方法, 该方法执行then方法注册的回调数组。</p>
+<p>相信仔细的人应该可以看出来，then方法应该能够链式调用，但是上面的最基础简单的版本显然无法支持链式调用。想让then方法支持链式调用，其实也是很简单的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">this.then = function (onFulfilled) &#123;</div><div class="line">    callbacks.push(onFulfilled);</div><div class="line">    return this;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>see?只要简单一句话就可以实现类似下面的链式调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 例2</div><div class="line">getUserId().then(function (id) &#123;</div><div class="line">    // 一些处理</div><div class="line">&#125;).then(function (id) &#123;</div><div class="line">    // 一些处理</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="加入延时机制"><a href="#加入延时机制" class="headerlink" title="加入延时机制"></a>加入延时机制</h2><p>细心的同学应该发现，上述代码可能还存在一个问题：如果在then方法注册回调之前，resolve函数就执行了，怎么办？比如promise内部的函数是同步函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 例3</div><div class="line">function getUserId() &#123;</div><div class="line">    return new Promise(function (resolve) &#123;</div><div class="line">        resolve(9876);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">getUserId().then(function (id) &#123;</div><div class="line">    // 一些处理</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>这显然是不允许的，Promises/A+规范明确要求回调需要通过异步方式执行，用以保证一致可靠的执行顺序。因此我们要加入一些处理，保证在resolve执行之前，then方法已经注册完所有的回调。我们可以这样改造下resolve函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function resolve(value) &#123;</div><div class="line">    setTimeout(function() &#123;</div><div class="line">        callbacks.forEach(function (callback) &#123;</div><div class="line">            callback(value);</div><div class="line">        &#125;);</div><div class="line">    &#125;, 0)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上述代码的思路也很简单，就是通过setTimeout机制，将resolve中执行回调的逻辑放置到JS任务队列末尾，以保证在resolve执行时，then方法的回调函数已经注册完成.</p>
+<p>但是，这样好像还存在一个问题，可以细想一下：如果Promise异步操作已经成功，这时，在异步操作成功之前注册的回调都会执行，但是在Promise异步操作成功这之后调用的then注册的回调就再也不会执行了，这显然不是我们想要的。</p>
+<h2 id="加入状态"><a href="#加入状态" class="headerlink" title="加入状态"></a>加入状态</h2><p>恩，为了解决上一节抛出的问题，我们必须加入状态机制，也就是大家熟知的pending、fulfilled、rejected。</p>
+<p>Promises/A+规范中的2.1Promise States中明确规定了，pending可以转化为fulfilled或rejected并且只能转化一次，也就是说如果pending转化到fulfilled状态，那么就不能再转化到rejected。并且fulfilled和rejected状态只能由pending转化而来，两者之间不能互相转换。<br>改进后的代码是这样的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">function Promise(fn) &#123;</div><div class="line">    var state = &apos;pending&apos;,</div><div class="line">        value = null,</div><div class="line">        callbacks = [];</div><div class="line">    this.then = function (onFulfilled) &#123;</div><div class="line">        if (state === &apos;pending&apos;) &#123;</div><div class="line">            callbacks.push(onFulfilled);</div><div class="line">            return this;</div><div class="line">        &#125;</div><div class="line">        onFulfilled(value);</div><div class="line">        return this;</div><div class="line">    &#125;;</div><div class="line">    function resolve(newValue) &#123;</div><div class="line">        value = newValue;</div><div class="line">        state = &apos;fulfilled&apos;;</div><div class="line">        setTimeout(function () &#123;</div><div class="line">            callbacks.forEach(function (callback) &#123;</div><div class="line">                callback(value);</div><div class="line">            &#125;);</div><div class="line">        &#125;, 0);</div><div class="line">    &#125;</div><div class="line">    fn(resolve);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上述代码的思路是这样的：resolve执行时，会将状态设置为fulfilled，在此之后调用then添加的新回调，都会立即执行。</p>
+<p>这里没有任何地方将state设为rejected，为了让大家聚焦在核心代码上，这个问题后面会有一小节专门加入。</p>
+<h2 id="链式Promise"><a href="#链式Promise" class="headerlink" title="链式Promise"></a>链式Promise</h2><p>那么这里问题又来了，如果用户再then函数里面注册的仍然是一个Promise，该如何解决？比如下面的例4：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 例4</div><div class="line">getUserId()</div><div class="line">    .then(getUserJobById)</div><div class="line">    .then(function (job) &#123;</div><div class="line">        // 对job的处理</div><div class="line">    &#125;);</div><div class="line">function getUserJobById(id) &#123;</div><div class="line">    return new Promise(function (resolve) &#123;</div><div class="line">        http.get(baseUrl + id, function(job) &#123;</div><div class="line">            resolve(job);</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这种场景相信用过promise的人都知道会有很多，那么类似这种就是所谓的链式Promise。</p>
+<p>链式Promise是指在当前promise达到fulfilled状态后，即开始进行下一个promise（后邻promise）。那么我们如何衔接当前promise和后邻promise呢？（这是这里的难点）。</p>
+<p>其实也不是辣么难，只要在then方法里面return一个promise就好啦。Promises/A+规范中的2.2.7就是这么说哒(微笑脸)~</p>
+<p>下面来看看这段暗藏玄机的then方法和resolve方法改造代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">function Promise(fn) &#123;</div><div class="line">    var state = &apos;pending&apos;,</div><div class="line">        value = null,</div><div class="line">        callbacks = [];</div><div class="line">    this.then = function (onFulfilled) &#123;</div><div class="line">        return new Promise(function (resolve) &#123;</div><div class="line">            handle(&#123;</div><div class="line">                onFulfilled: onFulfilled || null,</div><div class="line">                resolve: resolve</div><div class="line">            &#125;);</div><div class="line">        &#125;);</div><div class="line">    &#125;;</div><div class="line">    function handle(callback) &#123;</div><div class="line">        if (state === &apos;pending&apos;) &#123;</div><div class="line">            callbacks.push(callback);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        //如果then中没有传递任何东西</div><div class="line">        if(!callback.onResolved) &#123;</div><div class="line">            callback.resolve(value);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        var ret = callback.onFulfilled(value);</div><div class="line">        callback.resolve(ret);</div><div class="line">    &#125;</div><div class="line">    function resolve(newValue) &#123;</div><div class="line">        if (newValue &amp;&amp; (typeof newValue === &apos;object&apos; || typeof newValue === &apos;function&apos;)) &#123;</div><div class="line">            var then = newValue.then;</div><div class="line">            if (typeof then === &apos;function&apos;) &#123;</div><div class="line">                then.call(newValue, resolve);</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        state = &apos;fulfilled&apos;;</div><div class="line">        value = newValue;</div><div class="line">        setTimeout(function () &#123;</div><div class="line">            callbacks.forEach(function (callback) &#123;</div><div class="line">                handle(callback);</div><div class="line">            &#125;);</div><div class="line">        &#125;, 0);</div><div class="line">    &#125;</div><div class="line">    fn(resolve);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们结合例4的代码，分析下上面的代码逻辑，为了方便阅读，我把例4的代码贴在这里：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 例4</div><div class="line">getUserId()</div><div class="line">    .then(getUserJobById)</div><div class="line">    .then(function (job) &#123;</div><div class="line">        // 对job的处理</div><div class="line">    &#125;);</div><div class="line">function getUserJobById(id) &#123;</div><div class="line">    return new Promise(function (resolve) &#123;</div><div class="line">        http.get(baseUrl + id, function(job) &#123;</div><div class="line">            resolve(job);</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>then方法中，创建并返回了新的Promise实例，这是串行Promise的基础，并且支持链式调用。<br>handle方法是promise内部的方法。then方法传入的形参onFulfilled以及创建新Promise实例时传入的resolve均被push到当前promise的callbacks队列中，这是衔接当前promise和后邻promise的关键所在（这里一定要好好的分析下handle的作用）。</p>
+<p>getUserId生成的promise（简称getUserId promise）异步操作成功，执行其内部方法resolve，传入的参数正是异步操作的结果id</p>
+<p>调用handle方法处理callbacks队列中的回调：getUserJobById方法，生成新的promise（getUserJobById promise）</p>
+<p>执行之前由getUserId promise的then方法生成的新promise(称为bridge promise)的resolve方法，传入参数为getUserJobById promise。这种情况下，会将该resolve方法传入getUserJobById promise的then方法中，并直接返回。</p>
+<p>在getUserJobById promise异步操作成功时，执行其callbacks中的回调：getUserId bridge promise中的resolve方法</p>
+<p>最后执行getUserId bridge promise的后邻promise的callbacks中的回调。</p>
+<h2 id="失败处理"><a href="#失败处理" class="headerlink" title="失败处理"></a>失败处理</h2><p>在异步操作失败时，标记其状态为rejected，并执行注册的失败回调:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//例5</div><div class="line">function getUserId() &#123;</div><div class="line">    return new Promise(function(resolve) &#123;</div><div class="line">        //异步请求</div><div class="line">        http.get(url, function(error, results) &#123;</div><div class="line">            if (error) &#123;</div><div class="line">                reject(error);</div><div class="line">            &#125;</div><div class="line">            resolve(results.id)</div><div class="line">        &#125;)</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line">getUserId().then(function(id) &#123;</div><div class="line">    //一些处理</div><div class="line">&#125;, function(error) &#123;</div><div class="line">    console.log(error)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>有了之前处理fulfilled状态的经验，支持错误处理变得很容易,只需要在注册回调、处理状态变更上都要加入新的逻辑：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">function Promise(fn) &#123;</div><div class="line">    var state = &apos;pending&apos;,</div><div class="line">        value = null,</div><div class="line">        callbacks = [];</div><div class="line">    this.then = function (onFulfilled, onRejected) &#123;</div><div class="line">        return new Promise(function (resolve, reject) &#123;</div><div class="line">            handle(&#123;</div><div class="line">                onFulfilled: onFulfilled || null,</div><div class="line">                onRejected: onRejected || null,</div><div class="line">                resolve: resolve,</div><div class="line">                reject: reject</div><div class="line">            &#125;);</div><div class="line">        &#125;);</div><div class="line">    &#125;;</div><div class="line">    function handle(callback) &#123;</div><div class="line">        if (state === &apos;pending&apos;) &#123;</div><div class="line">            callbacks.push(callback);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        var cb = state === &apos;fulfilled&apos; ? callback.onFulfilled : callback.onRejected,</div><div class="line">            ret;</div><div class="line">        if (cb === null) &#123;</div><div class="line">            cb = state === &apos;fulfilled&apos; ? callback.resolve : callback.reject;</div><div class="line">            cb(value);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        ret = cb(value);</div><div class="line">        callback.resolve(ret);</div><div class="line">    &#125;</div><div class="line">    function resolve(newValue) &#123;</div><div class="line">        if (newValue &amp;&amp; (typeof newValue === &apos;object&apos; || typeof newValue === &apos;function&apos;)) &#123;</div><div class="line">            var then = newValue.then;</div><div class="line">            if (typeof then === &apos;function&apos;) &#123;</div><div class="line">                then.call(newValue, resolve, reject);</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        state = &apos;fulfilled&apos;;</div><div class="line">        value = newValue;</div><div class="line">        execute();</div><div class="line">    &#125;</div><div class="line">    function reject(reason) &#123;</div><div class="line">        state = &apos;rejected&apos;;</div><div class="line">        value = reason;</div><div class="line">        execute();</div><div class="line">    &#125;</div><div class="line">    function execute() &#123;</div><div class="line">        setTimeout(function () &#123;</div><div class="line">            callbacks.forEach(function (callback) &#123;</div><div class="line">                handle(callback);</div><div class="line">            &#125;);</div><div class="line">        &#125;, 0);</div><div class="line">    &#125;</div><div class="line">    fn(resolve, reject);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上述代码增加了新的reject方法，供异步操作失败时调用，同时抽出了resolve和reject共用的部分，形成execute方法。</p>
+<p>错误冒泡是上述代码已经支持，且非常实用的一个特性。在handle中发现没有指定异步操作失败的回调时，会直接将bridge promise(then函数返回的promise，后同)设为rejected状态，如此达成执行后续失败回调的效果。这有利于简化串行Promise的失败处理成本，因为一组异步操作往往会对应一个实际功能，失败处理方法通常是一致的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//例6</div><div class="line"></div><div class="line">getUserId()</div><div class="line">    .then(getUserJobById)</div><div class="line">    .then(function (job) &#123;</div><div class="line">        // 处理job</div><div class="line">    &#125;, function (error) &#123;</div><div class="line">        // getUserId或者getUerJobById时出现的错误</div><div class="line">        console.log(error);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>细心的同学会想到：如果在执行成功回调、失败回调时代码出错怎么办？对于这类异常，可以使用try-catch捕获错误，并将bridge promise设为rejected状态。handle方法改造如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function handle(callback) &#123;</div><div class="line">    if (state === &apos;pending&apos;) &#123;</div><div class="line">        callbacks.push(callback);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    var cb = state === &apos;fulfilled&apos; ? callback.onFulfilled : callback.onRejected,</div><div class="line">        ret;</div><div class="line">    if (cb === null) &#123;</div><div class="line">        cb = state === &apos;fulfilled&apos; ? callback.resolve : callback.reject;</div><div class="line">        cb(value);</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line">    try &#123;</div><div class="line">        ret = cb(value);</div><div class="line">        callback.resolve(ret);</div><div class="line">    &#125; catch (e) &#123;</div><div class="line">        callback.reject(e);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果在异步操作中，多次执行resolve或者reject会重复处理后续回调，可以通过内置一个标志位解决。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>刚开始看promise源码的时候总不能很好的理解then和resolve函数的运行机理，但是如果你静下心来，反过来根据执行promise时的逻辑来推演，就不难理解了。这里一定要注意的点是：promise里面的then函数仅仅是注册了后续需要执行的代码，真正的执行是在resolve方法里面执行的，理清了这层，再来分析源码会省力的多。</p>
+<p>现在回顾下Promise的实现过程，其主要使用了设计模式中的观察者模式：</p>
+<ul>
+<li><p>通过Promise.prototype.then和Promise.prototype.catch方法将观察者方法注册到被观察者Promise对象中，同时返回一个新的Promise对象，以便可以链式调用。</p>
+</li>
+<li><p>被观察者管理内部pending、fulfilled和rejected的状态转变，同时通过构造函数中传递的resolve和reject方法以主动触发状态转变和通知观察者。</p>
+</li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;双向数据绑定&quot;&gt;&lt;a href=&quot;#双向数据绑定&quot; class=&quot;headerlink&quot; title=&quot;双向数据绑定&quot;&gt;&lt;/a&gt;双向数据绑定&lt;/h1&gt;&lt;p&gt;双向数据绑定的核心是： observer   Dep   Watcher&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;+ 
+      &lt;p&gt;本文转载至 &lt;a href=&quot;https://mp.weixin.qq.com/s/gDCPwMnKkAgbFWo6R6PRpw&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://mp.weixin.qq.com/s/gDCPwMnKkAgbF
     
     </summary>
     
-      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+      <category term="ES6" scheme="http://yoursite.com/categories/ES6/"/>
     
+    
+      <category term="Promise" scheme="http://yoursite.com/tags/Promise/"/>
     
   </entry>
   
@@ -566,9 +635,9 @@
       <category term="es6" scheme="http://yoursite.com/categories/es6/"/>
     
     
-      <category term="array" scheme="http://yoursite.com/tags/array/"/>
-    
       <category term="es6" scheme="http://yoursite.com/tags/es6/"/>
+    
+      <category term="array" scheme="http://yoursite.com/tags/array/"/>
     
       <category term="entries" scheme="http://yoursite.com/tags/entries/"/>
     
@@ -833,44 +902,6 @@
       <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
     
       <category term="Apache-Tomcat" scheme="http://yoursite.com/tags/Apache-Tomcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sublime快捷键总结</title>
-    <link href="http://yoursite.com/2017/05/16/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>http://yoursite.com/2017/05/16/sublime快捷键/</id>
-    <published>2017-05-16T06:35:04.000Z</published>
-    <updated>2018-03-14T07:24:56.173Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="sublime-快捷键"><a href="#sublime-快捷键" class="headerlink" title="sublime 快捷键"></a>sublime 快捷键</h1><ul>
-<li><code>command + shift + o</code> 直接在浏览器中打开预览</li>
-<li>在编辑Markdown文件时，<code>command+ alt + o</code>可边编辑边预览</li>
-<li><code>alt+command+1</code>窗口显示1屏</li>
-<li><code>alt+command+2</code>窗口显示2屏</li>
-<li><code>shift+command+d</code>复制一行</li>
-<li><code>command+L</code>选定一行，可连续选定多行</li>
-<li><code>alt+command+插入点</code>可同时对多个插入点进行编辑</li>
-<li><code>command+enter</code>可直接另起一行进行编辑</li>
-<li><code>command+delete</code>可删除当前插入点前面的所有内容；连续按两次，可以删除整行内容</li>
-<li><code>command+k</code>连续点击两次，可删除当前插入点后面的所有内容</li>
-<li><code>command+f</code>查找</li>
-<li><code>command+shift+f</code>查找替换</li>
-<li><code>command+r</code>是调用方法</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;sublime-快捷键&quot;&gt;&lt;a href=&quot;#sublime-快捷键&quot; class=&quot;headerlink&quot; title=&quot;sublime 快捷键&quot;&gt;&lt;/a&gt;sublime 快捷键&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;command + shift + o&lt;/c
-    
-    </summary>
-    
-      <category term="sublime" scheme="http://yoursite.com/categories/sublime/"/>
-    
-    
-      <category term="sublime" scheme="http://yoursite.com/tags/sublime/"/>
     
   </entry>
   

@@ -272,6 +272,165 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/26/视频播放插件-video.js的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/26/视频播放插件-video.js的使用/" itemprop="url">
+                  视频播放插件 video.js的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T16:49:04+08:00">
+                2017-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML5/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>video.js是一个开源的HTML5 jQuery 视频插件，即可以播放h5视频，也可以用来播放flash视频，是一个多平台支持的产品，大多数浏览器都支持。</p>
+<h3 id="第一步：引入-Video-js-的JS和CSS文件。"><a href="#第一步：引入-Video-js-的JS和CSS文件。" class="headerlink" title="第一步：引入 Video.js 的JS和CSS文件。"></a>第一步：引入 Video.js 的JS和CSS文件。</h3><ul>
+<li>方法1：可以下载Video.js的源码放到自己的服务器上；</li>
+<li>方法2：可以使用免费的CDN托管版本<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"http://vjs.zencdn.net/4.12/video-js.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://vjs.zencdn.net/4.12/video.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件"><a href="#第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件" class="headerlink" title="第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件"></a>第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;videojs.options.flash.swf = <span class="string">"video-js.swf"</span>;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h3 id="第三步：页面中加入video标签"><a href="#第三步：页面中加入video标签" class="headerlink" title="第三步：页面中加入video标签"></a>第三步：页面中加入video标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">	<span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">”my_video_1″</span> <span class="attr">class</span>=<span class="string">”video-js</span> <span class="attr">vjs-default-skin</span>” </span></div><div class="line">	<span class="attr">controls</span> <span class="attr">preload</span>=<span class="string">”auto”</span> <span class="attr">width</span>=<span class="string">”640″</span> <span class="attr">height</span>=<span class="string">”264″</span> <span class="attr">poster</span>=<span class="string">”my_video_poster.png”</span> <span class="attr">data-setup</span>=<span class="string">”&#123;&#125;”</span>&gt;</div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”my_video.mp4″</span> <span class="attr">type</span>=<span class="string">’video/mp4′</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”my_video.webm”</span> <span class="attr">type</span>=<span class="string">’video/webm’</span>&gt;</span></div><div class="line">	//以下两个样式可以选择性的在页面中添加</div><div class="line">	<span class="tag">&lt;<span class="name">track</span> <span class="attr">kind</span>=<span class="string">"captions"</span> <span class="attr">src</span>=<span class="string">"demo.captions.vtt"</span> <span class="attr">srclang</span>=<span class="string">"en"</span> <span class="attr">label</span>=<span class="string">"English"</span>&gt;</span><span class="tag">&lt;/<span class="name">track</span>&gt;</span><span class="comment">&lt;!-- Tracks need an ending tag thanks to IE9 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">track</span> <span class="attr">kind</span>=<span class="string">"subtitles"</span> <span class="attr">src</span>=<span class="string">"demo.captions.vtt"</span> <span class="attr">srclang</span>=<span class="string">"en"</span> <span class="attr">label</span>=<span class="string">"English"</span>&gt;</span><span class="tag">&lt;/<span class="name">track</span>&gt;</span><span class="comment">&lt;!-- Tracks need an ending tag thanks to IE9 --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>poster中放的是视频的缩略图；</li>
+<li>在页面加载中，video会判断浏览器支持哪个格式视频，会自动加载可播放的视频。<ul>
+<li>第一个source 放的是指向mp4视频，</li>
+<li>第二个指向的是webm视频。<h3 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h3>默认情况下，大的播放按钮放在了左上角的，这样就不会覆盖视频内容。如果你想让这个播放按钮居中，你可以给你的 video 标签添加额外的 vjs-big-play-centered 样式，比如：<br><code>class=&quot;video-js vjs-default-skin vjs-big-play-centered&quot;</code>;<br>如果你还对播放按钮样式不满意可重新定义<code>.video-js .vjs-big-play-button{/*这里的样式重写*/}</code>。<h3 id="视频自动播放"><a href="#视频自动播放" class="headerlink" title="视频自动播放"></a>视频自动播放</h3>设置自动播放，将下面的代码加到html中的代码后面<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> myPlayer = videojs(<span class="string">'example_video_1'</span>);</div><div class="line">    videojs(<span class="string">"example_video_1"</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> myPlayer = <span class="keyword">this</span>;</div><div class="line">        myPlayer.play();</div><div class="line">    &#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/25/form表单及非空验证 （CSS+JS）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -880,163 +1039,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/sublime快捷键/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/16/sublime快捷键/" itemprop="url">
-                  Sublime快捷键总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T14:35:04+08:00">
-                2017-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/sublime/" itemprop="url" rel="index">
-                    <span itemprop="name">sublime</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="sublime-快捷键"><a href="#sublime-快捷键" class="headerlink" title="sublime 快捷键"></a>sublime 快捷键</h1><ul>
-<li><code>command + shift + o</code> 直接在浏览器中打开预览</li>
-<li>在编辑Markdown文件时，<code>command+ alt + o</code>可边编辑边预览</li>
-<li><code>alt+command+1</code>窗口显示1屏</li>
-<li><code>alt+command+2</code>窗口显示2屏</li>
-<li><code>shift+command+d</code>复制一行</li>
-<li><code>command+L</code>选定一行，可连续选定多行</li>
-<li><code>alt+command+插入点</code>可同时对多个插入点进行编辑</li>
-<li><code>command+enter</code>可直接另起一行进行编辑</li>
-<li><code>command+delete</code>可删除当前插入点前面的所有内容；连续按两次，可以删除整行内容</li>
-<li><code>command+k</code>连续点击两次，可删除当前插入点后面的所有内容</li>
-<li><code>command+f</code>查找</li>
-<li><code>command+shift+f</code>查找替换</li>
-<li><code>command+r</code>是调用方法</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1108,7 +1110,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

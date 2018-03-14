@@ -272,6 +272,132 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/随手笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/08/随手笔记/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:16:47+08:00">
+                2017-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="随手笔记"><a href="#随手笔记" class="headerlink" title="随手笔记"></a>随手笔记</h1><h2 id="1-e-的使用"><a href="#1-e-的使用" class="headerlink" title="1. e 的使用"></a>1. e 的使用</h2><ul>
+<li>e.currentTarget 获取到鼠标当前所在的元素</li>
+</ul>
+<h2 id="2-vue-resource-发送-post请求"><a href="#2-vue-resource-发送-post请求" class="headerlink" title="2. vue-resource 发送 post请求"></a>2. vue-resource 发送 post请求</h2><ul>
+<li>post请求发送表单数据，浏览器无法处理application/json 的请求，这是需要添加第三个参数， {emulationJSON:true}；这时请求会以 application/x-www-form-urlencoded作为 MIME TYPE 。就像普通的HTML一样。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$http.post(<span class="string">"/api/index.jsp?m=client&amp;c=serverDqylm&amp;a=saveInnowayGlobalApply"</span>,&#123;<span class="attr">params</span>:<span class="keyword">this</span>.formLabelAlign&#125;,&#123;<span class="attr">emulateJSON</span>:<span class="literal">true</span>&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">           <span class="built_in">console</span>.log(<span class="number">111</span>)</div><div class="line">         &#125;,<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">           <span class="built_in">console</span>.log(<span class="string">"error"</span>);</div><div class="line">         &#125;)</div><div class="line">         &#123;<span class="string">"firstName"</span>:<span class="string">""</span>,<span class="string">"lastName"</span>:<span class="string">""</span>,<span class="string">"title"</span>:<span class="string">""</span>,<span class="string">"company"</span>:<span class="string">""</span>,<span class="string">"email"</span>:<span class="string">""</span>,<span class="string">"tel"</span>:<span class="string">""</span>,<span class="string">"interests"</span>:<span class="number">1</span>,<span class="string">"desc"</span>:<span class="string">"dsfg"</span>&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/24/配置Nginx反向代理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -990,169 +1116,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/PHP学习中的笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/10/PHP学习中的笔记/" itemprop="url">
-                  Php相关记录
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T10:17:04+08:00">
-                2017-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="PHP学习中的笔记"><a href="#PHP学习中的笔记" class="headerlink" title="PHP学习中的笔记"></a>PHP学习中的笔记</h2><ul>
-<li>defined 是判断是都存在这个值；</li>
-<li>define是设置某个量的值；</li>
-<li>layout.html 是入口文件。通过模板语法{<strong>CONTENT</strong>}像框架中填写主要内容。然后根据URL地址解析，寻找对应的方法与数据。</li>
-<li>php中isset()函数，用来检测变量是否设置；</li>
-<li>unset():销毁指定的变量</li>
-<li>在core.php中的应用路径解析，页面加载，先判断是否设置了 isset($GET[‘app’]),<ul>
-<li>页面初始化，没有请求，也就是<code>isset($GET[&#39;app&#39;])</code>没有值，默认使 $app_name=web;所以将apps/web/tpl/index/index.html中的内容渲染到content区域；<h3 id="Volist标签，-present标签与其类似"><a href="#Volist标签，-present标签与其类似" class="headerlink" title="Volist标签， present标签与其类似"></a>Volist标签， present标签与其类似</h3></li>
-</ul>
-</li>
-<li>name和id属性是必须的；name：表示要输出的数据模板变量；id表示循环变量；key:循环的key变量，默认值为i;</li>
-<li>Volist标签的name属性表示模板赋值的变量名称，因此不可随意在模板文件中改变。id表示当前的循环变量，可以随意指定，但确保不要和name属性冲突。</li>
-<li>使用前，首先应该对模板进行赋值，例如：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$User = M(<span class="string">'User'</span>);<span class="comment">//M方法：意思是创建一个user模型，对应数据库中的User表，</span></div><div class="line">$User = D(<span class="string">'User'</span>);<span class="comment">//D方法：实例化模型 。 该方法可能和以下代码等效：import('@.Model.UserModel'); $User = new UserModel();</span></div><div class="line">$list = $User-&gt;select(); <span class="comment">//从数据库中选取数据；</span></div><div class="line">$<span class="keyword">this</span>-&gt;assign(<span class="string">'list'</span>,$list);  <span class="comment">//吧数组打印出来，渲染模板；</span></div><div class="line"><span class="comment">//在PHP中，例如$db=new db();实例化；使用$db的属性和方法： $db -&gt; host = 'localhost'; $db -&gt; printHost();这就相当于js中的db.host = 'localhost';db.printHost();调用方法；</span></div><div class="line">&lt;volist name=<span class="string">"list"</span> id=<span class="string">"vo"</span>&gt;</div><div class="line">    &#123;$vo.id&#125;</div><div class="line">    &#123;$vo.name&#125;</div><div class="line">&lt;<span class="regexp">/volist&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="thinkPHP中M方法和D方法的区别"><a href="#thinkPHP中M方法和D方法的区别" class="headerlink" title="thinkPHP中M方法和D方法的区别:"></a>thinkPHP中M方法和D方法的区别:</h3><p>M方法实例化模型无需用户为每个数据表定义模型类，如果D方法没有找到定义的模型类，则会自动调用M方法。通俗一点说：M实例化参数是数据库的表名。D实例化的是你自己在Model文件夹下面建立的模型文件。</p>
-<h3 id="思路过程："><a href="#思路过程：" class="headerlink" title="思路过程："></a>思路过程：</h3><p>1：在indexAction.class.php中定义的获得到的是index.html页面中<volist name="newspic">的数据<br>2：由此找到了数据库中对应的数据：</volist></p>
-<pre><code>+ $articleModel = M(&apos;Article&apos;); ------找到数据库中 to_article表；
-+ $cyjigou_id = 2;  -------找到category_id = 2的所有数据；
-+ 然后对应上了，获得到了所有入住机构的数据；
-+ 里面的content字段就是入住机构的详细介绍；
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1224,7 +1187,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
