@@ -174,7 +174,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">记录学习的技能和遇到的问题</p>
+        <p class="site-subtitle">keep fighting</p>
       
   </div>
 
@@ -272,7 +272,7 @@
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/git使用中的撤销操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/24/复选框选中，closest()用法以及e.target()/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Amy Gao">
@@ -294,8 +294,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/01/git使用中的撤销操作/" itemprop="url">
-                  Git使用中的撤销操作
+                <a class="post-title-link" href="/2017/05/24/复选框选中，closest()用法以及e.target()/" itemprop="url">
+                  复选框选中，closest()用法以及e.target()
                 </a>
               
             
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T13:24:04+08:00">
-                2017-06-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T10:24:04+08:00">
+                2017-05-24
               </time>
             
 
@@ -334,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/knowledge/" itemprop="url" rel="index">
+                    <span itemprop="name">knowledge</span>
                   </a>
                 </span>
 
@@ -371,13 +371,180 @@
       
         
           
-            <p>在git的使用过程中，有的时候操作会有失误，会进行撤销操作，下面是两个总结：</p>
+            <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//复选框，当点击文本时，复选框选中；</div><div class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"Field"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"移动互联网"</span> /&gt;</span>移动互联网<span class="tag">&lt;/<span class="name">label</span>&gt;</span> &amp;nbsp&amp;nbsp</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">required</span>  <span class="attr">name</span>=<span class="string">"Tel"</span> <span class="attr">placeholder</span>=<span class="string">"电话"</span> <span class="attr">pattern</span>=<span class="string">"\d&#123;11&#125;"</span> <span class="attr">oninvalid</span>=<span class="string">"setCustomValidity('请填写11位的手机号码')&gt;</span></span></div></pre></td></tr></table></figure>
+<h2 id="closest-用法"><a href="#closest-用法" class="headerlink" title="closest()用法"></a>closest()用法</h2><p><code>closest()</code>从当前元素开始向上找，获得匹配选择器的第一个祖先元素；<br><code>parents()</code>从父元素开始找，向上遍历，直到文档的根元素为止。</p>
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">	<span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"one"</span> <span class="attr">class</span>=<span class="string">"level-1"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-i"</span>&gt;</span>I<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"ii"</span> <span class="attr">class</span>=<span class="string">"item-ii"</span>&gt;</span>II</div><div class="line">      <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"level-2"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-a"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-b"</span>&gt;</span>B</div><div class="line">          <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"level-3"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-3"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-c"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-iii"</span>&gt;</span>III<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>$(&#39;li.item-a&#39;).closest(&#39;ul&#39;).css(&#39;background-color&#39;, &#39;red&#39;);</code>此时所获得的是 level-2 的 ul 的颜色会变成红色；<br><code>$(&#39;li.item-a&#39;).closest(&#39;li&#39;).css(&#39;background-color&#39;, &#39;red&#39;);</code>此时A li 的背景颜色变成红色；</p>
+<h2 id="e-target"><a href="#e-target" class="headerlink" title="e.target"></a>e.target</h2><p><code>e.target</code>需要看当前目标：<br>在event事件中，代表点击事件；<br>在loader事件中，代表加载对象；<br>e.target是目标对象，e.event是目标所发生的事件</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/Mac配置Apache-Tomcat服务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/16/Mac配置Apache-Tomcat服务/" itemprop="url">
+                  Mac配置Apache-Tomcat服务
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T17:03:04+08:00">
+                2017-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mac/" itemprop="url" rel="index">
+                    <span itemprop="name">Mac</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="第一步：下载Tomcat"><a href="#第一步：下载Tomcat" class="headerlink" title="第一步：下载Tomcat"></a>第一步：下载Tomcat</h2><p></p><p>直接上官网 <code>http://tomcat.apache.org/download-80.cgi</code>上下载对应版本的Tomcat包</p><br><img src="../img/tomcat-download.png" width="600" height="300" alt=""><p></p>
+<h2 id="第二步：将下载好的包放到本地目录中"><a href="#第二步：将下载好的包放到本地目录中" class="headerlink" title="第二步：将下载好的包放到本地目录中"></a>第二步：将下载好的包放到本地目录中</h2><ol>
+<li>在你的Finder中，通过<code>commnd+.</code>显示隐藏的文件夹</li>
+<li>进入/usr/local,将下载好的Tomcat包放到/local目录中</li>
+</ol>
+<p><img src="../img/tomcat-mulu.png" width="600" height="300" alt=""></p>
+<h2 id="第三步：配置环境变量"><a href="#第三步：配置环境变量" class="headerlink" title="第三步：配置环境变量"></a>第三步：配置环境变量</h2><p></p><p>为了方便以后对Tomcat的操作，可以将Tomcat的bin目录放到全局变量中，配置方法如下</p><p></p>
 <ol>
-<li>为文件进行了操作，但是没有什么实质性的修改，使用 <code>git status</code>时，会发现文件一致是 modified 状态，这是我们想要撤销，恢复到修改前的版本<ul>
-<li>这一步一定要确定这个文件缺失是要恢复到修改前的版本！<br><code>git checkout -- 文件名</code></li>
-</ul>
+<li>查看配置的变量：<code>echo $PATH</code></li>
+<li>进入配置文件 <code>vim ~/.bash_profile</code></li>
+<li>输入<code>i</code>进入编辑模式；</li>
+<li>输入<code>export PATH=$PATH:/Users/gaonana/Documents/高娜娜文件/mongodb-osx-x86_64-3.4.3</code>;相当于在PATH变量后面多加一个自己定义的目录；</li>
+<li>点击<code>esc</code>键进入末行模式；</li>
+<li><code>:wq</code>保存配置文件并退出；</li>
+<li>执行<code>source .bash_profile</code>使配置生效</li>
+</ol>
+<h2 id="第四步：-启动Tomcat"><a href="#第四步：-启动Tomcat" class="headerlink" title="第四步： 启动Tomcat"></a>第四步： 启动Tomcat</h2><ol>
+<li>配置环境变量后，可以很便捷的terminal中通过 <code>startup.sh</code>启动Tomcat服务器；<blockquote>
+<p>注意：如果当 <code>startup.sh</code>后出现<code>permission denied</code>时，需要对此目录进行权限设置。在terminal中，输入<code>sudo chmod 755 xxx/bin/*.sh</code>(xxx表示Tomcat的路径)；输入密码就可以了。</p>
+</blockquote>
 </li>
-<li>撤销 git add 添加到暂存区的 操作：<br>当使用git add * 将全部修改的文件加入了暂存区域， 要撤销自己不想加入的文件时，使用以下命令<br><code>git reset HEAD 文件名</code>可以将 modified 文件撤回</li>
+<li>在浏览器中输入 <code>localhost:8080</code>就可以直接入Tomcat服务,显示一下页面即成功</li>
+</ol>
+<p><img src="../img/tomcat-yemian.png" width="600" height="300" alt=""></p>
+<ol>
+<li>通过<code>shutdown.sh</code> 可以终止程序</li>
 </ol>
 
           
@@ -422,7 +589,7 @@
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/background-size/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/sublime快捷键/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Amy Gao">
@@ -444,8 +611,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/06/01/background-size/" itemprop="url">
-                  Background-Size 使用
+                <a class="post-title-link" href="/2017/05/16/sublime快捷键/" itemprop="url">
+                  Sublime快捷键总结
                 </a>
               
             
@@ -461,8 +628,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T10:32:04+08:00">
-                2017-06-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T14:35:04+08:00">
+                2017-05-16
               </time>
             
 
@@ -484,8 +651,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/sublime/" itemprop="url" rel="index">
+                    <span itemprop="name">sublime</span>
                   </a>
                 </span>
 
@@ -521,15 +688,21 @@
       
         
           
-            <p>今天运维人员发现了一个线上bug，banner图片在显示的时候总是显示部分区域，不能显完全，在排查的过程中，发现banner图的父元素设置 <code>width:100%;min-width:1200px;</code>；div设置了最小宽度，为1200px；但是banner图的宽为2000px，超出div宽度的部分被裁切掉了。</p>
-<p>要想图片显示为div的大小，自动缩放，可以设置 背景图片的大小即 background-size属性，正好借此机会对background-size属性进行总结。</p>
-<p>background-size属性一共有5个值：auto、length、percent、cover、contain。</p>
-<p>1：默认值为：auto，auto；<br>2：length 和 percent一共是两个值，第一个值是设置图片的宽度，第二个值是图片的高度。如果只有一个值，那么第二个值默认为auto。<br>3：percent：为百分比值，背景图片的大小是根据相对的背景区域来做调整的；</p>
-<blockquote>
-<p>当图片较大，背景区域太小的时候，可通过 background-size：100% 100%；来达到，图片完全展示的效果</p>
-</blockquote>
-<p>4：contain：等比例放大，某一边顶格后，立即停止放大，另一百为空白区域；<br>5：cover：等比例放大，直到两边都顶格。如果有一边超出范围，那么就会出现图片缺失的问题。</p>
-<h2 id="background-设置多背景"><a href="#background-设置多背景" class="headerlink" title="background 设置多背景"></a>background 设置多背景</h2><p>在CSS3中，可以设置多重背景，background的值为：url  重复   位置/大小<br>注意： 这几个属性的值可以交换位置，但是  位置/大小  必须在一起，并且中间以/分割；<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">background:</div><div class="line">	url('img/lyf.jpg') top left/100px 100px no-repeat;// 位置/大小 重复</div><div class="line">	url('img/lyf.jpg') no-repeat top center/100px 100px ;重复 位置/大小</div><div class="line">url('img/haha.jpg') no-repeat top right / 100px 100px;重复 位置/大小</div></pre></td></tr></table></figure></p>
+            <h1 id="sublime-快捷键"><a href="#sublime-快捷键" class="headerlink" title="sublime 快捷键"></a>sublime 快捷键</h1><ul>
+<li><code>command + shift + o</code> 直接在浏览器中打开预览</li>
+<li>在编辑Markdown文件时，<code>command+ alt + o</code>可边编辑边预览</li>
+<li><code>alt+command+1</code>窗口显示1屏</li>
+<li><code>alt+command+2</code>窗口显示2屏</li>
+<li><code>shift+command+d</code>复制一行</li>
+<li><code>command+L</code>选定一行，可连续选定多行</li>
+<li><code>alt+command+插入点</code>可同时对多个插入点进行编辑</li>
+<li><code>command+enter</code>可直接另起一行进行编辑</li>
+<li><code>command+delete</code>可删除当前插入点前面的所有内容；连续按两次，可以删除整行内容</li>
+<li><code>command+k</code>连续点击两次，可删除当前插入点后面的所有内容</li>
+<li><code>command+f</code>查找</li>
+<li><code>command+shift+f</code>查找替换</li>
+<li><code>command+r</code>是调用方法</li>
+</ul>
 
           
         
@@ -573,7 +746,7 @@
   
 
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/31/ajaxFileupload(文件上传插件，自己封装的)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/Mac修改本地hosts文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Amy Gao">
@@ -595,8 +768,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/31/ajaxFileupload(文件上传插件，自己封装的)/" itemprop="url">
-                  ajaxFileupload(文件上传插件，自己封装的)
+                <a class="post-title-link" href="/2017/05/16/Mac修改本地hosts文件/" itemprop="url">
+                  Mac修改本地hosts文件
                 </a>
               
             
@@ -612,8 +785,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T17:13:04+08:00">
-                2017-05-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T14:35:04+08:00">
+                2017-05-16
               </time>
             
 
@@ -635,8 +808,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
+                  <a href="/categories/Mac/" itemprop="url" rel="index">
+                    <span itemprop="name">Mac</span>
                   </a>
                 </span>
 
@@ -672,8 +845,187 @@
       
         
           
-            <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div></pre></td><td class="code"><pre><div class="line">	<span class="comment">// JavaScript Document</span></div><div class="line">jQuery.extend(&#123;</div><div class="line">    <span class="attr">createUploadIframe</span>: <span class="function"><span class="keyword">function</span>(<span class="params">id, uri</span>)</span></div><div class="line"> &#123;</div><div class="line">   <span class="comment">//create frame</span></div><div class="line">            <span class="keyword">var</span> frameId = <span class="string">'jUploadFrame'</span> + id;</div><div class="line">            <span class="keyword">if</span>(<span class="built_in">window</span>.ActiveXObject) &#123;</div><div class="line">                <span class="keyword">var</span> io = <span class="built_in">document</span>.createElement(<span class="string">'&lt;iframe id="'</span> + frameId + <span class="string">'" name="'</span> + frameId + <span class="string">'" /&gt;'</span>);</div><div class="line">                <span class="keyword">if</span>(<span class="keyword">typeof</span> uri== <span class="string">'boolean'</span>)&#123;</div><div class="line">                    io.src = <span class="string">'javascript:false'</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> uri== <span class="string">'string'</span>)&#123;</div><div class="line">                    io.src = uri;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">var</span> io = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>);</div><div class="line">                io.id = frameId;</div><div class="line">                io.name = frameId;</div><div class="line">            &#125;</div><div class="line">            io.style.position = <span class="string">'absolute'</span>;</div><div class="line">            io.style.top = <span class="string">'-1000px'</span>;</div><div class="line">            io.style.left = <span class="string">'-1000px'</span>;</div><div class="line">            <span class="built_in">document</span>.body.appendChild(io);</div><div class="line">            <span class="keyword">return</span> io;   </div><div class="line">    &#125;,</div><div class="line">    <span class="attr">createUploadForm</span>: <span class="function"><span class="keyword">function</span>(<span class="params">id, fileElementId</span>)</span></div><div class="line"> &#123;</div><div class="line">  <span class="comment">//create form </span></div><div class="line">  <span class="keyword">var</span> formId = <span class="string">'jUploadForm'</span> + id;</div><div class="line">  <span class="keyword">var</span> fileId = <span class="string">'jUploadFile'</span> + id;</div><div class="line">  <span class="keyword">var</span> form = jQuery(<span class="string">'&lt;form  action="" method="POST" name="'</span> + formId + <span class="string">'" id="'</span> + formId + <span class="string">'" enctype="multipart/form-data"&gt;&lt;/form&gt;'</span>); </div><div class="line">  <span class="keyword">var</span> oldElement = jQuery(<span class="string">'#'</span> + fileElementId);</div><div class="line">  <span class="keyword">var</span> newElement = jQuery(oldElement).clone();</div><div class="line">  jQuery(oldElement).attr(<span class="string">'id'</span>, fileId);</div><div class="line">  jQuery(oldElement).before(newElement);</div><div class="line">  jQuery(oldElement).appendTo(form);</div><div class="line">  <span class="comment">//set attributes</span></div><div class="line">  jQuery(form).css(<span class="string">'position'</span>, <span class="string">'absolute'</span>);</div><div class="line">  jQuery(form).css(<span class="string">'top'</span>, <span class="string">'-1200px'</span>);</div><div class="line">  jQuery(form).css(<span class="string">'left'</span>, <span class="string">'-1200px'</span>);</div><div class="line">  jQuery(form).appendTo(<span class="string">'body'</span>);  </div><div class="line">  <span class="keyword">return</span> form;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">ajaxFileUpload</span>: <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</div><div class="line">        <span class="comment">// TODO introduce global settings, allowing the client to modify them for all requests, not only timeout  </span></div><div class="line">        s = jQuery.extend(&#123;&#125;, jQuery.ajaxSettings, s);</div><div class="line">        <span class="keyword">var</span> id = s.fileElementId;        </div><div class="line">  <span class="keyword">var</span> form = jQuery.createUploadForm(id, s.fileElementId);</div><div class="line">  <span class="keyword">var</span> io = jQuery.createUploadIframe(id, s.secureuri);</div><div class="line">  <span class="keyword">var</span> frameId = <span class="string">'jUploadFrame'</span> + id;</div><div class="line">  <span class="keyword">var</span> formId = <span class="string">'jUploadForm'</span> + id;  </div><div class="line">        <span class="keyword">if</span>( s.global &amp;&amp; ! jQuery.active++ )</div><div class="line">  &#123;</div><div class="line">   <span class="comment">// Watch for a new set of requests</span></div><div class="line">   jQuery.event.trigger( <span class="string">"ajaxStart"</span> );</div><div class="line">  &#125;            </div><div class="line">        <span class="keyword">var</span> requestDone = <span class="literal">false</span>;</div><div class="line">        <span class="comment">// Create the request object</span></div><div class="line">        <span class="keyword">var</span> xml = &#123;&#125;;   </div><div class="line">        <span class="keyword">if</span>( s.global )</div><div class="line">        &#123;</div><div class="line">         jQuery.event.trigger(<span class="string">"ajaxSend"</span>, [xml, s]);</div><div class="line">        &#125;            </div><div class="line">        <span class="keyword">var</span> uploadCallback = <span class="function"><span class="keyword">function</span>(<span class="params">isTimeout</span>)</span></div><div class="line">  &#123;  </div><div class="line">   <span class="comment">// Wait for a response to come back </span></div><div class="line">   <span class="keyword">var</span> io = <span class="built_in">document</span>.getElementById(frameId);</div><div class="line">            <span class="keyword">try</span> </div><div class="line">   &#123;    </div><div class="line">    <span class="keyword">if</span>(io.contentWindow)</div><div class="line">    &#123;</div><div class="line">      xml.responseText = io.contentWindow.document.body?io.contentWindow.document.body.innerHTML:<span class="literal">null</span>;</div><div class="line">                  xml.responseXML = io.contentWindow.document.XMLDocument?io.contentWindow.document.XMLDocument:io.contentWindow.document;</div><div class="line">      </div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(io.contentDocument)</div><div class="line">    &#123;</div><div class="line">      xml.responseText = io.contentDocument.document.body?io.contentDocument.document.body.innerHTML:<span class="literal">null</span>;</div><div class="line">                 xml.responseXML = io.contentDocument.document.XMLDocument?io.contentDocument.document.XMLDocument:io.contentDocument.document;</div><div class="line">    &#125;      </div><div class="line">            &#125;<span class="keyword">catch</span>(e)</div><div class="line">   &#123;</div><div class="line">    jQuery.handleError(s, xml, <span class="literal">null</span>, e);</div><div class="line">   &#125;</div><div class="line">            <span class="keyword">if</span>( xml || isTimeout == <span class="string">"timeout"</span>) </div><div class="line">   &#123;    </div><div class="line">                requestDone = <span class="literal">true</span>;</div><div class="line">                <span class="keyword">var</span> status;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    status = isTimeout != <span class="string">"timeout"</span> ? <span class="string">"success"</span> : <span class="string">"error"</span>;</div><div class="line">                    <span class="comment">// Make sure that the request was successful or notmodified</span></div><div class="line">                    <span class="keyword">if</span>( status != <span class="string">"error"</span> )</div><div class="line">     &#123;</div><div class="line">                        <span class="comment">// process the data (runs the xml through httpData regardless of callback)</span></div><div class="line">                        <span class="keyword">var</span> data = jQuery.uploadHttpData( xml, s.dataType );                        </div><div class="line">                        <span class="keyword">if</span>( s.success )</div><div class="line">                        &#123;</div><div class="line">       <span class="comment">// ifa local callback was specified, fire it and pass it the data</span></div><div class="line">                         s.success( data, status );</div><div class="line">                        &#125;;                 </div><div class="line">                        <span class="keyword">if</span>( s.global )</div><div class="line">                        &#123;</div><div class="line">       <span class="comment">// Fire the global callback</span></div><div class="line">                         jQuery.event.trigger( <span class="string">"ajaxSuccess"</span>, [xml, s] );</div><div class="line">                        &#125;;                            </div><div class="line">                    &#125; <span class="keyword">else</span></div><div class="line">                    &#123;</div><div class="line">                     jQuery.handleError(s, xml, status);</div><div class="line">                    &#125;</div><div class="line">                        </div><div class="line">                &#125; <span class="keyword">catch</span>(e) </div><div class="line">    &#123;</div><div class="line">                    status = <span class="string">"error"</span>;</div><div class="line">                    jQuery.handleError(s, xml, status, e);</div><div class="line">                &#125;;                </div><div class="line">                <span class="keyword">if</span>( s.global )</div><div class="line">                &#123;</div><div class="line">     <span class="comment">// The request was completed</span></div><div class="line">                 jQuery.event.trigger( <span class="string">"ajaxComplete"</span>, [xml, s] );</div><div class="line">                &#125;;</div><div class="line">                    </div><div class="line"></div><div class="line">                <span class="comment">// Handle the global AJAX counter</span></div><div class="line">                <span class="keyword">if</span>(s.global &amp;&amp; ! --jQuery.active)</div><div class="line">                &#123;</div><div class="line">                 jQuery.event.trigger(<span class="string">"ajaxStop"</span>);</div><div class="line">                &#125;;</div><div class="line">                <span class="keyword">if</span>(s.complete)</div><div class="line">                &#123;</div><div class="line">                  s.complete(xml, status);</div><div class="line">                &#125; ;                 </div><div class="line"></div><div class="line">                jQuery(io).unbind();</div><div class="line"></div><div class="line">                setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></div><div class="line">         &#123; <span class="keyword">try</span> </div><div class="line">          &#123;</div><div class="line">           jQuery(io).remove();</div><div class="line">           jQuery(form).remove(); </div><div class="line">           </div><div class="line">          &#125; <span class="keyword">catch</span>(e) </div><div class="line">          &#123;</div><div class="line">           jQuery.handleError(s, xml, <span class="literal">null</span>, e);</div><div class="line">          &#125;         </div><div class="line"></div><div class="line">         &#125;, <span class="number">100</span>);</div><div class="line"></div><div class="line">                xml = <span class="literal">null</span>;</div><div class="line"></div><div class="line">            &#125;;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// Timeout checker</span></div><div class="line">        <span class="keyword">if</span>( s.timeout &gt; <span class="number">0</span> ) </div><div class="line">  &#123;</div><div class="line">            setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                </div><div class="line">                <span class="keyword">if</span>( !requestDone )</div><div class="line">                &#123;</div><div class="line">     <span class="comment">// Check to see ifthe request is still happening</span></div><div class="line">                 uploadCallback( <span class="string">"timeout"</span> );</div><div class="line">                &#125;</div><div class="line">                </div><div class="line">            &#125;, s.timeout);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">try</span> </div><div class="line">  &#123;</div><div class="line">   <span class="keyword">var</span> form = jQuery(<span class="string">'#'</span> + formId);</div><div class="line">   jQuery(form).attr(<span class="string">'action'</span>, s.url);</div><div class="line">   jQuery(form).attr(<span class="string">'method'</span>, <span class="string">'POST'</span>);</div><div class="line">   jQuery(form).attr(<span class="string">'target'</span>, frameId);</div><div class="line">            <span class="keyword">if</span>(form.encoding)</div><div class="line">   &#123;</div><div class="line">                form.encoding = <span class="string">'multipart/form-data'</span>;    </div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">   &#123;    </div><div class="line">                form.enctype = <span class="string">'multipart/form-data'</span>;</div><div class="line">            &#125;   </div><div class="line">            jQuery(form).submit();</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span>(e) </div><div class="line">  &#123;   </div><div class="line">            jQuery.handleError(s, xml, <span class="literal">null</span>, e);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent)&#123;</div><div class="line">            <span class="built_in">document</span>.getElementById(frameId).attachEvent(<span class="string">'onload'</span>, uploadCallback);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="built_in">document</span>.getElementById(frameId).addEventListener(<span class="string">'load'</span>, uploadCallback, <span class="literal">false</span>);</div><div class="line">        &#125;   </div><div class="line">        <span class="keyword">return</span> &#123;<span class="attr">abort</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;&#125;; </div><div class="line"></div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    <span class="attr">uploadHttpData</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> r, type </span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> data = !type;</div><div class="line">        data = type == <span class="string">"xml"</span> || data ? r.responseXML : r.responseText;</div><div class="line">        <span class="comment">// ifthe type is "script", eval it in global context</span></div><div class="line">        <span class="keyword">if</span>( type == <span class="string">"script"</span> )</div><div class="line">        &#123;</div><div class="line">         jQuery.globalEval( data );</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">        <span class="comment">// Get the JavaScript object, ifJSON is used.</span></div><div class="line">        <span class="keyword">if</span>( type == <span class="string">"json"</span> )</div><div class="line">        &#123;</div><div class="line">         <span class="built_in">eval</span>( <span class="string">"data = "</span> + data );</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">        <span class="comment">// evaluate scripts within html</span></div><div class="line">        <span class="keyword">if</span>( type == <span class="string">"html"</span> )</div><div class="line">        &#123;</div><div class="line">         jQuery(<span class="string">"&lt;div&gt;"</span>).html(data).evalScripts();</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">        <span class="keyword">return</span> data;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">    jQuery.extend(&#123;</div><div class="line">        <span class="attr">handleError</span>: <span class="function"><span class="keyword">function</span> (<span class="params">s, xhr, status, e</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (s.error) &#123;</div><div class="line">                s.error.call(s.context || s, xhr, status, e);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (s.global) &#123;</div><div class="line">                (s.context ? jQuery(s.context) : jQuery.event).trigger(<span class="string">"ajaxError"</span>, [xhr, s, e]);</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">httpData</span>: <span class="function"><span class="keyword">function</span> (<span class="params">xhr, type, s</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> ct = xhr.getResponseHeader(<span class="string">"content-type"</span>),</div><div class="line">    xml = type == <span class="string">"xml"</span> || !type &amp;&amp; ct &amp;&amp; ct.indexOf(<span class="string">"xml"</span>) &gt;= <span class="number">0</span>,</div><div class="line">    data = xml ? xhr.responseXML : xhr.responseText;</div><div class="line">            <span class="keyword">if</span> (xml &amp;&amp; data.documentElement.tagName == <span class="string">"parsererror"</span>)</div><div class="line">                <span class="keyword">throw</span> <span class="string">"parsererror"</span>;</div><div class="line">            <span class="keyword">if</span> (s &amp;&amp; s.dataFilter)</div><div class="line">                data = s.dataFilter(data, type);</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> data === <span class="string">"string"</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (type == <span class="string">"script"</span>)</div><div class="line">                    jQuery.globalEval(data);</div><div class="line">                <span class="keyword">if</span> (type == <span class="string">"json"</span>)</div><div class="line">                    data = <span class="built_in">window</span>[<span class="string">"eval"</span>](<span class="string">"("</span> + data + <span class="string">")"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> data;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-<p>在HTML页面中，此方法的调用方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$.ajaxFileUpload(&#123;</div><div class="line">        <span class="attr">url</span>: <span class="string">'?m=common&amp;c=file&amp;a=ajaxUpload&amp;fieldName=bp_file&amp;sAllowExt=pdf,PDF,doc,docx,ppt,PPT,pptx'</span>,</div><div class="line">        <span class="attr">fileElementId</span>: <span class="string">"bp_file"</span>,</div><div class="line">        <span class="attr">dataType</span>: <span class="string">'json'</span>,</div><div class="line">        <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data, status</span>) </span>&#123;</div><div class="line">           <span class="keyword">if</span> (data.statusCode == <span class="number">200</span>) &#123;</div><div class="line">               $(<span class="string">"#bp_file_span"</span>).html(<span class="string">"已上传："</span> + data.attachFileName);</div><div class="line">               $(<span class="string">"input[name='bp']"</span>).val(data.attachFilePath);</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">                msgAlert(<span class="string">"错误"</span>, data.message, <span class="string">"error"</span>);</div><div class="line">              &#125;</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">error</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data, status, e</span>) </span>&#123;</div><div class="line">             	msgAlert(<span class="string">"错误"</span>, <span class="string">"错误，请刷新页面重试"</span>, <span class="string">"error"</span>);</div><div class="line">        &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure></p>
+            <h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
+
+<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
+<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
+<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
+<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/Angular项目中实现图片懒加载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/22/Angular项目中实现图片懒加载/" itemprop="url">
+                  Angular项目中实现图片懒加载
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T00:39:04+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>这两天一直纠结angular的图片懒加载插件中无法自拔。在使用过程深深感到js学艺不精的痛苦，想修改源码又不会修改，只能尽力压榨如何使用插件上。这里主要谈谈在使用插件的过程遇到的一些问题。</li>
+</ul>
+<h2 id="问题1：图片加载一排之后不再加载"><a href="#问题1：图片加载一排之后不再加载" class="headerlink" title="问题1：图片加载一排之后不再加载"></a>问题1：图片加载一排之后不再加载</h2><ul>
+<li><p>使用angular-imglazyload这个插件，主要是因为这个插件小，并且不依赖jQuery库，整合到项目上运行，竟然发现只有第一排加载了，滚动后都没有响应。下面是我的代码部分：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-repeat</span>=<span class="string">"Digest in Digest_cont track by $index"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-ui-lazyload</span>=<span class="string">"&#123;&#123;Digest.val&#125;&#125;"</span> <span class="attr">onerror</span>=<span class="string">"this.src='img/default@2x_300X300.png'"</span>  <span class="attr">nf-if</span>=<span class="string">"Digest.type=='img'"</span>  <span class="attr">alt</span>=<span class="string">""</span> &gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-if</span>=<span class="string">"Digest.type=='txt'"</span>&gt;</span>&#123;&#123; ::Digest.val &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>然后我在CSS定义了loading图片，加载中先看到的是加载过程中的图片</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span><span class="selector-attr">[data-ui-lazyload]</span>&#123;</div><div class="line">     <span class="attribute">background</span>:<span class="built_in">url</span>(../img/icons/liading.gif) no-repeat center center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>一开始也不知道是什么情况，就将循环图片的html代码一层层的往上排查，经过反复查找发现是 图片的某个祖先元素设置了定位：<code>position:absolute</code>，这就导致了图片的div脱离了文档流，而imglazyload插件又是根据Windows监听滚动事件的。</p>
+</li>
+<li>解决方案：这里的解决办法就是把定位改为 <code>relative</code>就可以了。<h2 id="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"><a href="#问题2：loading图片不出现，出现的一直是onerror定义的默认图片" class="headerlink" title="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"></a>问题2：loading图片不出现，出现的一直是onerror定义的默认图片</h2></li>
+<li>在加载过程中，不知道为什么，图片一直显示的是onerror定义的默认图片，而不是图片加载之后的图片。但是确实是得到了图片的src路径；经过排查发现，问题的主要原因是img的 <code>src=&#39;&#39;</code>属性导致的。在页面的渲染过程中，浏览器是默认查找不到图片的src路径的，只有在请求发送成功，得到返回数据之后，才能进行渲染。</li>
+<li>解决方案： 直接将 img 标签中的 src 属性删除，然后等图片加载成功之后动态添加即可。</li>
+<li>​</li>
+</ul>
+<h1 id="问题3：使用jQuery插件时this无法使用"><a href="#问题3：使用jQuery插件时this无法使用" class="headerlink" title="问题3：使用jQuery插件时this无法使用"></a>问题3：使用jQuery插件时this无法使用</h1><ul>
+<li><p>要想在angular中使用jQuery插件，需要使用自定义指令（Directive）方式加载jQuery插件，但是发现this在jQuery中是无法调用的。</p>
+</li>
+<li><p>在angular中引入jQuery</p>
+<ul>
+<li>首先需要创建一个指令，采用@input方式，初始化jQuery插件；</li>
+<li>在ngOnChanges时，也就是参数通过@input传入时，初始化jQuery插件</li>
+<li>初始化jQuery插件需要获取dom元素，所以我们引入ElementRef，用来获取dom 元素。</li>
+</ul>
+</li>
+<li><p>问题出现了：jQuery中回调函数，如果直接使用this，回调是无法获取angular的函数的，所以这里采用 bind的形式，把this传递进去，河阳angular中的函数才会被正确的调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ngOnChange()&#123;</div><div class="line">  $(<span class="keyword">this</span>._elementRef.nativeElement).daterangepicker(<span class="keyword">this</span>.dateRangePickerOptions,<span class="keyword">this</span>.dateCallback.bind(<span class="keyword">this</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
 
           
         
@@ -712,7 +1064,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 

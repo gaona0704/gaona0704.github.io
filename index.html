@@ -174,7 +174,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">记录学习的技能和遇到的问题</p>
+        <p class="site-subtitle">keep fighting</p>
       
   </div>
 
@@ -688,11 +688,288 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/29/ es6 语法中的总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/29/ es6 语法中的总结/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-29T14:23:38+08:00">
+                2017-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="es6-语法中的总结"><a href="#es6-语法中的总结" class="headerlink" title="es6 语法中的总结"></a>es6 语法中的总结</h1><h3 id="array-entries-的使用"><a href="#array-entries-的使用" class="headerlink" title="array.entries()的使用"></a>array.entries()的使用</h3><ul>
+<li>背景<ul>
+<li>一个数组Array中有7个对象，获取到一个数据，想要在原数组中删除这个数据。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过使用array.entries()对数组进行复制，返回一个新的Array Iterator对象，该对象中包含数组中每个索引的键/值对。</span></div><div class="line"><span class="keyword">let</span> arr = [&#123;<span class="attr">id</span>:<span class="number">0</span>,<span class="attr">name</span>:<span class="string">"a"</span>&#125;,&#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">"b"</span>&#125;,&#123;<span class="attr">id</span>:<span class="number">3</span>,<span class="attr">name</span>:<span class="string">"c"</span>&#125;];</div><div class="line"><span class="keyword">let</span> index;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">const</span>[i,v] <span class="keyword">of</span> arr.entries())&#123;</div><div class="line">     <span class="comment">//此时的i对应的是 0，1，1，数组的索引值</span></div><div class="line">     <span class="comment">//v 对应的是每一个item;</span></div><div class="line">     <span class="comment">//这里假设获取到了一组数据  data=&#123;id:1,name:"b"&#125;,想要删除arr中的额这组数据</span></div><div class="line">     <span class="keyword">if</span>(v.id === data.id &amp;&amp; v.name === data.name)&#123;</div><div class="line">       index = i;</div><div class="line">       <span class="keyword">break</span>;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line">arr.splice(index,<span class="number">1</span>); <span class="comment">//这样就删除了&#123;id:1,name:"b"&#125;这组数据</span></div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/Vue中引用jQuery和jQuery插件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/24/Vue中引用jQuery和jQuery插件/" itemprop="url">
+                  Vue中引用jQuery和jQuery插件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T10:34:04+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在Vue项目中，难免会用到 jQuery，即使用不到jQuery，也有可能会用到jQuery插件，现在将整理一下，如何在 vue-cli生成的Vue+webpack项目中引入jQuery，使用jQuery插件</p>
+<h2 id="Vue中引用jQuery"><a href="#Vue中引用jQuery" class="headerlink" title="Vue中引用jQuery"></a>Vue中引用jQuery</h2><p>1：首先下载jQuery</p>
+<ul>
+<li>npm install jQuery -D<br>2: 修改 webpack.base.config.js中的 两处配置文件</li>
+<li>在build文件中的webpack.base.config中修改<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"><span class="comment">//在module.exports中加入plugins</span></div><div class="line">plugins: [</div><div class="line">       <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">'common.js'</span>),</div><div class="line">       <span class="keyword">new</span> webpack.ProvidePlugin(&#123;</div><div class="line">           <span class="attr">jQuery</span>: <span class="string">"jquery"</span>,</div><div class="line">           <span class="attr">$</span>: <span class="string">"jquery"</span></div><div class="line">       &#125;)</div><div class="line"></div><div class="line">   ],</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>3：如果在全局使用$,则在main.js中引入$； 否则在组件文件内引入即可<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span>;</div></pre></td></tr></table></figure></p>
+<h2 id="Vue中使用jQuery插件"><a href="#Vue中使用jQuery插件" class="headerlink" title="Vue中使用jQuery插件"></a>Vue中使用jQuery插件</h2><p>引入了jQuery之后，就要开始引入 jQuery插件了。<br>jQuery插件直接在组件内部使用，<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">	<span class="comment">//引入jQuery</span></div><div class="line">	<span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">"jquery"</span></div><div class="line">	<span class="comment">//引入插件的 JS</span></div><div class="line">	<span class="keyword">import</span> <span class="string">'../../directive/viewer-jquery.min.js'</span>;</div><div class="line">	<span class="comment">//在&lt;style&gt;&lt;/style&gt;中引入CSS文件</span></div><div class="line">	@<span class="keyword">import</span> <span class="string">"../../directive/viewer.min.css"</span>;</div><div class="line">	<span class="comment">//对于插件的调用，需要在 页面中的DOM元素加载完成自后再进行绑定，所以需要在</span></div><div class="line">	mouted 或者 updated状态之后再调用</div><div class="line">	updated()&#123;</div><div class="line"><span class="comment">//          alert(1);</span></div><div class="line">            $(<span class="string">'#ace-images'</span>).viewer(&#123;</div><div class="line">                <span class="attr">url</span>: <span class="string">'data-original'</span>,</div><div class="line">            &#125;);</div><div class="line">        &#125;,</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
