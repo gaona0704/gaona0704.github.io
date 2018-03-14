@@ -272,6 +272,189 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/09/Mac上mongobd 的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/09/Mac上mongobd 的使用/" itemprop="url">
+                  Mac上mongobd 的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T09:33:15+08:00">
+                2017-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mac/" itemprop="url" rel="index">
+                    <span itemprop="name">Mac</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ol>
+<li><p>对MVC的理解</p>
+<ul>
+<li>MVC是一种软件开发模块化架构方式，适用于web开发的代码架构阻止模式；就是用来解耦视图和数据，利用c控制器去调度视图和模型数据的交互；</li>
+<li>提高代码的可维护性<ul>
+<li>解耦了视图和数据的直接交互；</li>
+<li>视图数据和业务数据是完全分开的；</li>
+<li>视图数据：例如表单提交上来的数据；</li>
+<li>业务数据：真是的数据库中的数据； </li>
+</ul>
+</li>
+<li>增加代码的可重用性</li>
+<li>划分方式： 模块职责的单一；</li>
+<li>MVVM的核心：数据驱动视图</li>
+</ul>
+</li>
+<li><p>mongod –dbpath /Users/gaonana/Documents/高娜娜文件/data/db </p>
+</li>
+</ol>
+<h2 id="Mac上mongobd-的使用"><a href="#Mac上mongobd-的使用" class="headerlink" title="Mac上mongobd 的使用"></a>Mac上mongobd 的使用</h2><ol>
+<li>官网下载  <code>mongocd.org</code></li>
+<li>配置环境变量<ul>
+<li>具体配置参考<code>Mac操作系统总结</code>文档</li>
+</ul>
+</li>
+<li><code>mongod --version</code>有版本号表示安装成功</li>
+<li><code>mogond --dbpath $dbpath(数据库数据文件路径)</code>进入data所在的路径，启动服务；</li>
+<li>4步骤中，可以讲data文件夹建立在<code>Macintosh HD</code>的根目录下面，data文件夹，db文件夹；以后再启动mongod服务的时候直接使用<code>mongod</code>就可以启动；</li>
+<li>在另一个命令行界面，<code>mongo</code>命令就可以操作数据库了；</li>
+<li><code>show dbs</code>查看当前服务实力上所有的实例</li>
+</ol>
+<h2 id="数据库介绍"><a href="#数据库介绍" class="headerlink" title="数据库介绍"></a>数据库介绍</h2><ul>
+<li>数据库实例 -&gt; 数据库 -&gt; 表 -&gt; 记录；</li>
+<li>一个数据服务中可以有多个数据库</li>
+<li>一个数据库中可以有多个集合<ul>
+<li>MongoDB中，把表称之为集合</li>
+<li>集合，简单理解就是一个数组</li>
+<li>在一个集合中，可以有多个对象（json）,上一个人特殊的json对象，在mongodb中，叫做bson;</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用-MongoDB-官方提供的-mongodb-驱动包-操作-mongodb数据库；"><a href="#使用-MongoDB-官方提供的-mongodb-驱动包-操作-mongodb数据库；" class="headerlink" title="使用 MongoDB 官方提供的 mongodb     驱动包 操作 mongodb数据库；"></a>使用 MongoDB 官方提供的 mongodb     驱动包 操作 mongodb数据库；</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/08/cookie 和 session 的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1106,159 +1289,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/angular在实际应用中的优缺点/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/12/angular在实际应用中的优缺点/" itemprop="url">
-                  Angular在实际应用中的优缺点
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T00:39:04+08:00">
-                2017-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
-<li>我们是在做创意摄影网时使用的Angular.js 的，</li>
-<li>优点：<ul>
-<li>模板功能强大丰富，并且是声明式的，自带了丰富的Angular指令</li>
-<li>是一个比较完善的前端MV*框架，包含模板、数据双向绑定、路由、模块化、服务、过滤器和依赖注入等所有功能；</li>
-<li>自定义 Directive ，比jQuery插件还灵活；</li>
-<li>ng模块化比较大胆的引入了JAVA的一些东西(依赖注入)，能够很容易的写出可复用性的代码；</li>
-<li>Angular支持单元测试</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1308,7 +1338,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1330,7 +1360,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">49</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
