@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>高工@博客</title>
+  <title>Amy Gao</title>
   <subtitle>记录学习的技能和遇到的问题</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -9,7 +9,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>Gaonana</name>
+    <name>Amy Gao</name>
     
   </author>
   
@@ -173,13 +173,40 @@
     <link href="http://yoursite.com/2017/07/21/Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E7%82%B9/"/>
     <id>http://yoursite.com/2017/07/21/Vue项目中的点/</id>
     <published>2017-07-21T02:17:04.000Z</published>
-    <updated>2017-07-21T09:42:34.000Z</updated>
+    <updated>2017-10-17T02:29:41.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="在Vue项目中引入图片"><a href="#在Vue项目中引入图片" class="headerlink" title="在Vue项目中引入图片"></a>在Vue项目中引入图片</h2> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> default_avatar <span class="keyword">from</span> <span class="string">'assets/default_avatar.jpg'</span>;</div><div class="line">data() &#123;</div><div class="line">     <span class="keyword">return</span> &#123;</div><div class="line">       <span class="attr">log</span>: errLogStore.state.errLog,</div><div class="line">    <span class="attr">default_avatar</span>: default_avatar</div><div class="line">     &#125;</div><div class="line">   &#125;,</div><div class="line">   <span class="comment">//然后再在内容区域引入default_avatar</span></div></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="一、-在Vue项目中引入图片"><a href="#一、-在Vue项目中引入图片" class="headerlink" title="一、 在Vue项目中引入图片"></a>一、 在Vue项目中引入图片</h1> <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> default_avatar <span class="keyword">from</span> <span class="string">'assets/default_avatar.jpg'</span>;</div><div class="line">data() &#123;</div><div class="line">     <span class="keyword">return</span> &#123;</div><div class="line">       <span class="attr">log</span>: errLogStore.state.errLog,</div><div class="line">    <span class="attr">default_avatar</span>: default_avatar</div><div class="line">     &#125;</div><div class="line">   &#125;,</div><div class="line">   <span class="comment">//然后再在内容区域引入default_avatar</span></div></pre></td></tr></table></figure>
+<h1 id="二、数组的一些方法"><a href="#二、数组的一些方法" class="headerlink" title="二、数组的一些方法"></a>二、数组的一些方法</h1><ul>
+<li>every：检测数组中的所有元素是否满足某一个条件，<ul>
+<li>如果数组中检测到有一个元素不满足，则返回false，并且不再继续；</li>
+<li>只有当所有的元素都满足条件，返回true；</li>
+<li>every()不会对空数组进行检测；</li>
+<li>every() 不会改变原数组；</li>
+</ul>
+</li>
+<li>some():数组中是否有满足条件的元素<ul>
+<li>some()与 every（）相反</li>
+<li>有一个满足条件就返回true； </li>
+<li>array.some(finction(item));</li>
+</ul>
+</li>
+<li>concat(): 连接两个或多个数组<ul>
+<li>array1.concat(ary2,ary3);</li>
+<li>如果ary2 是数组，那么操作的是数组中的元素，而不是数组本身；</li>
+</ul>
+</li>
+<li>filter():过滤数组，返回满足某个天剑的数组，返回一个新的数组<ul>
+<li>不会改变原数组；</li>
+<li>不会对空数组进行检测； </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ages=[<span class="number">18</span>,<span class="number">4</span>,<span class="number">23</span>,<span class="number">36</span>,<span class="number">57</span>];</div><div class="line">ages.filter(<span class="function"><span class="params">item</span>=&gt;</span>&#123;</div><div class="line">    <span class="keyword">return</span> item&gt;<span class="number">18</span>;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;在Vue项目中引入图片&quot;&gt;&lt;a href=&quot;#在Vue项目中引入图片&quot; class=&quot;headerlink&quot; title=&quot;在Vue项目中引入图片&quot;&gt;&lt;/a&gt;在Vue项目中引入图片&lt;/h2&gt; &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;
+      &lt;h1 id=&quot;一、-在Vue项目中引入图片&quot;&gt;&lt;a href=&quot;#一、-在Vue项目中引入图片&quot; class=&quot;headerlink&quot; title=&quot;一、 在Vue项目中引入图片&quot;&gt;&lt;/a&gt;一、 在Vue项目中引入图片&lt;/h1&gt; &lt;figure class=&quot;highlight
     
     </summary>
     
@@ -637,6 +664,33 @@
   </entry>
   
   <entry>
+    <title>Mac修改本地hosts文件</title>
+    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
+    <published>2017-05-16T06:35:04.000Z</published>
+    <updated>2017-05-16T06:35:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
+
+<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
+<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
+<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
+<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Sublime快捷键总结</title>
     <link href="http://yoursite.com/2017/05/16/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>http://yoursite.com/2017/05/16/sublime快捷键/</id>
@@ -668,33 +722,6 @@
     </summary>
     
       <category term="sublime" scheme="http://yoursite.com/categories/sublime/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mac修改本地hosts文件</title>
-    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
-    <published>2017-05-16T06:35:04.000Z</published>
-    <updated>2017-05-16T06:35:56.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
-
-<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
-<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
-<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
-<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
-    
-    </summary>
-    
-      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
     
     
   </entry>
