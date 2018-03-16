@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-14T07:39:38.512Z</updated>
+  <updated>2018-03-16T08:19:36.395Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue双向数据绑定源码的理解</title>
+    <link href="http://yoursite.com/2018/03/15/Vue%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/"/>
+    <id>http://yoursite.com/2018/03/15/Vue源码理解/</id>
+    <published>2018-03-14T16:00:00.000Z</published>
+    <updated>2018-03-16T08:19:36.395Z</updated>
+    
+    <content type="html"><![CDATA[<p>通过阅读源码，对Vue2 的基础运行机制有所了解，主要是：</p>
+<ul>
+<li>Vue2 对数据绑定的实现形式</li>
+<li>Vue2中对virtual DOM 机制的使用方式<h1 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h1><ul>
+<li>1：在react中，会持有现状 React DOM Tree，</li>
+<li>2：当值发生变化时，React会收集这些变化，形成新的DOM 树，</li>
+<li>3：在发生变化的节点进行标注</li>
+<li>4：新旧DOM树进行对比，通过diff算法进行处理和更新<h1 id="Vue-js-使用了两个重要的函数"><a href="#Vue-js-使用了两个重要的函数" class="headerlink" title="Vue.js 使用了两个重要的函数"></a>Vue.js 使用了两个重要的函数</h1><h2 id="1：Object-defineProperty"><a href="#1：Object-defineProperty" class="headerlink" title="1：Object.defineProperty"></a>1：Object.defineProperty</h2>Object.defineProperty：可以定义当某一个值 访问和赋值时（即 get 和 set），会先执行自定义的钩子方法。这个方法给予 JS一种面向切面编程的能力，是我们能够隐式、自然的控制属性的访问和赋值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;</div><div class="line">var initValue = &quot;hello&quot;</div><div class="line">Object.defineProperty(obj,&quot;newKey&quot;,&#123;    // object/propertyName/descriptor</div><div class="line">       get()&#123;</div><div class="line">           return initValue</div><div class="line">       &#125;</div><div class="line">       set(value)&#123;</div><div class="line">           console.log(value)</div><div class="line">           initValue = value</div><div class="line">       &#125;</div><div class="line">       enumerable: true</div><div class="line">       configurable: true</div><div class="line">&#125;)</div><div class="line">console.log(obj.newKey) // hello</div><div class="line">obj.newKey = &quot;chang Value&quot; // change Value</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>当  Vue.js 的数据有变化时。通过 defineProperty 的set 方法去通知 notify()  订阅者 subscribers 有新的值修改。<br>Observer 实际上就是一个观察者，他维护了一个数组 this.subs=[]用来收集相关的subs(订阅者，即这个观察者的依赖)。将value 转化为 getter/setter形式，同时添加一个自定义<strong>ob</strong>属性，这个属性就对应Observer实例。<br>当prop 和 data变化时，最终归宿都是 递归执行 defineReactive方法。defineReactive内部实质就是Object.defineProperty包装。<br>defineReactive方法，通过遍历object的key ,并将对应的value 转化为 getter/setter形式，通过闭包维护一个dep，在 getter 方法当中定义了这个key是如何进行依赖收集，在setter中定义当这个key对应的值发生改变后，如何完成相关依赖数据的更新。<br>只有当 Dep.target(订阅者存在的时候)，调用属性的getter函数，才能完成依赖的收集工作<br>订阅者是如何实现的呢？Watcher 会有4类地方实例化Watcher：</p>
+<pre><code>+ Vue实例化的过程中有watch选项
++ Vue实例化的过程中有computed计算属性选项
++ Vue原型上有挂载$Watch 方法：Vue.prototype.$watch，可以this.$watch直接调用
++ Vue生成了render函数
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">defineReactive(obj,key,val,doNotObserve)&#123;</div><div class="line">       var dep = new Dep(),</div><div class="line">       property = Object.getOwnPropertyDescriptor(obj,key)</div><div class="line">       if(property &amp;&amp; property.configurable === false)&#123;</div><div class="line">           return;  // 属性必须为可配置的</div><div class="line">       &#125;</div><div class="line">       var getter = property &amp;&amp; property.get</div><div class="line">       var setter = property &amp;&amp; property.set</div><div class="line">       // 如果 doNotObserve 为 true，可以使用他子value中的 observe</div><div class="line">       // 如果自身存在，那么就没必要再去创造它</div><div class="line">       var childOb = doNotObservr ? isObject(val) &amp;&amp; val._ob_:observe(val)</div><div class="line">       Object.defineProperty(obj,key,&#123;</div><div class="line">           enumberable:true,</div><div class="line">           configurable:true,</div><div class="line">           get: function reactiveGetter()&#123;</div><div class="line">           	</div><div class="line">               var value = getter ? getter.call(obj) : val</div><div class="line">               // 设置依赖收集，建立数据绑定关系</div><div class="line">               if(Dep.target)&#123; </div><div class="line">                   dep.depend() // 如果是对象本身修改而触发setter函数，会通知所有的watcher</div><div class="line">                   if(childOb)&#123;</div><div class="line">                       childOb.dep.depend() // 在对象本身增删属性或数组变化的时候被触发的Dep</div><div class="line">                   &#125;</div><div class="line">                   if(isArray(value))&#123;</div><div class="line">                       for(var e,i=0,1=value.length;i&lt;1;i++)&#123;</div><div class="line">                           e = value[i]</div><div class="line">                           e &amp;&amp; e._ob_ &amp;&amp; e._ob_.dep.depend()</div><div class="line">                       &#125;</div><div class="line">                   &#125;</div><div class="line">               &#125;</div><div class="line">               return value</div><div class="line">           &#125;</div><div class="line">           set: function reactiveSetter(newVal)&#123;</div><div class="line">               var value = getter ? getter.call(obj) : val</div><div class="line">               if(newVal === value)&#123;</div><div class="line">                   return</div><div class="line">               &#125;</div><div class="line">               if(setter)&#123;</div><div class="line">                   setter.call(obj,newVal)</div><div class="line">               &#125;else&#123;</div><div class="line">                   val = newVal</div><div class="line">               &#125;</div><div class="line">               chileOb = doNotObserve ? isObject(newVal) &amp;&amp; newVal._ob_ :observe(newVal)</div><div class="line">               dep.notify()</div><div class="line">           &#125;</div><div class="line">       &#125;)</div><div class="line">       </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>总体来说，在defineReactive 的Object.defineProperty  get调用了 dep.depend( )；set 调用了 dep.notify(); </p>
+<ul>
+<li>get被调用时，通过 dep.depend()收集依赖关系，记录到VM中</li>
+<li>set 被调用时，先判断属性值是否发生了改变，如果改变了，通过 dep.notify() 来通知 VM，从而触发VM更新操作，实现UI与数据的同步。<h1 id="订阅者发布设计模式"><a href="#订阅者发布设计模式" class="headerlink" title="订阅者发布设计模式"></a>订阅者发布设计模式</h1>这种模式就是：订阅者订阅某种信息，发布者发布信息时通知订阅者更新数据<h1 id="Dep"><a href="#Dep" class="headerlink" title="Dep"></a>Dep</h1>Dep 是一个类，每一个属性都有一个Dep实例。他会帮助属性 记录下访问他的watcher。<br>当watcher访问这个属性时，Dep会作为一个全局变量，将自身的目标属性(target 属性去指向访问他的watcher)</li>
+</ul>
+<p>双向数据绑定，实际上就是，Object.defineProperty 和 订阅发布设计模式来实现的。在Vue中，props和data发生变化时，会执行defineRactive方法。而defineReactive 会用Object.defineProperty将每个属性 包装一下</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>Vue实例在初始化数据 initState()时 ，会初始化 props的属性为 getter/setter函数</li>
+<li>进行 initWatch 初始化的时候，会初始化 watcher 实例，并调用 get() ，设置Dep.target = 当前这个watcher。然后进入到 value = this,getter.call(vm,vm)的操作</li>
+<li>在访问属性的时候，执行getter函数，因为存在Dep.target，所以进入  依赖收集  过程。Dep.depend()</li>
+<li>更改属性的值的时候，调用 setter 函数，执行 dep.notify()，遍历所有的订阅者，调用 update 函数，更新数据</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;通过阅读源码，对Vue2 的基础运行机制有所了解，主要是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vue2 对数据绑定的实现形式&lt;/li&gt;
+&lt;li&gt;Vue2中对virtual DOM 机制的使用方式&lt;h1 id=&quot;Virtual-DOM&quot;&gt;&lt;a href=&quot;#Virtual-DOM&quot; 
+    
+    </summary>
+    
+      <category term="www" scheme="http://yoursite.com/categories/www/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Vue原理解析</title>
@@ -635,9 +688,9 @@
       <category term="ES6" scheme="http://yoursite.com/categories/ES6/"/>
     
     
-      <category term="array" scheme="http://yoursite.com/tags/array/"/>
-    
       <category term="es6" scheme="http://yoursite.com/tags/es6/"/>
+    
+      <category term="array" scheme="http://yoursite.com/tags/array/"/>
     
       <category term="entries" scheme="http://yoursite.com/tags/entries/"/>
     
@@ -853,57 +906,6 @@
     
       <category term="jQuery" scheme="http://yoursite.com/categories/jQuery/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Mac配置Apache-Tomcat服务</title>
-    <link href="http://yoursite.com/2017/05/16/Mac%E9%85%8D%E7%BD%AEApache-Tomcat%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://yoursite.com/2017/05/16/Mac配置Apache-Tomcat服务/</id>
-    <published>2017-05-16T09:03:04.000Z</published>
-    <updated>2018-03-14T07:20:17.683Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="第一步：下载Tomcat"><a href="#第一步：下载Tomcat" class="headerlink" title="第一步：下载Tomcat"></a>第一步：下载Tomcat</h2><p></p><p>直接上官网 <code>http://tomcat.apache.org/download-80.cgi</code>上下载对应版本的Tomcat包</p><br><img src="../img/tomcat-download.png" width="600" height="300" alt=""><p></p>
-<h2 id="第二步：将下载好的包放到本地目录中"><a href="#第二步：将下载好的包放到本地目录中" class="headerlink" title="第二步：将下载好的包放到本地目录中"></a>第二步：将下载好的包放到本地目录中</h2><ol>
-<li>在你的Finder中，通过<code>commnd+.</code>显示隐藏的文件夹</li>
-<li>进入/usr/local,将下载好的Tomcat包放到/local目录中</li>
-</ol>
-<p><img src="../img/tomcat-mulu.png" width="600" height="300" alt=""></p>
-<h2 id="第三步：配置环境变量"><a href="#第三步：配置环境变量" class="headerlink" title="第三步：配置环境变量"></a>第三步：配置环境变量</h2><p></p><p>为了方便以后对Tomcat的操作，可以将Tomcat的bin目录放到全局变量中，配置方法如下</p><p></p>
-<ol>
-<li>查看配置的变量：<code>echo $PATH</code></li>
-<li>进入配置文件 <code>vim ~/.bash_profile</code></li>
-<li>输入<code>i</code>进入编辑模式；</li>
-<li>输入<code>export PATH=$PATH:/Users/gaonana/Documents/高娜娜文件/mongodb-osx-x86_64-3.4.3</code>;相当于在PATH变量后面多加一个自己定义的目录；</li>
-<li>点击<code>esc</code>键进入末行模式；</li>
-<li><code>:wq</code>保存配置文件并退出；</li>
-<li>执行<code>source .bash_profile</code>使配置生效</li>
-</ol>
-<h2 id="第四步：-启动Tomcat"><a href="#第四步：-启动Tomcat" class="headerlink" title="第四步： 启动Tomcat"></a>第四步： 启动Tomcat</h2><ol>
-<li>配置环境变量后，可以很便捷的terminal中通过 <code>startup.sh</code>启动Tomcat服务器；<blockquote>
-<p>注意：如果当 <code>startup.sh</code>后出现<code>permission denied</code>时，需要对此目录进行权限设置。在terminal中，输入<code>sudo chmod 755 xxx/bin/*.sh</code>(xxx表示Tomcat的路径)；输入密码就可以了。</p>
-</blockquote>
-</li>
-<li>在浏览器中输入 <code>localhost:8080</code>就可以直接入Tomcat服务,显示一下页面即成功</li>
-</ol>
-<p><img src="../img/tomcat-yemian.png" width="600" height="300" alt=""></p>
-<ol>
-<li>通过<code>shutdown.sh</code> 可以终止程序</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第一步：下载Tomcat&quot;&gt;&lt;a href=&quot;#第一步：下载Tomcat&quot; class=&quot;headerlink&quot; title=&quot;第一步：下载Tomcat&quot;&gt;&lt;/a&gt;第一步：下载Tomcat&lt;/h2&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;直接上官网 &lt;code&gt;http://tomc
-    
-    </summary>
-    
-      <category term="Apache-Tomcat" scheme="http://yoursite.com/categories/Apache-Tomcat/"/>
-    
-    
-      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
-    
-      <category term="Apache-Tomcat" scheme="http://yoursite.com/tags/Apache-Tomcat/"/>
     
   </entry>
   

@@ -271,6 +271,178 @@
   
   
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/15/Vue源码理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/15/Vue源码理解/" itemprop="url">
+                  Vue双向数据绑定源码的理解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T00:00:00+08:00">
+                2018-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/www/" itemprop="url" rel="index">
+                    <span itemprop="name">www</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>通过阅读源码，对Vue2 的基础运行机制有所了解，主要是：</p>
+<ul>
+<li>Vue2 对数据绑定的实现形式</li>
+<li>Vue2中对virtual DOM 机制的使用方式<h1 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h1><ul>
+<li>1：在react中，会持有现状 React DOM Tree，</li>
+<li>2：当值发生变化时，React会收集这些变化，形成新的DOM 树，</li>
+<li>3：在发生变化的节点进行标注</li>
+<li>4：新旧DOM树进行对比，通过diff算法进行处理和更新<h1 id="Vue-js-使用了两个重要的函数"><a href="#Vue-js-使用了两个重要的函数" class="headerlink" title="Vue.js 使用了两个重要的函数"></a>Vue.js 使用了两个重要的函数</h1><h2 id="1：Object-defineProperty"><a href="#1：Object-defineProperty" class="headerlink" title="1：Object.defineProperty"></a>1：Object.defineProperty</h2>Object.defineProperty：可以定义当某一个值 访问和赋值时（即 get 和 set），会先执行自定义的钩子方法。这个方法给予 JS一种面向切面编程的能力，是我们能够隐式、自然的控制属性的访问和赋值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;</div><div class="line">var initValue = &quot;hello&quot;</div><div class="line">Object.defineProperty(obj,&quot;newKey&quot;,&#123;    // object/propertyName/descriptor</div><div class="line">       get()&#123;</div><div class="line">           return initValue</div><div class="line">       &#125;</div><div class="line">       set(value)&#123;</div><div class="line">           console.log(value)</div><div class="line">           initValue = value</div><div class="line">       &#125;</div><div class="line">       enumerable: true</div><div class="line">       configurable: true</div><div class="line">&#125;)</div><div class="line">console.log(obj.newKey) // hello</div><div class="line">obj.newKey = &quot;chang Value&quot; // change Value</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>当  Vue.js 的数据有变化时。通过 defineProperty 的set 方法去通知 notify()  订阅者 subscribers 有新的值修改。<br>Observer 实际上就是一个观察者，他维护了一个数组 this.subs=[]用来收集相关的subs(订阅者，即这个观察者的依赖)。将value 转化为 getter/setter形式，同时添加一个自定义<strong>ob</strong>属性，这个属性就对应Observer实例。<br>当prop 和 data变化时，最终归宿都是 递归执行 defineReactive方法。defineReactive内部实质就是Object.defineProperty包装。<br>defineReactive方法，通过遍历object的key ,并将对应的value 转化为 getter/setter形式，通过闭包维护一个dep，在 getter 方法当中定义了这个key是如何进行依赖收集，在setter中定义当这个key对应的值发生改变后，如何完成相关依赖数据的更新。<br>只有当 Dep.target(订阅者存在的时候)，调用属性的getter函数，才能完成依赖的收集工作<br>订阅者是如何实现的呢？Watcher 会有4类地方实例化Watcher：</p>
+<pre><code>+ Vue实例化的过程中有watch选项
++ Vue实例化的过程中有computed计算属性选项
++ Vue原型上有挂载$Watch 方法：Vue.prototype.$watch，可以this.$watch直接调用
++ Vue生成了render函数
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">defineReactive(obj,key,val,doNotObserve)&#123;</div><div class="line">       var dep = new Dep(),</div><div class="line">       property = Object.getOwnPropertyDescriptor(obj,key)</div><div class="line">       if(property &amp;&amp; property.configurable === false)&#123;</div><div class="line">           return;  // 属性必须为可配置的</div><div class="line">       &#125;</div><div class="line">       var getter = property &amp;&amp; property.get</div><div class="line">       var setter = property &amp;&amp; property.set</div><div class="line">       // 如果 doNotObserve 为 true，可以使用他子value中的 observe</div><div class="line">       // 如果自身存在，那么就没必要再去创造它</div><div class="line">       var childOb = doNotObservr ? isObject(val) &amp;&amp; val._ob_:observe(val)</div><div class="line">       Object.defineProperty(obj,key,&#123;</div><div class="line">           enumberable:true,</div><div class="line">           configurable:true,</div><div class="line">           get: function reactiveGetter()&#123;</div><div class="line">           	</div><div class="line">               var value = getter ? getter.call(obj) : val</div><div class="line">               // 设置依赖收集，建立数据绑定关系</div><div class="line">               if(Dep.target)&#123; </div><div class="line">                   dep.depend() // 如果是对象本身修改而触发setter函数，会通知所有的watcher</div><div class="line">                   if(childOb)&#123;</div><div class="line">                       childOb.dep.depend() // 在对象本身增删属性或数组变化的时候被触发的Dep</div><div class="line">                   &#125;</div><div class="line">                   if(isArray(value))&#123;</div><div class="line">                       for(var e,i=0,1=value.length;i&lt;1;i++)&#123;</div><div class="line">                           e = value[i]</div><div class="line">                           e &amp;&amp; e._ob_ &amp;&amp; e._ob_.dep.depend()</div><div class="line">                       &#125;</div><div class="line">                   &#125;</div><div class="line">               &#125;</div><div class="line">               return value</div><div class="line">           &#125;</div><div class="line">           set: function reactiveSetter(newVal)&#123;</div><div class="line">               var value = getter ? getter.call(obj) : val</div><div class="line">               if(newVal === value)&#123;</div><div class="line">                   return</div><div class="line">               &#125;</div><div class="line">               if(setter)&#123;</div><div class="line">                   setter.call(obj,newVal)</div><div class="line">               &#125;else&#123;</div><div class="line">                   val = newVal</div><div class="line">               &#125;</div><div class="line">               chileOb = doNotObserve ? isObject(newVal) &amp;&amp; newVal._ob_ :observe(newVal)</div><div class="line">               dep.notify()</div><div class="line">           &#125;</div><div class="line">       &#125;)</div><div class="line">       </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>总体来说，在defineReactive 的Object.defineProperty  get调用了 dep.depend( )；set 调用了 dep.notify(); </p>
+<ul>
+<li>get被调用时，通过 dep.depend()收集依赖关系，记录到VM中</li>
+<li>set 被调用时，先判断属性值是否发生了改变，如果改变了，通过 dep.notify() 来通知 VM，从而触发VM更新操作，实现UI与数据的同步。<h1 id="订阅者发布设计模式"><a href="#订阅者发布设计模式" class="headerlink" title="订阅者发布设计模式"></a>订阅者发布设计模式</h1>这种模式就是：订阅者订阅某种信息，发布者发布信息时通知订阅者更新数据<h1 id="Dep"><a href="#Dep" class="headerlink" title="Dep"></a>Dep</h1>Dep 是一个类，每一个属性都有一个Dep实例。他会帮助属性 记录下访问他的watcher。<br>当watcher访问这个属性时，Dep会作为一个全局变量，将自身的目标属性(target 属性去指向访问他的watcher)</li>
+</ul>
+<p>双向数据绑定，实际上就是，Object.defineProperty 和 订阅发布设计模式来实现的。在Vue中，props和data发生变化时，会执行defineRactive方法。而defineReactive 会用Object.defineProperty将每个属性 包装一下</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>Vue实例在初始化数据 initState()时 ，会初始化 props的属性为 getter/setter函数</li>
+<li>进行 initWatch 初始化的时候，会初始化 watcher 实例，并调用 get() ，设置Dep.target = 当前这个watcher。然后进入到 value = this,getter.call(vm,vm)的操作</li>
+<li>在访问属性的时候，执行getter函数，因为存在Dep.target，所以进入  依赖收集  过程。Dep.depend()</li>
+<li>更改属性的值的时候，调用 setter 函数，执行 dep.notify()，遍历所有的订阅者，调用 update 函数，更新数据</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
   <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/vue原理解析/">
 
@@ -974,180 +1146,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/vue使用总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/12/vue使用总结/" itemprop="url">
-                  Vue 中父子组件方法调用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T00:00:00+08:00">
-                2017-09-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="一、父组件中调用子组件中的methods方法"><a href="#一、父组件中调用子组件中的methods方法" class="headerlink" title="一、父组件中调用子组件中的methods方法"></a>一、父组件中调用子组件中的methods方法</h2><ul>
-<li>首先在父组件的子组件中标注 ref = “childMethod”</li>
-<li>在 父组件中进行调用<code>this.$refs.childMethod.processQueue();</code></li>
-<li>比如，在子组件中有一个方法 processQueue(){},我想在父组件中进行调用<h2 id="二、父组件向子组件传递参数"><a href="#二、父组件向子组件传递参数" class="headerlink" title="二、父组件向子组件传递参数"></a>二、父组件向子组件传递参数</h2></li>
-<li><p>在子组件中，通过  props  来声明 他期待接收的数据</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</div><div class="line">     <span class="attr">props</span>:&#123;</div><div class="line">           <span class="attr">addFormVisible</span>:&#123;</div><div class="line">               <span class="attr">type</span>:<span class="built_in">Boolean</span>,</div><div class="line">               <span class="attr">default</span>:<span class="literal">false</span></div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       <span class="comment">// 或者</span></div><div class="line">       props:[<span class="string">'addFormVisible'</span>,<span class="string">'age'</span>] 等</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在 父组件中，直接通过属性赋值即可<br><code>&lt;child addFormVisible = &quot;true&quot;&gt;&lt;/child&gt;</code></p>
-</li>
-</ul>
-<h2 id="三、dropjs使用"><a href="#三、dropjs使用" class="headerlink" title="三、dropjs使用"></a>三、dropjs使用</h2><ul>
-<li>手动上传事件：myDropzone.processQueue();</li>
-<li>允许上传多个图片：uploadMultiple: true,</li>
-<li>自动上传事件：autoProcessQueue: true,</li>
-<li>默认每次上传的最多的张数：parallelUploads: 10,系统默认为2，改为了10</li>
-</ul>
-<h2 id="四、Vue中重新刷新当前页面"><a href="#四、Vue中重新刷新当前页面" class="headerlink" title="四、Vue中重新刷新当前页面"></a>四、Vue中重新刷新当前页面</h2><ul>
-<li>使用路由的项目：this.$router.go(0);</li>
-<li>未使用路由的项目：</li>
-<li>window.location 中含有 ref 中的内容信息 window.location.reload();</li>
-<li>直接 <code>location.href = &#39;index.html&#39;</code></li>
-</ul>
-<h2 id="五、Vue-中发送请求的方式"><a href="#五、Vue-中发送请求的方式" class="headerlink" title="五、Vue 中发送请求的方式"></a>五、Vue 中发送请求的方式</h2><h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><p>参数使用 params:param<br><code>this.$http.get(url,{params:param}).then(function(res),function(res))</code></p>
-<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><p><code>this.$http.post(url,{params:param},{emulateJSON:true}).then(function(res){},function(res){})</code><br>参数使用  data:param 发送请求</p>
-<p>如果使用params:param传递参数，虽然是post请求，但是传递的参数仍然在URL上</p>
-<p>使用data传输的数据，是以 <code>request payload</code>方式传递的，后台需要</p>
-<p><code>public String getRequestPayload(HttpServletRequest req) {}</code>来获取里面的参数；</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1192,7 +1195,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1203,7 +1206,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
