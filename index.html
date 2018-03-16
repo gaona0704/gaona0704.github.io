@@ -445,165 +445,6 @@
   
   
 
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/vue原理解析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/13/vue原理解析/" itemprop="url">
-                  Vue原理解析
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T00:00:00+08:00">
-                2018-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h1><p>双向数据绑定的核心是： observer   Dep   Watcher</p>
-<pre><code>+ observer 是一个类，每一个prop和data中都有，他会通过执行 DefinedReactive 给其附属的对象及其子属性，建立 get 和 set 方法。(definedReactive实质上是通过 Object.defineProperty 将每个属性进行包装包装)
-+  Dep 会存放所有的 Watcher，每个data和prop都有自己的Dep实例。当数据发生改变时，会notify属性的watch，当watcher去访问属性时，Dep.target属性指向访问的watcher
-+  Watcher 可以watch一个方法或者 一个属性。先收集依赖，值改变时，触发callback &apos;expOrFn&apos;。‘expOnFn’可以看做是 Watcher的Getter
-</code></pre><h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><pre><code>+ mutation 对 state 进行状态的修改。commit方法是mutation的内核。dispatch 是 action的内核
-</code></pre><h1 id="一：数据更新-virtual-DOM"><a href="#一：数据更新-virtual-DOM" class="headerlink" title="一：数据更新 virtual DOM"></a>一：数据更新 virtual DOM</h1><ul>
-<li>1.在react中，当有数据发生变化时，会构造新的 React DOM Tree，发生变化的属性值会对此节点进行标注，然后通过一系列diff算法，新旧DOM tree 进行对比，更新渲染完毕。</li>
-<li>2：通过事件改变属性值时，此节点会被标记成脏节点，事件处理完成后，react会找到所有脏节点，并重新渲染。</li>
-<li>3: vue 的精髓就是 响应式数据流。</li>
-<li>4：react和Vue本质上都是借助 virtual DOM 帮助开发者管理DOM</li>
-</ul>
-<h1 id="二、Vue部分生命周期和钩子函数"><a href="#二、Vue部分生命周期和钩子函数" class="headerlink" title="二、Vue部分生命周期和钩子函数"></a>二、Vue部分生命周期和钩子函数</h1><ul>
-<li>1、beforeCreated  组件刚创建，data和el都没有创建</li>
-<li>2、created data完成初始化，el还没挂在</li>
-<li>3、 beforeMounted  data和el完成初始化  。(此时，DOM中，msg的位置在virtualDOM中已经被占用了，到mounted挂载之后，直接填坑，将数据填进去)</li>
-<li>4、mounted  data 和 el 都完成了挂载</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/ES6 Promise/">
 
@@ -755,6 +596,165 @@
 <p>then链式调用的时候,then函数的返回值,会作为第下一个then函数中第一个参数函数的参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var p = new Promise(function(resolve,reject)&#123;</div><div class="line">  resolve()</div><div class="line">&#125;)</div><div class="line">var ret = p.then(function()&#123;</div><div class="line">  console.log(&apos;this is the status of Resolved&apos;);</div><div class="line">  return 2  // false 或者不返回值,此时val的值将是undefined</div><div class="line">&#125;,function()&#123;</div><div class="line">  console.log(&apos;resolve&apos;)</div><div class="line">&#125;).then(function(val)&#123;</div><div class="line">  console.log(&apos;inner Resolved&apos;);</div><div class="line">  console.log(val) //2 false  undefined</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"> var test =&#123;</div><div class="line">	func1:function()&#123;</div><div class="line">		var data = new Promise(function(resolve)&#123;</div><div class="line">			setTimeout(function()&#123;</div><div class="line">				resolve(&quot;ajax结果111&quot;)</div><div class="line">			&#125;,200)</div><div class="line">		&#125;)</div><div class="line">		return data;</div><div class="line">	&#125;,</div><div class="line">	func2:function()&#123;</div><div class="line">		var data = new Promise(function(resolve)&#123;</div><div class="line">			setTimeout(function()&#123;</div><div class="line">				resolve(&quot;ajax结果222&quot;)</div><div class="line">			&#125;,100)</div><div class="line">		&#125;)</div><div class="line">		return data;</div><div class="line">	&#125;,</div><div class="line">	func3:function()&#123;</div><div class="line">		var data = new Promise(function(resolve)&#123;</div><div class="line">			setTimeout(function()&#123;</div><div class="line">				resolve(&quot;ajax结果333&quot;)</div><div class="line">			&#125;,500)</div><div class="line">		&#125;)</div><div class="line">		return data;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">//resolve函数的参数将会作为then函数中第一个函数的参数</div><div class="line">test.func1().then(function(value)&#123;</div><div class="line">	console.log(value)</div><div class="line">	//do something...</div><div class="line">&#125;)</div><div class="line">//then的链式调用前奏</div><div class="line">test.func1().then(function(value)&#123;</div><div class="line">	console.log(value) //ajax结果111</div><div class="line">	test.func2().then(function(value)&#123;</div><div class="line">		console.log(value) //ajax结果2</div><div class="line">		test.func3().then(function(value)&#123;</div><div class="line">			console.log(value) //ajax结果333</div><div class="line">			//do something...</div><div class="line">		&#125;)</div><div class="line">	&#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>使用return可以更加方便的进行链式调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">test.func1().then(function(value)&#123;</div><div class="line">	console.log(value)</div><div class="line">	//do something...</div><div class="line">	return test.func2();</div><div class="line">&#125;).then(function(value)&#123;</div><div class="line">	console.log(value)</div><div class="line">	return test.func3();</div><div class="line">&#125;).then(function(value)&#123;</div><div class="line">	console.log(value)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/13/vue原理解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/13/vue原理解析/" itemprop="url">
+                  Vue原理解析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T00:00:00+08:00">
+                2018-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h1><p>双向数据绑定的核心是： observer   Dep   Watcher</p>
+<pre><code>+ observer 是一个类，每一个prop和data中都有，他会通过执行 DefinedReactive 给其附属的对象及其子属性，建立 get 和 set 方法。(definedReactive实质上是通过 Object.defineProperty 将每个属性进行包装包装)
++  Dep 会存放所有的 Watcher，每个data和prop都有自己的Dep实例。当数据发生改变时，会notify属性的watch，当watcher去访问属性时，Dep.target属性指向访问的watcher
++  Watcher 可以watch一个方法或者 一个属性。先收集依赖，值改变时，触发callback &apos;expOrFn&apos;。‘expOnFn’可以看做是 Watcher的Getter
+</code></pre><h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><pre><code>+ mutation 对 state 进行状态的修改。commit方法是mutation的内核。dispatch 是 action的内核
+</code></pre><h1 id="一：数据更新-virtual-DOM"><a href="#一：数据更新-virtual-DOM" class="headerlink" title="一：数据更新 virtual DOM"></a>一：数据更新 virtual DOM</h1><ul>
+<li>1.在react中，当有数据发生变化时，会构造新的 React DOM Tree，发生变化的属性值会对此节点进行标注，然后通过一系列diff算法，新旧DOM tree 进行对比，更新渲染完毕。</li>
+<li>2：通过事件改变属性值时，此节点会被标记成脏节点，事件处理完成后，react会找到所有脏节点，并重新渲染。</li>
+<li>3: vue 的精髓就是 响应式数据流。</li>
+<li>4：react和Vue本质上都是借助 virtual DOM 帮助开发者管理DOM</li>
+</ul>
+<h1 id="二、Vue部分生命周期和钩子函数"><a href="#二、Vue部分生命周期和钩子函数" class="headerlink" title="二、Vue部分生命周期和钩子函数"></a>二、Vue部分生命周期和钩子函数</h1><ul>
+<li>1、beforeCreated  组件刚创建，data和el都没有创建</li>
+<li>2、created data完成初始化，el还没挂在</li>
+<li>3、 beforeMounted  data和el完成初始化  。(此时，DOM中，msg的位置在virtualDOM中已经被占用了，到mounted挂载之后，直接填坑，将数据填进去)</li>
+<li>4、mounted  data 和 el 都完成了挂载</li>
+</ul>
 
           
         

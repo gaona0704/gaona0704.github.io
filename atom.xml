@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-16T08:24:24.373Z</updated>
+  <updated>2018-03-16T08:26:05.477Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/03/15/Vue%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/"/>
     <id>http://yoursite.com/2018/03/15/Vue源码理解/</id>
     <published>2018-03-14T16:00:00.000Z</published>
-    <updated>2018-03-16T08:24:24.373Z</updated>
+    <updated>2018-03-16T08:26:05.477Z</updated>
     
     <content type="html"><![CDATA[<p>通过阅读源码，对Vue2 的基础运行机制有所了解，主要是：</p>
 <ul>
@@ -64,44 +64,6 @@
 &lt;li&gt;Vue2中对virtual DOM 机制的使用方式&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&quot;Virtual-DOM&quot;&gt;&lt;a href=&quot;#V
-    
-    </summary>
-    
-      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Vue原理解析</title>
-    <link href="http://yoursite.com/2018/03/13/vue%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/"/>
-    <id>http://yoursite.com/2018/03/13/vue原理解析/</id>
-    <published>2018-03-12T16:00:00.000Z</published>
-    <updated>2018-03-14T07:39:38.512Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h1><p>双向数据绑定的核心是： observer   Dep   Watcher</p>
-<pre><code>+ observer 是一个类，每一个prop和data中都有，他会通过执行 DefinedReactive 给其附属的对象及其子属性，建立 get 和 set 方法。(definedReactive实质上是通过 Object.defineProperty 将每个属性进行包装包装)
-+  Dep 会存放所有的 Watcher，每个data和prop都有自己的Dep实例。当数据发生改变时，会notify属性的watch，当watcher去访问属性时，Dep.target属性指向访问的watcher
-+  Watcher 可以watch一个方法或者 一个属性。先收集依赖，值改变时，触发callback &apos;expOrFn&apos;。‘expOnFn’可以看做是 Watcher的Getter
-</code></pre><h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><pre><code>+ mutation 对 state 进行状态的修改。commit方法是mutation的内核。dispatch 是 action的内核
-</code></pre><h1 id="一：数据更新-virtual-DOM"><a href="#一：数据更新-virtual-DOM" class="headerlink" title="一：数据更新 virtual DOM"></a>一：数据更新 virtual DOM</h1><ul>
-<li>1.在react中，当有数据发生变化时，会构造新的 React DOM Tree，发生变化的属性值会对此节点进行标注，然后通过一系列diff算法，新旧DOM tree 进行对比，更新渲染完毕。</li>
-<li>2：通过事件改变属性值时，此节点会被标记成脏节点，事件处理完成后，react会找到所有脏节点，并重新渲染。</li>
-<li>3: vue 的精髓就是 响应式数据流。</li>
-<li>4：react和Vue本质上都是借助 virtual DOM 帮助开发者管理DOM</li>
-</ul>
-<h1 id="二、Vue部分生命周期和钩子函数"><a href="#二、Vue部分生命周期和钩子函数" class="headerlink" title="二、Vue部分生命周期和钩子函数"></a>二、Vue部分生命周期和钩子函数</h1><ul>
-<li>1、beforeCreated  组件刚创建，data和el都没有创建</li>
-<li>2、created data完成初始化，el还没挂在</li>
-<li>3、 beforeMounted  data和el完成初始化  。(此时，DOM中，msg的位置在virtualDOM中已经被占用了，到mounted挂载之后，直接填坑，将数据填进去)</li>
-<li>4、mounted  data 和 el 都完成了挂载</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;双向数据绑定&quot;&gt;&lt;a href=&quot;#双向数据绑定&quot; class=&quot;headerlink&quot; title=&quot;双向数据绑定&quot;&gt;&lt;/a&gt;双向数据绑定&lt;/h1&gt;&lt;p&gt;双向数据绑定的核心是： observer   Dep   Watcher&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;+ 
     
     </summary>
     
@@ -180,6 +142,44 @@
     
     
       <category term="Promise" scheme="http://yoursite.com/tags/Promise/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue原理解析</title>
+    <link href="http://yoursite.com/2018/03/13/vue%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/"/>
+    <id>http://yoursite.com/2018/03/13/vue原理解析/</id>
+    <published>2018-03-12T16:00:00.000Z</published>
+    <updated>2018-03-14T07:39:38.512Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h1><p>双向数据绑定的核心是： observer   Dep   Watcher</p>
+<pre><code>+ observer 是一个类，每一个prop和data中都有，他会通过执行 DefinedReactive 给其附属的对象及其子属性，建立 get 和 set 方法。(definedReactive实质上是通过 Object.defineProperty 将每个属性进行包装包装)
++  Dep 会存放所有的 Watcher，每个data和prop都有自己的Dep实例。当数据发生改变时，会notify属性的watch，当watcher去访问属性时，Dep.target属性指向访问的watcher
++  Watcher 可以watch一个方法或者 一个属性。先收集依赖，值改变时，触发callback &apos;expOrFn&apos;。‘expOnFn’可以看做是 Watcher的Getter
+</code></pre><h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><pre><code>+ mutation 对 state 进行状态的修改。commit方法是mutation的内核。dispatch 是 action的内核
+</code></pre><h1 id="一：数据更新-virtual-DOM"><a href="#一：数据更新-virtual-DOM" class="headerlink" title="一：数据更新 virtual DOM"></a>一：数据更新 virtual DOM</h1><ul>
+<li>1.在react中，当有数据发生变化时，会构造新的 React DOM Tree，发生变化的属性值会对此节点进行标注，然后通过一系列diff算法，新旧DOM tree 进行对比，更新渲染完毕。</li>
+<li>2：通过事件改变属性值时，此节点会被标记成脏节点，事件处理完成后，react会找到所有脏节点，并重新渲染。</li>
+<li>3: vue 的精髓就是 响应式数据流。</li>
+<li>4：react和Vue本质上都是借助 virtual DOM 帮助开发者管理DOM</li>
+</ul>
+<h1 id="二、Vue部分生命周期和钩子函数"><a href="#二、Vue部分生命周期和钩子函数" class="headerlink" title="二、Vue部分生命周期和钩子函数"></a>二、Vue部分生命周期和钩子函数</h1><ul>
+<li>1、beforeCreated  组件刚创建，data和el都没有创建</li>
+<li>2、created data完成初始化，el还没挂在</li>
+<li>3、 beforeMounted  data和el完成初始化  。(此时，DOM中，msg的位置在virtualDOM中已经被占用了，到mounted挂载之后，直接填坑，将数据填进去)</li>
+<li>4、mounted  data 和 el 都完成了挂载</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;双向数据绑定&quot;&gt;&lt;a href=&quot;#双向数据绑定&quot; class=&quot;headerlink&quot; title=&quot;双向数据绑定&quot;&gt;&lt;/a&gt;双向数据绑定&lt;/h1&gt;&lt;p&gt;双向数据绑定的核心是： observer   Dep   Watcher&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+ 
+    
+    </summary>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
     
   </entry>
   
