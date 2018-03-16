@@ -92,11 +92,12 @@
 <meta name="description" content="通过阅读源码，对Vue2 的基础运行机制有所了解，主要是：
 
 Vue2 对数据绑定的实现形式
-Vue2中对virtual DOM 机制的使用方式Virtual DOM
-1：在react中，会持有现状 React DOM Tree，
-2：当值发生变化时，React会收集这些变化，形成新的DOM 树，
-3：在发生变化的节点进行标注
-4：新旧DOM树进行对比，通过diff算法进行处理和更新Vue.js">
+Vue2中对virtual DOM 机制的使用方式
+
+Virtual DOM+ 1：在react中，会持有现状 React DOM Tree，
++ 2：当值发生变化时，React会收集这些变化，形成新的DOM 树，
++ 3：在发生变化的节点进行标注
++ 4：新旧DOM树进行对比，通过diff算法进行处理和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue双向数据绑定源码的理解">
 <meta property="og:url" content="http://yoursite.com/2018/03/15/Vue源码理解/index.html">
@@ -104,22 +105,24 @@ Vue2中对virtual DOM 机制的使用方式Virtual DOM
 <meta property="og:description" content="通过阅读源码，对Vue2 的基础运行机制有所了解，主要是：
 
 Vue2 对数据绑定的实现形式
-Vue2中对virtual DOM 机制的使用方式Virtual DOM
-1：在react中，会持有现状 React DOM Tree，
-2：当值发生变化时，React会收集这些变化，形成新的DOM 树，
-3：在发生变化的节点进行标注
-4：新旧DOM树进行对比，通过diff算法进行处理和更新Vue.js">
-<meta property="og:updated_time" content="2018-03-16T08:19:36.395Z">
+Vue2中对virtual DOM 机制的使用方式
+
+Virtual DOM+ 1：在react中，会持有现状 React DOM Tree，
++ 2：当值发生变化时，React会收集这些变化，形成新的DOM 树，
++ 3：在发生变化的节点进行标注
++ 4：新旧DOM树进行对比，通过diff算法进行处理和">
+<meta property="og:updated_time" content="2018-03-16T08:24:24.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue双向数据绑定源码的理解">
 <meta name="twitter:description" content="通过阅读源码，对Vue2 的基础运行机制有所了解，主要是：
 
 Vue2 对数据绑定的实现形式
-Vue2中对virtual DOM 机制的使用方式Virtual DOM
-1：在react中，会持有现状 React DOM Tree，
-2：当值发生变化时，React会收集这些变化，形成新的DOM 树，
-3：在发生变化的节点进行标注
-4：新旧DOM树进行对比，通过diff算法进行处理和更新Vue.js">
+Vue2中对virtual DOM 机制的使用方式
+
+Virtual DOM+ 1：在react中，会持有现状 React DOM Tree，
++ 2：当值发生变化时，React会收集这些变化，形成新的DOM 树，
++ 3：在发生变化的节点进行标注
++ 4：新旧DOM树进行对比，通过diff算法进行处理和">
 
 
 
@@ -351,8 +354,8 @@ Vue2中对virtual DOM 机制的使用方式Virtual DOM
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/www/" itemprop="url" rel="index">
-                    <span itemprop="name">www</span>
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
                   </a>
                 </span>
 
@@ -389,26 +392,28 @@ Vue2中对virtual DOM 机制的使用方式Virtual DOM
         <p>通过阅读源码，对Vue2 的基础运行机制有所了解，主要是：</p>
 <ul>
 <li>Vue2 对数据绑定的实现形式</li>
-<li>Vue2中对virtual DOM 机制的使用方式<h1 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h1><ul>
-<li>1：在react中，会持有现状 React DOM Tree，</li>
-<li>2：当值发生变化时，React会收集这些变化，形成新的DOM 树，</li>
-<li>3：在发生变化的节点进行标注</li>
-<li>4：新旧DOM树进行对比，通过diff算法进行处理和更新<h1 id="Vue-js-使用了两个重要的函数"><a href="#Vue-js-使用了两个重要的函数" class="headerlink" title="Vue.js 使用了两个重要的函数"></a>Vue.js 使用了两个重要的函数</h1><h2 id="1：Object-defineProperty"><a href="#1：Object-defineProperty" class="headerlink" title="1：Object.defineProperty"></a>1：Object.defineProperty</h2>Object.defineProperty：可以定义当某一个值 访问和赋值时（即 get 和 set），会先执行自定义的钩子方法。这个方法给予 JS一种面向切面编程的能力，是我们能够隐式、自然的控制属性的访问和赋值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;</div><div class="line">var initValue = &quot;hello&quot;</div><div class="line">Object.defineProperty(obj,&quot;newKey&quot;,&#123;    // object/propertyName/descriptor</div><div class="line">       get()&#123;</div><div class="line">           return initValue</div><div class="line">       &#125;</div><div class="line">       set(value)&#123;</div><div class="line">           console.log(value)</div><div class="line">           initValue = value</div><div class="line">       &#125;</div><div class="line">       enumerable: true</div><div class="line">       configurable: true</div><div class="line">&#125;)</div><div class="line">console.log(obj.newKey) // hello</div><div class="line">obj.newKey = &quot;chang Value&quot; // change Value</div></pre></td></tr></table></figure>
-</li>
+<li>Vue2中对virtual DOM 机制的使用方式</li>
 </ul>
-</li>
+<h1 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h1><pre><code>+ 1：在react中，会持有现状 React DOM Tree，
++ 2：当值发生变化时，React会收集这些变化，形成新的DOM 树，
++ 3：在发生变化的节点进行标注
++ 4：新旧DOM树进行对比，通过diff算法进行处理和更新
+</code></pre><h1 id="Vue-js-使用了两个重要的函数"><a href="#Vue-js-使用了两个重要的函数" class="headerlink" title="Vue.js 使用了两个重要的函数"></a>Vue.js 使用了两个重要的函数</h1><h2 id="1：Object-defineProperty"><a href="#1：Object-defineProperty" class="headerlink" title="1：Object.defineProperty"></a>1：Object.defineProperty</h2><p>Object.defineProperty：可以定义当某一个值 访问和赋值时（即 get 和 set），会先执行自定义的钩子方法。这个方法给予 JS一种面向切面编程的能力，是我们能够隐式、自然的控制属性的访问和赋值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;</div><div class="line">var initValue = &quot;hello&quot;</div><div class="line">Object.defineProperty(obj,&quot;newKey&quot;,&#123;    // object/propertyName/descriptor</div><div class="line">       get()&#123;</div><div class="line">           return initValue</div><div class="line">       &#125;</div><div class="line">       set(value)&#123;</div><div class="line">           console.log(value)</div><div class="line">           initValue = value</div><div class="line">       &#125;</div><div class="line">       enumerable: true</div><div class="line">       configurable: true</div><div class="line">&#125;)</div><div class="line">console.log(obj.newKey) // hello</div><div class="line">obj.newKey = &quot;chang Value&quot; // change Value</div></pre></td></tr></table></figure></p>
+<ul>
+<li>当  Vue.js 的数据有变化时。通过 defineProperty 的set 方法去通知 notify()  订阅者 subscribers 有新的值修改。</li>
+<li>Observer 实际上就是一个观察者，他维护了一个数组 this.subs=[]用来收集相关的subs(订阅者，即这个观察者的依赖)。将value 转化为 getter/setter形式，同时添加一个自定义<strong>ob</strong>属性，这个属性就对应Observer实例。</li>
+<li>当prop 和 data变化时，最终归宿都是 递归执行 defineReactive方法。defineReactive内部实质就是Object.defineProperty包装。</li>
+<li>defineReactive方法，通过遍历object的key ,并将对应的value 转化为 getter/setter形式，通过闭包维护一个dep，在 getter 方法当中定义了这个key是如何进行依赖收集，在setter中定义当这个key对应的值发生改变后，如何完成相关依赖数据的更新。</li>
+<li>只有当 Dep.target(订阅者存在的时候)，调用属性的getter函数，才能完成依赖的收集工作<br>订阅者是如何实现的呢？Watcher 会有4类地方实例化Watcher：<br>  1: Vue实例化的过程中有watch选项<br>  2: Vue实例化的过程中有computed计算属性选项<br>  3: Vue原型上有挂载$Watch 方法：Vue.prototype.$watch，可以this.$watch直接调用<br>  4: Vue生成了render函数</li>
 </ul>
-<p>当  Vue.js 的数据有变化时。通过 defineProperty 的set 方法去通知 notify()  订阅者 subscribers 有新的值修改。<br>Observer 实际上就是一个观察者，他维护了一个数组 this.subs=[]用来收集相关的subs(订阅者，即这个观察者的依赖)。将value 转化为 getter/setter形式，同时添加一个自定义<strong>ob</strong>属性，这个属性就对应Observer实例。<br>当prop 和 data变化时，最终归宿都是 递归执行 defineReactive方法。defineReactive内部实质就是Object.defineProperty包装。<br>defineReactive方法，通过遍历object的key ,并将对应的value 转化为 getter/setter形式，通过闭包维护一个dep，在 getter 方法当中定义了这个key是如何进行依赖收集，在setter中定义当这个key对应的值发生改变后，如何完成相关依赖数据的更新。<br>只有当 Dep.target(订阅者存在的时候)，调用属性的getter函数，才能完成依赖的收集工作<br>订阅者是如何实现的呢？Watcher 会有4类地方实例化Watcher：</p>
-<pre><code>+ Vue实例化的过程中有watch选项
-+ Vue实例化的过程中有computed计算属性选项
-+ Vue原型上有挂载$Watch 方法：Vue.prototype.$watch，可以this.$watch直接调用
-+ Vue生成了render函数
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">defineReactive(obj,key,val,doNotObserve)&#123;</div><div class="line">       var dep = new Dep(),</div><div class="line">       property = Object.getOwnPropertyDescriptor(obj,key)</div><div class="line">       if(property &amp;&amp; property.configurable === false)&#123;</div><div class="line">           return;  // 属性必须为可配置的</div><div class="line">       &#125;</div><div class="line">       var getter = property &amp;&amp; property.get</div><div class="line">       var setter = property &amp;&amp; property.set</div><div class="line">       // 如果 doNotObserve 为 true，可以使用他子value中的 observe</div><div class="line">       // 如果自身存在，那么就没必要再去创造它</div><div class="line">       var childOb = doNotObservr ? isObject(val) &amp;&amp; val._ob_:observe(val)</div><div class="line">       Object.defineProperty(obj,key,&#123;</div><div class="line">           enumberable:true,</div><div class="line">           configurable:true,</div><div class="line">           get: function reactiveGetter()&#123;</div><div class="line">           	</div><div class="line">               var value = getter ? getter.call(obj) : val</div><div class="line">               // 设置依赖收集，建立数据绑定关系</div><div class="line">               if(Dep.target)&#123; </div><div class="line">                   dep.depend() // 如果是对象本身修改而触发setter函数，会通知所有的watcher</div><div class="line">                   if(childOb)&#123;</div><div class="line">                       childOb.dep.depend() // 在对象本身增删属性或数组变化的时候被触发的Dep</div><div class="line">                   &#125;</div><div class="line">                   if(isArray(value))&#123;</div><div class="line">                       for(var e,i=0,1=value.length;i&lt;1;i++)&#123;</div><div class="line">                           e = value[i]</div><div class="line">                           e &amp;&amp; e._ob_ &amp;&amp; e._ob_.dep.depend()</div><div class="line">                       &#125;</div><div class="line">                   &#125;</div><div class="line">               &#125;</div><div class="line">               return value</div><div class="line">           &#125;</div><div class="line">           set: function reactiveSetter(newVal)&#123;</div><div class="line">               var value = getter ? getter.call(obj) : val</div><div class="line">               if(newVal === value)&#123;</div><div class="line">                   return</div><div class="line">               &#125;</div><div class="line">               if(setter)&#123;</div><div class="line">                   setter.call(obj,newVal)</div><div class="line">               &#125;else&#123;</div><div class="line">                   val = newVal</div><div class="line">               &#125;</div><div class="line">               chileOb = doNotObserve ? isObject(newVal) &amp;&amp; newVal._ob_ :observe(newVal)</div><div class="line">               dep.notify()</div><div class="line">           &#125;</div><div class="line">       &#125;)</div><div class="line">       </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">defineReactive(obj,key,val,doNotObserve)&#123;</div><div class="line">       var dep = new Dep(),</div><div class="line">       property = Object.getOwnPropertyDescriptor(obj,key)</div><div class="line">       if(property &amp;&amp; property.configurable === false)&#123;</div><div class="line">           return;  // 属性必须为可配置的</div><div class="line">       &#125;</div><div class="line">       var getter = property &amp;&amp; property.get</div><div class="line">       var setter = property &amp;&amp; property.set</div><div class="line">       // 如果 doNotObserve 为 true，可以使用他子value中的 observe</div><div class="line">       // 如果自身存在，那么就没必要再去创造它</div><div class="line">       var childOb = doNotObservr ? isObject(val) &amp;&amp; val._ob_:observe(val)</div><div class="line">       Object.defineProperty(obj,key,&#123;</div><div class="line">           enumberable:true,</div><div class="line">           configurable:true,</div><div class="line">           get: function reactiveGetter()&#123;</div><div class="line">           	</div><div class="line">               var value = getter ? getter.call(obj) : val</div><div class="line">               // 设置依赖收集，建立数据绑定关系</div><div class="line">               if(Dep.target)&#123; </div><div class="line">                   dep.depend() // 如果是对象本身修改而触发setter函数，会通知所有的watcher</div><div class="line">                   if(childOb)&#123;</div><div class="line">                       childOb.dep.depend() // 在对象本身增删属性或数组变化的时候被触发的Dep</div><div class="line">                   &#125;</div><div class="line">                   if(isArray(value))&#123;</div><div class="line">                       for(var e,i=0,1=value.length;i&lt;1;i++)&#123;</div><div class="line">                           e = value[i]</div><div class="line">                           e &amp;&amp; e._ob_ &amp;&amp; e._ob_.dep.depend()</div><div class="line">                       &#125;</div><div class="line">                   &#125;</div><div class="line">               &#125;</div><div class="line">               return value</div><div class="line">           &#125;</div><div class="line">           set: function reactiveSetter(newVal)&#123;</div><div class="line">               var value = getter ? getter.call(obj) : val</div><div class="line">               if(newVal === value)&#123;</div><div class="line">                   return</div><div class="line">               &#125;</div><div class="line">               if(setter)&#123;</div><div class="line">                   setter.call(obj,newVal)</div><div class="line">               &#125;else&#123;</div><div class="line">                   val = newVal</div><div class="line">               &#125;</div><div class="line">               chileOb = doNotObserve ? isObject(newVal) &amp;&amp; newVal._ob_ :observe(newVal)</div><div class="line">               dep.notify()</div><div class="line">           &#125;</div><div class="line">       &#125;)</div><div class="line">       </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>总体来说，在defineReactive 的Object.defineProperty  get调用了 dep.depend( )；set 调用了 dep.notify(); </p>
 <ul>
 <li>get被调用时，通过 dep.depend()收集依赖关系，记录到VM中</li>
-<li>set 被调用时，先判断属性值是否发生了改变，如果改变了，通过 dep.notify() 来通知 VM，从而触发VM更新操作，实现UI与数据的同步。<h1 id="订阅者发布设计模式"><a href="#订阅者发布设计模式" class="headerlink" title="订阅者发布设计模式"></a>订阅者发布设计模式</h1>这种模式就是：订阅者订阅某种信息，发布者发布信息时通知订阅者更新数据<h1 id="Dep"><a href="#Dep" class="headerlink" title="Dep"></a>Dep</h1>Dep 是一个类，每一个属性都有一个Dep实例。他会帮助属性 记录下访问他的watcher。<br>当watcher访问这个属性时，Dep会作为一个全局变量，将自身的目标属性(target 属性去指向访问他的watcher)</li>
+<li>set 被调用时，先判断属性值是否发生了改变，如果改变了，通过 dep.notify() 来通知 VM，从而触发VM更新操作，实现UI与数据的同步。</li>
 </ul>
+<h1 id="订阅者发布设计模式"><a href="#订阅者发布设计模式" class="headerlink" title="订阅者发布设计模式"></a>订阅者发布设计模式</h1><p>这种模式就是：订阅者订阅某种信息，发布者发布信息时通知订阅者更新数据</p>
+<h1 id="Dep"><a href="#Dep" class="headerlink" title="Dep"></a>Dep</h1><p>Dep 是一个类，每一个属性都有一个Dep实例。他会帮助属性 记录下访问他的watcher。<br>当watcher访问这个属性时，Dep会作为一个全局变量，将自身的目标属性(target 属性去指向访问他的watcher)</p>
 <p>双向数据绑定，实际上就是，Object.defineProperty 和 订阅发布设计模式来实现的。在Vue中，props和data发生变化时，会执行defineRactive方法。而defineReactive 会用Object.defineProperty将每个属性 包装一下</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
 <li>Vue实例在初始化数据 initState()时 ，会初始化 props的属性为 getter/setter函数</li>
@@ -543,7 +548,7 @@ Vue2中对virtual DOM 机制的使用方式Virtual DOM
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
