@@ -272,6 +272,315 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/26/视频播放插件-video.js的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/26/视频播放插件-video.js的使用/" itemprop="url">
+                  视频播放插件 video.js的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-26T16:49:04+08:00">
+                2017-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML5/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>video.js是一个开源的HTML5 jQuery 视频插件，即可以播放h5视频，也可以用来播放flash视频，是一个多平台支持的产品，大多数浏览器都支持。</p>
+<h3 id="第一步：引入-Video-js-的JS和CSS文件。"><a href="#第一步：引入-Video-js-的JS和CSS文件。" class="headerlink" title="第一步：引入 Video.js 的JS和CSS文件。"></a>第一步：引入 Video.js 的JS和CSS文件。</h3><ul>
+<li>方法1：可以下载Video.js的源码放到自己的服务器上；</li>
+<li>方法2：可以使用免费的CDN托管版本<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"http://vjs.zencdn.net/4.12/video-js.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://vjs.zencdn.net/4.12/video.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件"><a href="#第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件" class="headerlink" title="第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件"></a>第二步：设置flash的路径，在不支持HTML5的浏览中使用flash播放视频文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;videojs.options.flash.swf = <span class="string">"video-js.swf"</span>;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<h3 id="第三步：页面中加入video标签"><a href="#第三步：页面中加入video标签" class="headerlink" title="第三步：页面中加入video标签"></a>第三步：页面中加入video标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">	<span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">”my_video_1″</span> <span class="attr">class</span>=<span class="string">”video-js</span> <span class="attr">vjs-default-skin</span>” </span></div><div class="line">	<span class="attr">controls</span> <span class="attr">preload</span>=<span class="string">”auto”</span> <span class="attr">width</span>=<span class="string">”640″</span> <span class="attr">height</span>=<span class="string">”264″</span> <span class="attr">poster</span>=<span class="string">”my_video_poster.png”</span> <span class="attr">data-setup</span>=<span class="string">”&#123;&#125;”</span>&gt;</div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”my_video.mp4″</span> <span class="attr">type</span>=<span class="string">’video/mp4′</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">”my_video.webm”</span> <span class="attr">type</span>=<span class="string">’video/webm’</span>&gt;</span></div><div class="line">	//以下两个样式可以选择性的在页面中添加</div><div class="line">	<span class="tag">&lt;<span class="name">track</span> <span class="attr">kind</span>=<span class="string">"captions"</span> <span class="attr">src</span>=<span class="string">"demo.captions.vtt"</span> <span class="attr">srclang</span>=<span class="string">"en"</span> <span class="attr">label</span>=<span class="string">"English"</span>&gt;</span><span class="tag">&lt;/<span class="name">track</span>&gt;</span><span class="comment">&lt;!-- Tracks need an ending tag thanks to IE9 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">track</span> <span class="attr">kind</span>=<span class="string">"subtitles"</span> <span class="attr">src</span>=<span class="string">"demo.captions.vtt"</span> <span class="attr">srclang</span>=<span class="string">"en"</span> <span class="attr">label</span>=<span class="string">"English"</span>&gt;</span><span class="tag">&lt;/<span class="name">track</span>&gt;</span><span class="comment">&lt;!-- Tracks need an ending tag thanks to IE9 --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>poster中放的是视频的缩略图；</li>
+<li>在页面加载中，video会判断浏览器支持哪个格式视频，会自动加载可播放的视频。<ul>
+<li>第一个source 放的是指向mp4视频，</li>
+<li>第二个指向的是webm视频。<h3 id="修改样式"><a href="#修改样式" class="headerlink" title="修改样式"></a>修改样式</h3>默认情况下，大的播放按钮放在了左上角的，这样就不会覆盖视频内容。如果你想让这个播放按钮居中，你可以给你的 video 标签添加额外的 vjs-big-play-centered 样式，比如：<br><code>class=&quot;video-js vjs-default-skin vjs-big-play-centered&quot;</code>;<br>如果你还对播放按钮样式不满意可重新定义<code>.video-js .vjs-big-play-button{/*这里的样式重写*/}</code>。<h3 id="视频自动播放"><a href="#视频自动播放" class="headerlink" title="视频自动播放"></a>视频自动播放</h3>设置自动播放，将下面的代码加到html中的代码后面<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> myPlayer = videojs(<span class="string">'example_video_1'</span>);</div><div class="line">    videojs(<span class="string">"example_video_1"</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> myPlayer = <span class="keyword">this</span>;</div><div class="line">        myPlayer.play();</div><div class="line">    &#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/25/form表单及非空验证 （CSS+JS）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/25/form表单及非空验证 （CSS+JS）/" itemprop="url">
+                  form表单常见样式整理(包括非空验证的JS)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T11:34:04+08:00">
+                2017-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在前端工作中，form表单是很常用的样式，通常情况下我们也需要对其进行非空验证和一些常用的基本验证，比如邮箱，手机等。虽然h5的新特性中已经提供了部分API，但是由于需求不同，我们对表单的样式、写作方式也会不同，现对form表单进行整理如下：</p>
+<p>表单样式整体如下：</p>
+<p><img src="../img/form-example.png" width="600" height="300" alt=""></p>
+<p>布局分析：    </p>
+<pre><code>+ 整个布局分为3部分，提交不一定写成表单，可以由div组成。
+</code></pre><p>代码结构<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bd_4"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"bd_1"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--下拉框区域开始--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">label</span>&gt;</span>所需服务<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"type"</span> <span class="attr">id</span>=<span class="string">"type"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>--请选择--<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"all"</span>&gt;</span>服务咨询<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">				#for(Map serverType : map.serverTypes)</div><div class="line">				<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"$&#123;serverType.code&#125;"</span> $&#123;<span class="attr">map.type</span> ? (<span class="attr">map.type.toInt</span> == <span class="string">serverType.code.toInt</span> ? '<span class="attr">selected</span>' <span class="attr">:</span> '') <span class="attr">:</span> ''&#125;&gt;</span>$&#123;serverType.name&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">				#end</div><div class="line">				<span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"other"</span>&gt;</span>其他服务<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--下拉框区域结束--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">"width: 506px;height: 40px;"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"type_self_lable"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>&gt;</span>其他服务<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"type_self"</span> <span class="attr">id</span>=<span class="string">"type_self"</span> <span class="attr">style</span>=<span class="string">"display: none"</span> <span class="attr">maxlength</span>=<span class="string">100</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--日期选框，使用的是WdatePicker插件--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">label</span>&gt;</span>预约日期<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"time"</span> <span class="attr">id</span>=<span class="string">"time"</span> <span class="attr">onfocus</span>=<span class="string">"WdatePicker(&#123;dateFmt:'yyyy-MM-dd HH:mm',minDate:'%y-%M-%d %H:%m',disabledDays:[0,6]&#125;)"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">label</span>&gt;</span>联系人<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"contact"</span> <span class="attr">id</span>=<span class="string">"contact"</span> <span class="attr">maxlength</span>=<span class="string">20/</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">label</span> <span class="attr">style</span>=<span class="string">"line-height:20px;"</span>&gt;</span>公司团队名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">id</span>=<span class="string">"name"</span> <span class="attr">maxlength</span>=<span class="string">100</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">label</span>&gt;</span>手机号<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"mob"</span> <span class="attr">id</span>=<span class="string">"mob"</span> <span class="attr">value</span>=<span class="string">""</span>  <span class="attr">maxlength</span>=<span class="string">11/</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">label</span>&gt;</span>职务<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"job"</span> <span class="attr">id</span>=<span class="string">"job"</span> <span class="attr">maxlength</span>=<span class="string">20/</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">label</span>&gt;</span>邮箱<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">id</span>=<span class="string">"email"</span> <span class="attr">maxlength</span>=<span class="string">30/</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--所处行业，多选框--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"bd_2"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"bd_2l"</span>&gt;</span>所处行业<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"bd_2r"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"chkbox"</span> <span class="attr">for</span>=<span class="string">"Map hy : map.hys"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hy"</span> <span class="attr">id</span>=<span class="string">"hy_$&#123;hy.ID&#125;"</span> <span class="attr">value</span>=<span class="string">"$&#123;hy.ID&#125;"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"left"</span> <span class="attr">onclick</span>=<span class="string">"$('#hy_$&#123;hy.ID&#125;').click();"</span> <span class="attr">style</span>=<span class="string">"cursor: pointer;width: 160px;display: block;"</span> <span class="attr">title</span>=<span class="string">"$&#123;hy.value&#125;"</span>&gt;</span>$&#123;hy.value&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--提交--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"bd_5"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0)"</span> <span class="attr">onclick</span>=<span class="string">"$('form').submit();"</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"qx"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:window.close();"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>样式代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div></pre></td><td class="code"><pre><div class="line">	<span class="selector-class">.bd_4</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">1020px</span>;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.bd_4</span> <span class="selector-class">.bd_1</span> <span class="selector-tag">li</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">506px</span>;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">padding-top</span>: <span class="number">30px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.bd_4</span> <span class="selector-class">.bd_1</span> <span class="selector-tag">li</span> <span class="selector-tag">label</span> &#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#666</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">text-align</span>: right;</div><div class="line">	<span class="attribute">width</span>: <span class="number">78px</span>;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">padding-left</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.bd_4</span> <span class="selector-class">.bd_1</span> <span class="selector-tag">li</span> <span class="selector-tag">input</span> &#123;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span> <span class="number">20px</span> <span class="number">0</span> <span class="number">20px</span>;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">width</span>: <span class="number">324px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#d9d9d9</span>;</div><div class="line">	<span class="attribute">padding-left</span>: <span class="number">20px</span>;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#999</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.bd_4</span> <span class="selector-class">.bd_1</span> <span class="selector-tag">li</span> <span class="selector-tag">select</span> &#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#666</span>;</div><div class="line">	<span class="attribute">text-align</span>: center;</div><div class="line">	<span class="attribute">width</span>: <span class="number">344px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#d9d9d9</span>;</div><div class="line">	<span class="attribute">margin-left</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.main</span> <span class="selector-class">.bd_2</span> &#123;</div><div class="line">	<span class="attribute">clear</span>: both;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.main</span> <span class="selector-class">.bd_2</span> <span class="selector-class">.bd_2l</span> &#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#666</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">padding-right</span>: <span class="number">18px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">116px</span>;</div><div class="line">	<span class="attribute">text-align</span>: right;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">padding-top</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.main</span> <span class="selector-class">.bd_2</span> <span class="selector-class">.bd_2r</span> &#123;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">padding-top</span>: <span class="number">20px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">800px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.main</span> <span class="selector-class">.bd_2</span> <span class="selector-class">.bd_2r</span>	 <span class="selector-class">.chkbox</span> &#123;</div><div class="line">	<span class="attribute">margin-top</span>: <span class="number">10px</span>;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">	<span class="attribute">width</span>: <span class="number">120px</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">	<span class="attribute">display</span>: inline-block;</div><div class="line">	<span class="attribute">margin-bottom</span>: <span class="number">5px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">23px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.main</span> <span class="selector-class">.bd_2</span> <span class="selector-class">.bd_2r</span>	<span class="selector-class">.chkbox</span> <span class="selector-tag">span</span> &#123;</div><div class="line">	<span class="attribute">margin-left</span>: <span class="number">25px</span>;</div><div class="line">	<span class="attribute">margin-top</span>: <span class="number">3px</span>;</div><div class="line">	<span class="attribute">display</span>: inline;</div><div class="line">	<span class="attribute">height</span>: <span class="number">22px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#666</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">80px</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">	<span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">	<span class="attribute">white-space</span>: nowrap;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.main</span> <span class="selector-class">.bd_2</span> <span class="selector-class">.bd_2r</span>	<span class="selector-class">.chkbox</span> <span class="selector-tag">input</span><span class="selector-attr">[type="checkbox"]</span> &#123;</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">left</span>: <span class="number">6px</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">6px</span>;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">100</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.main</span> <span class="selector-class">.bd_2</span> <span class="selector-class">.bd_2r</span>	<span class="selector-class">.chkbox</span> <span class="selector-tag">input</span><span class="selector-attr">[type="checkbox"]</span><span class="selector-pseudo">:checked+label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.main</span> <span class="selector-class">.bd_2</span> <span class="selector-class">.bd_2r</span>	 <span class="selector-class">.chkbox</span> <span class="selector-tag">label</span><span class="selector-pseudo">::after</span> &#123;</div><div class="line">	<span class="attribute">border-color</span>: -moz-use-text-color -moz-use-text-color <span class="number">#272636</span> <span class="number">#272636</span>;</div><div class="line">	<span class="attribute">border-image</span>: none;</div><div class="line">	<span class="attribute">border-style</span>: none none solid solid;</div><div class="line">	<span class="attribute">border-width</span>: medium medium <span class="number">2px</span> <span class="number">2px</span>;</div><div class="line">	<span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">6px</span>;</div><div class="line">	<span class="attribute">left</span>: <span class="number">3px</span>;</div><div class="line">	<span class="attribute">opacity</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">	<span class="attribute">transform</span>: <span class="built_in">rotate</span>(-45deg);</div><div class="line">	<span class="attribute">width</span>: <span class="number">13px</span>;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">1%</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.main</span> <span class="selector-class">.bd_2</span> <span class="selector-class">.bd_2r</span>	<span class="selector-class">.chkbox</span> <span class="selector-tag">label</span> &#123;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">rgba</span>(255, 255, 255, 1) none repeat scroll <span class="number">0</span> <span class="number">0</span>;</div><div class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#dbdbdb</span>;</div><div class="line">	<span class="attribute">cursor</span>: pointer;</div><div class="line">	<span class="attribute">height</span>: <span class="number">14px</span>;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">left</span>: <span class="number">4px</span>;</div><div class="line">	<span class="attribute">top</span>: <span class="number">5px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">14px</span>;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">1%</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.bd_5</span> &#123;</div><div class="line">	<span class="attribute">clear</span>: both;</div><div class="line">	<span class="attribute">width</span>: <span class="number">340px</span>;</div><div class="line">	<span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">	<span class="attribute">padding-top</span>: <span class="number">80px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.bd_5</span> <span class="selector-tag">li</span> &#123;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">36px</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">132px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#2a95e5</span>;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">36px</span>;</div><div class="line">	<span class="attribute">text-align</span>: center;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">18px</span>;</div><div class="line">	<span class="attribute">margin-right</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.bd_5</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span> &#123;</div><div class="line">	<span class="attribute">display</span>: block;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">18px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.bd_5</span> <span class="selector-class">.qx</span> &#123;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#e9e9e9</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.bd_5</span> <span class="selector-class">.qx</span> <span class="selector-tag">a</span> &#123;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#666</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.baoming</span> &#123;</div><div class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">	<span class="attribute">min-width</span>: <span class="number">1200px</span>;</div><div class="line">	<span class="attribute">background-color</span>: <span class="built_in">rgba</span>(0, 0, 0, 0.5);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.baoming</span> <span class="selector-tag">span</span> &#123;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">width</span>: <span class="number">370px</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">	<span class="attribute">display</span>: block;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">	<span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">	<span class="attribute">white-space</span>: nowrap;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.baoming</span> <span class="selector-tag">h1</span> &#123;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding</span>: <span class="number">15px</span> <span class="number">50px</span>;</div><div class="line">	<span class="attribute">word-wrap</span>: break-word;</div><div class="line">	<span class="attribute">word-break</span>: break-all;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.baoming</span> <span class="selector-tag">h1</span> <span class="selector-tag">a</span> &#123;</div><div class="line">	<span class="attribute">float</span>: right;</div><div class="line">	<span class="attribute">margin-right</span>: <span class="number">10px</span>;</div><div class="line">	<span class="attribute">margin-top</span>: <span class="number">10px</span>;</div><div class="line">	<span class="attribute">display</span>: inline-block;</div><div class="line">	<span class="attribute">margin-left</span>: <span class="number">20px</span>;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">18px</span>;</div><div class="line">	<span class="attribute">font-weight</span>: normal;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">92px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">32px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#00a8ff</span>;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">3px</span>;</div><div class="line">	<span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.baoming_a</span> &#123;</div><div class="line">	<span class="attribute">float</span>: right;</div><div class="line">	<span class="attribute">margin-right</span>: <span class="number">10px</span>;</div><div class="line">	<span class="attribute">display</span>: inline-block;</div><div class="line">	<span class="attribute">margin-left</span>: <span class="number">20px</span>;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">18px</span>;</div><div class="line">	<span class="attribute">font-weight</span>: normal;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">92px</span>;</div><div class="line">	<span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">32px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="number">#00a8ff</span>;</div><div class="line">	<span class="attribute">border-radius</span>: <span class="number">3px</span>;</div><div class="line">	<span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.baoming</span> <span class="selector-tag">ul</span> &#123;</div><div class="line">	<span class="attribute">height</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.baoming</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> &#123;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.baoming</span> <span class="selector-tag">ul</span> <span class="selector-class">.bm_1</span> &#123;</div><div class="line">	<span class="attribute">margin-left</span>: <span class="number">50px</span>;</div><div class="line">	<span class="attribute">padding-left</span>: <span class="number">20px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(../images/pic1.png) no-repeat left;</div><div class="line">	<span class="attribute">margin-right</span>: <span class="number">20px</span>;</div><div class="line">	<span class="attribute">max-width</span>: <span class="number">550px</span>;</div><div class="line">	<span class="attribute">overflow</span>: hidden;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">text-overflow</span>: ellipsis;</div><div class="line">	<span class="attribute">white-space</span>: nowrap;</div><div class="line">	<span class="attribute">padding-left</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.baoming</span> <span class="selector-tag">ul</span> <span class="selector-class">.bm_2</span> &#123;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">40px</span>;</div><div class="line">	<span class="attribute">padding-left</span>: <span class="number">25px</span>;</div><div class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(../images/pic2.png) no-repeat left;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对文本框中输入值的判断：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//判断当前值是否为空</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkIsBlank</span>(<span class="params">id, err</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> val = $(<span class="string">"#"</span>+id).val();</div><div class="line">		<span class="keyword">if</span>( val == <span class="literal">null</span> || val == <span class="string">""</span> )&#123;				</div><div class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">	&#125;</div><div class="line"><span class="comment">//表单提交时对文本框中的内容进行判断</span></div><div class="line">$(<span class="string">"form"</span>).submit(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="comment">//验证所需服务</span></div><div class="line">	<span class="keyword">if</span>(checkIsBlank(<span class="string">"type"</span>) == <span class="literal">false</span>)&#123;</div><div class="line">		top.msgAlert(<span class="string">"错误"</span>, <span class="string">"请选择需要预约的服务！"</span>, <span class="string">"error"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			$(<span class="string">"#type"</span>).focus();</div><div class="line">		&#125;, <span class="literal">null</span>, <span class="literal">null</span>);</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//验证其他服务</span></div><div class="line">	<span class="keyword">if</span>(($(<span class="string">"#type"</span>).val() == <span class="string">"other"</span>) &amp;&amp; (checkIsBlank(<span class="string">"type_self"</span>) == <span class="literal">false</span>) )&#123;</div><div class="line">		top.msgAlert(<span class="string">"错误"</span>, <span class="string">"请填写其它服务内容！"</span>, <span class="string">"error"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			$(<span class="string">"#type_self"</span>).focus();</div><div class="line">		&#125;, <span class="literal">null</span>, <span class="literal">null</span>);</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//验证时间是否正确</span></div><div class="line">	<span class="keyword">if</span>(checkIsBlank(<span class="string">"time"</span>) == <span class="literal">false</span>)&#123;</div><div class="line">		top.msgAlert(<span class="string">"错误"</span>, <span class="string">"请选择预约日期！"</span>, <span class="string">"error"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			$(<span class="string">"#time"</span>).focus();</div><div class="line">		&#125;, <span class="literal">null</span>, <span class="literal">null</span>);</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(checkIsBlank(<span class="string">"contact"</span>) == <span class="literal">false</span>)&#123;</div><div class="line">		top.msgAlert(<span class="string">"错误"</span>, <span class="string">"请填写联系人！"</span>, <span class="string">"error"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			$(<span class="string">"#contact"</span>).focus();</div><div class="line">		&#125;, <span class="literal">null</span>, <span class="literal">null</span>);</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(checkIsBlank(<span class="string">"name"</span>) == <span class="literal">false</span>)&#123;</div><div class="line">	top.msgAlert(<span class="string">"错误"</span>, <span class="string">"请填写公司团队名称！"</span>, <span class="string">"error"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">		$(<span class="string">"#name"</span>).focus();</div><div class="line">	&#125;, <span class="literal">null</span>, <span class="literal">null</span>);</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//电话号码的正则判断</span></div><div class="line">	<span class="keyword">var</span> mobileREG = <span class="regexp">/^1&#123;1&#125;\d&#123;10&#125;$/</span>;</div><div class="line">	<span class="keyword">var</span> mobile = $(<span class="string">"#mob"</span>).val();</div><div class="line">	<span class="keyword">if</span> (mobile == <span class="literal">null</span> || mobile == <span class="string">''</span> || !mobileREG.test(mobile)) &#123;</div><div class="line">		top.msgAlert(<span class="string">"错误"</span>, <span class="string">"请填写正确的手机号！"</span>, <span class="string">"error"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			$(<span class="string">"#mob"</span>).focus();</div><div class="line">		&#125;, <span class="literal">null</span>, <span class="literal">null</span>);</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(checkIsBlank(<span class="string">"job"</span>) == <span class="literal">false</span>)&#123;</div><div class="line">		top.msgAlert(<span class="string">"错误"</span>, <span class="string">"请填写职务名称！"</span>, <span class="string">"error"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			$(<span class="string">"#job"</span>).focus();</div><div class="line">		&#125;, <span class="literal">null</span>, <span class="literal">null</span>);</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//邮箱的正则判断</span></div><div class="line">	<span class="keyword">if</span> (<span class="regexp">/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/</span>.test($(<span class="string">"#email"</span>).val()) == <span class="literal">false</span>) &#123;</div><div class="line">		top.msgAlert(<span class="string">"错误"</span>, <span class="string">"请填写正确的邮箱！"</span>, <span class="string">"error"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			$(<span class="string">"#email"</span>).focus();</div><div class="line">		&#125;, <span class="literal">null</span>, <span class="literal">null</span>);</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">var</span> chk_value =[];    </div><div class="line">	 $(<span class="string">'input[name="hy"]:checked'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;    </div><div class="line">		 chk_value.push($(<span class="keyword">this</span>).val());    </div><div class="line">	 &#125;);    </div><div class="line">	 </div><div class="line">	<span class="keyword">if</span>(chk_value.length==<span class="number">0</span>)&#123;</div><div class="line">	 top.msgAlert(<span class="string">"错误"</span>, <span class="string">"请选择您所处的行业！"</span>, <span class="string">"error"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	&#125;, <span class="literal">null</span>, <span class="literal">null</span>);</div><div class="line">		<span class="keyword">return</span> <span class="literal">false</span>; </div><div class="line">	 &#125;   </div><div class="line">	 <span class="comment">//表单提交</span></div><div class="line">	$.post(<span class="string">"index.jsp?m=client&amp;c=bespeak&amp;a=save"</span>, $(<span class="string">"form"</span>).serializeArray(), <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</div><div class="line">		top.msgAlert(result.success ? <span class="string">"消息"</span> : <span class="string">"错误"</span>, result.msg, result.success ? <span class="string">"ok"</span> : <span class="string">"error"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="keyword">if</span>(result.success)&#123;</div><div class="line">				top.window.location = <span class="string">"index.jsp?m=client&amp;c=index&amp;a=ucenter&amp;page=6"</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;, <span class="literal">null</span>, <span class="literal">null</span>);</div><div class="line">	&#125;, <span class="string">"json"</span>);</div><div class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/24/$.post()使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -730,312 +1039,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/sublime快捷键/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/16/sublime快捷键/" itemprop="url">
-                  Sublime快捷键总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T14:35:04+08:00">
-                2017-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/sublime/" itemprop="url" rel="index">
-                    <span itemprop="name">sublime</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="sublime-快捷键"><a href="#sublime-快捷键" class="headerlink" title="sublime 快捷键"></a>sublime 快捷键</h1><ul>
-<li><code>command + shift + o</code> 直接在浏览器中打开预览</li>
-<li>在编辑Markdown文件时，<code>command+ alt + o</code>可边编辑边预览</li>
-<li><code>alt+command+1</code>窗口显示1屏</li>
-<li><code>alt+command+2</code>窗口显示2屏</li>
-<li><code>shift+command+d</code>复制一行</li>
-<li><code>command+L</code>选定一行，可连续选定多行</li>
-<li><code>alt+command+插入点</code>可同时对多个插入点进行编辑</li>
-<li><code>command+enter</code>可直接另起一行进行编辑</li>
-<li><code>command+delete</code>可删除当前插入点前面的所有内容；连续按两次，可以删除整行内容</li>
-<li><code>command+k</code>连续点击两次，可删除当前插入点后面的所有内容</li>
-<li><code>command+f</code>查找</li>
-<li><code>command+shift+f</code>查找替换</li>
-<li><code>command+r</code>是调用方法</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/Mac修改本地hosts文件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/16/Mac修改本地hosts文件/" itemprop="url">
-                  Mac修改本地hosts文件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T14:35:04+08:00">
-                2017-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
-
-<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
-<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
-<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
-<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1085,7 +1088,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1107,7 +1110,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
