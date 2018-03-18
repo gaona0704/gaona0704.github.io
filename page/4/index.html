@@ -272,6 +272,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/24/$.post()使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/24/$.post()使用/" itemprop="url">
+                  Ajax请求
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T10:27:04+08:00">
+                2017-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本文主要对 $.post()的使用进行介绍，$.get()的使用与其类似。<br>我们在使用$.ajax()发送请求时，可以发送 GET请求和POST请求<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">     url:"page.php",</div><div class="line">     type:"post",</div><div class="line">     data:data,</div><div class="line">     dataType:"json",</div><div class="line">     success:function(data)&#123;&#125;,</div><div class="line">     error:function()&#123;&#125;</div><div class="line">&#125;)</div><div class="line">$.ajax(&#123;</div><div class="line">     url:"page.php?name='lisi'",</div><div class="line">     type:"get",</div><div class="line">     dataType:"json",</div><div class="line">     success:function(data)&#123;&#125;,</div><div class="line">     error:function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>而 $.get()和 $.post()是 $.ajax()的简洁写法。<br>$.post(url, [data] , [callback] , [type] );</p>
+<h4 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h4><ul>
+<li>url: 发送请求的URL地址；</li>
+<li>data: 可选，要发送给服务器的数据，以键值对的形式表示；</li>
+<li>callback：可选，载入成功时回调函数(当response的返回状态是success时才调用该方法)</li>
+<li>type: 客户端请求的类型(JSON，XML，HTML，text等等)；<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.post(<span class="string">"action.php"</span>,&#123;<span class="attr">email</span>:$(<span class="string">'#email'</span>).val(),<span class="attr">address</span>:$(<span class="string">'#address'</span>).val()&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">   	$(<span class="string">'#msg'</span>).html(data);  </div><div class="line">&#125;)</div></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/24/复选框选中，closest()用法以及e.target()/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -589,163 +739,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/sublime快捷键/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/16/sublime快捷键/" itemprop="url">
-                  Sublime快捷键总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T14:35:04+08:00">
-                2017-05-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/sublime/" itemprop="url" rel="index">
-                    <span itemprop="name">sublime</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="sublime-快捷键"><a href="#sublime-快捷键" class="headerlink" title="sublime 快捷键"></a>sublime 快捷键</h1><ul>
-<li><code>command + shift + o</code> 直接在浏览器中打开预览</li>
-<li>在编辑Markdown文件时，<code>command+ alt + o</code>可边编辑边预览</li>
-<li><code>alt+command+1</code>窗口显示1屏</li>
-<li><code>alt+command+2</code>窗口显示2屏</li>
-<li><code>shift+command+d</code>复制一行</li>
-<li><code>command+L</code>选定一行，可连续选定多行</li>
-<li><code>alt+command+插入点</code>可同时对多个插入点进行编辑</li>
-<li><code>command+enter</code>可直接另起一行进行编辑</li>
-<li><code>command+delete</code>可删除当前插入点前面的所有内容；连续按两次，可以删除整行内容</li>
-<li><code>command+k</code>连续点击两次，可删除当前插入点后面的所有内容</li>
-<li><code>command+f</code>查找</li>
-<li><code>command+shift+f</code>查找替换</li>
-<li><code>command+r</code>是调用方法</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/Mac修改本地hosts文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -895,7 +888,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/Angular项目中实现图片懒加载/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/sublime快捷键/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Amy Gao">
@@ -917,8 +910,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/22/Angular项目中实现图片懒加载/" itemprop="url">
-                  Angular项目中实现图片懒加载
+                <a class="post-title-link" href="/2017/05/16/sublime快捷键/" itemprop="url">
+                  Sublime快捷键总结
                 </a>
               
             
@@ -934,8 +927,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T00:39:04+08:00">
-                2017-03-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T14:35:04+08:00">
+                2017-05-16
               </time>
             
 
@@ -957,8 +950,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular</span>
+                  <a href="/categories/sublime/" itemprop="url" rel="index">
+                    <span itemprop="name">sublime</span>
                   </a>
                 </span>
 
@@ -994,37 +987,20 @@
       
         
           
-            <ul>
-<li>这两天一直纠结angular的图片懒加载插件中无法自拔。在使用过程深深感到js学艺不精的痛苦，想修改源码又不会修改，只能尽力压榨如何使用插件上。这里主要谈谈在使用插件的过程遇到的一些问题。</li>
-</ul>
-<h2 id="问题1：图片加载一排之后不再加载"><a href="#问题1：图片加载一排之后不再加载" class="headerlink" title="问题1：图片加载一排之后不再加载"></a>问题1：图片加载一排之后不再加载</h2><ul>
-<li><p>使用angular-imglazyload这个插件，主要是因为这个插件小，并且不依赖jQuery库，整合到项目上运行，竟然发现只有第一排加载了，滚动后都没有响应。下面是我的代码部分：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-repeat</span>=<span class="string">"Digest in Digest_cont track by $index"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-ui-lazyload</span>=<span class="string">"&#123;&#123;Digest.val&#125;&#125;"</span> <span class="attr">onerror</span>=<span class="string">"this.src='img/default@2x_300X300.png'"</span>  <span class="attr">nf-if</span>=<span class="string">"Digest.type=='img'"</span>  <span class="attr">alt</span>=<span class="string">""</span> &gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-if</span>=<span class="string">"Digest.type=='txt'"</span>&gt;</span>&#123;&#123; ::Digest.val &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>然后我在CSS定义了loading图片，加载中先看到的是加载过程中的图片</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span><span class="selector-attr">[data-ui-lazyload]</span>&#123;</div><div class="line">     <span class="attribute">background</span>:<span class="built_in">url</span>(../img/icons/liading.gif) no-repeat center center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>一开始也不知道是什么情况，就将循环图片的html代码一层层的往上排查，经过反复查找发现是 图片的某个祖先元素设置了定位：<code>position:absolute</code>，这就导致了图片的div脱离了文档流，而imglazyload插件又是根据Windows监听滚动事件的。</p>
-</li>
-<li>解决方案：这里的解决办法就是把定位改为 <code>relative</code>就可以了。<h2 id="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"><a href="#问题2：loading图片不出现，出现的一直是onerror定义的默认图片" class="headerlink" title="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"></a>问题2：loading图片不出现，出现的一直是onerror定义的默认图片</h2></li>
-<li>在加载过程中，不知道为什么，图片一直显示的是onerror定义的默认图片，而不是图片加载之后的图片。但是确实是得到了图片的src路径；经过排查发现，问题的主要原因是img的 <code>src=&#39;&#39;</code>属性导致的。在页面的渲染过程中，浏览器是默认查找不到图片的src路径的，只有在请求发送成功，得到返回数据之后，才能进行渲染。</li>
-<li>解决方案： 直接将 img 标签中的 src 属性删除，然后等图片加载成功之后动态添加即可。</li>
-<li>​</li>
-</ul>
-<h1 id="问题3：使用jQuery插件时this无法使用"><a href="#问题3：使用jQuery插件时this无法使用" class="headerlink" title="问题3：使用jQuery插件时this无法使用"></a>问题3：使用jQuery插件时this无法使用</h1><ul>
-<li><p>要想在angular中使用jQuery插件，需要使用自定义指令（Directive）方式加载jQuery插件，但是发现this在jQuery中是无法调用的。</p>
-</li>
-<li><p>在angular中引入jQuery</p>
-<ul>
-<li>首先需要创建一个指令，采用@input方式，初始化jQuery插件；</li>
-<li>在ngOnChanges时，也就是参数通过@input传入时，初始化jQuery插件</li>
-<li>初始化jQuery插件需要获取dom元素，所以我们引入ElementRef，用来获取dom 元素。</li>
-</ul>
-</li>
-<li><p>问题出现了：jQuery中回调函数，如果直接使用this，回调是无法获取angular的函数的，所以这里采用 bind的形式，把this传递进去，河阳angular中的函数才会被正确的调用。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ngOnChange()&#123;</div><div class="line">  $(<span class="keyword">this</span>._elementRef.nativeElement).daterangepicker(<span class="keyword">this</span>.dateRangePickerOptions,<span class="keyword">this</span>.dateCallback.bind(<span class="keyword">this</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
+            <h1 id="sublime-快捷键"><a href="#sublime-快捷键" class="headerlink" title="sublime 快捷键"></a>sublime 快捷键</h1><ul>
+<li><code>command + shift + o</code> 直接在浏览器中打开预览</li>
+<li>在编辑Markdown文件时，<code>command+ alt + o</code>可边编辑边预览</li>
+<li><code>alt+command+1</code>窗口显示1屏</li>
+<li><code>alt+command+2</code>窗口显示2屏</li>
+<li><code>shift+command+d</code>复制一行</li>
+<li><code>command+L</code>选定一行，可连续选定多行</li>
+<li><code>alt+command+插入点</code>可同时对多个插入点进行编辑</li>
+<li><code>command+enter</code>可直接另起一行进行编辑</li>
+<li><code>command+delete</code>可删除当前插入点前面的所有内容；连续按两次，可以删除整行内容</li>
+<li><code>command+k</code>连续点击两次，可删除当前插入点后面的所有内容</li>
+<li><code>command+f</code>查找</li>
+<li><code>command+shift+f</code>查找替换</li>
+<li><code>command+r</code>是调用方法</li>
 </ul>
 
           
@@ -1109,7 +1085,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

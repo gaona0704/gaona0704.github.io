@@ -272,6 +272,180 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/Angular项目中实现图片懒加载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/22/Angular项目中实现图片懒加载/" itemprop="url">
+                  Angular项目中实现图片懒加载
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T00:39:04+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Angular/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>这两天一直纠结angular的图片懒加载插件中无法自拔。在使用过程深深感到js学艺不精的痛苦，想修改源码又不会修改，只能尽力压榨如何使用插件上。这里主要谈谈在使用插件的过程遇到的一些问题。</li>
+</ul>
+<h2 id="问题1：图片加载一排之后不再加载"><a href="#问题1：图片加载一排之后不再加载" class="headerlink" title="问题1：图片加载一排之后不再加载"></a>问题1：图片加载一排之后不再加载</h2><ul>
+<li><p>使用angular-imglazyload这个插件，主要是因为这个插件小，并且不依赖jQuery库，整合到项目上运行，竟然发现只有第一排加载了，滚动后都没有响应。下面是我的代码部分：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-repeat</span>=<span class="string">"Digest in Digest_cont track by $index"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-ui-lazyload</span>=<span class="string">"&#123;&#123;Digest.val&#125;&#125;"</span> <span class="attr">onerror</span>=<span class="string">"this.src='img/default@2x_300X300.png'"</span>  <span class="attr">nf-if</span>=<span class="string">"Digest.type=='img'"</span>  <span class="attr">alt</span>=<span class="string">""</span> &gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-if</span>=<span class="string">"Digest.type=='txt'"</span>&gt;</span>&#123;&#123; ::Digest.val &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>然后我在CSS定义了loading图片，加载中先看到的是加载过程中的图片</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span><span class="selector-attr">[data-ui-lazyload]</span>&#123;</div><div class="line">     <span class="attribute">background</span>:<span class="built_in">url</span>(../img/icons/liading.gif) no-repeat center center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>一开始也不知道是什么情况，就将循环图片的html代码一层层的往上排查，经过反复查找发现是 图片的某个祖先元素设置了定位：<code>position:absolute</code>，这就导致了图片的div脱离了文档流，而imglazyload插件又是根据Windows监听滚动事件的。</p>
+</li>
+<li>解决方案：这里的解决办法就是把定位改为 <code>relative</code>就可以了。<h2 id="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"><a href="#问题2：loading图片不出现，出现的一直是onerror定义的默认图片" class="headerlink" title="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"></a>问题2：loading图片不出现，出现的一直是onerror定义的默认图片</h2></li>
+<li>在加载过程中，不知道为什么，图片一直显示的是onerror定义的默认图片，而不是图片加载之后的图片。但是确实是得到了图片的src路径；经过排查发现，问题的主要原因是img的 <code>src=&#39;&#39;</code>属性导致的。在页面的渲染过程中，浏览器是默认查找不到图片的src路径的，只有在请求发送成功，得到返回数据之后，才能进行渲染。</li>
+<li>解决方案： 直接将 img 标签中的 src 属性删除，然后等图片加载成功之后动态添加即可。</li>
+<li>​</li>
+</ul>
+<h1 id="问题3：使用jQuery插件时this无法使用"><a href="#问题3：使用jQuery插件时this无法使用" class="headerlink" title="问题3：使用jQuery插件时this无法使用"></a>问题3：使用jQuery插件时this无法使用</h1><ul>
+<li><p>要想在angular中使用jQuery插件，需要使用自定义指令（Directive）方式加载jQuery插件，但是发现this在jQuery中是无法调用的。</p>
+</li>
+<li><p>在angular中引入jQuery</p>
+<ul>
+<li>首先需要创建一个指令，采用@input方式，初始化jQuery插件；</li>
+<li>在ngOnChanges时，也就是参数通过@input传入时，初始化jQuery插件</li>
+<li>初始化jQuery插件需要获取dom元素，所以我们引入ElementRef，用来获取dom 元素。</li>
+</ul>
+</li>
+<li><p>问题出现了：jQuery中回调函数，如果直接使用this，回调是无法获取angular的函数的，所以这里采用 bind的形式，把this传递进去，河阳angular中的函数才会被正确的调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ngOnChange()&#123;</div><div class="line">  $(<span class="keyword">this</span>._elementRef.nativeElement).daterangepicker(<span class="keyword">this</span>.dateRangePickerOptions,<span class="keyword">this</span>.dateCallback.bind(<span class="keyword">this</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/18/sessionID 和 cookie/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1097,209 +1271,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/08/cookie 和 session 的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/08/cookie 和 session 的使用/" itemprop="url">
-                  Cookie 和 Session 的使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-08T12:39:04+08:00">
-                2017-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cookie-session/" itemprop="url" rel="index">
-                    <span itemprop="name">cookie-session</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="cookie-和-session-的使用"><a href="#cookie-和-session-的使用" class="headerlink" title="cookie 和 session 的使用"></a>cookie 和 session 的使用</h1><h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><ol>
-<li>Cookie通过在客户端记录信息确定用户身份，Session通过在服务器端记录信息确定用户身份</li>
-<li>当 客户端第一次请求服务端时，会创建一个Session对象，所有该客户的状态信息都保存在这个Session对象里。服务端会创建一个sessionID，并将其保存在cookie中在cookie中名为sessionID:值；当再次发送请求时，服务器会先检查req中是否有sessionID，并为其分配对应 的内容；</li>
-<li>cookie可以通过ＪＳ写入，有大小，和安全性等问题，但是方便，通过设置可以在多路径中进行访问。</li>
-<li><p>例如购物车的demo，信息就可以存储在cookie中；用户名，密码等信息可以存在session中，返回的sessionid存储在cookie中，配合使用；</p>
-</li>
-<li><p>cookie进行状态管理。http是无状态管理</p>
-</li>
-<li>sessionStorage 在同源的同窗口始终存在数据。窗口关闭，数据销毁；  </li>
-<li>url重写可以解决用户禁用cookie的情况下依然可以保持客户端和服务端的通信状态(这个是后台写的)</li>
-<li><code>document.cookie</code>可以访问cookie;</li>
-<li>cookie的格式:键值对;</li>
-<li>多个cookie之间使用分号和空格隔开;例如:<code>username=zhangsan; age=12</code>;</li>
-<li><code>document.cookie = &#39;username=zhangsan&#39;</code>在浏览器中是有缓存的,关闭浏览区可以清除;<h3 id="cookie的分类"><a href="#cookie的分类" class="headerlink" title="cookie的分类"></a>cookie的分类</h3></li>
-<li>会话cookie(session cookie ):关闭浏览器之后自动清除,但是可以增加其有效期,以下例子增加了5天的有效期。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">date.setDate(date.getDate()+<span class="number">5</span>); </div><div class="line"><span class="built_in">document</span>.cookie=<span class="string">"username=lisi; expires="</span>+date.toGMTString();</div></pre></td></tr></table></figure>
-<ol>
-<li>持久cookie(persistant cookie ): 关闭浏览器,仍然存在。</li>
-<li>在子路径设置的cookie,在父路径下是获取不到的;反过来可以。不可以跨域获取cookie,但是可以跨页面共享;</li>
-<li><p>可以用jquery-cookie插件应用;</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//设置cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">key,value,expires</span>) </span>&#123;</div><div class="line">         <span class="built_in">document</span>.cookie = key +<span class="string">'='</span>+value+<span class="string">';expires='</span>+expires+<span class="string">"; path=/"</span>;</div><div class="line">     &#125;</div><div class="line"><span class="comment">//获得cookie</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>) </span>&#123;</div><div class="line">     <span class="keyword">var</span> cookie = <span class="built_in">document</span>.cookie;</div><div class="line">     <span class="keyword">var</span> arr = cookie.split(<span class="string">'; '</span>);</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</div><div class="line">         <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">         <span class="keyword">if</span>(cname == kv[<span class="number">0</span>])&#123;</div><div class="line">             <span class="keyword">return</span> kv[<span class="number">1</span>];</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>encodeURLComponent</code>该方法会对url地址中的特殊字符进行编码(当参数中包含URL特殊字符的时候可以使用该方法进行编码处理);</p>
-</li>
-<li>获取sessionID<br><code>console.log($.cookie(&#39;PHPSESSID&#39;))</code>;<h3 id="cookie-使用"><a href="#cookie-使用" class="headerlink" title="$.cookie()使用"></a>$.cookie()使用</h3></li>
-<li>新添加一个cookie会话;<code>$.cookie(&#39;username&#39;,&#39;zhangsan&#39;)</code>;</li>
-<li>创建cookie并设置有效期为7天;<code>$.cookie(&#39;age&#39;,&#39;18&#39;,{expires:7})</code>;此时的cookie称作持久cookie,即<code>persistant cookie</code>;</li>
-<li>创建cookie并设置cookie的有效路径<code>$.cookie(&#39;username&#39;,&#39;lisi&#39;,{expires:7,path:&#39;/&#39;})</code>;<ul>
-<li>在默认情况下,只有cookie的页面才能读取该cookie信息,如果想让另一个页面读取该cookie信息,必须设置cookie的路径;cookie的路径用于设置能够读取cookie的顶级目录,即根目录,可以让当前项目下所有的网页都能相互读取cookie,</li>
-</ul>
-</li>
-<li><code>raw:true</code>;在读写cookie时自动使用<code>encodeURLComponen</code>进行编码和解码;</li>
-<li>删除cookie可以使用null作为cookie的值就可以<code>$.cookie(&#39;username&#39;,null)</code><h3 id="session-和-cookie之间的区别"><a href="#session-和-cookie之间的区别" class="headerlink" title="session 和 cookie之间的区别"></a>session 和 cookie之间的区别</h3></li>
-</ol>
-<ul>
-<li>共同点： 数据都是保存在浏览器端，且是同源的</li>
-<li>区别：<ol>
-<li>cookie 通过在客户端记录信息确定用户身份， 数据始终在同源的 http 请求中携带，即cookie在浏览器和服务器之间来回传递；</li>
-<li>session 通过在服务器端记录信息确定用户身份；</li>
-<li>cookie 数据还有路径(path)的概念，可以限制 cookie 只在某个另下访问。因为每次 http 请求都会携带 cookie，所以cookie 只适合保存很小的数据。</li>
-<li>http 协议是无状态协议。是无法从连接上跟踪会话的；</li>
-<li>第一次发送请求，res 会向客户端浏览器颁发一个 cookie， 客户端吧 cookie 存取来，再次访问的时候会一同提交给 服务器</li>
-<li>SessionStorage 存在于服务端的内存中；</li>
-</ol>
-</li>
-</ul>
-<h3 id="cookie-和session"><a href="#cookie-和session" class="headerlink" title="cookie 和session"></a>cookie 和session</h3><h3 id="LocalStorage-和-sessionStorage"><a href="#LocalStorage-和-sessionStorage" class="headerlink" title="LocalStorage 和 sessionStorage"></a>LocalStorage 和 sessionStorage</h3><pre><code>+ LocalStorage 对应的是 持久 Cookie
-+ sessionStorage 对应的是 会话 Cookie
-+ Cookie 是用来做状态保持的
-    - Cookie 的数据，浏览器会默认把 cookie 放到 请求报文中发送给服务器
-+ LocalStorage 和 sessionStorage 是用来 做本地存储的，没有 Http 协议交互内容；
-</code></pre><h3 id="location的内置属性"><a href="#location的内置属性" class="headerlink" title="location的内置属性"></a>location的内置属性</h3><ul>
-<li>页面跳转<code>location.href=&#39;/index/index.html&#39;</code><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ancestorOrigins:DOMStringList,</div><div class="line">assign:()</div><div class="line">hash:""</div><div class="line">host:"mybxg.com"</div><div class="line">hostname:"mybxg.com"</div><div class="line">href:"http://mybxg.com/index/index"</div><div class="line">origin:"http://mybxg.com"</div><div class="line">pathname:"/index/index"</div><div class="line">port:""</div><div class="line">protocol:"http:"</div><div class="line">reload:reload()</div><div class="line">replace:()</div><div class="line">search:""</div><div class="line">toString:toString()</div><div class="line">valueOf:valueOf()</div><div class="line">__proto__:Location</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><ul>
-<li>静态资源服务器</li>
-<li>项目管理软件: JIRA 禅道(跟踪工程进度更新,项目管理软件)</li>
-<li>jQuery中的return false既可以阻止默认行为也可以阻止冒泡;但是原生JS中的return false 只能阻止默认行为;</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1349,7 +1320,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

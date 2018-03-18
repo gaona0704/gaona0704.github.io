@@ -272,6 +272,158 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/24/配置Nginx反向代理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/24/配置Nginx反向代理/" itemprop="url">
+                  配置Nginx反向代理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T10:24:04+08:00">
+                2017-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">Nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="配置Nginx反向代理"><a href="#配置Nginx反向代理" class="headerlink" title="配置Nginx反向代理"></a>配置Nginx反向代理</h1><h2 id="安装brew"><a href="#安装brew" class="headerlink" title="安装brew"></a>安装brew</h2><p> <code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></p>
+<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><p><code>brew install nginx</code></p>
+<h2 id="启动Nginx"><a href="#启动Nginx" class="headerlink" title="启动Nginx"></a>启动Nginx</h2><p><code>brew services start nginx</code></p>
+<p>进入浏览器，打开localhost:8000 有欢迎页面表示安装成功</p>
+<h2 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h2><p>1: 增加一个server</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen       <span class="number">8081</span>;</div><div class="line">        </div><div class="line">        server_name  localhost;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            proxy_pass http:<span class="comment">//ceshi.cyhkt.com:8081/crminnoway;</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>2: 重启Nginx</p>
+<p><code>sudo nginx -s reload</code></p>
+<h2 id="退出Nginx"><a href="#退出Nginx" class="headerlink" title="退出Nginx"></a>退出Nginx</h2><p>快速停止命令  <code>sudo nginx -s stop</code></p>
+<p>平稳退出命令：<code>sudo nginx -s quit</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/Vue中引用jQuery和jQuery插件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1001,154 +1153,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/25/ES6 语法中的总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/25/ES6 语法中的总结/" itemprop="url">
-                  ES6 语法中array.entries的使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T12:39:04+08:00">
-                2017-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/es6/" itemprop="url" rel="index">
-                    <span itemprop="name">es6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="es6-语法中array-entries"><a href="#es6-语法中array-entries" class="headerlink" title="es6 语法中array.entries"></a>es6 语法中array.entries</h1><h3 id="array-entries-的使用"><a href="#array-entries-的使用" class="headerlink" title="array.entries()的使用"></a>array.entries()的使用</h3><ul>
-<li>背景<ul>
-<li>一个数组Array中有7个对象，获取到一个数据，想要在原数组中删除这个数据。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过使用array.entries()对数组进行复制，返回一个新的Array Iterator对象，该对象中包含数组中每个索引的键/值对。</span></div><div class="line"><span class="keyword">let</span> arr = [&#123;<span class="attr">id</span>:<span class="number">0</span>,<span class="attr">name</span>:<span class="string">"a"</span>&#125;,&#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">"b"</span>&#125;,&#123;<span class="attr">id</span>:<span class="number">3</span>,<span class="attr">name</span>:<span class="string">"c"</span>&#125;];</div><div class="line"><span class="keyword">let</span> index;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">const</span>[i,v] <span class="keyword">of</span> arr.entries())&#123;</div><div class="line">     <span class="comment">//此时的i对应的是 0，1，1，数组的索引值</span></div><div class="line">     <span class="comment">//v 对应的是每一个item;</span></div><div class="line">     <span class="comment">//这里假设获取到了一组数据  data=&#123;id:1,name:"b"&#125;,想要删除arr中的额这组数据</span></div><div class="line">     <span class="keyword">if</span>(v.id === data.id &amp;&amp; v.name === data.name)&#123;</div><div class="line">       index = i;</div><div class="line">       <span class="keyword">break</span>;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line">arr.splice(index,<span class="number">1</span>); <span class="comment">//这样就删除了&#123;id:1,name:"b"&#125;这组数据</span></div></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1198,7 +1202,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

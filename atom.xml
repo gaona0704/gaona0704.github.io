@@ -111,6 +111,54 @@
   </entry>
   
   <entry>
+    <title>ES6 Fetch请求</title>
+    <link href="http://yoursite.com/2018/01/25/ES6%20fetch%E8%AF%B7%E6%B1%82/"/>
+    <id>http://yoursite.com/2018/01/25/ES6 fetch请求/</id>
+    <published>2018-01-24T16:00:00.000Z</published>
+    <updated>2018-03-18T11:06:43.587Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-一般的fetch用法"><a href="#1-一般的fetch用法" class="headerlink" title="1 一般的fetch用法"></a>1 一般的fetch用法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fetch(url,option).then(<span class="function"><span class="params">response</span>=&gt;</span>&#123;</div><div class="line">  <span class="comment">//handle HTTP response</span></div><div class="line">&#125;).then(<span class="function"><span class="params">error</span>=&gt;</span>&#123;</div><div class="line">  <span class="comment">//handle HTTP error</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>具体的例子如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">fetch(url, &#123; <span class="comment">//option</span></div><div class="line">  method: <span class="string">"POST"</span>,</div><div class="line">  <span class="attr">body</span>: <span class="built_in">JSON</span>.stringify(data),</div><div class="line">  <span class="attr">headers</span>: &#123;</div><div class="line">    <span class="string">"Content-Type"</span>: <span class="string">"application/json"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">credentials</span>: <span class="string">"same-origin"</span></div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</div><div class="line">  response.status     <span class="comment">//=&gt; number 100–599</span></div><div class="line">  response.statusText <span class="comment">//=&gt; String</span></div><div class="line">  response.headers    <span class="comment">//=&gt; Headers</span></div><div class="line">  response.url        <span class="comment">//=&gt; String</span></div><div class="line">  <span class="keyword">return</span> response.text()</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">  error.message <span class="comment">//=&gt; String</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="2-参数解析"><a href="#2-参数解析" class="headerlink" title="2 参数解析"></a>2 参数解析</h2><h3 id="url-地址-‘-path’"><a href="#url-地址-‘-path’" class="headerlink" title="url 地址: ‘./path’"></a>url 地址: <code>‘./path’</code></h3><h3 id="option"><a href="#option" class="headerlink" title="option :"></a>option :</h3><ul>
+<li>method (String) - HTTP request method. Default: <code>&quot;GET&quot;</code></li>
+<li>body (String, body types) - HTTP request body</li>
+<li>headers (Object, Headers) - Default: <code>{}</code></li>
+<li><code>credentials</code> (String) - Authentication credentials mode. Default: <code>&quot;omit&quot;``&quot;omit&quot;</code> - don’t include authentication credentials (e.g. cookies) in the request <code>&quot;same-origin&quot;</code> - include credentials in requests to the same site <code>&quot;include&quot;</code> - include credentials in requests to all sites<h3 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h3>Response represents a HTTP response from the server. Typically a Response is not constructed manually, but is available as argument to the resolved promise callback.</li>
+</ul>
+<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><ul>
+<li><code>status</code> (number) - HTTP response code in the 100–599 range</li>
+<li><code>statusText</code> (String) - Status text as reported by the server, e.g. “Unauthorized”</li>
+<li><code>ok</code> (boolean) - True if status is HTTP 2xx</li>
+<li>headers (Headers)</li>
+<li><p>url (String)</p>
+<h3 id="Body-methods-注意每个方法返回的都是一个Promise对象"><a href="#Body-methods-注意每个方法返回的都是一个Promise对象" class="headerlink" title="Body methods 注意每个方法返回的都是一个Promise对象,"></a>Body methods 注意每个方法返回的都是一个Promise对象,</h3><p>Each of the methods to access the response body returns a Promise that will be resolved when the associated data type is ready.</p>
+</li>
+<li><p><code>text()</code> - yields the response text as String</p>
+</li>
+<li><code>json()</code> - yields the result of JSON.parse(responseText)</li>
+<li><code>blob()</code> - yields a Blob</li>
+<li><code>arrayBuffer()</code> - yields an ArrayBuffer</li>
+<li><code>ormData()</code> - yields FormData that can be forwarded to another request</li>
+</ul>
+<h3 id="Other-response-methods"><a href="#Other-response-methods" class="headerlink" title="Other response methods"></a>Other response methods</h3><ul>
+<li><code>clone()</code></li>
+<li><code>Response.error()</code></li>
+<li><code>esponse.redirect()</code></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-一般的fetch用法&quot;&gt;&lt;a href=&quot;#1-一般的fetch用法&quot; class=&quot;headerlink&quot; title=&quot;1 一般的fetch用法&quot;&gt;&lt;/a&gt;1 一般的fetch用法&lt;/h2&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;tab
+    
+    </summary>
+    
+      <category term="ES6" scheme="http://yoursite.com/categories/ES6/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Vue 中父子组件方法调用</title>
     <link href="http://yoursite.com/2017/09/12/vue%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2017/09/12/vue使用总结/</id>
@@ -483,7 +531,7 @@
     <link href="http://yoursite.com/2017/06/25/ES6%20%E8%AF%AD%E6%B3%95%E4%B8%AD%E7%9A%84%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2017/06/25/ES6 语法中的总结/</id>
     <published>2017-06-25T04:39:04.000Z</published>
-    <updated>2018-03-18T10:59:31.102Z</updated>
+    <updated>2018-03-18T11:06:30.672Z</updated>
     
     <content type="html"><![CDATA[<h1 id="es6-语法中array-entries"><a href="#es6-语法中array-entries" class="headerlink" title="es6 语法中array.entries"></a>es6 语法中array.entries</h1><h3 id="array-entries-的使用"><a href="#array-entries-的使用" class="headerlink" title="array.entries()的使用"></a>array.entries()的使用</h3><ul>
 <li>背景<ul>
@@ -499,7 +547,7 @@
     
     </summary>
     
-      <category term="es6" scheme="http://yoursite.com/categories/es6/"/>
+      <category term="ES6" scheme="http://yoursite.com/categories/ES6/"/>
     
     
       <category term="array" scheme="http://yoursite.com/tags/array/"/>
@@ -749,6 +797,35 @@
   </entry>
   
   <entry>
+    <title>Mac修改本地hosts文件</title>
+    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
+    <published>2017-05-16T06:35:04.000Z</published>
+    <updated>2018-03-14T07:21:49.135Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
+
+<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
+<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
+<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
+<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
+    
+    
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Sublime快捷键总结</title>
     <link href="http://yoursite.com/2017/05/16/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>http://yoursite.com/2017/05/16/sublime快捷键/</id>
@@ -783,96 +860,6 @@
     
     
       <category term="sublime" scheme="http://yoursite.com/tags/sublime/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac修改本地hosts文件</title>
-    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
-    <published>2017-05-16T06:35:04.000Z</published>
-    <updated>2018-03-14T07:21:49.135Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
-
-<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
-<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
-<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
-<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
-    
-    </summary>
-    
-      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
-    
-    
-      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Angular项目中实现图片懒加载</title>
-    <link href="http://yoursite.com/2017/03/22/Angular%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/"/>
-    <id>http://yoursite.com/2017/03/22/Angular项目中实现图片懒加载/</id>
-    <published>2017-03-21T16:39:04.000Z</published>
-    <updated>2018-03-14T11:10:25.703Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>这两天一直纠结angular的图片懒加载插件中无法自拔。在使用过程深深感到js学艺不精的痛苦，想修改源码又不会修改，只能尽力压榨如何使用插件上。这里主要谈谈在使用插件的过程遇到的一些问题。</li>
-</ul>
-<h2 id="问题1：图片加载一排之后不再加载"><a href="#问题1：图片加载一排之后不再加载" class="headerlink" title="问题1：图片加载一排之后不再加载"></a>问题1：图片加载一排之后不再加载</h2><ul>
-<li><p>使用angular-imglazyload这个插件，主要是因为这个插件小，并且不依赖jQuery库，整合到项目上运行，竟然发现只有第一排加载了，滚动后都没有响应。下面是我的代码部分：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-repeat</span>=<span class="string">"Digest in Digest_cont track by $index"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">data-ui-lazyload</span>=<span class="string">"&#123;&#123;Digest.val&#125;&#125;"</span> <span class="attr">onerror</span>=<span class="string">"this.src='img/default@2x_300X300.png'"</span>  <span class="attr">nf-if</span>=<span class="string">"Digest.type=='img'"</span>  <span class="attr">alt</span>=<span class="string">""</span> &gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-if</span>=<span class="string">"Digest.type=='txt'"</span>&gt;</span>&#123;&#123; ::Digest.val &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>然后我在CSS定义了loading图片，加载中先看到的是加载过程中的图片</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span><span class="selector-attr">[data-ui-lazyload]</span>&#123;</div><div class="line">     <span class="attribute">background</span>:<span class="built_in">url</span>(../img/icons/liading.gif) no-repeat center center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>一开始也不知道是什么情况，就将循环图片的html代码一层层的往上排查，经过反复查找发现是 图片的某个祖先元素设置了定位：<code>position:absolute</code>，这就导致了图片的div脱离了文档流，而imglazyload插件又是根据Windows监听滚动事件的。</p>
-</li>
-<li>解决方案：这里的解决办法就是把定位改为 <code>relative</code>就可以了。<h2 id="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"><a href="#问题2：loading图片不出现，出现的一直是onerror定义的默认图片" class="headerlink" title="问题2：loading图片不出现，出现的一直是onerror定义的默认图片"></a>问题2：loading图片不出现，出现的一直是onerror定义的默认图片</h2></li>
-<li>在加载过程中，不知道为什么，图片一直显示的是onerror定义的默认图片，而不是图片加载之后的图片。但是确实是得到了图片的src路径；经过排查发现，问题的主要原因是img的 <code>src=&#39;&#39;</code>属性导致的。在页面的渲染过程中，浏览器是默认查找不到图片的src路径的，只有在请求发送成功，得到返回数据之后，才能进行渲染。</li>
-<li>解决方案： 直接将 img 标签中的 src 属性删除，然后等图片加载成功之后动态添加即可。</li>
-<li>​</li>
-</ul>
-<h1 id="问题3：使用jQuery插件时this无法使用"><a href="#问题3：使用jQuery插件时this无法使用" class="headerlink" title="问题3：使用jQuery插件时this无法使用"></a>问题3：使用jQuery插件时this无法使用</h1><ul>
-<li><p>要想在angular中使用jQuery插件，需要使用自定义指令（Directive）方式加载jQuery插件，但是发现this在jQuery中是无法调用的。</p>
-</li>
-<li><p>在angular中引入jQuery</p>
-<ul>
-<li>首先需要创建一个指令，采用@input方式，初始化jQuery插件；</li>
-<li>在ngOnChanges时，也就是参数通过@input传入时，初始化jQuery插件</li>
-<li>初始化jQuery插件需要获取dom元素，所以我们引入ElementRef，用来获取dom 元素。</li>
-</ul>
-</li>
-<li><p>问题出现了：jQuery中回调函数，如果直接使用this，回调是无法获取angular的函数的，所以这里采用 bind的形式，把this传递进去，河阳angular中的函数才会被正确的调用。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ngOnChange()&#123;</div><div class="line">  $(<span class="keyword">this</span>._elementRef.nativeElement).daterangepicker(<span class="keyword">this</span>.dateRangePickerOptions,<span class="keyword">this</span>.dateCallback.bind(<span class="keyword">this</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;这两天一直纠结angular的图片懒加载插件中无法自拔。在使用过程深深感到js学艺不精的痛苦，想修改源码又不会修改，只能尽力压榨如何使用插件上。这里主要谈谈在使用插件的过程遇到的一些问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;问题1：图片加载一排之后不再加载&quot;
-    
-    </summary>
-    
-      <category term="Angular" scheme="http://yoursite.com/categories/Angular/"/>
-    
-    
-      <category term="img" scheme="http://yoursite.com/tags/img/"/>
-    
-      <category term="lazyLoad" scheme="http://yoursite.com/tags/lazyLoad/"/>
-    
-      <category term="angular" scheme="http://yoursite.com/tags/angular/"/>
     
   </entry>
   
