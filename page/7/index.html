@@ -272,6 +272,232 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/19/同步操作与异步操作的异同/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/19/同步操作与异步操作的异同/" itemprop="url">
+                  同步操作与异步操作的异同
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-19T12:39:04+08:00">
+                2017-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Knowledge/" itemprop="url" rel="index">
+                    <span itemprop="name">Knowledge</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ol>
+<li>Node命令本质上是一个 应用程序；</li>
+<li>Node的核心模块<ul>
+<li>文件读写 fs</li>
+<li>构建Http服务 http</li>
+</ul>
+</li>
+<li>第三方模块<ul>
+<li>npm install 第三方模块名称</li>
+<li>使用require 函数加载</li>
+<li>看文档使用  </li>
+<li>moment 格式化事件moment(time).format(‘YYYY-MM-DD HH:mm:ss’)</li>
+</ul>
+</li>
+<li>在Node中使用art-template 模块引擎；</li>
+<li>浏览器默认不支持JavaScript模块化，只能通过script标签去加载模块以及他们之间的依赖；</li>
+<li>node天生支持模块化<ul>
+<li>模块与模块之间提供可特定的通信交互规则<ul>
+<li>module.exports  相当于return</li>
+<li>require 相当于requireJS中的额 define[依赖项]，function（依赖项）；</li>
+<li>exports</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>一个JS文件就是一个模块化；</li>
+<li>一个模块化就是私有作用域（没有全局作用域的概念）； </li>
+</ul>
+<ol>
+<li>将编码之后的中文解码： decodeURI(URL) ；将中文转换成code编码格式：encodeURI(URL);</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">encodeURI</span>(<span class="string">'中国'</span>)</div><div class="line">---&gt; <span class="string">"%E4%B8%AD%E5%9B%BD"</span></div><div class="line"><span class="built_in">decodeURI</span>(<span class="string">'%E4%B8%AD%E5%9B%BD'</span>)</div><div class="line">===&gt; <span class="string">"中国"</span></div></pre></td></tr></table></figure>
+<ol>
+<li><code>data = JSON.stringify(data,null,&quot;  &quot;)</code>将对象格式的文件转换成字符串格式，第三个参数为<code>“  ”</code>，中间是两个空格，表示向后台提交数据的时候，仍然保持两个空格的缩进；</li>
+<li>没有文件的 POST 提交，还是会把数据格式化成为查询字符串的格式，也就是相当于（get参数）的方式进行提交；有文件上传的是form Data的格式提交</li>
+</ol>
+<h2 id="同步操作与异步操作的异同"><a href="#同步操作与异步操作的异同" class="headerlink" title="同步操作与异步操作的异同"></a>同步操作与异步操作的异同</h2><ol>
+<li>异步API</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">111</span>);</div><div class="line">fs.readfile(<span class="string">'./data/a.txt'</span>),<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">222</span>);</div><div class="line">&#125;</div><div class="line">fs.readfile(<span class="string">'./data/a.txt'</span>),<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">444</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">consle.log(<span class="number">333</span>);</div><div class="line"><span class="comment">//输出的结果是：</span></div><div class="line"><span class="comment">//111;333; 222和444的顺序的不一定的；</span></div><div class="line"><span class="comment">//222和444是异步进行的，无法保证其先后顺序；</span></div></pre></td></tr></table></figure>
+<ol>
+<li>同步API fs.readFileSync(‘./data/a.txt’)<ul>
+<li>var dataA = fs.readFileSync(‘./data/a.txt’).toString();默认读取到的是二进制数据；</li>
+<li>同步ＡＰＩ是按照先后顺序执行的； </li>
+</ul>
+</li>
+<li>关于文件中的同步和异步，优先使用异步操作<ul>
+<li>异步操作都是通过一个回调函数来获取异步操作结果，第一个参数是err;<ul>
+<li>有限判断err是否出错</li>
+<li>操作成功，err就是null；</li>
+<li>操作失败，err 就是错误对象</li>
+<li>在异步操作中，无法使用try-catch捕获异常；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">    <span class="comment">//异步读取不能使用try catch 捕获异常</span></div><div class="line"> <span class="keyword">try</span>&#123;</div><div class="line">    fs.readFile(<span class="string">'./0-hello word.js'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">err,data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">    <span class="comment">//得到的data是undefined；因为错误，读取不到信息</span></div><div class="line">    &#125;);</div><div class="line">&#125;<span class="keyword">catch</span> (e)&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'失败'</span>)</div><div class="line">&#125;</div><div class="line"><span class="comment">//同步读取可以使用 try-catch捕获异常</span></div></pre></td></tr></table></figure>
+<ul>
+<li>同步操作直接使用变量去接收操作结果； </li>
+</ul>
+<h2 id="封装异步API"><a href="#封装异步API" class="headerlink" title="封装异步API"></a>封装异步API</h2><ul>
+<li>通过callback去拿结果</li>
+<li>如果自定义异步API中有异常错误，继续使用callback向外抛出</li>
+</ul>
+<h3 id="使用nodemon-实现改完代码服务自动重启"><a href="#使用nodemon-实现改完代码服务自动重启" class="headerlink" title="使用nodemon 实现改完代码服务自动重启"></a>使用nodemon 实现改完代码服务自动重启</h3><ul>
+<li>npm install –g nodemon</li>
+<li>使用<ul>
+<li>nodemon.app.js </li>
+</ul>
+</li>
+</ul>
+<h1 id="Web中的路径"><a href="#Web中的路径" class="headerlink" title="Web中的路径"></a>Web中的路径</h1><ul>
+<li>url本质上只是一个标识而已，所以看到的文件名不一定是真实的文件名</li>
+<li>绝大多数情况下，需要开发人员自定义标识<ul>
+<li>为了好看，路由更简单</li>
+<li>为了更加灵活的控制</li>
+<li>URL路径以<code>“/”</code>开头，是绝对路径</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link href=<span class="string">"/assets/css/main.css"</span>&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/ Angular项目基本构建模块/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1021,226 +1247,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/10/Angular入门/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/10/Angular入门/" itemprop="url">
-                  Angular入门
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-10T12:39:04+08:00">
-                2016-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="angular入门"><a href="#angular入门" class="headerlink" title="angular入门"></a>angular入门</h1><h2 id="angular简介"><a href="#angular简介" class="headerlink" title="angular简介"></a>angular简介</h2><ul>
-<li>angular是一个框架，诸多类库的集合，以数据和逻辑为核心；</li>
-</ul>
-<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><ul>
-<li>modal-view-controller 模型-视图-控制器</li>
-<li>模型：服务端专门处理后台传入的数据；一般指操作数据库</li>
-<li>控制器：将服务端处理好的数据传给前端； 连接模型和视图的桥梁；</li>
-<li>视图：将内容、数据呈现给；HTML展示</li>
-<li>使用mvc框架，会更高效，易于管理和高效</li>
-</ul>
-<h2 id="AngularJS应用"><a href="#AngularJS应用" class="headerlink" title="AngularJS应用"></a>AngularJS应用</h2><ul>
-<li>在任意DOM元素上使用一个属性 ng-app,就可以定义一个AngularJS的应用；</li>
-<li>ng-app属性所有的DOM元素所包含的所有子元素都属于应用的一部分；</li>
-<li>引用了angular框架下，会引入一个全局对象，angular；</li>
-<li>在此对象下有若干对象，其中angular.module()可以实例化一个对象；</li>
-<li><code>angular.module(&#39;App&#39;,[])</code>两个参数：<ul>
-<li>1：模块化名称</li>
-<li>2：依赖;[]暂时不依赖任何对象</li>
-</ul>
-</li>
-<li>控制器<code>App.controller()</code>两个参数<ul>
-<li>1：名称</li>
-<li>2：依赖;<ul>
-<li>关于依赖，依赖的数组里，最后一个单元必须是一个函数 </li>
-<li><code>App.controller(&#39;DemoCtrl&#39;,[’$scope‘,function($scope){}])</code></li>
-</ul>
-</li>
-<li>$scope 就是我们所需要的 M；</li>
-</ul>
-</li>
-</ul>
-<h3 id="angular的内置指令"><a href="#angular的内置指令" class="headerlink" title="angular的内置指令"></a>angular的内置指令</h3><ul>
-<li>ng-show 是通过 display：none 和 display：block来决定显示和隐藏的</li>
-<li>ng-if 如果ng-if=’false’,那么在HTML中就没有了这个DOM节点了；</li>
-<li>ng-class 值得类型可以是对象，并且此对象的属性是真是存在的类样式，属性值决定了此属性是否应用，true为应用，false不应用 <code>ng-class={box:true,red:true}</code>为应用box这个类样式</li>
-<li><code>ng-include = “&#39;aside.html&#39;”</code>;需要将aside.html用’’包裹起来的；<ul>
-<li>浏览器端 JS不能够读取本地文件，因为浏览器JS是运行在客户端的，出于安全考虑，是不允许读取用户磁盘文件的； </li>
-<li>ng-include是通过ajax发出请求，得到数据的；</li>
-</ul>
-</li>
-<li>表单禁用 <code>disabled</code>,只要属性存在，不管是什么值，都表示禁用<ul>
-<li><code>input type=&#39;text&#39; disabled 或者disabled=&#39;&#39;true/false</code> ；只要存在都是禁用</li>
-<li>在angular中，<code>ng-disabled = &#39;true&#39;表单禁用</code>；<code>ng-disabled = &#39;false&#39;表单应用</code></li>
-</ul>
-</li>
-<li>无值属性:都可以进行设置属性值；<ul>
-<li>ng-disabled</li>
-<li>ng-readonly</li>
-<li>ng-checked</li>
-<li>ng-selected </li>
-</ul>
-</li>
-<li>ng-src 和 ng-href ;如果在HTML中直接写src=《path》，虽然在解析完成后地址会加载，但是会先报错；</li>
-</ul>
-<h3 id="Angular自定义指令"><a href="#Angular自定义指令" class="headerlink" title="Angular自定义指令"></a>Angular自定义指令</h3><ul>
-<li>angular是一个模块实例</li>
-<li>.controller()来定义一个模块</li>
-<li>.directive()来自定义属性；</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;p cls&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div><div class="line"><span class="comment">//自定义指令结构</span></div><div class="line">App.directive(<span class="string">'cls'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//return 回来是一个对象或者是函数，通常情况下都是对象</span></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="comment">//E : element DOM元素</span></div><div class="line">        <span class="comment">//C: class</span></div><div class="line">        <span class="comment">//M: mark:注释</span></div><div class="line">        <span class="comment">//A:attribute 属性</span></div><div class="line">        restrict:<span class="string">"A"</span>,</div><div class="line">        <span class="attr">replace</span>:<span class="string">"true"</span>,<span class="comment">//模板中的标签会将HTML中的标签进行替换</span></div><div class="line">        template:<span class="string">"&lt;h1&gt;这是通过自定义指令添加的内容&lt;/h1&gt;"</span>，</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="AngualrJS-双向数据绑定"><a href="#AngualrJS-双向数据绑定" class="headerlink" title="AngualrJS 双向数据绑定"></a>AngualrJS 双向数据绑定</h3><ul>
-<li>通过表单元素添加 ng-model 属性；</li>
-<li>ng-bind</li>
-<li><p>花括号(使用《》代替)</p>
-<ul>
-<li>《》是ng-bind的简写</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;input type=<span class="string">"text"</span> ng-model=<span class="string">'name'</span>&gt;<span class="comment">//input可以直接获取module中的$scope.name的值</span></div><div class="line">&lt;h1 ng-bind=<span class="string">'name'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></div><div class="line">&lt;h2&gt;《name》&lt;<span class="regexp">/h2&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>只有表单元素才可以从视图向模型传送数据</p>
-</li>
-</ul>
-<h3 id="AngularJS数据处理"><a href="#AngularJS数据处理" class="headerlink" title="AngularJS数据处理"></a>AngularJS数据处理</h3><ul>
-<li><code>ng-switch = &quot;item&quot;</code> === <code>ng-switch on = &quot;item&quot;</code></li>
-<li>闪烁问题处理，可以添加 ng-cloak指令 <code>&lt;h1 ng-cloak&gt;《name》&lt;/h1&gt;</code>;</li>
-<li>angular 的遍历</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;li ng-repeat='item in lists'&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</div><div class="line">//或者是</div><div class="line">&lt;li ng-repeat='item in lists'&gt;</div><div class="line">    &lt;span ng-bind='item'&gt;&lt;/span&gt;</div><div class="line">&lt;/li&gt;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1290,7 +1296,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1301,7 +1307,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1312,7 +1318,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
