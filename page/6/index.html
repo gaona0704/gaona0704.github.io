@@ -272,6 +272,573 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/14/Gulp基本使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/14/Gulp基本使用/" itemprop="url">
+                  Gulp基本使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-14T12:39:04+08:00">
+                2017-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Gulp/" itemprop="url" rel="index">
+                    <span itemprop="name">Gulp</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Gulp的基本使用"><a href="#Gulp的基本使用" class="headerlink" title="Gulp的基本使用"></a>Gulp的基本使用</h1><h2 id="数据双向绑定"><a href="#数据双向绑定" class="headerlink" title="数据双向绑定"></a>数据双向绑定</h2><ul>
+<li>则在该ngCtl的作用域内的HTML标签, 其值或者操作都可以通过$scope的方式跟js中的属性和方法进行绑定. </li>
+</ul>
+<h2 id="脏值检测"><a href="#脏值检测" class="headerlink" title="脏值检测"></a>脏值检测</h2><ul>
+<li>当数值发生变化时，触发了一个事件，去调用这个脏值检测的函数；</li>
+<li>路径与目录的关系；</li>
+</ul>
+<h2 id="php中数据格式的转换"><a href="#php中数据格式的转换" class="headerlink" title="php中数据格式的转换"></a>php中数据格式的转换</h2><ul>
+<li>在PHP中，将数组以json对象的格式进行输出， json_encode(array);</li>
+<li>在PHP中，将对象形式的数据转换成数组， json_decode(obj,true);<ul>
+<li>注意参数为true时，才会转换成数组；</li>
+</ul>
+</li>
+<li>PHP中如果需要同时输出两组数据，可以将这个对象格式的数据转换成数组，然后</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> header(<span class="string">'Content-Type:application/json'</span>);</div><div class="line">  $recUrl = <span class="string">'https://moment.douban.com/api/auth_authors/rec?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line"> $allUrl = <span class="string">'https://moment.douban.com/api/auth_authors/all?alt=json&amp;apikey=0bcf52793711959c236df76ba534c0d4&amp;app_version=1.7.4&amp;count=20&amp;douban_udid=d623045db9fcb0d5243174c1bf1a675f887047c0&amp;start=0&amp;udid=9a34d8b038ff38971050199b0c5ee9c60c6d1ca3&amp;version=6'</span>;</div><div class="line">$recResult = file_get_contents($recUrl); <span class="comment">//&#123;&#125;</span></div><div class="line">$allResult = file_get_contents($allResult);  <span class="comment">//  &#123;&#125;</span></div><div class="line"></div><div class="line"> <span class="comment">//先将json 数据转换成PHP数组</span></div><div class="line"> <span class="comment">//然后再讲PHP数组处理成二维数组,再转成json</span></div><div class="line"> $recResult = json_decode($recResult,<span class="literal">true</span>);<span class="comment">//参数为true的话,才转换成一个数组;</span></div><div class="line"> $allResult = json_decode($allResult);</div><div class="line"></div><div class="line"> $result = array(<span class="string">'rec'</span> =&gt; $recResult,<span class="string">'all'</span> =&gt; $allResult);</div><div class="line"> <span class="comment">//最后将这个数组格式的数据转换成json进行输出；</span></div><div class="line"> echo json_encode($result);</div></pre></td></tr></table></figure>
+<h2 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h2><h3 id="Gulp-构建工具"><a href="#Gulp-构建工具" class="headerlink" title="Gulp 构建工具"></a>Gulp 构建工具</h3><ul>
+<li><p>常见的构建工具： Gulp Grunt F.I.S  webpack;</p>
+</li>
+<li><p>gulp jianshi//调用监视任务</p>
+</li>
+<li>gulp init 回车之后会生成一个 package.json的文件，主要是说明文件的一些基本信息，说明书；</li>
+<li>npm install gulp –save-dev项目依赖；直接在package.json中添加依赖信息；</li>
+<li>autoprefixer()自动添加css私有前缀</li>
+<li><p>注释：build:js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;-- build:js scripts/all.js--&gt;</div><div class="line"><span class="comment">//会自动创建scripts文件夹，并将里面的script进行合并</span></div><div class="line">    &lt;script src=‘’&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">‘’</span>&gt;</span><span class="xml"></span></span></div><div class="line"><span class="tag">&lt;<span class="name">--endbuild--</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>gulp 一次执行多个任务</p>
+<ul>
+<li>gulp.task(‘default’,[‘a’,’b’,’c’]);</li>
+<li>命令行：gulp default;</li>
+</ul>
+</li>
+</ul>
+<h3 id="缓存问题的解决–参考浏览器-协商缓存；雅虎13条"><a href="#缓存问题的解决–参考浏览器-协商缓存；雅虎13条" class="headerlink" title="缓存问题的解决–参考浏览器 协商缓存；雅虎13条"></a>缓存问题的解决–参考浏览器 协商缓存；雅虎13条</h3><ul>
+<li>浏览器是以请求地址作为缓存条件的，只要是地址没变，浏览器就是会用缓存，地址变了，就会重新请求；</li>
+<li>内容更改的时候地址更新；可以使用md5加密；（md5是一种加密方式，加密的内容不变，加密后的信息是一致的，）–md5在线加密；</li>
+<li><code>md5加密</code>这种方式叫做指纹加密</li>
+<li>gulp有一个插件 rev</li>
+</ul>
+<h2 id="Gulp-基本使用案例"><a href="#Gulp-基本使用案例" class="headerlink" title="Gulp 基本使用案例"></a>Gulp 基本使用案例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</div><div class="line"></div><div class="line">    less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>),</div><div class="line"></div><div class="line">    cssmin = <span class="built_in">require</span>(<span class="string">'gulp-cssmin'</span>),</div><div class="line"></div><div class="line">    autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>),</div><div class="line"></div><div class="line">    rev = <span class="built_in">require</span>(<span class="string">'gulp-rev'</span>),</div><div class="line"></div><div class="line">    rename = <span class="built_in">require</span>(<span class="string">'gulp-rename'</span>),</div><div class="line"></div><div class="line">    imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>),</div><div class="line"></div><div class="line">    useref = <span class="built_in">require</span>(<span class="string">'gulp-useref'</span>),</div><div class="line"></div><div class="line">    uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>),</div><div class="line"></div><div class="line">    gulpif = <span class="built_in">require</span>(<span class="string">'gulp-if'</span>),</div><div class="line"></div><div class="line">    htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>),</div><div class="line"></div><div class="line">    revCollector = <span class="built_in">require</span>(<span class="string">'gulp-rev-collector'</span>)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//处理css</span></div><div class="line">gulp.task(<span class="string">'css'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src(<span class="string">'./public/less/main.less'</span>)</div><div class="line">        .pipe(less()) <span class="comment">//将less编译成css</span></div><div class="line">        .pipe(autoprefixer())<span class="comment">//给css添加私有前缀</span></div><div class="line">        .pipe(cssmin())<span class="comment">//将css进行压缩</span></div><div class="line">        .pipe(rev())<span class="comment">//将压缩后的css文件添加版本号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/public/css'</span>))<span class="comment">//将当前的版本存储起来</span></div><div class="line">        .pipe(rev.manifest())<span class="comment">//如果文件进行了修改,记录前后修改的信息,如果有多个,后面的会把前面的覆盖,所以需要重命名</span></div><div class="line">        .pipe(rename(<span class="string">'css-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/rev'</span>))<span class="comment">//将json文件放到rev文件夹里面</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//处理图片信息</span></div><div class="line">gulp.task(<span class="string">'image'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src([<span class="string">'./public/images/**/*'</span>,<span class="string">'./uploads/*'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)<span class="comment">//如果路径文件夹下面还有子文件夹,路径使用/**/*;为了不同的文件保存在不同的文件夹里面,设定base,会自动对应存储;</span></div><div class="line">        .pipe(imagemin())<span class="comment">//压缩图片</span></div><div class="line">        .pipe(rev())<span class="comment">//将图片重新编号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>))<span class="comment">//图片压缩添加序列号后保存</span></div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(rename(<span class="string">'images-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release.rev'</span>))</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//处理js</span></div><div class="line">gulp.task(<span class="string">'useref'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//js文件是在HTML中引入的,所以是在HTML中处理JS文件</span></div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./index.html'</span>)</div><div class="line">        .pipe(useref())<span class="comment">//去HTML文件中查找注释,进行编译压缩等</span></div><div class="line">        .pipe(gulpif(<span class="string">'*.js'</span>,uglify()))<span class="comment">//如果文件中有JS文件,进行压缩JS</span></div><div class="line">        .pipe(gulpif(<span class="string">'*.js'</span>, rev()))<span class="comment">//文件添加序列号</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>))</div><div class="line">        .pipe(rev.manifest())</div><div class="line">        .pipe(rename(<span class="string">'js-mainfest.json'</span>))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/rev'</span>));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//处理所有的视图页面HTML</span></div><div class="line">gulp.task(<span class="string">'html'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src(<span class="string">'./views/*.html'</span>)</div><div class="line">        .pipe(htmlmin(&#123;</div><div class="line">            <span class="attr">collapseWhitespace</span>:<span class="literal">true</span></div><div class="line">        &#125;))<span class="comment">//压缩HTML,需要传递参数;将空白区域进行压缩</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release/views'</span>));</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">//处理其他部分</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'other'</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">return</span> gulp.src([<span class="string">'./api/*.php'</span>,<span class="string">'./public/fonts/*'</span>,<span class="string">'./favicon.ico'</span>],&#123;<span class="attr">base</span>:<span class="string">'./'</span>&#125;)</div><div class="line">    <span class="comment">//因为PHP,字体,图标等文件不需要压缩,直接保存就可以</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//替换路径</span></div><div class="line">gulp.task(<span class="string">'rev'</span>,[<span class="string">'css'</span>,<span class="string">'useref'</span>,<span class="string">'image'</span>],<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//将记录文件边的的文件,将其在index里面的路径进行替换;</span></div><div class="line">    <span class="comment">//因为只有等其余文件都加载完成之后,index才能加载,所以需要进行依赖</span></div><div class="line">    <span class="comment">//为了保证其余加载完毕后再加载当前功能,其余功能必须return才行</span></div><div class="line">    gulp.src([<span class="string">'./release/rev/*.json'</span>,<span class="string">'./release/index.html'</span>])</div><div class="line">        .pipe(revCollector())<span class="comment">//进行文件合并</span></div><div class="line">        .pipe(gulp.dest(<span class="string">'./release'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//最后,将所有的任务放到一个任务中,只执行最后一个任务就可以</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'release'</span>,[<span class="string">'rev'</span>,<span class="string">'other'</span>,<span class="string">'html'</span>]);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/10/MVC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/10/MVC/" itemprop="url">
+                  Node中文件上传模块 Formidable
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-10T08:50:15+08:00">
+                2017-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ul>
+<li>绝大多数网站目前都是 服务端渲染 + 客户端渲染 相结合；</li>
+<li>交互方式： 异步请求 和 同步请求；</li>
+<li>服务端：请求 + 处理 + 响应；</li>
+<li>URL：<a href="http://www.example.com/a/b/c?name=lisi$age=18#123" target="_blank" rel="external">http://www.example.com/a/b/c?name=lisi$age=18#123</a>;<ul>
+<li>端口号之后的 / 是用来个主机名端口号 做区分的；</li>
+<li>请求路径URL就是一个标识，在真是的文件中不一定有对应的实际目录；URL标识是由开发人员自己制定的；</li>
+</ul>
+</li>
+<li>图片的请求方式永远是 post;</li>
+</ul>
+<h2 id="服务端渲染-MVC"><a href="#服务端渲染-MVC" class="headerlink" title="服务端渲染 MVC"></a>服务端渲染 MVC</h2><ul>
+<li>通过model拿数据</li>
+<li>读文件把模板字符串读取出来</li>
+<li>利用模板引擎解析替换渲染</li>
+<li>最后将结果发送给用户； </li>
+<li>view 一个文件，存储了模板字符串</li>
+<li>model.js负责提供数据 （也叫作数据业务model）</li>
+<li>handle相当于controller：核心作用就是处理请求，如果是服务端渲染，通过model拿数据，view，将model业务数据和view数据进行整合，最后发送给用户；</li>
+<li>MVC是一种架构方式，或者是模块化的一种划分方式；核心：模块的单一职责；讲整个应用程序划分为多个模块去协同处理；</li>
+</ul>
+<h3 id="MVC-模块划分"><a href="#MVC-模块划分" class="headerlink" title="MVC 模块划分"></a>MVC 模块划分</h3><ul>
+<li>MVC模块划分方式在任何技术领域都存在；</li>
+<li>MVVM：model；view；view-model</li>
+</ul>
+<h3 id="事件委派"><a href="#事件委派" class="headerlink" title="事件委派"></a>事件委派</h3><ul>
+<li>$(‘body’).on(‘click’,’.remove’,function(){});</li>
+<li>给body里面的remove绑定事件；</li>
+</ul>
+<h3 id="客户端渲染和服务端渲染"><a href="#客户端渲染和服务端渲染" class="headerlink" title="客户端渲染和服务端渲染"></a>客户端渲染和服务端渲染</h3><ul>
+<li>如果要处理SEO,一定要服务端渲染；</li>
+<li>如果是不考虑SEO，优先考虑客户端渲染</li>
+<li>客户端渲染的好处是，减轻服务端压力，提高用户体验；</li>
+</ul>
+<h1 id="express-外置路由使用"><a href="#express-外置路由使用" class="headerlink" title="express 外置路由使用"></a>express 外置路由使用</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1:加载 express模块</span></div><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="comment">//2:调用express.Router()方法</span></div><div class="line"><span class="keyword">var</span> subApp = express.Router();</div><div class="line"></div><div class="line"><span class="comment">//3：为router添加不同的路由</span></div><div class="line">subApp.get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;)</div><div class="line">subApp.get(<span class="string">'/add'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;)</div><div class="line">subApp.get(<span class="string">'/info'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</div><div class="line"></div><div class="line">&#125;)</div><div class="line"><span class="comment">//4.将router路由容器到处</span></div><div class="line"><span class="built_in">module</span>.exports = subApp;</div></pre></td></tr></table></figure>
+<ul>
+<li>在app.js中</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在appJS 文件中引入router，将router中的路由引入到appJS 中；</span></div><div class="line">app.use(router);</div></pre></td></tr></table></figure>
+<h3 id="动态绝对路径"><a href="#动态绝对路径" class="headerlink" title="动态绝对路径"></a>动态绝对路径</h3><ul>
+<li>动态绝对路径</li>
+<li>_dirname 可以动态获取当前文件模块所属目录的绝对路径，而且不受你 执行 node 命令所处终端目录影响；利用这个属性可以拼接一个动态绝对路径；</li>
+<li><code>fs.readFile(_dirname+&#39;/&#39;+&#39;a.txt&#39;,function(err,data){})</code></li>
+<li><code>var path = require(&#39;path&#39;); fs.readFile(path.join(_dirname,&#39;./data/a.txt&#39;))</code>;使用path，不管文件路径中有没有./；他都会自动拼接</li>
+<li>node中，为每一个模块提供了一个属性 _dirname;<ul>
+<li>可以动态的获取当前文件所属目录的绝对路径</li>
+<li>_dirname </li>
+</ul>
+</li>
+<li><p>一般操作文件的相对路径只有在开发一些全局命令行工具的时候才会用到；</p>
+</li>
+<li><p>express没有内置模板，使用ejs, ()</p>
+</li>
+<li>使用ejs，会默认去views文件夹中去找数据，页面必须以后缀名为 .ejs 命名；index.ejs;</li>
+<li><code>app.set(&#39;view engine&#39;,&#39;ejs&#39;)</code></li>
+<li>ejs的模板语法是 &lt;% %&gt;格式，</li>
+<li>设置模板文件存取目录<code>app.set(&#39;views&#39;,&#39;./test-view&#39;)</code>;这样就不自动去views目录去查找文件了，而是去<code>./test/view</code>目录去查找文件了；</li>
+</ul>
+<h2 id="node中文件上传模块-formidable"><a href="#node中文件上传模块-formidable" class="headerlink" title="node中文件上传模块 formidable"></a>node中文件上传模块 formidable</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm()</div><div class="line"></div><div class="line"><span class="comment">// 配置上传的文件路径</span></div><div class="line">form.uploadDir = <span class="string">"./img/"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 配置保持文件扩展名</span></div><div class="line">form.keepExtensions = <span class="literal">true</span></div><div class="line"></div><div class="line"><span class="comment">// 同时将普通数据放到了回调函数的 fields 中了（是一个对象）</span></div><div class="line"><span class="comment">// 默认 formidable 将表单中的数据存储到了操作系统的临时目录中了</span></div><div class="line"><span class="comment">// 同时将该文件的大小、路径等信息存储到了 files 对象中了</span></div><div class="line">form.parse(req, <span class="function"><span class="keyword">function</span> (<span class="params">err, fields, files</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (err) &#123;</div><div class="line">    <span class="keyword">throw</span> err</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">var</span> body = fields</div><div class="line">  <span class="keyword">var</span> avatarPath = files.avatar.path</div><div class="line">  avatarPath = avatarPath.substr(avatarPath.lastIndexOf(<span class="string">'\\'</span>) + <span class="number">1</span>)</div><div class="line">  body.avatar = <span class="string">'img/'</span> + avatarPath</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/09/Mac上mongobd 的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/09/Mac上mongobd 的使用/" itemprop="url">
+                  Mac上mongobd 的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T09:33:15+08:00">
+                2017-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mac/" itemprop="url" rel="index">
+                    <span itemprop="name">Mac</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h1><ol>
+<li><p>对MVC的理解</p>
+<ul>
+<li>MVC是一种软件开发模块化架构方式，适用于web开发的代码架构阻止模式；就是用来解耦视图和数据，利用c控制器去调度视图和模型数据的交互；</li>
+<li>提高代码的可维护性<ul>
+<li>解耦了视图和数据的直接交互；</li>
+<li>视图数据和业务数据是完全分开的；</li>
+<li>视图数据：例如表单提交上来的数据；</li>
+<li>业务数据：真是的数据库中的数据； </li>
+</ul>
+</li>
+<li>增加代码的可重用性</li>
+<li>划分方式： 模块职责的单一；</li>
+<li>MVVM的核心：数据驱动视图</li>
+</ul>
+</li>
+<li><p>mongod –dbpath /Users/gaonana/Documents/高娜娜文件/data/db </p>
+</li>
+</ol>
+<h2 id="Mac上mongobd-的使用"><a href="#Mac上mongobd-的使用" class="headerlink" title="Mac上mongobd 的使用"></a>Mac上mongobd 的使用</h2><ol>
+<li>官网下载  <code>mongocd.org</code></li>
+<li>配置环境变量<ul>
+<li>具体配置参考<code>Mac操作系统总结</code>文档</li>
+</ul>
+</li>
+<li><code>mongod --version</code>有版本号表示安装成功</li>
+<li><code>mogond --dbpath $dbpath(数据库数据文件路径)</code>进入data所在的路径，启动服务；</li>
+<li>4步骤中，可以讲data文件夹建立在<code>Macintosh HD</code>的根目录下面，data文件夹，db文件夹；以后再启动mongod服务的时候直接使用<code>mongod</code>就可以启动；</li>
+<li>在另一个命令行界面，<code>mongo</code>命令就可以操作数据库了；</li>
+<li><code>show dbs</code>查看当前服务实力上所有的实例</li>
+</ol>
+<h2 id="数据库介绍"><a href="#数据库介绍" class="headerlink" title="数据库介绍"></a>数据库介绍</h2><ul>
+<li>数据库实例 -&gt; 数据库 -&gt; 表 -&gt; 记录；</li>
+<li>一个数据服务中可以有多个数据库</li>
+<li>一个数据库中可以有多个集合<ul>
+<li>MongoDB中，把表称之为集合</li>
+<li>集合，简单理解就是一个数组</li>
+<li>在一个集合中，可以有多个对象（json）,上一个人特殊的json对象，在mongodb中，叫做bson;</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用-MongoDB-官方提供的-mongodb-驱动包-操作-mongodb数据库；"><a href="#使用-MongoDB-官方提供的-mongodb-驱动包-操作-mongodb数据库；" class="headerlink" title="使用 MongoDB 官方提供的 mongodb     驱动包 操作 mongodb数据库；"></a>使用 MongoDB 官方提供的 mongodb     驱动包 操作 mongodb数据库；</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/08/cookie 和 session 的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -635,635 +1202,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/博学谷项目 <四>/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/12/博学谷项目 <四>/" itemprop="url">
-                  常用的JS文件上传与表单插件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T12:39:04+08:00">
-                2017-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="常用的JS文件上传与表单插件"><a href="#常用的JS文件上传与表单插件" class="headerlink" title="常用的JS文件上传与表单插件"></a>常用的JS文件上传与表单插件</h1><h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><ul>
-<li>BFC（格式化上下文）：BFC盒子是独立布局的，盒子内元素的布局不会影响盒子外面的元素。在同一个BFC中两个相邻的盒子在垂直方向上会发生margin垂直内边距塌陷的问题；</li>
-<li>BFC是指浏览器中创建来了一个独立的渲染区域，该区域内所有元素的布局不会影响到区域外元素的布局，这个渲染区域支队块级元素起作用；</li>
-</ul>
-<h2 id="jS插件"><a href="#jS插件" class="headerlink" title="jS插件"></a>jS插件</h2><ul>
-<li>bootstrap</li>
-<li>jquery</li>
-<li>模块化开发：requirejs</li>
-<li>滚动下拉刷新，滚动加载：onscroll</li>
-<li>文件上传：uplodify</li>
-<li>表单提交：jquery form</li>
-<li>日期插件：bootstrap-detepicker</li>
-<li>表单验证 validate</li>
-<li>富文本编辑器 CKeditor</li>
-<li>图片裁切 Jcrop</li>
-<li>三级联动 jQuery-region</li>
-<li>模板引擎 artTemplate</li>
-<li>angular js</li>
-<li>vue</li>
-<li>react</li>
-<li>node js</li>
-<li>混合开发 ionic; react native</li>
-</ul>
-<h3 id="日期插件地址"><a href="#日期插件地址" class="headerlink" title="日期插件地址"></a>日期插件地址</h3><ul>
-<li><a href="https://github.com/uxsolutions/bootstrap-datepicker" target="_blank" rel="external">bootstrap-datepicker</a></li>
-</ul>
-<h3 id="表单验证插件"><a href="#表单验证插件" class="headerlink" title="表单验证插件"></a>表单验证插件</h3><ul>
-<li>地址： <a href="https://github.com/DiegoLopesLima/validate" target="_blank" rel="external">validate</a></li>
-<li>data-required 非空判断</li>
-<li>data-pattern 匹配正则</li>
-<li>data-description 提示信息</li>
-<li>data-describedby 指定提示信息的位置</li>
-<li>data-validate 指定自定义规则的属性</li>
-<li>data-conditional 自定义规则判断，值是一个规则判断函数 </li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">&lt;input name=<span class="string">'tc_join_date'</span> data-description=<span class="string">'joinDate'</span> data-describedby=<span class="string">'tcJoinDateInfo'</span> type=<span class="string">"text"</span> data-date-language=<span class="string">'zh-CN'</span> data-provide=<span class="string">'datepicker'</span> data-date-end-date=<span class="string">'0d'</span> data-date-format=<span class="string">'yyyy-mm-dd'</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control input-sm "</span> value=<span class="string">"&#123;&#123;tc_join_date&#125;&#125;"</span>&gt;</div><div class="line"></div><div class="line"> $(<span class="string">'#ajaxForm'</span>).validate(&#123;</div><div class="line">      <span class="attr">sendForm</span> : <span class="literal">false</span>,</div><div class="line">      <span class="attr">valid</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">          $(<span class="keyword">this</span>).ajaxSubmit(&#123;</div><div class="line">              <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line">              <span class="attr">url</span>:url,</div><div class="line">              <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">              <span class="attr">success</span>:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">                  <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                      location.href = <span class="string">'/teacher/teacher_list'</span></div><div class="line">                  &#125;</div><div class="line"></div><div class="line"></div><div class="line">              &#125;</div><div class="line">          &#125;)</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">description</span>:&#123;</div><div class="line">          <span class="attr">tcName</span>:&#123;</div><div class="line">              <span class="attr">required</span>:<span class="string">'用户名不能为空'</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">tcPass</span>:&#123;</div><div class="line">              <span class="attr">required</span>:<span class="string">'密码不能为空'</span>,</div><div class="line">              <span class="attr">pattern</span>:<span class="string">'只能是六位数字'</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">joinDate</span>:&#123;</div><div class="line">              <span class="attr">require</span>:<span class="string">'入职日期不能为空'</span></div><div class="line">          &#125;</div><div class="line"></div><div class="line">      &#125;</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
-<h3 id="表单提交插件"><a href="#表单提交插件" class="headerlink" title="表单提交插件"></a>表单提交插件</h3><ul>
-<li>地址：  </li>
-</ul>
-<ul>
-<li><a href="https://github.com/jquery-form/form" target="_blank" rel="external">form</a></li>
-<li>省略提交地址</li>
-<li>添加新数据</li>
-<li>处理回调函数  </li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#profileForm"</span>).validate(&#123;</div><div class="line">            <span class="attr">sendForm</span> : <span class="literal">false</span>,</div><div class="line">            <span class="attr">valid</span>:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">                <span class="comment">//同步更新富文本内容变化</span></div><div class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> instance <span class="keyword">in</span> CKEDITOR.instances)&#123;</div><div class="line">                    CKEDITOR.instances[instance].updateElement();</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">var</span> p = $(<span class="string">'#p'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                <span class="keyword">var</span> c = $(<span class="string">'#c'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                <span class="keyword">var</span> d = $(<span class="string">'#d'</span>).find(<span class="string">'option:selected'</span>).text();</div><div class="line">                <span class="keyword">var</span> hometown = p+<span class="string">'|'</span>+c+<span class="string">'|'</span>+d;</div><div class="line">                $(<span class="keyword">this</span>).ajaxSubmit(&#123;</div><div class="line">                    <span class="attr">type</span>:<span class="string">'post'</span>,</div><div class="line"></div><div class="line">                    <span class="attr">url</span>:<span class="string">'/api/teacher/modify'</span>,</div><div class="line">                    <span class="attr">data</span>:&#123;<span class="attr">tc_hometown</span>:hometown&#125;,</div><div class="line">                    <span class="attr">dataType</span>:<span class="string">'json'</span>,</div><div class="line">                    <span class="attr">success</span>:<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">                        <span class="keyword">if</span>(data.code==<span class="number">200</span>)&#123;</div><div class="line">                            <span class="built_in">console</span>.log(data);</div><div class="line">                            location.reload();</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;)</div></pre></td></tr></table></figure>
-<h3 id="uploadify基本使用"><a href="#uploadify基本使用" class="headerlink" title="uploadify基本使用"></a>uploadify基本使用</h3><ul>
-<li><a href="http://www.uploadify.com/" target="_blank" rel="external">uploadify</a></li>
-<li>fileObjName 文件名称</li>
-<li>buttonText 按钮文本</li>
-<li>buttonClass 按钮样式</li>
-<li>fileTypeExts 支持的扩展名</li>
-<li>fileSizeLimit 文件的大小限制</li>
-<li>uploader 上传的路径</li>
-<li>swf flash文件的位置</li>
-<li>onUploadSuccess 上传成功的回调函数</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#upfile'</span>).uploadify(&#123;</div><div class="line">            <span class="attr">width</span>:<span class="number">120</span>,</div><div class="line">            <span class="attr">height</span>:<span class="number">120</span>,</div><div class="line">            <span class="attr">buttonText</span>:<span class="string">""</span>,</div><div class="line">            <span class="attr">fileObjName</span>:<span class="string">'tc_avatar'</span>,</div><div class="line">            <span class="attr">swf</span>:<span class="string">'/public/assets/uploadify/uploadify.swf'</span>,</div><div class="line">            <span class="attr">uploader</span>:<span class="string">'/api/uploader/avatar'</span>,</div><div class="line">            <span class="attr">onUploadSuccess</span>:<span class="function"><span class="keyword">function</span> (<span class="params">file,data</span>) </span>&#123;</div><div class="line">                <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(data);</div><div class="line">                $(<span class="string">'.preview img'</span>).attr(<span class="string">'src'</span>,data.result.path);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
-<h3 id="php文件上传处理"><a href="#php文件上传处理" class="headerlink" title="php文件上传处理"></a>php文件上传处理</h3><ul>
-<li>$_FILES 用来获取上传的文件（具体包含了一些参数）</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Array</span></div><div class="line">(</div><div class="line">    [picture] =&gt; <span class="keyword">Array</span></div><div class="line">        (</div><div class="line">            [name] =&gt; abc.png  文件的名称</div><div class="line">            [type] =&gt; application/octet-stream  文件的传输格式</div><div class="line">            [tmp_name] =&gt; D:\wamp\tmp\phpDE88.tmp  服务器临时文件路径</div><div class="line">            [error] =&gt; <span class="number">0</span> 错误代码</div><div class="line">            [size] =&gt; <span class="number">1792</span> 文件大小</div><div class="line">        )</div><div class="line">)</div></pre></td></tr></table></figure>
-<ul>
-<li>move_uploaded_file 移动文件</li>
-</ul>
-<h3 id="背景图片截图插件"><a href="#背景图片截图插件" class="headerlink" title="背景图片截图插件"></a>背景图片截图插件</h3><ul>
-<li>Jcrop</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">var</span> picture = $(<span class="string">'.preview img'</span>),jcrop_api;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cropPic</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    jcrop_api&amp;&amp;jcrop_api.destroy();</div><div class="line">    picture.Jcrop(&#123;</div><div class="line">        <span class="comment">// bgColor:'pink',//设置选取的背景颜色</span></div><div class="line">        acpectRatio:<span class="number">2</span>,<span class="comment">//设置宽高比</span></div><div class="line">        keySupport:<span class="literal">true</span>,<span class="comment">//支持键盘控制</span></div><div class="line">        boxWidth:<span class="number">400</span>,<span class="comment">//设置背景图片,即画布的宽高</span></div><div class="line">        <span class="comment">//boxHeight:400,</span></div><div class="line">    &#125;,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">//回调函数</span></div><div class="line">        picture_api = <span class="keyword">this</span>;</div><div class="line">        <span class="comment">//获取画布的宽度和高度;</span></div><div class="line">        <span class="keyword">var</span> width = <span class="keyword">this</span>.ui.stage.width,</div><div class="line">            height = <span class="keyword">this</span>.ui.stage.height,</div><div class="line">            x = <span class="number">0</span>,</div><div class="line">            y = height/<span class="number">4</span>;</div><div class="line">        <span class="comment">//console.log(height);</span></div><div class="line">        picture_api.newSelection();</div><div class="line">        <span class="comment">//设置图片加载完成后,选框自动选中的位置</span></div><div class="line">        <span class="comment">//picture_api.setSelect([x,y,width,height/2]);</span></div><div class="line">        picture_api.animateTo([x,y,width,height/<span class="number">2</span>]);</div><div class="line">        <span class="comment">//获取截取图片的x,y,w,h;</span></div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
-<h3 id="富文本编辑器"><a href="#富文本编辑器" class="headerlink" title="富文本编辑器"></a>富文本编辑器</h3><ul>
-<li><a href="http://ueditor.baidu.com/website/" target="_blank" rel="external">ueditor</a></li>
-<li><a href="http://ckeditor.com/" target="_blank" rel="external">ckeditor</a></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;textarea id=<span class="string">'text'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span></div><div class="line"><span class="comment">//加载富文本</span></div><div class="line">        CKEDITOR.replace(<span class="string">'ckeditor'</span>, &#123;</div><div class="line">            <span class="comment">//toolbarGroups:[]</span></div><div class="line">        &#125;);</div><div class="line">        <span class="comment">//同步更新富文本内容变化</span></div><div class="line">           <span class="keyword">for</span>(<span class="keyword">var</span> instance <span class="keyword">in</span> CKEDITOR.instances)&#123;</div><div class="line">               CKEDITOR.instances[instance].updateElement();</div><div class="line">           &#125;</div></pre></td></tr></table></figure>
-<h3 id="三级联动"><a href="#三级联动" class="headerlink" title="三级联动"></a>三级联动</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div class='region'&gt;</div><div class="line">    &lt;select name="tc_province" id='p' data-id=&#123;&#123;tc_province&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">                &lt;option &gt;请选择省&lt;/option&gt;</div><div class="line"></div><div class="line">  &lt;/select&gt;</div><div class="line">  &lt;select name="tc_city" id='c' data-id=&#123;&#123;tc_city&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">      &lt;option &gt;请选择市&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">  &lt;select name="tc_district" id='d' data-id=&#123;&#123;tc_district&#125;&#125; class="form-control input-sm"&gt;</div><div class="line">      &lt;option &gt;请选择区县&lt;/option&gt;</div><div class="line">  &lt;/select&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">    //三级联动,加载数据</div><div class="line">$('.region').region(&#123;</div><div class="line">    url:'../lib/jquery-region/region.json'</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h2 id="编程理论基础"><a href="#编程理论基础" class="headerlink" title="编程理论基础"></a>编程理论基础</h2><ul>
-<li>服务器</li>
-<li>项目开发流程</li>
-<li>编程，逻辑思维</li>
-<li>模块化（nodejs/fis/webpack）</li>
-<li>路径</li>
-<li>路由</li>
-<li>数据库</li>
-<li>协议（网络通信）</li>
-<li>网站（静态网站和动态网站）</li>
-<li>后台接口</li>
-<li>前端渲染和后台渲染</li>
-</ul>
-<h2 id="小知识点"><a href="#小知识点" class="headerlink" title="小知识点"></a>小知识点</h2><ul>
-<li><p>原生的绑定事件会发生覆盖</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>jquery的绑定事件都是会叠加</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#btn'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div><div class="line">$(<span class="string">'#btn'</span>).bind(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>location.search</code>得到的是URL地址中所有的参数<code>?tc_id=3&amp;username=12</code>;</p>
-</li>
-</ul>
-<ul>
-<li><p>可以通过<code>location</code>来获取地址栏中所携带的所有信息；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pathname = location.search;</div><div class="line"><span class="keyword">var</span> pcname = pathname.sclice(<span class="number">1</span>); <span class="comment">//将？截取掉</span></div><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> arr = pcname.split(<span class="string">'&amp;'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</div><div class="line">    <span class="keyword">var</span> kv = arr[i].split(<span class="string">'='</span>);</div><div class="line">    obj[kv[<span class="number">0</span>]]=kv[<span class="number">1</span>];</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">    <span class="comment">//将URL中的参数和值以键值对的形式放到obj中；</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>PHP中，将数组以json对象的形式输出： <code>json_encode($arr)</code>；</li>
-</ul>
-<h2 id="表单验证插件-1"><a href="#表单验证插件-1" class="headerlink" title="表单验证插件"></a>表单验证插件</h2><ul>
-<li>form表单中，不写提交地址，默认提交到当前页面，地址栏中；</li>
-<li><code>jquery-validate</code>表单验证的插件；</li>
-<li><code>jquery-form</code>表单提交的插件 <code>$(&#39;form&#39;).ajaxSubmit({ })</code></li>
-<li>文件上传插件 <code>webupload</code>和<code>uploadify</code></li>
-</ul>
-<p>你都做过什么，遇到什么问题，你是怎么解决的；<br>nodejs是怎么用的；</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/博学谷项目 <二>/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/12/博学谷项目 <二>/" itemprop="url">
-                  学习小笔记<一>
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T10:39:04+08:00">
-                2017-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jQuery/" itemprop="url" rel="index">
-                    <span itemprop="name">jQuery</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="域名解析系统"><a href="#域名解析系统" class="headerlink" title="域名解析系统"></a>域名解析系统</h2><ul>
-<li>先去本机的host的文件查找对应的IP,如果在本机host文件中找到,就返回对应的IP;如果没有的话,就去公网查找,公网没有的话就无法上网;</li>
-</ul>
-<h2 id="前端发送请求的方式"><a href="#前端发送请求的方式" class="headerlink" title="前端发送请求的方式"></a>前端发送请求的方式</h2><ul>
-<li>地址栏直接输入URL</li>
-<li>表单的action属性</li>
-<li>a标签的href属性;link的href</li>
-<li>src属性:img的src;script的src; iframe的src</li>
-<li>ajax发送请求</li>
-<li>postMessage H5新的API</li>
-<li>flash插件</li>
-<li>location.href<ol>
-<li>补充:URL的规范格式 scheme://host:port /path?query#frament;</li>
-</ol>
-<ul>
-<li>scheme 表示协议 http https ftp file ssh;</li>
-<li>host 表示域名或者IP地址;</li>
-<li>port 端口;用来确定计算机上某个网络应用程序;</li>
-<li>path 路径;域名之后,参数(?)之前的内容:/abc/qqq等</li>
-<li>query 查询字符串;作用,向服务器传递参数数据;格式:键=值&amp;键=值</li>
-<li>frament: hash 锚点,定位页面的某一部分;结合ID;</li>
-</ul>
-</li>
-</ul>
-<h2 id="路径问题"><a href="#路径问题" class="headerlink" title="路径问题"></a>路径问题</h2><ul>
-<li>绝对路径 / 等效于直接写IP地址<a href="http://localhost" target="_blank" rel="external">http://localhost</a></li>
-<li>相对路径:  ./代表当前路径 ../代表上层路径</li>
-<li>跳转到根路径<code>&lt;a href=&quot;/tom.html&quot;&gt;</code></li>
-</ul>
-<h2 id="cookie和session"><a href="#cookie和session" class="headerlink" title="cookie和session"></a>cookie和session</h2><ul>
-<li>cookie写入之后,只要是访问同一个网站,都会带着cookie进行访问;</li>
-<li>在PHP中session start();开启session会话;让服务器知道曾经来过,保存访问状态;SESSID</li>
-<li>session是服务端的,客户端向服务端发送SESSID,进行服务器与客户端的关联,服务器返回该用户的信息;</li>
-<li>SESSID可以保持客户端与服务器之间的联系状态;实现不同页面间的数据共享</li>
-</ul>
-<h2 id="跨域解决方案"><a href="#跨域解决方案" class="headerlink" title="跨域解决方案"></a>跨域解决方案</h2><ul>
-<li><p>jsonp</p>
-<ul>
-<li>jsonp返回的数据应该是函数的调用<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ecName = $_GET[<span class="string">'callback'</span>];<span class="comment">//获取到函数名;</span></div><div class="line">echo $ecName.<span class="string">"("</span>data.<span class="string">")"</span>;<span class="comment">//返回函数的调用;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>cors 配置服务器,</p>
-</li>
-<li>反向代理 其原理类似于CORS</li>
-<li>flash插件,但是现在已经很少用了;</li>
-</ul>
-<h2 id="PHP-相关问题"><a href="#PHP-相关问题" class="headerlink" title="PHP 相关问题"></a>PHP 相关问题</h2><ul>
-<li>PHP既可以做前端页面渲染,也可以单独作为接口返回数据;</li>
-<li>&lt;?php include()?&gt;(PHP中导入页面)<br><code>count($arr == 2)</code> 等同于js中<code>arr.length == 2</code>;</li>
-</ul>
-<h2 id="模块化规范"><a href="#模块化规范" class="headerlink" title="模块化规范"></a>模块化规范</h2><ul>
-<li>浏览器端的规范：<ol>
-<li>AMD：requirejs</li>
-<li>CMD:seajs （淘宝的技术）</li>
-<li>commonjs - nodejs 同步加载，后端的奇数</li>
-</ol>
-</li>
-<li>服务器端的规范<ol>
-<li>commonjs:nodejs </li>
-</ol>
-</li>
-</ul>
-<h2 id="requirejs使用"><a href="#requirejs使用" class="headerlink" title="requirejs使用"></a>requirejs使用</h2><ol>
-<li>解决了命名冲突 （不同模块中的相同变量不会冲突）</li>
-<li>解决了文件依赖问题</li>
-<li>如果requirejs加载的时候，指定了data-main属性，那么根路径就变成了入口文件所处的路径;<ol>
-<li>不使用data-main的时候，在通过require加载文件时可以直接使用相对路径；</li>
-<li>但是在使用data-main的同时，再使用require加载其他模块文件，文件的根路径发生了改变，此时可以重新定义默认的根路径；</li>
-<li>requirejs处理非模块化文件</li>
-</ol>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> &lt;script src=<span class="string">'require.js'</span> data-main=<span class="string">'main.js'</span> &gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"> &lt;script&gt;</div><div class="line">     <span class="comment">//加载文件，通过data-main的路径进行定位</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'./m4'</span>]);</div><div class="line">     <span class="comment">//或者重新设置默认的根路径</span></div><div class="line">     <span class="built_in">require</span>.config(&#123;</div><div class="line">         <span class="attr">baseUrl</span>:<span class="string">'./js/'</span></div><div class="line">     &#125;);</div><div class="line">     <span class="comment">//相对于根路径的路径</span></div><div class="line">     <span class="built_in">require</span>([<span class="string">'/module/m4'</span>]);</div><div class="line">      <span class="comment">//将abc文件中foo的非模块化文件到处成为模块化文件</span></div><div class="line">    shim:&#123;</div><div class="line">        <span class="string">'../abc'</span>:&#123;</div><div class="line">         <span class="comment">//给模块起一个别名；如果自定义模块起了一个名字，在用的时候必须与那个名字保持一致；</span></div><div class="line">            exports:<span class="string">'foo'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">          paths:&#123;</div><div class="line">         <span class="attr">ggg</span>:<span class="string">"js/jquery"</span>;</div><div class="line">    &#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/angular在实际应用中的优缺点/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/12/angular在实际应用中的优缺点/" itemprop="url">
-                  Angular在实际应用中的优缺点
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T00:39:04+08:00">
-                2017-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
-<li>我们是在做创意摄影网时使用的Angular.js 的，</li>
-<li>优点：<ul>
-<li>模板功能强大丰富，并且是声明式的，自带了丰富的Angular指令</li>
-<li>是一个比较完善的前端MV*框架，包含模板、数据双向绑定、路由、模块化、服务、过滤器和依赖注入等所有功能；</li>
-<li>自定义 Directive ，比jQuery插件还灵活；</li>
-<li>ng模块化比较大胆的引入了JAVA的一些东西(依赖注入)，能够很容易的写出可复用性的代码；</li>
-<li>Angular支持单元测试</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1308,7 +1251,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1330,7 +1273,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
