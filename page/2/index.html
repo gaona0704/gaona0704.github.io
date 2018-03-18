@@ -272,453 +272,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/12/vue使用总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/12/vue使用总结/" itemprop="url">
-                  Vue 中父子组件方法调用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T00:00:00+08:00">
-                2017-09-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="一、父组件中调用子组件中的methods方法"><a href="#一、父组件中调用子组件中的methods方法" class="headerlink" title="一、父组件中调用子组件中的methods方法"></a>一、父组件中调用子组件中的methods方法</h2><ul>
-<li>首先在父组件的子组件中标注 ref = “childMethod”</li>
-<li>在 父组件中进行调用<code>this.$refs.childMethod.processQueue();</code></li>
-<li>比如，在子组件中有一个方法 processQueue(){},我想在父组件中进行调用<h2 id="二、父组件向子组件传递参数"><a href="#二、父组件向子组件传递参数" class="headerlink" title="二、父组件向子组件传递参数"></a>二、父组件向子组件传递参数</h2></li>
-<li><p>在子组件中，通过  props  来声明 他期待接收的数据</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</div><div class="line">     <span class="attr">props</span>:&#123;</div><div class="line">           <span class="attr">addFormVisible</span>:&#123;</div><div class="line">               <span class="attr">type</span>:<span class="built_in">Boolean</span>,</div><div class="line">               <span class="attr">default</span>:<span class="literal">false</span></div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">       <span class="comment">// 或者</span></div><div class="line">       props:[<span class="string">'addFormVisible'</span>,<span class="string">'age'</span>] 等</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在 父组件中，直接通过属性赋值即可<br><code>&lt;child addFormVisible = &quot;true&quot;&gt;&lt;/child&gt;</code></p>
-</li>
-</ul>
-<h2 id="三、dropjs使用"><a href="#三、dropjs使用" class="headerlink" title="三、dropjs使用"></a>三、dropjs使用</h2><ul>
-<li>手动上传事件：myDropzone.processQueue();</li>
-<li>允许上传多个图片：uploadMultiple: true,</li>
-<li>自动上传事件：autoProcessQueue: true,</li>
-<li>默认每次上传的最多的张数：parallelUploads: 10,系统默认为2，改为了10</li>
-</ul>
-<h2 id="四、Vue中重新刷新当前页面"><a href="#四、Vue中重新刷新当前页面" class="headerlink" title="四、Vue中重新刷新当前页面"></a>四、Vue中重新刷新当前页面</h2><ul>
-<li>使用路由的项目：this.$router.go(0);</li>
-<li>未使用路由的项目：</li>
-<li>window.location 中含有 ref 中的内容信息 window.location.reload();</li>
-<li>直接 <code>location.href = &#39;index.html&#39;</code></li>
-</ul>
-<h2 id="五、Vue-中发送请求的方式"><a href="#五、Vue-中发送请求的方式" class="headerlink" title="五、Vue 中发送请求的方式"></a>五、Vue 中发送请求的方式</h2><h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><p>参数使用 params:param<br><code>this.$http.get(url,{params:param}).then(function(res),function(res))</code></p>
-<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><p><code>this.$http.post(url,{params:param},{emulateJSON:true}).then(function(res){},function(res){})</code><br>参数使用  data:param 发送请求</p>
-<p>如果使用params:param传递参数，虽然是post请求，但是传递的参数仍然在URL上</p>
-<p>使用data传输的数据，是以 <code>request payload</code>方式传递的，后台需要</p>
-<p><code>public String getRequestPayload(HttpServletRequest req) {}</code>来获取里面的参数；</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/08/随手笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/08/随手笔记/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:16:47+08:00">
-                2017-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="随手笔记"><a href="#随手笔记" class="headerlink" title="随手笔记"></a>随手笔记</h1><h2 id="1-e-的使用"><a href="#1-e-的使用" class="headerlink" title="1. e 的使用"></a>1. e 的使用</h2><ul>
-<li>e.currentTarget 获取到鼠标当前所在的元素</li>
-</ul>
-<h2 id="2-vue-resource-发送-post请求"><a href="#2-vue-resource-发送-post请求" class="headerlink" title="2. vue-resource 发送 post请求"></a>2. vue-resource 发送 post请求</h2><ul>
-<li>post请求发送表单数据，浏览器无法处理application/json 的请求，这是需要添加第三个参数， {emulationJSON:true}；这时请求会以 application/x-www-form-urlencoded作为 MIME TYPE 。就像普通的HTML一样。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$http.post(<span class="string">"/api/index.jsp?m=client&amp;c=serverDqylm&amp;a=saveInnowayGlobalApply"</span>,&#123;<span class="attr">params</span>:<span class="keyword">this</span>.formLabelAlign&#125;,&#123;<span class="attr">emulateJSON</span>:<span class="literal">true</span>&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">           <span class="built_in">console</span>.log(<span class="number">111</span>)</div><div class="line">         &#125;,<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">           <span class="built_in">console</span>.log(<span class="string">"error"</span>);</div><div class="line">         &#125;)</div><div class="line">         &#123;<span class="string">"firstName"</span>:<span class="string">""</span>,<span class="string">"lastName"</span>:<span class="string">""</span>,<span class="string">"title"</span>:<span class="string">""</span>,<span class="string">"company"</span>:<span class="string">""</span>,<span class="string">"email"</span>:<span class="string">""</span>,<span class="string">"tel"</span>:<span class="string">""</span>,<span class="string">"interests"</span>:<span class="number">1</span>,<span class="string">"desc"</span>:<span class="string">"dsfg"</span>&#125;</div></pre></td></tr></table></figure></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/24/配置Nginx反向代理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Amy Gao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/king2.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Amy Gao">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/24/配置Nginx反向代理/" itemprop="url">
-                  配置Nginx反向代理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T10:24:04+08:00">
-                2017-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Nginx/" itemprop="url" rel="index">
-                    <span itemprop="name">Nginx</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="配置Nginx反向代理"><a href="#配置Nginx反向代理" class="headerlink" title="配置Nginx反向代理"></a>配置Nginx反向代理</h1><h2 id="安装brew"><a href="#安装brew" class="headerlink" title="安装brew"></a>安装brew</h2><p> <code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></p>
-<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><p><code>brew install nginx</code></p>
-<h2 id="启动Nginx"><a href="#启动Nginx" class="headerlink" title="启动Nginx"></a>启动Nginx</h2><p><code>brew services start nginx</code></p>
-<p>进入浏览器，打开localhost:8000 有欢迎页面表示安装成功</p>
-<h2 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h2><p>1: 增加一个server</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">        listen       <span class="number">8081</span>;</div><div class="line">        </div><div class="line">        server_name  localhost;</div><div class="line"></div><div class="line">        location / &#123;</div><div class="line">            proxy_pass http:<span class="comment">//ceshi.cyhkt.com:8081/crminnoway;</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>2: 重启Nginx</p>
-<p><code>sudo nginx -s reload</code></p>
-<h2 id="退出Nginx"><a href="#退出Nginx" class="headerlink" title="退出Nginx"></a>退出Nginx</h2><p>快速停止命令  <code>sudo nginx -s stop</code></p>
-<p>平稳退出命令：<code>sudo nginx -s quit</code></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/Vue中引用jQuery和jQuery插件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1030,11 +583,577 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/19/vue-cli使用与安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/19/vue-cli使用与安装/" itemprop="url">
+                  Vue学习笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-19T10:39:04+08:00">
+                2017-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-vue-cli-安装与使用"><a href="#1-vue-cli-安装与使用" class="headerlink" title="1. vue-cli 安装与使用"></a>1. vue-cli 安装与使用</h2><p>1: sudo npm install vue-cli -g<br>2: vue init webpack-simple vue-webpack-simple-demo<br>3: cd 文件名<br>4: npm install  加载模块   （有的时候网上教程使用cnpm;指的是国内淘宝镜像安装）<br>5: npm run dev 运行项目</p>
+<h2 id="2-模块下载"><a href="#2-模块下载" class="headerlink" title="2.  模块下载"></a>2.  模块下载</h2><p>npm install <package-name> –save-dev  //下载的时候一定要–save-dev.这样别人拿到项目之后npm install 就可以直接使用。</package-name></p>
+<h2 id="3-Vue-组件"><a href="#3-Vue-组件" class="headerlink" title="3. Vue 组件"></a>3. Vue 组件</h2><p>组件：一个大对象<br>定义组件的方式：</p>
+<h3 id="3-1：全局组件"><a href="#3-1：全局组件" class="headerlink" title="3.1：全局组件"></a>3.1：全局组件</h3><p>1： 全局组件：Vue.extend({template:”content”})；</p>
+<ul>
+<li>2： 组件里面当数据时，data必须是函数的形式，函数必须返回的是json； √<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;div id="app"&gt;</div><div class="line">	&lt;aaa&gt;&lt;/aaa&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">var Aaa = Vue.extend(&#123;</div><div class="line">     data()&#123;</div><div class="line">     	return&#123;</div><div class="line">    		 msg:"我是标题"</div><div class="line">    	 &#125;</div><div class="line">     &#125;,</div><div class="line">     template:"&lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;"</div><div class="line">    &#125;);</div><div class="line">     Vue.component('aaa',Aaa);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-2-局部组件"><a href="#3-2-局部组件" class="headerlink" title="3.2: 局部组件"></a>3.2: 局部组件</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;div id="app"&gt;</div><div class="line">	&lt;aaa&gt;&lt;/aaa&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">var Aaa = Vue.extend(&#123;</div><div class="line">     data()&#123;</div><div class="line">     	return&#123;</div><div class="line">    		 msg:"我是标题"</div><div class="line">    	 &#125;</div><div class="line">     &#125;,</div><div class="line">     template:"&lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;"</div><div class="line">    &#125;);</div><div class="line">     //Vue.component('aaa',Aaa);-----这里是全局组件</div><div class="line">     var vm = new Vue(&#123;</div><div class="line">       el:"#app",</div><div class="line">       data:&#123;</div><div class="line">         msg:"true";</div><div class="line">       &#125;,</div><div class="line">       components:&#123;</div><div class="line">         aaa:Aaa  //------这里面是VM实例化的组件</div><div class="line">       &#125;</div><div class="line">     &#125;)</div></pre></td></tr></table></figure>
+<h3 id="3-3-动态组件"><a href="#3-3-动态组件" class="headerlink" title="3.3:  动态组件"></a>3.3:  动态组件</h3><p><code>&lt;component :is=&quot;组件的名称    &quot;&gt;&lt;/component&gt;</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">	 <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">          <span class="attr">el</span>:<span class="string">"#app"</span>,</div><div class="line"><span class="comment">//4:动态组件</span></div><div class="line">          data:&#123;</div><div class="line">              <span class="attr">a</span>:<span class="string">"aaa"</span>,</div><div class="line">              <span class="attr">b</span>:<span class="string">"bbb"</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">components</span>:&#123;</div><div class="line">              <span class="string">"aaa"</span>:&#123;</div><div class="line">                  <span class="attr">template</span>:<span class="string">"&lt;h2&gt;这是aaa组件&lt;/h2&gt;"</span></div><div class="line">              &#125;,</div><div class="line">              <span class="string">"bbb"</span>:&#123;</div><div class="line">                  <span class="attr">template</span>:<span class="string">"&lt;h2&gt;这是bbb组件&lt;/h2&gt;"</span></div><div class="line">              &#125;</div><div class="line">          &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="Vue-学习笔记"><a href="#Vue-学习笔记" class="headerlink" title="Vue 学习笔记"></a>Vue 学习笔记</h2><p>1: GET请求<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       <span class="keyword">this</span>.$http.get(<span class="string">'aa.txt'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">       	alert(res.data);</div><div class="line">       &#125;,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">       	alert(res.status);</div><div class="line">       &#125;);</div><div class="line">    &#125;,</div></pre></td></tr></table></figure></p>
+<p>2: post请求<br>post请求与GET请求不同的是：post请求需要设置请求头。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">call:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.$http.post(<span class="string">'01-post.php'</span>,&#123;</div><div class="line">   	<span class="attr">a</span>:<span class="number">3</span>,<span class="comment">//参数</span></div><div class="line">    	b:<span class="number">5</span></div><div class="line">    &#125;,&#123;</div><div class="line">    	<span class="attr">emulateJSON</span>:<span class="literal">true</span>; <span class="comment">//设置请求头</span></div><div class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">   	 alert(res.data); <span class="comment">//响应成功处理函数</span></div><div class="line">    &#125;,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">    	alert(res.status); <span class="comment">//响应失败处理函数</span></div><div class="line">    &#125;)</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p>3： jsonp请求<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">jsp:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;			<span class="keyword">this</span>.$http.jsonp(<span class="string">'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su'</span>,&#123;</div><div class="line">  	 	<span class="attr">wd</span>:<span class="string">'a'</span>;<span class="comment">//参数</span></div><div class="line">   &#125;,&#123;</div><div class="line">   	<span class="attr">jsonp</span>:<span class="string">'cb'</span> <span class="comment">//默认为callback，当为cb时，需要写成cb;</span></div><div class="line">   &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">   	alert(res.data.s); <span class="comment">//响应成功的函数</span></div><div class="line">   &#125;,<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">   	alert(res.status); <span class="comment">//响应失败的函数；</span></div><div class="line">   &#125;)</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><ul>
+<li>交互：vue-resource ajax两部分</li>
+<li>Vue中相当于window.onload功能的部分<ul>
+<li>钩子函数  。编译值将文本中的   花括号  等编程真正的数据</li>
+<li>1:created -&gt; 实例已经创建。  2：beforeCompile -&gt;编译之前   3：compiled：  –》编译之后   4：ready  –》创建节点，相当于window.onload事件<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">     <span class="attr">el</span>:<span class="string">"#App"</span>,  <span class="comment">// 这个可以暂时不写，可以手动挂在。vm.$mount("#App")</span></div><div class="line">     data:&#123;</div><div class="line">       <span class="attr">msg</span>:<span class="string">"well"</span></div><div class="line">     &#125;,</div><div class="line">     <span class="attr">created</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       alert(<span class="string">"实例已经创建了"</span>)；</div><div class="line">     &#125;，</div><div class="line">     beforeCompile:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       alert(<span class="string">"编译之前"</span>)；</div><div class="line">     &#125;，</div><div class="line">     compiled:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       alert(<span class="string">"编译之后"</span>)；</div><div class="line">     &#125;，</div><div class="line">     ready:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       alert(<span class="string">"真正的将文本节点插入到文档中，相当于window.onload"</span>)</div><div class="line">     &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Vue中事件的处理，过滤器"><a href="#Vue中事件的处理，过滤器" class="headerlink" title="Vue中事件的处理，过滤器"></a>Vue中事件的处理，过滤器</h2><h2 id="解决-花括号-闪现问题"><a href="#解决-花括号-闪现问题" class="headerlink" title="解决 花括号 闪现问题"></a>解决 花括号 闪现问题</h2><p>1：v-cloak一般用在比较大的段落</p>
+<p><style><br>    [v-cloak]{display: none;}<br></style><br>2：将文本中的内容标签按照格式显示出来 双{<i>斜体文本</i>双}。此时使用3个 三个左{<i>文本变斜</i>}(3个})<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">v-text   ===  &#123;&#123;msg&#125;&#125;;     v-html === &#123;&#123;&#123;msg&#125;&#125;&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="计算属性的使用-computed-最后一定记得return；"><a href="#计算属性的使用-computed-最后一定记得return；" class="headerlink" title="计算属性的使用  computed 最后一定记得return；"></a>计算属性的使用  computed 最后一定记得return；</h2><p>computed:function(){<br>  b:function(){   //这种形式默认调用的是 b的GET方法<br>    return this.a+1; //此时b是实例Vue的属性，不是函数，直接this.b就可以调用<br>  }<br>}<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">computed:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     b:&#123;</div><div class="line">       <span class="attr">get</span>:fuction()&#123;</div><div class="line">         <span class="keyword">return</span> <span class="keyword">this</span>.a+<span class="number">2</span>;</div><div class="line">       &#125;,</div><div class="line">       <span class="attr">set</span>:<span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</div><div class="line">          <span class="keyword">this</span>.a = val;</div><div class="line">       &#125;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     vm.b = <span class="number">10</span>; <span class="comment">//这个10就是set当中的val值。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Vue中的自定义属性"><a href="#Vue中的自定义属性" class="headerlink" title="Vue中的自定义属性"></a>Vue中的自定义属性</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">     <span class="attr">aa</span>:<span class="number">11</span>,  <span class="comment">//这个是自定义属性，通过&#123;&#123;aa&#125;&#125;是获取不到的， vm.$options.aa</span></div><div class="line">     data:&#123;</div><div class="line">       <span class="attr">a</span>:<span class="number">1</span></div><div class="line">     &#125;</div><div class="line">&#125;).$mount(<span class="string">"#box"</span>);</div></pre></td></tr></table></figure>
+<h2 id="Vue-中循环重复添加数据-track-by"><a href="#Vue-中循环重复添加数据-track-by" class="headerlink" title="Vue 中循环重复添加数据  track-by"></a>Vue 中循环重复添加数据  track-by</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items"</span> <span class="attr">track-by</span>=<span class="string">"$index"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><ul>
+<li><p>limitBy 有两个参数，第一个 取几个数；第二个，从哪开始</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in items | limitBy 2 items.length-1"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>filterBy “a” 第一个以a开头的显示</p>
+</li>
+<li>orderBy “1”/“-1”;1为正序排列，   -1位倒叙排列</li>
+<li>自定义过滤器<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Vue.filter(<span class="string">'toDo'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">input,a,b</span>)</span>&#123;<span class="comment">//a,b为参数&#125;</span></div><div class="line">)</div><div class="line"><span class="comment">//将毫秒级时间转化为 yyyy-mm-dd格式</span></div><div class="line">Vue.filter(<span class="string">"date"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">input</span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> oDate = <span class="keyword">new</span> <span class="built_in">Date</span>(input);</div><div class="line">     <span class="keyword">return</span> oDate.getFullYear()+<span class="string">"-"</span>+(oDate.getMonth()+<span class="number">1</span>+oDate.getHours()+<span class="string">":"</span>+oDate.getMinutes()+<span class="string">":"</span>+oDate.getSeconds());</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="属性绑定样式"><a href="#属性绑定样式" class="headerlink" title="属性绑定样式"></a>属性绑定样式</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-drag:style</span>=<span class="string">"width:'100px'"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Vue-组件的定义"><a href="#Vue-组件的定义" class="headerlink" title="Vue 组件的定义"></a>Vue 组件的定义</h2><ul>
+<li>this.$emit(“name”,this.a);   //将子组件的a数据发送到父组件中</li>
+<li>父组件通过@name=”get” 进行接收</li>
+<li>子集向父级发送数据<ul>
+<li>vm.$emit(事件名，数据)；<h3 id="slot-：占位置使用"><a href="#slot-：占位置使用" class="headerlink" title="slot ：占位置使用"></a>slot ：占位置使用</h3><h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h2></li>
+</ul>
+</li>
+<li>vue-resource:做交互使用</li>
+<li>vue-router：路由<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;$route.params |json&#125;&#125; ----  &#123; &quot;id&quot;: &quot;002&quot; &#125;  ; 获取到的是当前参数</div><div class="line">      &lt;br&gt;</div><div class="line">      &#123;&#123;$route.path&#125;&#125;  ----  /news/detail/002?a=1&amp;b=2； 获取到的是路径</div><div class="line">      &lt;br&gt;</div><div class="line">      &#123;&#123;$route.query | json&#125;&#125;  ----&#123; &quot;a&quot;: &quot;1&quot;, &quot;b&quot;: &quot;2&quot; &#125;; 获取到的是参数</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="vue-loader"><a href="#vue-loader" class="headerlink" title="vue-loader"></a>vue-loader</h2><ul>
+<li>模块化开发 webpack。同css-loader/style-loader一样。</li>
+<li>vue-loader是基于 webpack的</li>
+<li>.vue文件 要依赖vue-loader,而vue-loader需要webpack将.vue文件编译成浏览器能读懂的文件</li>
+<li>.vue文件放置的是Vue组件的代码 ：1：template  2：script  3：style</li>
+<li>babel_loader: 将ES6代码编译成 浏览器识别的代码</li>
+<li>webpack目录结构<ul>
+<li>index.htm</li>
+<li>main.js 入口文件</li>
+<li>App.vue  唯一的Vue文件</li>
+<li>package.json  工程文件(项目依赖，名称、配置)</li>
+<li>webpack.config.js  webpack的配置文件</li>
+<li>vue-html-loader //编译 .Vue文件中的template中的内容</li>
+<li>css-loader/vue-style-loader //编译CSS文件</li>
+<li>vue-hot-reload-api@1.3.2 //加载js文件。改完代码后，验证代码是否正确 </li>
+<li>webpack-dev-server –inline(热刷新) –hot  –port(默认8080) 8082(修改为8082)</li>
+</ul>
+</li>
+</ul>
+<h2 id="ES6模块化开发"><a href="#ES6模块化开发" class="headerlink" title="ES6模块化开发"></a>ES6模块化开发</h2><ul>
+<li>导出模块：export default{}</li>
+<li>引入模块： import Vue(模块名) from “vue”地址</li>
+<li>–save-dev 在下载文件的同时，将其写到配置文件中</li>
+<li>必须依赖的框架，在下载的时候 –save; 文件在package.json 中的 devDependecies</li>
+<li>开发环境所依赖的框架，下载时使用 –save -dev;保存在dependecies中</li>
+</ul>
+<h2 id="vue-cli-脚手架"><a href="#vue-cli-脚手架" class="headerlink" title="vue-cli 脚手架"></a>vue-cli 脚手架</h2><ul>
+<li>Vue init 模板名称 本地文件夹名称 (vue init webpack-simple  crmInnoway) </li>
+<li>加载CSS样式的时候，需要下载 style-loader css-loader file-loader -D;</li>
+<li>UI中的字体图标是需要 file-loader进行加载的</li>
+<li>在webpack.config.json里面配置等</li>
+<li><p>！！！！主要，修改完webpack.config.json 之后记得重启服务</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</div><div class="line"><span class="attr">loader</span>: <span class="string">'style-loader!css-loader'</span></div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line"><span class="attr">test</span>: <span class="regexp">/\.(png|jpe?g|gif|svg)(\?\S*)?$/</span>,</div><div class="line"><span class="attr">loader</span>: <span class="string">'file-loader'</span>,</div><div class="line"><span class="attr">query</span>: &#123;</div><div class="line"><span class="attr">name</span>: <span class="string">'[name].[ext]?[hash]'</span></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果想使用less的话，需要下载两个文件 “less   和 less-loader”,然后配置<br>{</p>
+<pre><code>    test: /\.less$/,
+    loader: &apos;less&apos;
+},
+</code></pre></li>
+</ul>
+<h2 id="Vue2-0-注意"><a href="#Vue2-0-注意" class="headerlink" title="Vue2.0 注意"></a>Vue2.0 注意</h2><ul>
+<li>1：在组件中，每一个template里面必须有一个根元素</li>
+<li>2：生命周期的变化<ul>
+<li>mounted 挂载  代替 1.X中的ready</li>
+</ul>
+</li>
+<li>3： ： = v-bind</li>
+<li>4： 双向数据绑定，v-model=”message”。这个message是变量，不用 花括号 包裹</li>
+<li>​<h2 id="vuex-集中管理数据"><a href="#vuex-集中管理数据" class="headerlink" title="vuex 集中管理数据"></a>vuex 集中管理数据</h2></li>
+<li>vuex提供两个方法<ul>
+<li>mapAction 管理事件(行为)</li>
+<li>mapGetters  获取数据</li>
+<li>1：state ：用来存储数据，全局使用的数据</li>
+<li>2: mutations:存放一些方法，用来处理state的变化</li>
+<li>3：actions:通过{commit,state}来提交状态的变化。处理一些逻辑关系</li>
+<li>4：getters:获取做种的数据，进行返回</li>
+<li>5：最后将 state、mutations、actions、getters进行返回。<h2 id="使用mock-js创建假数据"><a href="#使用mock-js创建假数据" class="headerlink" title="使用mock.js创建假数据"></a>使用mock.js创建假数据</h2></li>
+</ul>
+</li>
+<li>使用axios动态加载 npm i axios axios-mock-adapter  -D</li>
+<li>下载mock   sudo npm i mockjs -D<h2 id="element-ui"><a href="#element-ui" class="headerlink" title="element-ui"></a>element-ui</h2></li>
+<li>label-positon =”left”  会添加 text-align:left 属性</li>
+<li>:default-active=”$route.path”  表示当前激活菜单的 index</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/10/PHP学习中的笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/10/PHP学习中的笔记/" itemprop="url">
+                  Php相关记录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T10:17:04+08:00">
+                2017-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="PHP学习中的笔记"><a href="#PHP学习中的笔记" class="headerlink" title="PHP学习中的笔记"></a>PHP学习中的笔记</h2><ul>
+<li>defined 是判断是都存在这个值；</li>
+<li>define是设置某个量的值；</li>
+<li>layout.html 是入口文件。通过模板语法{<strong>CONTENT</strong>}像框架中填写主要内容。然后根据URL地址解析，寻找对应的方法与数据。</li>
+<li>php中isset()函数，用来检测变量是否设置；</li>
+<li>unset():销毁指定的变量</li>
+<li>在core.php中的应用路径解析，页面加载，先判断是否设置了 isset($GET[‘app’]),<ul>
+<li>页面初始化，没有请求，也就是<code>isset($GET[&#39;app&#39;])</code>没有值，默认使 $app_name=web;所以将apps/web/tpl/index/index.html中的内容渲染到content区域；<h3 id="Volist标签，-present标签与其类似"><a href="#Volist标签，-present标签与其类似" class="headerlink" title="Volist标签， present标签与其类似"></a>Volist标签， present标签与其类似</h3></li>
+</ul>
+</li>
+<li>name和id属性是必须的；name：表示要输出的数据模板变量；id表示循环变量；key:循环的key变量，默认值为i;</li>
+<li>Volist标签的name属性表示模板赋值的变量名称，因此不可随意在模板文件中改变。id表示当前的循环变量，可以随意指定，但确保不要和name属性冲突。</li>
+<li>使用前，首先应该对模板进行赋值，例如：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$User = M(<span class="string">'User'</span>);<span class="comment">//M方法：意思是创建一个user模型，对应数据库中的User表，</span></div><div class="line">$User = D(<span class="string">'User'</span>);<span class="comment">//D方法：实例化模型 。 该方法可能和以下代码等效：import('@.Model.UserModel'); $User = new UserModel();</span></div><div class="line">$list = $User-&gt;select(); <span class="comment">//从数据库中选取数据；</span></div><div class="line">$<span class="keyword">this</span>-&gt;assign(<span class="string">'list'</span>,$list);  <span class="comment">//吧数组打印出来，渲染模板；</span></div><div class="line"><span class="comment">//在PHP中，例如$db=new db();实例化；使用$db的属性和方法： $db -&gt; host = 'localhost'; $db -&gt; printHost();这就相当于js中的db.host = 'localhost';db.printHost();调用方法；</span></div><div class="line">&lt;volist name=<span class="string">"list"</span> id=<span class="string">"vo"</span>&gt;</div><div class="line">    &#123;$vo.id&#125;</div><div class="line">    &#123;$vo.name&#125;</div><div class="line">&lt;<span class="regexp">/volist&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="thinkPHP中M方法和D方法的区别"><a href="#thinkPHP中M方法和D方法的区别" class="headerlink" title="thinkPHP中M方法和D方法的区别:"></a>thinkPHP中M方法和D方法的区别:</h3><p>M方法实例化模型无需用户为每个数据表定义模型类，如果D方法没有找到定义的模型类，则会自动调用M方法。通俗一点说：M实例化参数是数据库的表名。D实例化的是你自己在Model文件夹下面建立的模型文件。</p>
+<h3 id="思路过程："><a href="#思路过程：" class="headerlink" title="思路过程："></a>思路过程：</h3><p>1：在indexAction.class.php中定义的获得到的是index.html页面中<volist name="newspic">的数据<br>2：由此找到了数据库中对应的数据：</volist></p>
+<pre><code>+ $articleModel = M(&apos;Article&apos;); ------找到数据库中 to_article表；
++ $cyjigou_id = 2;  -------找到category_id = 2的所有数据；
++ 然后对应上了，获得到了所有入住机构的数据；
++ 里面的content字段就是入住机构的详细介绍；
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/25/ES6 语法中的总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amy Gao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/king2.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Amy Gao">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/25/ES6 语法中的总结/" itemprop="url">
+                  ES6 语法中array.entries的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T12:39:04+08:00">
+                2017-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="es6-语法中array-entries"><a href="#es6-语法中array-entries" class="headerlink" title="es6 语法中array.entries"></a>es6 语法中array.entries</h1><h3 id="array-entries-的使用"><a href="#array-entries-的使用" class="headerlink" title="array.entries()的使用"></a>array.entries()的使用</h3><ul>
+<li>背景<ul>
+<li>一个数组Array中有7个对象，获取到一个数据，想要在原数组中删除这个数据。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过使用array.entries()对数组进行复制，返回一个新的Array Iterator对象，该对象中包含数组中每个索引的键/值对。</span></div><div class="line"><span class="keyword">let</span> arr = [&#123;<span class="attr">id</span>:<span class="number">0</span>,<span class="attr">name</span>:<span class="string">"a"</span>&#125;,&#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">name</span>:<span class="string">"b"</span>&#125;,&#123;<span class="attr">id</span>:<span class="number">3</span>,<span class="attr">name</span>:<span class="string">"c"</span>&#125;];</div><div class="line"><span class="keyword">let</span> index;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">const</span>[i,v] <span class="keyword">of</span> arr.entries())&#123;</div><div class="line">     <span class="comment">//此时的i对应的是 0，1，1，数组的索引值</span></div><div class="line">     <span class="comment">//v 对应的是每一个item;</span></div><div class="line">     <span class="comment">//这里假设获取到了一组数据  data=&#123;id:1,name:"b"&#125;,想要删除arr中的额这组数据</span></div><div class="line">     <span class="keyword">if</span>(v.id === data.id &amp;&amp; v.name === data.name)&#123;</div><div class="line">       index = i;</div><div class="line">       <span class="keyword">break</span>;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line">arr.splice(index,<span class="number">1</span>); <span class="comment">//这样就删除了&#123;id:1,name:"b"&#125;这组数据</span></div></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1079,7 +1198,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1101,7 +1220,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
