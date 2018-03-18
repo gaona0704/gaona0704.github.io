@@ -749,6 +749,35 @@
   </entry>
   
   <entry>
+    <title>Mac修改本地hosts文件</title>
+    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
+    <published>2017-05-16T06:35:04.000Z</published>
+    <updated>2018-03-14T07:21:49.135Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
+
+<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
+<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
+<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
+<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
+    
+    </summary>
+    
+      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
+    
+    
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Sublime快捷键总结</title>
     <link href="http://yoursite.com/2017/05/16/sublime%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>http://yoursite.com/2017/05/16/sublime快捷键/</id>
@@ -783,35 +812,6 @@
     
     
       <category term="sublime" scheme="http://yoursite.com/tags/sublime/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac修改本地hosts文件</title>
-    <link href="http://yoursite.com/2017/05/16/Mac%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0hosts%E6%96%87%E4%BB%B6/"/>
-    <id>http://yoursite.com/2017/05/16/Mac修改本地hosts文件/</id>
-    <published>2017-05-16T06:35:04.000Z</published>
-    <updated>2018-03-14T07:21:49.135Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="hosts文件"><a href="#hosts文件" class="headerlink" title="hosts文件"></a>hosts文件</h2>  <p>   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从 hosts 文件中寻找对应的 IP地址，一旦找到，系统会立即打开对应的网页，如果没有找到，系统会将对网址提交到DNS域名解析服务器上，进行IP地址的解析；</p><br>  <p>编辑hosts文件可以达到多种目的，如：加快域名解析、方便局域网用户、屏蔽网站、顺利链接系统等；</p>
-
-<h2 id="在Mac中修改hosts文件"><a href="#在Mac中修改hosts文件" class="headerlink" title="在Mac中修改hosts文件"></a>在Mac中修改hosts文件</h2><ol>
-<li>进入<code>/etc/hosts</code>文件，打开。文件默认为锁定状态，当你编辑他的时候，他会提示你创建副本，你修改的内容会添加在副本中；</li>
-<li>当你在副本中修改完成后，将其保存到桌面，因为源文件没有后缀名，系统会将你的副本自动保存为<code>.txt</code>格式的文件；</li>
-<li>将桌面上保存的副本文件重命名，修改为<code>hosts</code>，然后将其移动到<code>/etc</code>中，将源文件进行覆盖即可；</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;hosts文件&quot;&gt;&lt;a href=&quot;#hosts文件&quot; class=&quot;headerlink&quot; title=&quot;hosts文件&quot;&gt;&lt;/a&gt;hosts文件&lt;/h2&gt;  &lt;p&gt;   Hosts文件是系统文件，作用就是讲一些常用的网址域名 与 其对应的IP地址 建立一个关联
-    
-    </summary>
-    
-      <category term="Mac" scheme="http://yoursite.com/categories/Mac/"/>
-    
-    
-      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
     
   </entry>
   
