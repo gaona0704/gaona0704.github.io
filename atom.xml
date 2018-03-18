@@ -483,7 +483,7 @@
     <link href="http://yoursite.com/2017/06/25/ES6%20%E8%AF%AD%E6%B3%95%E4%B8%AD%E7%9A%84%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2017/06/25/ES6 语法中的总结/</id>
     <published>2017-06-25T04:39:04.000Z</published>
-    <updated>2018-03-18T10:50:45.909Z</updated>
+    <updated>2018-03-18T10:59:31.102Z</updated>
     
     <content type="html"><![CDATA[<h1 id="es6-语法中array-entries"><a href="#es6-语法中array-entries" class="headerlink" title="es6 语法中array.entries"></a>es6 语法中array.entries</h1><h3 id="array-entries-的使用"><a href="#array-entries-的使用" class="headerlink" title="array.entries()的使用"></a>array.entries()的使用</h3><ul>
 <li>背景<ul>
@@ -499,7 +499,7 @@
     
     </summary>
     
-      <category term="ES6" scheme="http://yoursite.com/categories/ES6/"/>
+      <category term="es6" scheme="http://yoursite.com/categories/es6/"/>
     
     
       <category term="array" scheme="http://yoursite.com/tags/array/"/>
